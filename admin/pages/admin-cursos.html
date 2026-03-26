@@ -1,0 +1,551 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Área Restrita - Cursos</title>
+    
+    <!-- Fontes -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+    <!-- Favicon -->
+    <link href="../area-publica/foto/ipikk_new_logo.png" rel="icon">
+
+    <!-- CSS da Área Restrita (Sidebar e Header Padrão) -->
+    <link rel="stylesheet" href="../assets/css/admin-sidebar-header.css">
+    
+    <!-- CSS específico da página de cursos -->
+    <link rel="stylesheet" href="../assets/css/admin-cursos.css">
+</head>
+<body>
+
+<!-- ===== SIDEBAR - MENU LATERAL FIXO ===== -->
+<aside class="sidebar" id="sidebar">
+    <div class="cabecalho-sidebar">
+        <div class="logo">
+            <img src="../area-publica/foto/ipikk_new_logo.png" alt="IPIKK Logo">
+        </div>
+        <p class="subtitulo">ÁREA RESTRITA</p>
+    </div>
+
+    <nav class="navegacao-sidebar">
+        <ul>
+            <li><a href="admin-dashboard.html"><i class="fas fa-chart-line"></i><span>Dashboard</span></a></li>
+            <li><a href="admin-noticias.html"><i class="fas fa-newspaper"></i><span>Notícias</span></a></li>
+            <li class="ativo"><a href="admin-cursos.html"><i class="fas fa-graduation-cap"></i><span>Cursos</span></a></li>
+            <li><a href="admin-contactos.html"><i class="fas fa-envelope"></i><span>Contactos</span></a></li>
+            <li><a href="admin-utilizadores.html"><i class="fas fa-users"></i><span>Utilizadores</span></a></li>
+            <li><a href="admin-configuracoes.html"><i class="fas fa-cog"></i><span>Configurações</span></a></li>
+            <li class="ativo"><a href="admin-inscricoes.html"><i class="fas fa-file-signature"></i><span>Inscrições</span></a></li>
+            <li>
+                    <a href="admin-depoimentos.html">
+                        <i class="fas fa-quote-right"></i>
+                        <span>Depoimentos</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="admin-notificacoes.html">
+                        <i class="fas fa-bell"></i>
+                        <span>Notificações</span>
+                    </a>
+                </li>
+            <li><a href="admin-perfil.html"><i class="fas fa-user"></i><span>Meu Perfil</span></a></li>
+        </ul>
+    </nav>
+
+    <div class="rodape-sidebar">
+        <a href="../area-publica/area-restrita.html" class="botao-sair">
+            <i class="fas fa-sign-out-alt"></i>
+            <span>Sair</span>
+        </a>
+    </div>
+</aside>
+
+
+    <!-- ===== CONTEÚDO PRINCIPAL ===== -->
+<main class="conteudo-principal">
+    <!-- BARRA SUPERIOR -->
+    <header class="barra-topo">
+        <button class="botao-menu-mobile" id="botaoMenuMobile">
+            <i class="fas fa-bars"></i>
+        </button>
+        <h1>Cursos</h1>
+        <div class="area-direita-topo">
+            <button class="btn-primario" id="btnNovoCurso">
+                <i class="fas fa-plus"></i>
+                <span>Novo Curso</span>
+            </button>
+        </div>
+    </header>
+
+    <div class="wrapper-conteudo">
+        <!-- === CARDS DAS ÁREAS === -->
+        <section class="secao-conteudo">
+            <div class="cabecalho-secao">
+                <h2 class="titulo-secao"><i class="fas fa-layer-group"></i> Áreas de Formação</h2>
+                <button class="btn-primario" onclick="abrirModalArea()" style="padding: 8px 15px;">
+                    <i class="fas fa-plus"></i> Nova Área
+                </button>
+            </div>
+            <div class="grade-areas" id="containerAreas"></div>
+        </section>
+
+        <!-- === ESTATÍSTICAS === -->
+        <section class="secao-conteudo">
+            <h2 class="titulo-secao"><i class="fas fa-chart-pie"></i> Visão Geral</h2>
+            <div class="grade-estatisticas">
+                <div class="item-estatistica">
+                    <i class="fas fa-book-open"></i>
+                    <div class="info-estatistica">
+                        <h3>Total de Cursos</h3>
+                        <p id="estatisticaTotal">0</p>
+                    </div>
+                </div>
+                <div class="item-estatistica">
+                    <i class="fas fa-check-circle"></i>
+                    <div class="info-estatistica">
+                        <h3>Ativos</h3>
+                        <p id="estatisticaAtivos">0</p>
+                    </div>
+                </div>
+                <div class="item-estatistica">
+                    <i class="fas fa-pause-circle"></i>
+                    <div class="info-estatistica">
+                        <h3>Pausados</h3>
+                        <p id="estatisticaPausados">0</p>
+                    </div>
+                </div>
+                <div class="item-estatistica">
+                    <i class="fas fa-archive"></i>
+                    <div class="info-estatistica">
+                        <h3>Arquivados</h3>
+                        <p id="estatisticaArquivados">0</p>
+                    </div>
+                </div>
+                <div class="item-estatistica">
+                    <i class="fas fa-star"></i>
+                    <div class="info-estatistica">
+                        <h3>Em Destaque</h3>
+                        <p id="estatisticaDestaques">0</p>
+                    </div>
+                </div>
+                <div class="item-estatistica">
+                    <i class="fas fa-users"></i>
+                    <div class="info-estatistica">
+                        <h3>Total de Vagas</h3>
+                        <p id="estatisticaVagas">0</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- === FILTROS === -->
+        <section class="secao-conteudo">
+            <h2 class="titulo-secao"><i class="fas fa-filter"></i> Filtros</h2>
+            <div class="grade-filtros">
+                <div class="item-filtro largura-total">
+                    <div class="caixa-busca">
+                        <i class="fas fa-search"></i>
+                        <input type="text" id="campoBusca" placeholder="Buscar curso por nome ou descrição...">
+                    </div>
+                </div>
+                <div class="item-filtro">
+                    <label>Área</label>
+                    <select class="selecao-form" id="filtroArea">
+                        <option value="">Todas</option>
+                    </select>
+                </div>
+                <div class="item-filtro">
+                    <label>Estado</label>
+                    <select class="selecao-form" id="filtroEstado">
+                        <option value="">Todos</option>
+                        <option value="ativo">Ativos</option>
+                        <option value="pausado">Pausados</option>
+                        <option value="arquivado">Arquivados</option>
+                    </select>
+                </div>
+                <div class="item-filtro">
+                    <label>Ordenar por</label>
+                    <select class="selecao-form" id="filtroOrdenar">
+                        <option value="nome">Nome (A-Z)</option>
+                        <option value="vagas">Nº de Vagas</option>
+                        <option value="data">Mais Recentes</option>
+                    </select>
+                </div>
+            </div>
+        </section>
+
+        <!-- === LISTA DE CURSOS === -->
+        <section class="secao-conteudo">
+            <div class="cabecalho-secao">
+                <h2 class="titulo-secao"><i class="fas fa-list"></i> Cursos Disponíveis <span id="contadorCursos" style="color: var(--verde-acento);">(0 cursos)</span></h2>
+            </div>
+            <div class="grade-cursos" id="containerCursos"></div>
+        </section>
+
+        <!-- === AÇÕES RÁPIDAS === -->
+        <section class="secao-conteudo">
+            <h2 class="titulo-secao"><i class="fas fa-bolt"></i> Ações Rápidas</h2>
+            <div class="acoes-rapidas">
+                <button class="btn-acao" onclick="exportarCursos()"><i class="fas fa-file-export"></i> Exportar Cursos</button>
+                <button class="btn-acao" onclick="gerarRelatorio()"><i class="fas fa-chart-line"></i> Relatório de Vagas</button>
+                <button class="btn-acao" onclick="imprimirCatalogo()"><i class="fas fa-print"></i> Catálogo</button>
+            </div>
+        </section>
+    </div>
+</main>
+
+<!-- ===== MODAL ÁREA ===== -->
+<div id="modalArea" class="modal">
+    <div class="conteudo-modal" style="max-width: 600px;">
+        <div class="cabecalho-modal">
+            <div class="esquerda-cabecalho">
+                <div class="icone-cabecalho"><i class="fas fa-layer-group"></i></div>
+                <div class="texto-cabecalho">
+                    <h2 id="tituloModalArea">Nova Área</h2>
+                    <p id="subtituloModalArea">Preencha os dados da área</p>
+                </div>
+            </div>
+            <button class="btn-fechar" onclick="fecharModalArea()"><i class="fas fa-times"></i></button>
+        </div>
+        
+        <div class="corpo-modal">
+            <form id="formularioArea" onsubmit="return salvarArea(event)">
+                <input type="hidden" id="areaId">
+                
+                <div class="secao-form">
+                    <div class="grupo-form">
+                        <label><i class="fas fa-tag"></i> Nome</label>
+                        <input type="text" id="areaNome" class="controle-form" required>
+                    </div>
+                    
+                    <div class="grupo-form">
+                        <label><i class="fas fa-align-left"></i> Descrição</label>
+                        <textarea id="areaDescricao" class="controle-form" rows="3" required></textarea>
+                    </div>
+                    
+                    <div class="linha-form">
+                        <div class="grupo-form">
+                            <label><i class="fas fa-paint-brush"></i> Cor</label>
+                            <input type="color" id="areaCor" class="controle-form" value="#6c757d">
+                        </div>
+                        
+                        <div class="grupo-form">
+                            <label><i class="fas fa-icons"></i> Ícone</label>
+                            <select id="areaIcone" class="controle-form">
+                                <option value="fa-helmet-safety">🏗️ Construção</option>
+                                <option value="fa-bolt">⚡ Electricidade</option>
+                                <option value="fa-gear">⚙️ Mecânica</option>
+                                <option value="fa-laptop-code">💻 Informática</option>
+                                <option value="fa-couch">🛋️ Móveis</option>
+                            </select>
+                        </div>
+                    </div>
+                    
+                    <div class="grupo-form">
+                        <label><i class="fas fa-palette"></i> Classe Botão</label>
+                        <select id="areaClasseBotao" class="controle-form">
+                            <option value="botao-azul">Azul</option>
+                            <option value="botao-azul-bebe">Azul Claro</option>
+                            <option value="botao-laranja">Laranja</option>
+                            <option value="botao-verde">Verde</option>
+                            <option value="botao-vermelho">Vermelho</option>
+                        </select>
+                    </div>
+                </div>
+                
+                <div class="acoes-form">
+                    <button type="button" class="btn-cancelar" onclick="fecharModalArea()">Cancelar</button>
+                    <button type="submit" class="btn-salvar">Salvar Área</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<!-- ===== MODAL CURSO ===== -->
+<div id="modalCurso" class="modal">
+    <div class="conteudo-modal">
+        <div class="cabecalho-modal">
+            <div class="esquerda-cabecalho">
+                <div class="icone-cabecalho"><i class="fas fa-graduation-cap"></i></div>
+                <div class="texto-cabecalho">
+                    <h2 id="tituloModalCurso">Novo Curso</h2>
+                    <p id="subtituloModalCurso">Preencha os dados do curso</p>
+                </div>
+            </div>
+            <button class="btn-fechar" onclick="fecharModalCurso()"><i class="fas fa-times"></i></button>
+        </div>
+
+        <div class="corpo-modal">
+            <!-- ABAS DO MODAL -->
+            <div class="abas-modal">
+                <div class="aba-modal ativo" data-aba="basico">Informações Básicas</div>
+                <div class="aba-modal" data-aba="detalhes">Detalhes</div>
+                <div class="aba-modal" data-aba="curricular">Plano Curricular</div>
+                <div class="aba-modal" data-aba="saidas">Saídas</div>
+                <div class="aba-modal" data-aba="projectos">Projectos</div>
+                <div class="aba-modal" data-aba="config">Configurações</div>
+            </div>
+
+            <form id="formularioCurso" onsubmit="return salvarCurso(event)">
+                <input type="hidden" id="cursoId">
+
+                <!-- ABA 1: INFORMAÇÕES BÁSICAS -->
+                <div class="conteudo-aba ativo" data-aba="basico">
+                    <div class="secao-form">
+                        <h3><i class="fas fa-info-circle"></i> Informações Básicas</h3>
+                        
+                        <div class="grupo-form">
+                            <label>Nome do Curso *</label>
+                            <input type="text" id="cursoNome" class="controle-form" required>
+                        </div>
+                        
+                        <div class="linha-form">
+                            <div class="grupo-form">
+                                <label>Área *</label>
+                                <select id="cursoAreaId" class="controle-form" required></select>
+                            </div>
+                            <div class="grupo-form">
+                                <label>Duração *</label>
+                                <input type="text" id="cursoDuracao" class="controle-form" required placeholder="Ex: 4 anos">
+                            </div>
+                        </div>
+                        
+                        <div class="grupo-form">
+                            <label>Descrição Curta *</label>
+                            <textarea id="cursoDescricaoCurta" class="controle-form" rows="2" maxlength="200" required></textarea>
+                            <div class="contador-caracteres" id="contadorDescricaoCurta">0 / 200</div>
+                        </div>
+                        
+                        <div class="grupo-form">
+                            <label>Descrição Completa *</label>
+                            <textarea id="cursoDescricaoLonga" class="controle-form alto" rows="4" required></textarea>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ABA 2: DETALHES -->
+                <div class="conteudo-aba" data-aba="detalhes">
+                    <div class="secao-form">
+                        <h3><i class="fas fa-book-open"></i> Detalhes do Curso</h3>
+                        
+                        <div class="grupo-form">
+                            <label>Objetivo</label>
+                            <textarea id="cursoObjetivo" class="controle-form" rows="3"></textarea>
+                        </div>
+                        
+                        <div class="grupo-form">
+                            <label>Competências</label>
+                            <textarea id="cursoCompetencias" class="controle-form" rows="3"></textarea>
+                        </div>
+                        
+                        <div class="grupo-form">
+                            <label>Certificação</label>
+                            <input type="text" id="cursoCertificacao" class="controle-form">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ABA 3: PLANO CURRICULAR -->
+                <div class="conteudo-aba" data-aba="curricular">
+                    <div class="secao-form">
+                        <h3><i class="fas fa-calendar-alt"></i> Plano Curricular</h3>
+                        <p style="margin-bottom: 20px; font-size: 13px; color: var(--cinza-escuro);">
+                            Faça o upload do PDF do plano curricular para cada classe (10ª a 13ª).
+                        </p>
+                        
+                        <!-- 10ª Classe -->
+                        <div class="grupo-form" style="margin-bottom: 25px; padding-bottom: 20px; border-bottom: 1px solid var(--cinza-medio);">
+                            <label style="font-size: 16px; color: var(--azul-primario);">
+                                <i class="fas fa-file-pdf" style="color: #dc3545;"></i> 
+                                Plano Curricular - 10ª Classe
+                            </label>
+                            <div class="area-upload-arquivo" onclick="document.getElementById('pdf10Input').click()" style="margin-top: 10px;">
+                                <i class="fas fa-file-pdf" style="font-size: 30px; color: #dc3545;"></i>
+                                <p><strong>Clique para fazer upload do PDF</strong></p>
+                                <small>Formato: PDF | Tamanho máximo: 10MB</small>
+                            </div>
+                            <input type="file" id="pdf10Input" accept=".pdf" style="display: none;">
+                            <div class="preview-arquivo" id="pdf10Preview" style="margin-top: 10px;">
+                                <div style="display: flex; align-items: center; gap: 10px;">
+                                    <i class="fas fa-file-pdf" style="font-size: 24px; color: #dc3545;"></i>
+                                    <span id="pdf10Nome"></span>
+                                </div>
+                                <button type="button" class="btn-icone" onclick="removerPDF('10')"><i class="fas fa-trash"></i></button>
+                            </div>
+                        </div>
+
+                        <!-- 11ª Classe -->
+                        <div class="grupo-form" style="margin-bottom: 25px; padding-bottom: 20px; border-bottom: 1px solid var(--cinza-medio);">
+                            <label style="font-size: 16px; color: var(--azul-primario);">
+                                <i class="fas fa-file-pdf" style="color: #dc3545;"></i> 
+                                Plano Curricular - 11ª Classe
+                            </label>
+                            <div class="area-upload-arquivo" onclick="document.getElementById('pdf11Input').click()" style="margin-top: 10px;">
+                                <i class="fas fa-file-pdf" style="font-size: 30px; color: #dc3545;"></i>
+                                <p><strong>Clique para fazer upload do PDF</strong></p>
+                                <small>Formato: PDF | Tamanho máximo: 10MB</small>
+                            </div>
+                            <input type="file" id="pdf11Input" accept=".pdf" style="display: none;">
+                            <div class="preview-arquivo" id="pdf11Preview" style="margin-top: 10px;">
+                                <div style="display: flex; align-items: center; gap: 10px;">
+                                    <i class="fas fa-file-pdf" style="font-size: 24px; color: #dc3545;"></i>
+                                    <span id="pdf11Nome"></span>
+                                </div>
+                                <button type="button" class="btn-icone" onclick="removerPDF('11')"><i class="fas fa-trash"></i></button>
+                            </div>
+                        </div>
+
+                        <!-- 12ª Classe -->
+                        <div class="grupo-form" style="margin-bottom: 25px; padding-bottom: 20px; border-bottom: 1px solid var(--cinza-medio);">
+                            <label style="font-size: 16px; color: var(--azul-primario);">
+                                <i class="fas fa-file-pdf" style="color: #dc3545;"></i> 
+                                Plano Curricular - 12ª Classe
+                            </label>
+                            <div class="area-upload-arquivo" onclick="document.getElementById('pdf12Input').click()" style="margin-top: 10px;">
+                                <i class="fas fa-file-pdf" style="font-size: 30px; color: #dc3545;"></i>
+                                <p><strong>Clique para fazer upload do PDF</strong></p>
+                                <small>Formato: PDF | Tamanho máximo: 10MB</small>
+                            </div>
+                            <input type="file" id="pdf12Input" accept=".pdf" style="display: none;">
+                            <div class="preview-arquivo" id="pdf12Preview" style="margin-top: 10px;">
+                                <div style="display: flex; align-items: center; gap: 10px;">
+                                    <i class="fas fa-file-pdf" style="font-size: 24px; color: #dc3545;"></i>
+                                    <span id="pdf12Nome"></span>
+                                </div>
+                                <button type="button" class="btn-icone" onclick="removerPDF('12')"><i class="fas fa-trash"></i></button>
+                            </div>
+                        </div>
+
+                        <!-- 13ª Classe -->
+                        <div class="grupo-form" style="margin-bottom: 25px;">
+                            <label style="font-size: 16px; color: var(--azul-primario);">
+                                <i class="fas fa-file-pdf" style="color: #dc3545;"></i> 
+                                Plano Curricular - 13ª Classe
+                            </label>
+                            <div class="area-upload-arquivo" onclick="document.getElementById('pdf13Input').click()" style="margin-top: 10px;">
+                                <i class="fas fa-file-pdf" style="font-size: 30px; color: #dc3545;"></i>
+                                <p><strong>Clique para fazer upload do PDF</strong></p>
+                                <small>Formato: PDF | Tamanho máximo: 10MB</small>
+                            </div>
+                            <input type="file" id="pdf13Input" accept=".pdf" style="display: none;">
+                            <div class="preview-arquivo" id="pdf13Preview" style="margin-top: 10px;">
+                                <div style="display: flex; align-items: center; gap: 10px;">
+                                    <i class="fas fa-file-pdf" style="font-size: 24px; color: #dc3545;"></i>
+                                    <span id="pdf13Nome"></span>
+                                </div>
+                                <button type="button" class="btn-icone" onclick="removerPDF('13')"><i class="fas fa-trash"></i></button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ABA 4: SAÍDAS PROFISSIONAIS -->
+                <div class="conteudo-aba" data-aba="saidas">
+                    <div class="secao-form">
+                        <h3><i class="fas fa-briefcase"></i> Saídas Profissionais</h3>
+                        <div id="containerSaidas"></div>
+                        <button type="button" class="btn-adicionar" onclick="adicionarSaida()">
+                            <i class="fas fa-plus"></i> Adicionar Saída Profissional
+                        </button>
+                    </div>
+                </div>
+
+                <!-- ABA 5: PROJECTOS REALIZADOS -->
+                <div class="conteudo-aba" data-aba="projectos">
+                    <div class="secao-form">
+                        <h3><i class="fas fa-project-diagram"></i> Projectos Realizados</h3>
+                        <div id="containerProjectos"></div>
+                        <button type="button" class="btn-adicionar" onclick="adicionarProjecto()">
+                            <i class="fas fa-plus"></i> Adicionar Projecto
+                        </button>
+                    </div>
+                </div>
+
+                <!-- ABA 6: CONFIGURAÇÕES -->
+                <div class="conteudo-aba" data-aba="config">
+                    <div class="secao-form">
+                        <h3><i class="fas fa-cog"></i> Configurações</h3>
+                        
+                        <div class="linha-form">
+                            <div class="grupo-form">
+                                <label>Nº de Vagas</label>
+                                <input type="number" id="cursoVagas" class="controle-form" min="1">
+                            </div>
+                            <div class="grupo-form">
+                                <label>Estado</label>
+                                <select id="cursoEstado" class="controle-form">
+                                    <option value="ativo">Ativo</option>
+                                    <option value="pausado">Pausado</option>
+                                    <option value="arquivado">Arquivado</option>
+                                </select>
+                            </div>
+                        </div>
+                        
+                        <div class="linha-form">
+                            <div class="grupo-form">
+                                <label><i class="fas fa-paint-brush"></i> Cor</label>
+                                <input type="color" id="cursoCor" value="#003072" class="controle-form">
+                            </div>
+                            <div class="grupo-form">
+                                <label><i class="fas fa-star"></i> Destaque</label>
+                                <div class="wrapper-toggle">
+                                    <label class="toggle-switch">
+                                        <input type="checkbox" id="cursoDestaque">
+                                        <span class="toggle-slider"></span>
+                                    </label>
+                                    <span>Destacar na página inicial</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="grupo-form">
+                            <label><i class="fas fa-icons"></i> Ícone</label>
+                            <div class="grade-icones" id="gradeIcones">
+                                <div class="opcao-icone selecionado" data-icone="fa-graduation-cap"><i class="fas fa-graduation-cap"></i></div>
+                                <div class="opcao-icone" data-icone="fa-helmet-safety"><i class="fas fa-helmet-safety"></i></div>
+                                <div class="opcao-icone" data-icone="fa-laptop-code"><i class="fas fa-laptop-code"></i></div>
+                                <div class="opcao-icone" data-icone="fa-bolt"><i class="fas fa-bolt"></i></div>
+                                <div class="opcao-icone" data-icone="fa-gear"><i class="fas fa-gear"></i></div>
+                                <div class="opcao-icone" data-icone="fa-couch"><i class="fas fa-couch"></i></div>
+                                <div class="opcao-icone" data-icone="fa-wrench"><i class="fas fa-wrench"></i></div>
+                                <div class="opcao-icone" data-icone="fa-hammer"><i class="fas fa-hammer"></i></div>
+                            </div>
+                            <input type="hidden" id="cursoIcone" value="fa-graduation-cap">
+                        </div>
+                        
+                        <div class="grupo-form">
+                            <label><i class="fas fa-image"></i> Imagem de Capa</label>
+                            <div class="area-upload-arquivo" onclick="document.getElementById('imagemInput').click()">
+                                <i class="fas fa-cloud-upload-alt"></i>
+                                <p>Clique para fazer upload da imagem</p>
+                            </div>
+                            <input type="file" id="imagemInput" accept="image/*" style="display: none;">
+                            <div class="preview-arquivo" id="previewImagem">
+                                <div><img id="miniaturaImagem" style="max-width: 100px;"></div>
+                                <button type="button" class="btn-icone" onclick="removerImagem()"><i class="fas fa-trash"></i></button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- AÇÕES FINAIS -->
+                <div class="acoes-form">
+                    <button type="button" class="btn-cancelar" onclick="fecharModalCurso()">Cancelar</button>
+                    <button type="submit" class="btn-salvar">Salvar Curso</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+    
+<!-- JavaScript -->
+<script src="../assets/js/admin-sidebar-header.js"></script>
+<script src="../assets/js/admin-cursos.js"></script>
+</body>
+</html>

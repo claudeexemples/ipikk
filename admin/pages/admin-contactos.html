@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Área Restrita - Contactos</title>
+    
+    <!-- Fontes -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="stylesheet" href="../area-publica/ESTILO-ICONS/css/all.min.css">
+    
+    <!-- Favicon -->
+    <link href="../area-publica/foto/ipikk_new_logo.png" rel="icon">
+
+    <!-- CSS da Área Restrita (Sidebar e Header) -->
+    <link rel="stylesheet" href="../assets/css/admin-sidebar-header.css">
+    
+    <!-- CSS específico da página de notícias -->
+    <link rel="stylesheet" href="../assets/css/admin-contactos.css">
+</head>
+<body>
+    <!-- ===== SIDEBAR - MENU LATERAL FIXO ===== -->
+    <aside class="sidebar" id="sidebar">
+        <div class="cabecalho-sidebar">
+            <div class="logo">
+                <img src="../area-publica/foto/ipikk_new_logo.png" alt="IPIKK Logo">
+            </div>
+            <p class="subtitulo">ÁREA RESTRITA</p>
+        </div>
+
+        <nav class="navegacao-sidebar">
+            <ul>
+                <li>
+                    <a href="admin-dashboard.html">
+                        <i class="fas fa-chart-line"></i>
+                        <span>Dashboard</span>
+                    </a>
+                </li>
+                <li class="ativo">
+                    <a href="admin-noticias.html">
+                        <i class="fas fa-newspaper"></i>
+                        <span>Notícias</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="admin-cursos.html">
+                        <i class="fas fa-graduation-cap"></i>
+                        <span>Cursos</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="admin-contactos.html">
+                        <i class="fas fa-envelope"></i>
+                        <span>Contactos</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="admin-utilizadores.html">
+                        <i class="fas fa-users"></i>
+                        <span>Utilizadores</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="admin-configuracoes.html">
+                        <i class="fas fa-cog"></i>
+                        <span>Configurações</span>
+                    </a>
+                </li>
+                <li class="ativo"><a href="admin-inscricoes.html"><i class="fas fa-file-signature"></i><span>Inscrições</span></a></li>
+                <li>
+                    <a href="admin-depoimentos.html">
+                        <i class="fas fa-quote-right"></i>
+                        <span>Depoimentos</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="admin-notificacoes.html">
+                        <i class="fas fa-bell"></i>
+                        <span>Notificações</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="admin-perfil.html">
+                        <i class="fas fa-user"></i>
+                        <span>Meu Perfil</span>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+
+        <div class="rodape-sidebar">
+            <a href="../area-publica/area-restrita.html" class="botao-sair">
+                <i class="fas fa-sign-out-alt"></i>
+                <span>Sair</span>
+            </a>
+        </div>
+    </aside>
+     <!-- ===== CONTEÚDO PRINCIPAL ===== -->
+    <main class="conteudo-principal">
+        <!-- BARRA SUPERIOR -->
+        <header class="barra-superior" id="barraSuperior">
+            <div class="esquerda-barra">
+                <button class="botao-menu-mobile" id="botaoMenuMobile">
+                    <i class="fas fa-bars"></i>
+                </button>
+                <h1 class="titulo-pagina" style="color: #003072;">Contactos</h1>
+            </div>
+            <button class="btn-primario" id="btnAtualizar" style="margin-left: 5%;">
+                    <i class="fas fa-sync-alt"></i><span>Actualizar</span>
+                </button>
+
+    </header>
+        <div class="wrapper-conteudo">
+            
+            <!-- PASTAS -->
+            <section class="secao-pastas">
+                <h2 class="titulo-secao"><i class="fas fa-folder"></i> Pastas de Mensagens</h2>
+                <div class="grade-pastas">
+                    <button class="btn-pasta ativo" data-pasta="entrada">
+                        <i class="fas fa-inbox"></i>
+                        <span>Caixa de Entrada</span>
+                        <span class="contador-pasta">24</span>
+                    </button>
+                    <button class="btn-pasta" data-pasta="respondidas">
+                        <i class="fas fa-reply"></i>
+                        <span>Respondidas</span>
+                        <span class="contador-pasta">18</span>
+                    </button>
+                    <button class="btn-pasta" data-pasta="lixeira">
+                        <i class="fas fa-trash"></i>
+                        <span>Lixeira</span>
+                        <span class="contador-pasta">5</span>
+                    </button>
+                    <button class="btn-pasta" data-pasta="anexos">
+                        <i class="fas fa-paperclip"></i>
+                        <span>Com Anexos</span>
+                        <span class="contador-pasta">3</span>
+                    </button>
+                    <button class="btn-pasta" data-pasta="favoritas">
+                        <i class="fas fa-star"></i>
+                        <span>Favoritas</span>
+                        <span class="contador-pasta">2</span>
+                    </button>
+                    <button class="btn-pasta" data-pasta="estatisticas">
+                        <i class="fas fa-chart-bar"></i>
+                        <span>Estatísticas</span>
+                    </button>
+                </div>
+            </section>
+
+            <!-- FILTROS -->
+            <section class="secao-filtros">
+                <h2 class="titulo-secao"><i class="fas fa-search"></i> Filtros & Busca</h2>
+                <div class="grade-filtros">
+                    <div class="item-filtro largura-total">
+                        <div class="caixa-busca">
+                            <i class="fas fa-search"></i>
+                            <input type="text" id="campoBusca" placeholder="Buscar em mensagens...">
+                        </div>
+                    </div>
+                    <div class="item-filtro">
+                        <label><i class="fas fa-user"></i> De</label>
+                        <input type="text" id="filtroDe" class="campo-formulario" placeholder="Nome ou email...">
+                    </div>
+                    <div class="item-filtro">
+                        <label><i class="fas fa-tag"></i> Assunto</label>
+                        <input type="text" id="filtroAssunto" class="campo-formulario" placeholder="Assunto...">
+                    </div>
+                    <div class="item-filtro">
+                        <label><i class="fas fa-calendar"></i> Data Inicial</label>
+                        <input type="date" id="filtroDataInicio" class="campo-formulario">
+                    </div>
+                    <div class="item-filtro">
+                        <label><i class="fas fa-calendar"></i> Data Final</label>
+                        <input type="date" id="filtroDataFim" class="campo-formulario">
+                    </div>
+                    <div class="item-filtro">
+                        <label><i class="fas fa-graduation-cap"></i> Curso</label>
+                        <select id="filtroCurso" class="selecao-formulario">
+                            <option value="">Todos</option>
+                            <option value="construcao">Construção Civil</option>
+                            <option value="informatica">Informática</option>
+                            <option value="energia">Energia</option>
+                            <option value="mecanica">Mecânica</option>
+                        </select>
+                    </div>
+                    <div class="item-filtro">
+                        <label><i class="fas fa-toggle-on"></i> Estado</label>
+                        <select id="filtroEstado" class="selecao-formulario">
+                            <option value="">Todos</option>
+                            <option value="nao-lida">Não lidas</option>
+                            <option value="lida">Lidas</option>
+                            <option value="respondida">Respondidas</option>
+                        </select>
+                    </div>
+                    <div class="item-filtro">
+                        <label><i class="fas fa-sort"></i> Ordenar por</label>
+                        <select id="filtroOrdenar" class="selecao-formulario">
+                            <option value="data-desc">Mais recentes</option>
+                            <option value="data-asc">Mais antigas</option>
+                            <option value="nome-asc">Nome (A-Z)</option>
+                        </select>
+                    </div>
+                </div>
+            </section>
+
+            <!-- LISTA DE MENSAGENS -->
+            <section class="secao-conteudo">
+                <div class="cabecalho-secao">
+                    <h2><i class="fas fa-list"></i> Lista de Mensagens <span class="contador" id="contadorMensagens">(24 mensagens)</span></h2>
+                </div>
+                
+                <div class="tabela-responsiva">
+                    <table class="tabela-dados" id="tabelaContactos">
+                        <thead>
+                            <tr>
+                                <th width="40"><input type="checkbox" id="selecionarTodos"></th>
+                                <th>REMETENTE</th>
+                                <th>ASSUNTO</th>
+                                <th width="120">DATA</th>
+                                <th width="100">ESTADO</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr class="nao-lida" data-id="1" data-estado="nao-lida">
+                                <td><input type="checkbox" class="checkbox-linha"></td>
+                                <td>
+                                    <span class="badge-novo"><i class="fas fa-circle" style="color: #ff9e00; font-size: 10px;"></i></span> 
+                                    Maria Silva<br><small>maria.silva@email.com</small>
+                                </td>
+                                <td><strong>Informação curso</strong></td>
+                                <td>10/02/2024</td>
+                                <td><span class="icone-estado"><i class="fas fa-envelope" style="color: #ff9e00;"></i></span></td>
+                            </tr>
+                            <tr class="nao-lida" data-id="2" data-estado="nao-lida">
+                                <td><input type="checkbox" class="checkbox-linha"></td>
+                                <td>
+                                    <span class="badge-novo"><i class="fas fa-circle" style="color: #ff9e00; font-size: 10px;"></i></span> 
+                                    João Pereira<br><small>joao@email.com</small>
+                                </td>
+                                <td><strong>Matrícula</strong></td>
+                                <td>09/02/2024</td>
+                                <td><span class="icone-estado"><i class="fas fa-envelope" style="color: #ff9e00;"></i> <i class="fas fa-paperclip" style="color: #6c757d;"></i></span></td>
+                            </tr>
+                            <tr data-id="3" data-estado="respondida">
+                                <td><input type="checkbox" class="checkbox-linha"></td>
+                                <td>
+                                    <i class="fas fa-circle" style="color: #6c757d; font-size: 10px;"></i> 
+                                    Carlos Mendes<br><small>carlos@email.com</small>
+                                </td>
+                                <td>Parceria</td>
+                                <td>08/02/2024</td>
+                                <td><span class="icone-estado"><i class="fas fa-check-circle" style="color: #38b000;"></i></span></td>
+                            </tr>
+                            <tr data-id="4" data-estado="respondida">
+                                <td><input type="checkbox" class="checkbox-linha"></td>
+                                <td>
+                                    <i class="fas fa-circle" style="color: #6c757d; font-size: 10px;"></i> 
+                                    Ana Costa<br><small>ana@email.com</small>
+                                </td>
+                                <td>Estágio</td>
+                                <td>07/02/2024</td>
+                                <td><span class="icone-estado"><i class="fas fa-check-circle" style="color: #38b000;"></i> <i class="fas fa-paperclip" style="color: #6c757d;"></i></span></td>
+                            </tr>
+                            <tr class="nao-lida" data-id="5" data-estado="nao-lida">
+                                <td><input type="checkbox" class="checkbox-linha"></td>
+                                <td>
+                                    <span class="badge-novo"><i class="fas fa-circle" style="color: #ff9e00; font-size: 10px;"></i></span> 
+                                    Pedro Santos<br><small>pedro@email.com</small>
+                                </td>
+                                <td><strong>Dúvida técnica</strong></td>
+                                <td>06/02/2024</td>
+                                <td><span class="icone-estado"><i class="fas fa-envelope" style="color: #ff9e00;"></i></span></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                
+                <!-- AÇÕES EM MASSA -->
+                <div class="acoes-massa">
+                    <button class="btn-acao-massa" id="btnSelecionarTodos"><i class="fas fa-check-square"></i> Selecionar Todas</button>
+                    <button class="btn-acao-massa" id="btnMarcarLida"><i class="fas fa-envelope-open"></i> Marcar como lida</button>
+                    <button class="btn-acao-massa" id="btnResponder"><i class="fas fa-reply"></i> Responder</button>
+                    <button class="btn-acao-massa btn-perigo" id="btnEliminar"><i class="fas fa-trash"></i> Eliminar</button>
+                </div>
+                
+                <!-- PAGINAÇÃO -->
+                <div class="wrapper-paginacao">
+                    <div class="info-paginacao">
+                        <button class="btn-paginacao" id="btnAnterior"><i class="fas fa-chevron-left"></i> Anterior</button>
+                        <span class="texto-paginacao">Página <strong>1</strong> de <strong>3</strong></span>
+                        <button class="btn-paginacao" id="btnProximo">Próximo <i class="fas fa-chevron-right"></i></button>
+                    </div>
+                    <div class="tamanho-pagina">
+                        <select id="tamanhoPagina" class="selecao-formulario">
+                            <option value="25">25 por página</option>
+                            <option value="50">50 por página</option>
+                            <option value="100">100 por página</option>
+                        </select>
+                    </div>
+                </div>
+            </section>
+
+            <!-- RESUMO -->
+            <section class="secao-resumo">
+                <h2 class="titulo-secao"><i class="fas fa-chart-pie"></i> Resumo Rápido</h2>
+                <div class="grade-resumo">
+                    <div class="item-resumo"><span class="rotulo-resumo"><i class="fas fa-inbox"></i> Recebidas:</span><span class="valor-resumo">42</span></div>
+                    <div class="item-resumo aviso"><span class="rotulo-resumo"><i class="fas fa-circle" style="color: #ff9e00;"></i> Não lidas:</span><span class="valor-resumo">5</span></div>
+                    <div class="item-resumo sucesso"><span class="rotulo-resumo"><i class="fas fa-check-circle" style="color: #38b000;"></i> Respondidas:</span><span class="valor-resumo">18</span></div>
+                    <div class="item-resumo info"><span class="rotulo-resumo"><i class="fas fa-paperclip"></i> Anexos:</span><span class="valor-resumo">3</span></div>
+                </div>
+            </section>
+
+        </div>
+    </main>
+
+    <!-- MODAL DE VISUALIZAÇÃO DE MENSAGEM -->
+    <div id="modalMensagem" class="modal">
+        <div class="conteudo-modal modal-grande">
+            <div class="cabecalho-modal">
+                <h2>
+                    <i class="fas fa-envelope-open"></i>
+                    <span id="tituloModal">Mensagem</span>
+                </h2>
+                <button type="button" class="btn-fechar-modal" id="btnFecharMensagem">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="corpo-modal">
+                <div class="visualizacao-mensagem">
+                    
+                    <!-- CABEÇALHO DA MENSAGEM -->
+                    <div class="cabecalho-mensagem">
+                        <h3 id="assuntoMensagem">Informação sobre curso de Construção Civil</h3>
+                        <div class="metadados-mensagem">
+                            <span><i class="fas fa-hashtag"></i> <strong>ID:</strong> MSG-042</span>
+                            <span><i class="fas fa-calendar-alt"></i> <strong>Recebida:</strong> 10/02/2024 14:30</span>
+                        </div>
+                    </div>
+
+                    <!-- INFORMAÇÕES DO REMETENTE -->
+                    <div class="info-mensagem">
+                        <div class="linha-info">
+                            <span class="rotulo-info"><i class="fas fa-user"></i> De:</span>
+                            <span class="valor-info">
+                                <strong>Maria Silva</strong>
+                                <br>
+                                <a href="mailto:maria.silva@email.com">maria.silva@email.com</a>
+                            </span>
+                        </div>
+                        <div class="linha-info">
+                            <span class="rotulo-info"><i class="fas fa-envelope"></i> Para:</span>
+                            <span class="valor-info"><strong>IPIKK</strong> &lt;info@ipikk.edu&gt;</span>
+                        </div>
+                        <div class="linha-info">
+                            <span class="rotulo-info"><i class="fas fa-tag"></i> Assunto:</span>
+                            <span class="valor-info">Informação sobre curso de Construção Civil</span>
+                        </div>
+                        <div class="linha-info">
+                            <span class="rotulo-info"><i class="fas fa-graduation-cap"></i> Curso:</span>
+                            <span class="valor-info">
+                                <span class="badge-curso construcao"><i class="fas fa-square" style="color: #6c757d;"></i> Construção Civil</span>
+                                (Técnico de Obras)
+                            </span>
+                        </div>
+                        <div class="linha-info">
+                            <span class="rotulo-info"><i class="fas fa-phone"></i> Telefone:</span>
+                            <span class="valor-info">
+                                <a href="tel:+258841234567">+258 84 123 4567</a>
+                            </span>
+                        </div>
+                    </div>
+
+                    <!-- CONTEÚDO DA MENSAGEM -->
+                    <div class="conteudo-mensagem">
+                        <h4><i class="fas fa-file-alt"></i> Conteúdo:</h4>
+                        <div class="texto-mensagem">
+                            <p>Boa tarde, gostaria de obter mais informações sobre o curso de Técnico de Obras, nomeadamente:</p>
+                            <ul>
+                                <li>Datas de início</li>
+                                <li>Preço da matrícula</li>
+                                <li>Documentação necessária</li>
+                            </ul>
+                            <p>Aguardo resposta.</p>
+                            <p>Cumprimentos,<br>Maria Silva</p>
+                        </div>
+                    </div>
+
+                    <!-- ANEXOS -->
+                    <div class="anexos-mensagem">
+                        <h4><i class="fas fa-paperclip"></i> Anexos: <span class="contador-anexos">(1 ficheiro)</span></h4>
+                        <div class="lista-anexos">
+                            <div class="item-anexo">
+                                <i class="fas fa-file-pdf"></i>
+                                <span class="nome-anexo">historico_academico_maria.pdf</span>
+                                <span class="tamanho-anexo">245 KB</span>
+                                <div class="acoes-anexo">
+                                    <button class="btn-anexo" title="Download">
+                                        <i class="fas fa-download"></i>
+                                    </button>
+                                    <button class="btn-anexo" title="Visualizar">
+                                        <i class="fas fa-eye"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- AÇÕES -->
+                    <div class="acoes-mensagem">
+                        <h4><i class="fas fa-bolt"></i> Ações:</h4>
+                        <div class="grade-acoes">
+                            <button class="btn-acao-mensagem" id="btnMarcarLidaModal">
+                                <i class="fas fa-envelope-open"></i>
+                                Marcar como lida
+                            </button>
+                            <button class="btn-acao-mensagem primario" id="btnResponderModal">
+                                <i class="fas fa-reply"></i>
+                                Responder
+                            </button>
+                            <button class="btn-acao-mensagem" id="btnArquivar">
+                                <i class="fas fa-archive"></i>
+                                Arquivar
+                            </button>
+                            <button class="btn-acao-mensagem" id="btnFavoritar">
+                                <i class="fas fa-star"></i>
+                                Favoritar
+                            </button>
+                            <button class="btn-acao-mensagem" id="btnImprimir">
+                                <i class="fas fa-print"></i>
+                                Imprimir
+                            </button>
+                            <button class="btn-acao-mensagem perigo" id="btnMoverLixeira">
+                                <i class="fas fa-trash"></i>
+                                Mover para lixeira
+                            </button>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- JavaScript -->
+    <script src="../assets/js/admin-sidebar-header.js"></script>
+    <script src="../assets/js/admin-contactos.js"></script>
+</body>
+</html>

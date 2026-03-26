@@ -1,0 +1,733 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Área Restrita - Configurações</title>
+    
+    <!-- Fontes -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+    <!-- Favicon -->
+    <link href="../area-publica/foto/ipikk_new_logo.png" rel="icon">
+
+    <!-- CSS da Área Restrita (Sidebar e Header Padrão) -->
+    <link rel="stylesheet" href="../assets/css/admin-sidebar-header.css">
+    
+    <!-- CSS específico da página de cursos -->
+    <link rel="stylesheet" href="../assets/css/admin-configuracoes.css">
+</head>
+<body>
+
+<!-- ===== SIDEBAR - MENU LATERAL FIXO ===== -->
+<aside class="sidebar" id="sidebar">
+    <div class="cabecalho-sidebar">
+        <div class="logo">
+            <img src="../area-publica/foto/ipikk_new_logo.png" alt="IPIKK Logo">
+        </div>
+        <p class="subtitulo">ÁREA RESTRITA</p>
+    </div>
+
+    <nav class="navegacao-sidebar">
+        <ul>
+            <li><a href="admin-dashboard.html"><i class="fas fa-chart-line"></i><span>Dashboard</span></a></li>
+            <li><a href="admin-noticias.html"><i class="fas fa-newspaper"></i><span>Notícias</span></a></li>
+            <li class="ativo"><a href="admin-cursos.html"><i class="fas fa-graduation-cap"></i><span>Cursos</span></a></li>
+            <li><a href="admin-contactos.html"><i class="fas fa-envelope"></i><span>Contactos</span></a></li>
+            <li><a href="admin-utilizadores.html"><i class="fas fa-users"></i><span>Utilizadores</span></a></li>
+            <li><a href="admin-configuracoes.html"><i class="fas fa-cog"></i><span>Configurações</span></a></li>
+            <li>
+            <li class="ativo"><a href="admin-inscricoes.html"><i class="fas fa-file-signature"></i><span>Inscrições</span></a></li>
+            <a href="admin-depoimentos.html">
+                        <i class="fas fa-quote-right"></i>
+                        <span>Depoimentos</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="admin-notificacoes.html">
+                        <i class="fas fa-bell"></i>
+                        <span>Notificações</span>
+                    </a>
+                </li>
+            <li><a href="admin-perfil.html"><i class="fas fa-user"></i><span>Meu Perfil</span></a></li>
+        </ul>
+    </nav>
+
+    <div class="rodape-sidebar">
+        <a href="../area-publica/area-restrita.html" class="botao-sair">
+            <i class="fas fa-sign-out-alt"></i>
+            <span>Sair</span>
+        </a>
+    </div>
+</aside>
+ <!-- === CONTEÚDO PRINCIPAL === -->
+    <main class="conteudo-principal">
+        <header class="barra-topo">
+            <button class="botao-menu-mobile" id="botaoMenuMobile">
+                <i class="fas fa-bars"></i>
+            </button>
+            <h1 style="color: #003072;font-size: 24px;">Configurações</h1>
+            <button class="btn-guardar-tudo" onclick="guardarTodasConfiguracoes()">
+                <i class="fas fa-save"></i>
+                Guardar Todas
+            </button>
+        </header>
+
+        <div class="conteudo">
+            <!-- === ABAS DE NAVEGAÇÃO === -->
+            <div class="abas">
+                <button class="aba ativa" onclick="mudarAba(0)">
+                    <i class="fas fa-school"></i> Escola
+                </button>
+                <button class="aba" onclick="mudarAba(1)">
+                    <i class="fas fa-share-alt"></i> Redes Sociais
+                </button>
+                <button class="aba" onclick="mudarAba(2)">
+                    <i class="fas fa-palette"></i> Aparência
+                </button>
+                <button class="aba" onclick="mudarAba(3)">
+                    <i class="fas fa-cogs"></i> Técnico
+                </button>
+                <button class="aba" onclick="mudarAba(4)">
+                    <i class="fas fa-edit"></i> Editor de Páginas
+                </button>
+                <button class="aba" onclick="mudarAba(5)">
+                    <i class="fas fa-database"></i> Backup
+                </button>
+                <button class="aba" onclick="mudarAba(6)">
+                    <i class="fas fa-tools"></i> Manutenção
+                </button>
+            </div>
+
+            <!-- === ABA 1: ESCOLA === -->
+            <div class="conteudo-aba ativa">
+                <div class="secao">
+                    <h3 class="titulo-secao"><i class="fas fa-info-circle"></i> Informações da Escola</h3>
+                    <div class="grupo-form">
+                        <label>Nome da Instituição</label>
+                        <input type="text" class="campo-form" value="Instituto Médio Politécnico Industrial do Kilamba Kiaxi" id="escola_nome">
+                    </div>
+                    <div class="linha-form">
+                        <div class="grupo-form">
+                            <label>Acrónimo</label>
+                            <input type="text" class="campo-form" value="IPIKK" id="escola_acronimo">
+                        </div>
+                        <div class="grupo-form">
+                            <label>Slogan/Lema</label>
+                            <input type="text" class="campo-form" value="Um diferencial para a sua formação" id="escola_slogan">
+                        </div>
+                    </div>
+                    <div class="grupo-form">
+                        <label>Endereço Completo</label>
+                        <input type="text" class="campo-form" value="Distrito Urbano da Nova-Vida, Rua 130, Município do Kilamba Kiaxi" id="escola_endereco">
+                    </div>
+                    <div class="linha-form">
+                        <div class="grupo-form">
+                            <label>Cidade</label>
+                            <input type="text" class="campo-form" value="Luanda" id="escola_cidade">
+                        </div>
+                        <div class="grupo-form">
+                            <label>Província</label>
+                            <input type="text" class="campo-form" value="Luanda" id="escola_provincia">
+                        </div>
+                    </div>
+                    <div class="linha-form">
+                        <div class="grupo-form">
+                            <label>Telefone</label>
+                            <input type="tel" class="campo-form" value="933 096 705" id="escola_telefone">
+                        </div>
+                        <div class="grupo-form">
+                            <label>Email</label>
+                            <input type="email" class="campo-form" value="geral@ipikk.ao" id="escola_email">
+                        </div>
+                        <div class="grupo-form">
+                            <label>WhatsApp</label>
+                            <input type="tel" class="campo-form" value="933 096 705" id="escola_whatsapp">
+                        </div>
+                    </div>
+                    <div class="grupo-form">
+                        <label>Horário de Funcionamento</label>
+                        <input type="text" class="campo-form" value="Segunda a Sexta: 7:00 - 17:40" id="escola_horario">
+                    </div>
+                </div>
+
+                <div class="secao">
+                    <h3 class="titulo-secao"><i class="fas fa-image"></i> Logotipo e Imagens</h3>
+                    <div class="grupo-form">
+                        <label>Logotipo Atual</label>
+                        <div class="upload-arquivo">
+                            <span class="preview-arquivo" id="preview_logo">logo-ipikk.png</span>
+                            <button class="btn btn-secundario" onclick="document.getElementById('input_logo').click()"><i class="fas fa-upload"></i> Alterar</button>
+                            <button class="btn btn-perigo" onclick="removerLogo()"><i class="fas fa-trash"></i> Remover</button>
+                        </div>
+                        <input type="file" id="input_logo" accept="image/*" style="display: none;" onchange="previewLogo(this)">
+                        <small style="color: #666; margin-top: 5px; display: block;">Dimensões recomendadas: 300x100px (PNG ou JPG)</small>
+                    </div>
+                    <div class="grupo-form">
+                        <label>Favicon</label>
+                        <div class="upload-arquivo">
+                            <span class="preview-arquivo" id="preview_favicon">favicon.ico</span>
+                            <button class="btn btn-secundario" onclick="document.getElementById('input_favicon').click()"><i class="fas fa-upload"></i> Alterar</button>
+                            <button class="btn btn-perigo" onclick="removerFavicon()"><i class="fas fa-trash"></i> Remover</button>
+                        </div>
+                        <input type="file" id="input_favicon" accept=".ico,.png" style="display: none;" onchange="previewFavicon(this)">
+                        <small style="color: #666; margin-top: 5px; display: block;">Dimensões recomendadas: 64x64px (ICO ou PNG)</small>
+                    </div>
+                </div>
+
+                <div class="rodape-acoes">
+                    <button class="btn btn-secundario" onclick="restaurarPadroesEscola()"><i class="fas fa-undo"></i> Restaurar Padrões</button>
+                    <button class="btn btn-primario" onclick="guardarEscola()"><i class="fas fa-save"></i> Guardar Alterações</button>
+                </div>
+            </div>
+
+            <!-- === ABA 2: REDES SOCIAIS === -->
+            <div class="conteudo-aba">
+                <div class="secao">
+                    <h3 class="titulo-secao"><i class="fas fa-share-alt"></i> Redes Sociais</h3>
+                    <div class="grupo-form">
+                        <label><i class="fab fa-facebook"></i> Facebook</label>
+                        <input type="url" class="campo-form" value="https://facebook.com/ipikkofficial" id="social_facebook">
+                    </div>
+                    <div class="grupo-form">
+                        <label><i class="fab fa-instagram"></i> Instagram</label>
+                        <input type="url" class="campo-form" value="https://instagram.com/ipikk" id="social_instagram">
+                    </div>
+                    <div class="grupo-form">
+                        <label><i class="fab fa-linkedin"></i> LinkedIn</label>
+                        <input type="url" class="campo-form" value="https://linkedin.com/company/ipikk" id="social_linkedin">
+                    </div>
+                    <div class="grupo-form">
+                        <label><i class="fab fa-youtube"></i> YouTube</label>
+                        <input type="url" class="campo-form" value="https://youtube.com/@ipikk" id="social_youtube">
+                    </div>
+                    <div class="grupo-form">
+                        <label><i class="fab fa-twitter"></i> Twitter/X</label>
+                        <input type="url" class="campo-form" value="https://twitter.com/ipikk" id="social_twitter">
+                    </div>
+                    <div class="grupo-form">
+                        <label><i class="fab fa-tiktok"></i> TikTok</label>
+                        <input type="url" class="campo-form" value="https://tiktok.com/@ipikk" id="social_tiktok">
+                    </div>
+                    <h4 style="margin: 25px 0 15px;"><i class="fas fa-cog"></i> Configurações</h4>
+                    <div class="grupo-checkbox">
+                        <input type="checkbox" id="mostrarCabecalho" checked>
+                        <label for="mostrarCabecalho">Mostrar ícones no cabeçalho</label>
+                    </div>
+                    <div class="grupo-checkbox">
+                        <input type="checkbox" id="mostrarRodape" checked>
+                        <label for="mostrarRodape">Mostrar ícones no rodapé</label>
+                    </div>
+                    <div class="grupo-checkbox">
+                        <input type="checkbox" id="novaJanela">
+                        <label for="novaJanela">Abrir links em nova janela</label>
+                    </div>
+                </div>
+                <div class="rodape-acoes">
+                    <button class="btn btn-primario" onclick="guardarRedesSociais()"><i class="fas fa-save"></i> Guardar Alterações</button>
+                </div>
+            </div>
+
+            <!-- === ABA 3: APARÊNCIA === -->
+            <div class="conteudo-aba">
+                <div class="secao">
+                    <h3 class="titulo-secao"><i class="fas fa-palette"></i> Cores Principais</h3>
+                    <div class="grupo-cores">
+                        <div class="item-cor">
+                            <div class="preview-cor" style="background: #003072;" id="preview_cor_primaria"></div>
+                            <input type="color" class="input-cor" value="#003072" id="cor_primaria" onchange="atualizarPreviewCor('primaria', this.value)">
+                            <label style="margin: 0;">Azul Principal</label>
+                        </div>
+                        <div class="item-cor">
+                            <div class="preview-cor" style="background: #2e86c1;" id="preview_cor_azul_claro"></div>
+                            <input type="color" class="input-cor" value="#2e86c1" id="cor_azul_claro" onchange="atualizarPreviewCor('azul_claro', this.value)">
+                            <label style="margin: 0;">Azul Claro</label>
+                        </div>
+                        <div class="item-cor">
+                            <div class="preview-cor" style="background: #001a40;" id="preview_cor_azul_escuro"></div>
+                            <input type="color" class="input-cor" value="#001a40" id="cor_azul_escuro" onchange="atualizarPreviewCor('azul_escuro', this.value)">
+                            <label style="margin: 0;">Azul Escuro</label>
+                        </div>
+                        <div class="item-cor">
+                            <div class="preview-cor" style="background: #0a9396;" id="preview_cor_verde_acento"></div>
+                            <input type="color" class="input-cor" value="#0a9396" id="cor_verde_acento" onchange="atualizarPreviewCor('verde_acento', this.value)">
+                            <label style="margin: 0;">Verde Acento</label>
+                        </div>
+                        <div class="item-cor">
+                            <div class="preview-cor" style="background: #94d2bd;" id="preview_cor_verde_claro"></div>
+                            <input type="color" class="input-cor" value="#94d2bd" id="cor_verde_claro" onchange="atualizarPreviewCor('verde_claro', this.value)">
+                            <label style="margin: 0;">Verde Claro</label>
+                        </div>
+                        <div class="item-cor">
+                            <div class="preview-cor" style="background: #212529;" id="preview_cor_texto"></div>
+                            <input type="color" class="input-cor" value="#212529" id="cor_texto" onchange="atualizarPreviewCor('texto', this.value)">
+                            <label style="margin: 0;">Texto</label>
+                        </div>
+                        <div class="item-cor">
+                            <div class="preview-cor" style="background: #f8f9fa;" id="preview_cor_fundo"></div>
+                            <input type="color" class="input-cor" value="#f8f9fa" id="cor_fundo" onchange="atualizarPreviewCor('fundo', this.value)">
+                            <label style="margin: 0;">Fundo</label>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="secao">
+                    <h3 class="titulo-secao"><i class="fas fa-paint-brush"></i> Cores dos Cursos</h3>
+                    <div class="grupo-cores">
+                        <div class="item-cor">
+                            <div class="preview-cor" style="background: #9FA3A7;" id="preview_cor_construcao"></div>
+                            <input type="color" class="input-cor" value="#9FA3A7" id="cor_construcao" onchange="atualizarPreviewCor('construcao', this.value)">
+                            <label>Construção Civil</label>
+                        </div>
+                        <div class="item-cor">
+                            <div class="preview-cor" style="background: #3A7BC0;" id="preview_cor_eletricidade"></div>
+                            <input type="color" class="input-cor" value="#3A7BC0" id="cor_eletricidade" onchange="atualizarPreviewCor('eletricidade', this.value)">
+                            <label>Electricidade</label>
+                        </div>
+                        <div class="item-cor">
+                            <div class="preview-cor" style="background: #E67E22;" id="preview_cor_mecanica"></div>
+                            <input type="color" class="input-cor" value="#E67E22" id="cor_mecanica" onchange="atualizarPreviewCor('mecanica', this.value)">
+                            <label>Mecânica</label>
+                        </div>
+                        <div class="item-cor">
+                            <div class="preview-cor" style="background: #1F7A4D;" id="preview_cor_informatica"></div>
+                            <input type="color" class="input-cor" value="#1F7A4D" id="cor_informatica" onchange="atualizarPreviewCor('informatica', this.value)">
+                            <label>Informática</label>
+                        </div>
+                        <div class="item-cor">
+                            <div class="preview-cor" style="background: #e01a1a;" id="preview_cor_moveis"></div>
+                            <input type="color" class="input-cor" value="#e01a1a" id="cor_moveis" onchange="atualizarPreviewCor('moveis', this.value)">
+                            <label>Tecnologias de Móveis</label>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="secao">
+                    <h3 class="titulo-secao"><i class="fas fa-font"></i> Tipografia</h3>
+                    <div class="linha-form">
+                        <div class="grupo-form">
+                            <label>Fonte Principal</label>
+                            <select class="selecao-form" id="fonte_principal">
+                                <option value="Poppins" selected>Poppins</option>
+                                <option value="Montserrat">Montserrat</option>
+                                <option value="Roboto">Roboto</option>
+                                <option value="Open Sans">Open Sans</option>
+                                <option value="Lato">Lato</option>
+                            </select>
+                        </div>
+                        <div class="grupo-form">
+                            <label>Fonte Secundária</label>
+                            <select class="selecao-form" id="fonte_secundaria">
+                                <option value="Montserrat" selected>Montserrat</option>
+                                <option value="Poppins">Poppins</option>
+                                <option value="Roboto">Roboto</option>
+                                <option value="Open Sans">Open Sans</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="linha-form">
+                        <div class="grupo-form">
+                            <label>Tamanho Base</label>
+                            <select class="selecao-form" id="tamanho_fonte">
+                                <option value="14px">14px</option>
+                                <option value="16px" selected>16px</option>
+                                <option value="18px">18px</option>
+                                <option value="20px">20px</option>
+                            </select>
+                        </div>
+                        <div class="grupo-form">
+                            <label>Altura da Linha</label>
+                            <select class="selecao-form" id="altura_linha">
+                                <option value="1.5">1.5</option>
+                                <option value="1.6" selected>1.6</option>
+                                <option value="1.7">1.7</option>
+                                <option value="1.8">1.8</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="secao">
+                    <h3 class="titulo-secao"><i class="fas fa-magic"></i> Efeitos</h3>
+                    <div class="grupo-checkbox">
+                        <input type="checkbox" id="efeito_animacoes" checked>
+                        <label>Animações suaves</label>
+                    </div>
+                    <div class="grupo-checkbox">
+                        <input type="checkbox" id="efeito_transicoes" checked>
+                        <label>Transições entre páginas</label>
+                    </div>
+                    <div class="grupo-checkbox">
+                        <input type="checkbox" id="efeito_hover" checked>
+                        <label>Efeito hover em botões</label>
+                    </div>
+                    <div class="grupo-checkbox">
+                        <input type="checkbox" id="efeito_sombras" checked>
+                        <label>Sombras em cards</label>
+                    </div>
+                    <div class="linha-form" style="margin-top: 15px;">
+                        <div class="grupo-form">
+                            <label>Intensidade das Sombras</label>
+                            <select class="selecao-form" id="intensidade_sombra">
+                                <option value="0.05">Leve</option>
+                                <option value="0.1" selected>Média</option>
+                                <option value="0.15">Forte</option>
+                            </select>
+                        </div>
+                        <div class="grupo-form">
+                            <label>Borda Arredondada</label>
+                            <select class="selecao-form" id="borda_arredondada">
+                                <option value="4px">Pequena (4px)</option>
+                                <option value="8px">Média (8px)</option>
+                                <option value="12px" selected>Grande (12px)</option>
+                                <option value="18px">Muito Grande (18px)</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="secao">
+                    <h3 class="titulo-secao"><i class="fas fa-code"></i> CSS Personalizado</h3>
+                    <div class="grupo-form">
+                        <label>CSS Adicional (avançado)</label>
+                        <textarea class="area-texto" rows="4" id="css_personalizado" placeholder="/* Adicione seu CSS personalizado aqui */"></textarea>
+                    </div>
+                    <small style="color: #666;">Use esta área para fazer ajustes finos no design. Apenas para utilizadores avançados.</small>
+                </div>
+
+                <div class="rodape-acoes">
+                    <button class="btn btn-secundario" onclick="restaurarPadroesAparencia()"><i class="fas fa-undo"></i> Restaurar Padrões</button>
+                    <button class="btn btn-primario" onclick="guardarAparencia()"><i class="fas fa-save"></i> Guardar Alterações</button>
+                </div>
+            </div>
+
+            <!-- === ABA 4: TÉCNICO === -->
+            <div class="conteudo-aba">
+                <div class="secao">
+                    <h3 class="titulo-secao"><i class="fas fa-envelope"></i> Configurações de Email</h3>
+                    <div class="linha-form">
+                        <div class="grupo-form">
+                            <label>SMTP Host</label>
+                            <input type="text" class="campo-form" value="smtp.ipikk.edu" id="smtp_host">
+                        </div>
+                        <div class="grupo-form">
+                            <label>SMTP Porta</label>
+                            <input type="number" class="campo-form" value="587" id="smtp_porta">
+                        </div>
+                        <div class="grupo-form">
+                            <label>Segurança</label>
+                            <select class="selecao-form" id="smtp_seguranca">
+                                <option selected>STARTTLS</option>
+                                <option>SSL</option>
+                                <option>Nenhuma</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="grupo-form">
+                        <label>Email de Envio</label>
+                        <input type="email" class="campo-form" value="noreply@ipikk.edu" id="smtp_email">
+                    </div>
+                    <div class="grupo-form">
+                        <label>Senha</label>
+                        <input type="password" class="campo-form" value="********" id="smtp_senha">
+                    </div>
+                    <button class="btn btn-secundario" onclick="testarEmail()"><i class="fas fa-paper-plane"></i> Enviar Email de Teste</button>
+                </div>
+
+                <div class="secao">
+                    <h3 class="titulo-secao"><i class="fas fa-wrench"></i> Modo de Manutenção</h3>
+                    <div class="grupo-form">
+                        <label>Estado</label>
+                        <select class="selecao-form" id="modo_manutencao">
+                            <option value="0" selected>Desativado</option>
+                            <option value="1">Ativado</option>
+                        </select>
+                    </div>
+                    <div class="grupo-form">
+                        <label>Mensagem de Manutenção</label>
+                        <textarea class="area-texto" id="msg_manutencao" rows="3">Site em manutenção. Voltaremos em breve.</textarea>
+                    </div>
+                </div>
+
+                <div class="secao">
+                    <h3 class="titulo-secao"><i class="fas fa-search"></i> Configurações SEO</h3>
+                    <div class="grupo-form">
+                        <label>Título Padrão</label>
+                        <input type="text" class="campo-form" value="IPIKK - Instituto Politécnico Industrial" id="seo_titulo">
+                    </div>
+                    <div class="grupo-form">
+                        <label>Meta Descrição</label>
+                        <textarea class="area-texto" id="seo_descricao" rows="3">Formação técnica especializada em Construção Civil, Informática, Energia e Mecânica.</textarea>
+                    </div>
+                    <div class="grupo-form">
+                        <label>Palavras-chave</label>
+                        <input type="text" class="campo-form" value="IPIKK, instituto, formação técnica, construção civil, informática" id="seo_keywords">
+                    </div>
+                    <div class="grupo-form">
+                        <label>URL do Site</label>
+                        <input type="url" class="campo-form" value="https://www.ipikk.ao" id="seo_url">
+                    </div>
+                </div>
+
+                <div class="rodape-acoes">
+                    <button class="btn btn-secundario" onclick="testarEmail()"><i class="fas fa-envelope"></i> Testar Email</button>
+                    <button class="btn btn-primario" onclick="guardarTecnico()"><i class="fas fa-save"></i> Guardar Alterações</button>
+                </div>
+            </div>
+
+            
+            <!-- ===== ABA 5: EDITOR DE PÁGINAS ===== -->
+            <div class="conteudo-aba">
+                <div class="secao">
+                    <h3 class="titulo-secao"><i class="fas fa-edit"></i> Editor de Páginas</h3>
+                    
+                    <div class="seletor-pagina">
+                        <select id="seletorPagina" onchange="carregarPagina()">
+                            <option value="inicio">Página Inicial</option>
+                            <option value="sobre">Quem Somos</option>
+                            <option value="director">Perfil do Director</option>
+                            <option value="orgaos">Órgãos Directivos</option>
+                            <option value="ex-directores">Ex-Directores</option>
+                            <option value="normativos">Normativos</option>
+                            <option value="percurso">Histórias de Sucesso</option>
+                            <option value="quadro-honra"> Quadro de Honra</option>
+                            <option value="funcionarios">Funcionários Destacados</option>
+                            <option value="escolas">Escolas Afiliadas</option>
+                            <option value="galeria">Galeria de Mídias</option>
+                            <option value="globais">Elementos Globais</option>
+                        </select>
+                    </div>
+
+                    <div id="containerEditor" class="container-editor">
+                        <!-- Conteúdo carregado dinamicamente via JavaScript -->
+                        <p style="text-align: center; padding: 40px; color: #999;">
+                            <i class="fas fa-arrow-up" style="font-size: 24px; margin-bottom: 10px; display: block;"></i>
+                            Selecione uma página para começar a editar
+                        </p>
+                    </div>
+
+                    <div class="rodape-acoes">
+                        <button class="btn btn-secundario" onclick="previewPagina()">
+                            <i class="fas fa-eye"></i> Pré-visualizar
+                        </button>
+                        <button class="btn btn-primario" onclick="guardarPagina()">
+                            <i class="fas fa-save"></i> Guardar Página
+                        </button>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- === ABA 6: BACKUP === -->
+            <div class="conteudo-aba">
+                <div class="secao">
+                    <h3 class="titulo-secao"><i class="fas fa-clock"></i> Backup Automático</h3>
+                    <div class="linha-form">
+                        <div class="grupo-form">
+                            <label>Frequência</label>
+                            <select class="selecao-form" id="backup_frequencia">
+                                <option value="diario">Diário</option>
+                                <option value="semanal" selected>Semanal</option>
+                                <option value="mensal">Mensal</option>
+                            </select>
+                        </div>
+                        <div class="grupo-form">
+                            <label>Horário</label>
+                            <input type="time" class="campo-form" value="02:00" id="backup_horario">
+                        </div>
+                        <div class="grupo-form">
+                            <label>Manter últimos</label>
+                            <select class="selecao-form" id="backup_manter">
+                                <option value="2">2 backups</option>
+                                <option value="4" selected>4 backups</option>
+                                <option value="10">10 backups</option>
+                                <option value="20">20 backups</option>
+                            </select>
+                        </div>
+                    </div>
+                    <p style="margin: 10px 0; color: #666;" id="info_ultimo_backup">Último Backup: 10/02/2024 02:00 | Tamanho: 45MB</p>
+                    <button class="btn btn-primario" onclick="executarBackupAgora()"><i class="fas fa-sync"></i> Executar Backup Agora</button>
+                </div>
+
+                <div class="secao">
+                    <h3 class="titulo-secao"><i class="fas fa-download"></i> Backup Manual</h3>
+                    <div class="linha-form">
+                        <div class="grupo-form">
+                            <label>Tipo</label>
+                            <select class="selecao-form" id="backup_tipo_manual">
+                                <option value="completo" selected>Base de Dados Completa</option>
+                                <option value="dados">Apenas dados</option>
+                                <option value="ficheiros">Apenas ficheiros</option>
+                            </select>
+                        </div>
+                        <div class="grupo-form">
+                            <label>Nome do ficheiro</label>
+                            <input type="text" class="campo-form" value="backup-2024-02-10.zip" id="backup_nome">
+                        </div>
+                    </div>
+                    <button class="btn btn-primario" onclick="criarBackupManual()"><i class="fas fa-save"></i> Criar Backup</button>
+                </div>
+
+                <div class="secao">
+                    <h3 class="titulo-secao"><i class="fas fa-list"></i> Backups Disponíveis</h3>
+                    <div class="lista-backup" id="lista_backup">
+                        <div class="item-backup" data-id="1">
+                            <div class="info-backup">
+                                <strong>backup-2024-02-10.zip</strong>
+                                <p style="margin: 0; font-size: 12px; color: #666;">45MB - 10/02/2024 02:00</p>
+                            </div>
+                            <div class="acoes-backup">
+                                <button class="btn btn-secundario" onclick="baixarBackup(1)"><i class="fas fa-download"></i></button>
+                                <button class="btn btn-perigo" onclick="eliminarBackup(1)"><i class="fas fa-trash"></i></button>
+                            </div>
+                        </div>
+                        <div class="item-backup" data-id="2">
+                            <div class="info-backup">
+                                <strong>backup-2024-02-03.zip</strong>
+                                <p style="margin: 0; font-size: 12px; color: #666;">44MB - 03/02/2024 02:00</p>
+                            </div>
+                            <div class="acoes-backup">
+                                <button class="btn btn-secundario" onclick="baixarBackup(2)"><i class="fas fa-download"></i></button>
+                                <button class="btn btn-perigo" onclick="eliminarBackup(2)"><i class="fas fa-trash"></i></button>
+                            </div>
+                        </div>
+                        <div class="item-backup" data-id="3">
+                            <div class="info-backup">
+                                <strong>backup-2024-01-27.zip</strong>
+                                <p style="margin: 0; font-size: 12px; color: #666;">46MB - 27/01/2024 02:00</p>
+                            </div>
+                            <div class="acoes-backup">
+                                <button class="btn btn-secundario" onclick="baixarBackup(3)"><i class="fas fa-download"></i></button>
+                                <button class="btn btn-secundario" onclick="restaurarBackup(3)"><i class="fas fa-undo"></i></button>
+                                <button class="btn btn-perigo" onclick="eliminarBackup(3)"><i class="fas fa-trash"></i></button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="rodape-acoes">
+                    <button class="btn btn-secundario" onclick="configurarBackup()"><i class="fas fa-cog"></i> Configurações Avançadas</button>
+                    <button class="btn btn-primario" onclick="guardarConfigBackup()"><i class="fas fa-save"></i> Guardar Configurações</button>
+                </div>
+            </div>
+                            <!-- === ABA 7: MANUTENÇÃO DO SITE === -->
+                <div class="conteudo-aba">
+                    <div class="secao">
+                        <h3 class="titulo-secao"><i class="fas fa-tools"></i> Modo de Manutenção</h3>
+                        
+                        <!-- STATUS ATUAL -->
+                        <div class="card-status" style="background: #f8f9fa; border-radius: 16px; padding: 20px; margin-bottom: 25px;">
+                            <div style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 15px;">
+                                <div>
+                                    <h4 style="margin: 0 0 5px 0;">Status do Site</h4>
+                                    <div id="statusManutencao" class="status-badge" style="display: inline-block; padding: 8px 20px; border-radius: 30px; font-weight: 600;">
+                                        <!-- Status será preenchido via JS -->
+                                    </div>
+                                </div>
+                                <div id="contadorManutencao" style="background: #fff; padding: 10px 20px; border-radius: 12px; box-shadow: 0 2px 8px rgba(0,0,0,0.05);">
+                                    <!-- Contador regressivo -->
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- CONTROLE MANUAL -->
+                        <div class="card-controle" style="background: var(--branco); border-radius: 16px; padding: 20px; margin-bottom: 25px; border: 1px solid var(--cinza-medio);">
+                            <h4><i class="fas fa-hand-pointer"></i> Controle Manual</h4>
+                            <div style="display: flex; gap: 15px; margin-top: 15px; flex-wrap: wrap;">
+                                <button class="btn-ativar-manutencao" onclick="ativarManutencao()" style="background: linear-gradient(135deg, #ff6b35, #e65c2c); color: white; border: none; padding: 12px 28px; border-radius: 40px; font-weight: 600; cursor: pointer;">
+                                    <i class="fas fa-toggle-on"></i> Ativar Modo Manutenção
+                                </button>
+                                <button class="btn-desativar-manutencao" onclick="desativarManutencao()" style="background: linear-gradient(135deg, #28a745, #1e7e34); color: white; border: none; padding: 12px 28px; border-radius: 40px; font-weight: 600; cursor: pointer;">
+                                    <i class="fas fa-toggle-off"></i> Desativar Modo Manutenção
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- AGENDAMENTO -->
+                        <div class="card-agendamento" style="background: var(--branco); border-radius: 16px; padding: 20px; margin-bottom: 25px; border: 1px solid var(--cinza-medio);">
+                            <h4><i class="fas fa-calendar-alt"></i> Agendamento Automático</h4>
+                            <div class="linha-form" style="margin-top: 15px;">
+                                <div class="grupo-form">
+                                    <label>Data e Hora de Início</label>
+                                    <input type="datetime-local" id="manutencaoInicio" class="campo-form">
+                                </div>
+                                <div class="grupo-form">
+                                    <label>Data e Hora de Término (Previsão)</label>
+                                    <input type="datetime-local" id="manutencaoFim" class="campo-form">
+                                </div>
+                            </div>
+                            <button class="btn-agendar" onclick="agendarManutencao()" style="background: var(--verde-acento); color: white; border: none; padding: 10px 24px; border-radius: 40px; font-weight: 600; cursor: pointer; margin-top: 10px;">
+                                <i class="fas fa-save"></i> Agendar Manutenção
+                            </button>
+                            <p style="margin-top: 12px; font-size: 12px; color: #666;">
+                                <i class="fas fa-info-circle"></i> Quando agendado, o modo de manutenção será ativado e desativado automaticamente nas datas definidas.
+                            </p>
+                        </div>
+
+                        <!-- MENSAGEM PERSONALIZADA -->
+                        <div class="card-mensagem" style="background: var(--branco); border-radius: 16px; padding: 20px; margin-bottom: 25px; border: 1px solid var(--cinza-medio);">
+                            <h4><i class="fas fa-edit"></i> Mensagem Personalizada</h4>
+                            <div class="grupo-form" style="margin-top: 15px;">
+                                <label>Título da Página</label>
+                                <input type="text" id="manutencaoTitulo" class="campo-form" value="Site em Manutenção">
+                            </div>
+                            <div class="grupo-form">
+                                <label>Mensagem Principal</label>
+                                <input type="text" id="manutencaoMsgPrincipal" class="campo-form" value="Estamos realizando melhorias para lhe servir melhor.">
+                            </div>
+                            <div class="grupo-form">
+                                <label>Mensagem de Detalhe (cada linha será um parágrafo)</label>
+                                <textarea id="manutencaoDetalhes" class="campo-form" rows="4">O site estará disponível em breve.
+                Estamos atualizando nossos sistemas e conteúdos.
+                Agradecemos pela paciência e compreensão.</textarea>
+                                <small style="color: #666;">Cada linha será exibida como um parágrafo separado.</small>
+                            </div>
+                            <div class="grupo-form">
+                                <label>Previsão de Retorno (texto personalizado)</label>
+                                <input type="text" id="manutencaoPrevisao" class="campo-form" value="em breve">
+                            </div>
+                        </div>
+
+                        <!-- CONTACTOS EMERGENCIAL -->
+                        <div class="card-contactos" style="background: var(--branco); border-radius: 16px; padding: 20px; margin-bottom: 25px; border: 1px solid var(--cinza-medio);">
+                            <h4><i class="fas fa-phone-alt"></i> Contactos para Emergência</h4>
+                            <div class="linha-form">
+                                <div class="grupo-form">
+                                    <label>Telefone</label>
+                                    <input type="text" id="manutencaoTelefone" class="campo-form" value="+244 933 096 705">
+                                </div>
+                                <div class="grupo-form">
+                                    <label>WhatsApp</label>
+                                    <input type="text" id="manutencaoWhatsapp" class="campo-form" value="+244 933 096 705">
+                                </div>
+                            </div>
+                            <div class="grupo-form">
+                                <label>Email</label>
+                                <input type="email" id="manutencaoEmail" class="campo-form" value="geral@ipikk.ao">
+                            </div>
+                        </div>
+
+                        <!-- PRÉ-VISUALIZAÇÃO -->
+                        <div class="card-preview" style="background: var(--branco); border-radius: 16px; padding: 20px; border: 1px solid var(--cinza-medio);">
+                            <h4><i class="fas fa-eye"></i> Pré-visualização</h4>
+                            <button class="btn-preview-manutencao" onclick="previewManutencao()" style="background: var(--azul-claro); color: white; border: none; padding: 10px 24px; border-radius: 40px; font-weight: 600; cursor: pointer; margin-top: 10px;">
+                                <i class="fas fa-external-link-alt"></i> Ver Como Fica a Página
+                            </button>
+                        </div>
+
+                        <div class="rodape-acoes" style="margin-top: 25px;">
+                            <button class="btn btn-secundario" onclick="restaurarPadroesManutencao()"><i class="fas fa-undo"></i> Restaurar Padrões</button>
+                            <button class="btn btn-primario" onclick="guardarConfigManutencao()"><i class="fas fa-save"></i> Guardar Configurações</button>
+                        </div>
+                    </div>
+                </div>
+                        </div>
+    </main>
+    
+<!-- JavaScript -->
+<script src="../assets/js/admin-sidebar-header.js"></script>
+<script src="../assets/js/admin-configuracoes.js"></script>
+</body>
+</html>

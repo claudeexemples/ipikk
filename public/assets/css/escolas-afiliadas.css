@@ -1,0 +1,277 @@
+        
+/* =========================================
+   CONTAINER DA SEÇÃO
+   ========================================= */
+.container-escolas {
+    max-width: 800px;
+    margin: 50px auto;
+    padding: 0 20px;
+}
+
+/* Introdução (Título e Texto) */
+.intro-secao {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.intro-secao h2 {
+    color: #003366;
+    font-size: 28px;
+    margin-bottom: 10px;
+    font-weight: 700;
+}
+
+.linha-decorativa {
+    width: 60px;
+    height: 4px;
+    background-color: #008080; /* Verde Teal */
+    margin: 0 auto 20px auto;
+    border-radius: 2px;
+}
+
+.intro-secao p {
+    color: #888;
+    font-size: 14px;
+    max-width: 600px;
+    margin: 0 auto;
+    line-height: 1.6;
+}
+
+/* =========================================
+   ESTRUTURA DO ACORDEÃO
+   ========================================= */
+.escola_afiliada {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.escola_afiliada-item {
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+    overflow: hidden;
+    transition: box-shadow 0.3s ease, transform 0.3s ease;
+}
+
+/* =========================================
+   CABEÇALHO (PARTE CLICÁVEL)
+   ========================================= */
+.escola_afiliada-cabecalho {
+    padding: 20px 25px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+    background-color: #fff;
+    user-select: none;
+    transition: background 0.4s ease, color 0.4s ease; 
+}
+
+.titulo-escola {
+    font-weight: 500;
+    color: #003366;
+    font-size: 16px;
+    flex: 1;
+    margin-right: 15px;
+    transition: color 0.4s ease;
+}
+
+.meta-info {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+/* Badge "Privado" */
+.badge-privado {
+    background-color: #eef2f5;
+    color: #556b7f;
+    font-size: 12px;
+    font-weight: 700;
+    padding: 6px 14px;
+    border-radius: 50px;
+    transition: all 0.4s ease;
+}
+
+/* Seta (Círculo com ícone) */
+.escola_afiliada-seta {
+    width: 32px;
+    height: 32px;
+    border: 2px solid #ddd;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #888;
+    transition: all 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.escola_afiliada-seta svg {
+    width: 16px;
+    height: 16px;
+}
+
+/* =========================================
+   CONTEÚDO (ANIMAÇÃO SUAVE)
+   ========================================= */
+.escola_afiliada-conteudo {
+    max-height: 0;
+    opacity: 0;
+    overflow: hidden;
+    padding: 0 25px;
+    background-color: #fff;
+    transition: max-height 0.5s cubic-bezier(0.25, 1, 0.5, 1),
+                opacity 0.4s ease-in-out,
+                padding 0.5s cubic-bezier(0.25, 1, 0.5, 1);
+    will-change: max-height, opacity, padding;
+}
+
+/* Estilização das linhas de informação */
+.info-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 15px 0;
+    border-bottom: 1px solid #f0f0f0;
+    position: relative;
+}
+
+.info-row:last-child {
+    border-bottom: none;
+}
+
+/* Container esquerdo com ícone e texto */
+.info-row-left {
+    display: flex;
+    align-items: flex-start;
+    flex: 1;
+}
+
+.icon-box {
+    color: #008080;
+    margin-right: 15px;
+    min-width: 24px;
+    margin-top: 2px;
+}
+
+.icon-box svg {
+    width: 20px;
+    height: 20px;
+}
+
+.info-text {
+    display: flex;
+    flex-direction: column;
+}
+
+.info-text strong {
+    color: #006680;
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 5px;
+}
+
+.info-text span {
+    color: #555;
+    font-size: 15px;
+    line-height: 1.5;
+}
+
+/* ===== CÍRCULO COM LOGO DA ESCOLA ===== */
+.circulo-logo {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    overflow: hidden;
+    background: linear-gradient(135deg, #003366, #008080);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    margin-left: 15px;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    border: 2px solid rgba(255,255,255,0.5);
+}
+
+.circulo-logo:hover {
+    transform: scale(1.08);
+    box-shadow: 0 4px 12px rgba(0,51,102,0.3);
+    border-color: #ffc107;
+}
+
+.circulo-logo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Para as outras info-rows (email, telefone, endereço) não terem o círculo */
+.info-row:not(:first-child) .circulo-logo {
+    display: none;
+}
+
+/* =========================================
+   ESTADO ATIVO (QUANDO ABERTO)
+   ========================================= */
+.escola_afiliada-item.active {
+    box-shadow: 0 15px 30px rgba(0, 51, 102, 0.15);
+    transform: translateY(-2px);
+}
+
+.escola_afiliada-item.active .escola_afiliada-cabecalho {
+    background: linear-gradient(135deg, #003366 0%, #006680 100%);
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+}
+
+.escola_afiliada-item.active .titulo-escola {
+    color: #ffffff;
+}
+
+.escola_afiliada-item.active .badge-privado {
+    background-color: rgba(255, 255, 255, 0.2);
+    color: #ffffff;
+}
+
+.escola_afiliada-item.active .escola_afiliada-seta {
+    transform: rotate(180deg);
+    border-color: rgba(255,255,255,0.5);
+    color: #ffffff;
+    background-color: rgba(255,255,255,0.1);
+}
+
+.escola_afiliada-item.active .escola_afiliada-conteudo {
+    opacity: 1;
+    padding-top: 20px;
+    padding-bottom: 25px;
+}
+
+/* =========================================
+   RESPONSIVIDADE
+   ========================================= */
+@media (max-width: 600px) {
+    .escola_afiliada-cabecalho {
+        flex-wrap: wrap;
+    }
+    .titulo-escola {
+        width: 100%;
+        margin-bottom: 10px;
+        margin-right: 0;
+    }
+    .meta-info {
+        width: 100%;
+        justify-content: space-between;
+    }
+    .circulo-logo {
+        width: 40px;
+        height: 40px;
+    }
+    .info-row {
+        flex-wrap: wrap;
+    }
+    .info-row-left {
+        flex: 1;
+    }
+}

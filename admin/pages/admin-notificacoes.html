@@ -1,0 +1,590 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Área Restrita - Notificações</title>
+    
+    <!-- Fontes -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="stylesheet" href="../area-publica/ESTILO-ICONS/css/all.min.css">
+
+    <!-- Favicon -->
+    <link href="../area-publica/foto/ipikk_new_logo.png" rel="icon">
+
+    <!-- CSS da Área Restrita (Sidebar e Header) - CARCAÇA -->
+    <link rel="stylesheet" href="../assets/css/admin-sidebar-header.css">
+    
+    <!-- CSS específico da Página de Notificações -->
+    <link rel="stylesheet" href="../assets/css/admin-notificacoes.css">
+</head>
+<body>
+    <!-- ===== SIDEBAR - CARCAÇA ===== -->
+    <aside class="sidebar" id="sidebar">
+        <div class="cabecalho-sidebar">
+            <div class="logo">
+                <img src="../area-publica/foto/ipikk_new_logo.png" alt="IPIKK Logo">
+            </div>
+            <p class="subtitulo">ÁREA RESTRITA</p>
+        </div>
+
+        <nav class="navegacao-sidebar">
+            <ul>
+                <li>
+                    <a href="admin-dashboard.html">
+                        <i class="fas fa-chart-line"></i>
+                        <span>Dashboard</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="admin-noticias.html">
+                        <i class="fas fa-newspaper"></i>
+                        <span>Notícias</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="admin-cursos.html">
+                        <i class="fas fa-graduation-cap"></i>
+                        <span>Cursos</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="admin-contactos.html">
+                        <i class="fas fa-envelope"></i>
+                        <span>Contactos</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="admin-utilizadores.html">
+                        <i class="fas fa-users"></i>
+                        <span>Utilizadores</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="admin-configuracoes.html">
+                        <i class="fas fa-cog"></i>
+                        <span>Configurações</span>
+                    </a>
+                </li>
+                <li class="ativo"><a href="admin-inscricoes.html"><i class="fas fa-file-signature"></i><span>Inscrições</span></a></li>
+                <li>
+                    <a href="admin-depoimentos.html">
+                        <i class="fas fa-quote-right"></i>
+                        <span>Depoimentos</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="admin-notificacoes.html">
+                        <i class="fas fa-bell"></i>
+                        <span>Notificações</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="admin-perfil.html">
+                        <i class="fas fa-user"></i>
+                        <span>Meu Perfil</span>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+
+        <div class="rodape-sidebar">
+            <a href="../area-publica/area-restrita.html" class="botao-sair">
+                <i class="fas fa-sign-out-alt"></i>
+                <span>Sair</span>
+            </a>
+        </div>
+    </aside>
+
+    <!-- ===== CONTEÚDO PRINCIPAL ===== -->
+    <main class="conteudo-principal">
+        <!-- ===== TOPBAR - CABEÇALHO SUPERIOR (CARCAÇA) ===== -->
+        <header class="barra-superior" id="barraSuperior">
+            <div class="esquerda-barra">
+                <button class="botao-menu-mobile" id="botaoMenuMobile">
+                    <i class="fas fa-bars"></i>
+                </button>
+                <h1 class="titulo-pagina"style="color: #003072;">Notificações</h1>
+            </div>
+            
+            <div class="direita-barra">
+                <!-- Botão de Notificação (com contador) -->
+                <div class="container-notificacao" id="containerNotificacao">
+                    <button class="botao-notificacao" id="botaoNotificacao">
+                        <i class="fas fa-bell"></i>
+                        <span class="contador">3</span>
+                    </button>
+                    
+                    <!-- Dropdown de Notificações -->
+                    <div class="dropdown-notificacao" id="dropdownNotificacao">
+                        <div class="cabecalho-dropdown">
+                            <h4>Notificações</h4>
+                            <span class="contador-pequeno">3 novas</span>
+                        </div>
+                        <div class="lista-notificacoes">
+                            <a href="#" class="item-notificacao nao-lida" onclick="abrirModalNotificacao(1)">
+                                <div class="icone-notificacao">
+                                    <i class="fas fa-newspaper"></i>
+                                </div>
+                                <div class="conteudo-notificacao">
+                                    <p class="mensagem">Nova notícia publicada</p>
+                                    <span class="tempo">há 5 minutos</span>
+                                </div>
+                            </a>
+                            <a href="#" class="item-notificacao nao-lida" onclick="abrirModalNotificacao(2)">
+                                <div class="icone-notificacao">
+                                    <i class="fas fa-user"></i>
+                                </div>
+                                <div class="conteudo-notificacao">
+                                    <p class="mensagem">Novo utilizador registado</p>
+                                    <span class="tempo">há 1 hora</span>
+                                </div>
+                            </a>
+                            <a href="#" class="item-notificacao" onclick="abrirModalNotificacao(3)">
+                                <div class="icone-notificacao">
+                                    <i class="fas fa-graduation-cap"></i>
+                                </div>
+                                <div class="conteudo-notificacao">
+                                    <p class="mensagem">Curso atualizado</p>
+                                    <span class="tempo">há 3 horas</span>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="rodape-dropdown">
+                            <a href="admin-notificacoes.html">Ver todas</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Perfil do Usuário -->
+                <div class="container-perfil" id="containerPerfil">
+                    <button class="botao-perfil" id="botaoPerfil">
+                        <img src="foto/sem_foto.png" alt="Admin">
+                        <span class="nome-usuario">Admin Principal</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+
+                    <!-- Dropdown do Perfil -->
+                    <div class="dropdown-perfil" id="dropdownPerfil">
+                        <div class="cabecalho-perfil">
+                            <img src="foto/sem_foto.png" alt="Admin">
+                            <div class="info-usuario">
+                                <p class="nome">Admin Principal</p>
+                                <p class="email">admin@ipikk.ao</p>
+                            </div>
+                        </div>
+                        <div class="links-perfil">
+                            <a href="admin-perfil.html">
+                                <i class="fas fa-user"></i>
+                                Meu Perfil
+                            </a>
+                            <a href="admin-configuracoes.html">
+                                <i class="fas fa-cog"></i>
+                                Configurações
+                            </a>
+                            <a href="admin-notificacoes.html" class="ativo">
+                                <i class="fas fa-bell"></i>
+                                Notificações
+                            </a>
+                            <hr>
+                            <a href="admin-logout.html" class="sair">
+                                <i class="fas fa-sign-out-alt"></i>
+                                Sair
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Botão Sair Mobile -->
+                <a href="admin-logout.html" class="botao-sair-mobile" id="botaoSairMobile">
+                    <i class="fas fa-sign-out-alt"></i>
+                </a>
+            </div>
+        </header>
+
+        <!-- ===== CONTEÚDO DA PÁGINA DE NOTIFICAÇÕES ===== -->
+        <div class="conteudo-pagina">
+            
+            <!-- CABEÇALHO -->
+            <div class="cabecalho-pagina">
+                <h2>
+                    <i class="fas fa-bell"></i>
+                    Central de Notificações
+                </h2>
+                <div class="acoes-pagina">
+                    <button class="botao-secundario" onclick="marcarTodasLidas()">
+                        <i class="fas fa-check-double"></i>
+                        Marcar todas como lidas
+                    </button>
+                    <button class="botao-perigo" onclick="confirmarLimparTodas()">
+                        <i class="fas fa-trash-alt"></i>
+                        Limpar todas
+                    </button>
+                </div>
+            </div>
+
+            <!-- FILTROS -->
+            <div class="secao-filtros">
+                <div class="grade-filtros">
+                    <div class="item-filtro">
+                        <label><i class="fas fa-filter"></i> Tipo</label>
+                        <select class="selecao-form" id="filtroTipo" onchange="filtrarNotificacoes()">
+                            <option value="todas">Todas as notificações</option>
+                            <option value="sistema">Sistema</option>
+                            <option value="contacto">Contactos</option>
+                            <option value="noticia">Notícias</option>
+                            <option value="curso">Cursos</option>
+                            <option value="usuario">Utilizadores</option>
+                        </select>
+                    </div>
+                    <div class="item-filtro">
+                        <label><i class="fas fa-circle"></i> Estado</label>
+                        <select class="selecao-form" id="filtroEstado" onchange="filtrarNotificacoes()">
+                            <option value="todas">Todas</option>
+                            <option value="nao-lida">Não lidas</option>
+                            <option value="lida">Lidas</option>
+                        </select>
+                    </div>
+                    <div class="item-filtro">
+                        <label><i class="fas fa-calendar"></i> Período</label>
+                        <select class="selecao-form" id="filtroPeriodo" onchange="filtrarNotificacoes()">
+                            <option value="todos">Todos</option>
+                            <option value="hoje">Hoje</option>
+                            <option value="semana">Esta semana</option>
+                            <option value="mes">Este mês</option>
+                        </select>
+                    </div>
+                    <div class="item-filtro">
+                        <label><i class="fas fa-sort"></i> Ordenar por</label>
+                        <select class="selecao-form" id="filtroOrdenar" onchange="ordenarNotificacoes()">
+                            <option value="recentes">Mais recentes</option>
+                            <option value="antigas">Mais antigas</option>
+                            <option value="prioridade">Prioridade</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+
+            <!-- AÇÕES EM MASSA -->
+            <div class="acoes-massa">
+                <button class="botao-secundario" onclick="selecionarTodas()">
+                    <i class="fas fa-check-square"></i>
+                    Selecionar todas
+                </button>
+                <button class="botao-secundario" onclick="desmarcarTodas()">
+                    <i class="fas fa-square"></i>
+                    Desmarcar todas
+                </button>
+                <button class="botao-primario" onclick="marcarSelecionadasLidas()">
+                    <i class="fas fa-check-circle"></i>
+                    Marcar selecionadas como lidas
+                </button>
+                <button class="botao-perigo" onclick="eliminarSelecionadas()">
+                    <i class="fas fa-trash-alt"></i>
+                    Eliminar selecionadas
+                </button>
+            </div>
+
+            <!-- LISTA DE NOTIFICAÇÕES -->
+            <div class="lista-notificacoes-completa" id="listaNotificacoes">
+                <!-- Notificação 1 - Sistema -->
+                <div class="notificacao-item nao-lida" data-id="1" data-tipo="sistema" data-estado="nao-lida" data-prioridade="alta" data-data="2024-02-10T14:30:00" onclick="selecionarNotificacao(event, this)">
+                    <div class="notificacao-checkbox">
+                        <input type="checkbox" class="checkbox-notificacao" onclick="event.stopPropagation()">
+                    </div>
+                    <div class="notificacao-icone sistema">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <div class="notificacao-conteudo">
+                        <div class="notificacao-cabecalho">
+                            <span class="notificacao-titulo">Atualização de Segurança</span>
+                            <span class="notificacao-tempo">
+                                <i class="far fa-clock"></i> há 5 minutos
+                            </span>
+                        </div>
+                        <p class="notificacao-mensagem">
+                            O sistema foi atualizado para a versão 2.5.0. Foram implementadas melhorias de segurança e correções de bugs.
+                        </p>
+                        <div class="notificacao-meta">
+                            <span><i class="fas fa-tag"></i> Sistema</span>
+                            <span><i class="fas fa-exclamation-triangle" style="color: #dc3545;"></i> Prioridade Alta</span>
+                        </div>
+                    </div>
+                    <div class="notificacao-acoes">
+                        <button class="botao-icone" title="Marcar como lida" onclick="marcarComoLida(1, event)">
+                            <i class="fas fa-check"></i>
+                        </button>
+                        <button class="botao-icone" title="Ver detalhes" onclick="abrirModalNotificacao(1, event)">
+                            <i class="fas fa-eye"></i>
+                        </button>
+                        <button class="botao-icone vermelho" title="Eliminar" onclick="eliminarNotificacao(1, event)">
+                            <i class="fas fa-trash"></i>
+                        </button>
+                    </div>
+                    <div class="prioridade-indicador prioridade-alta"></div>
+                </div>
+
+                <!-- Notificação 2 - Contacto -->
+                <div class="notificacao-item nao-lida" data-id="2" data-tipo="contacto" data-estado="nao-lida" data-prioridade="media" data-data="2024-02-10T11:20:00" onclick="selecionarNotificacao(event, this)">
+                    <div class="notificacao-checkbox">
+                        <input type="checkbox" class="checkbox-notificacao" onclick="event.stopPropagation()">
+                    </div>
+                    <div class="notificacao-icone contacto">
+                        <i class="fas fa-envelope"></i>
+                    </div>
+                    <div class="notificacao-conteudo">
+                        <div class="notificacao-cabecalho">
+                            <span class="notificacao-titulo">Nova mensagem de contacto</span>
+                            <span class="notificacao-tempo">
+                                <i class="far fa-clock"></i> há 3 horas
+                            </span>
+                        </div>
+                        <p class="notificacao-mensagem">
+                            Maria Silva enviou uma mensagem solicitando informações sobre o curso de Informática.
+                        </p>
+                        <div class="notificacao-meta">
+                            <span><i class="fas fa-tag"></i> Contacto</span>
+                            <span><i class="fas fa-user"></i> Maria Silva</span>
+                            <span><i class="fas fa-exclamation-triangle" style="color: #ffc107;"></i> Prioridade Média</span>
+                        </div>
+                    </div>
+                    <div class="notificacao-acoes">
+                        <button class="botao-icone" title="Marcar como lida" onclick="marcarComoLida(2, event)">
+                            <i class="fas fa-check"></i>
+                        </button>
+                        <button class="botao-icone" title="Ver detalhes" onclick="abrirModalNotificacao(2, event)">
+                            <i class="fas fa-eye"></i>
+                        </button>
+                        <button class="botao-icone verde" title="Responder" onclick="responderContacto(2, event)">
+                            <i class="fas fa-reply"></i>
+                        </button>
+                        <button class="botao-icone vermelho" title="Eliminar" onclick="eliminarNotificacao(2, event)">
+                            <i class="fas fa-trash"></i>
+                        </button>
+                    </div>
+                    <div class="prioridade-indicador prioridade-media"></div>
+                </div>
+
+                <!-- Notificação 3 - Notícia -->
+                <div class="notificacao-item nao-lida" data-id="3" data-tipo="noticia" data-estado="nao-lida" data-prioridade="baixa" data-data="2024-02-10T09:45:00" onclick="selecionarNotificacao(event, this)">
+                    <div class="notificacao-checkbox">
+                        <input type="checkbox" class="checkbox-notificacao" onclick="event.stopPropagation()">
+                    </div>
+                    <div class="notificacao-icone noticia">
+                        <i class="fas fa-newspaper"></i>
+                    </div>
+                    <div class="notificacao-conteudo">
+                        <div class="notificacao-cabecalho">
+                            <span class="notificacao-titulo">Nova notícia publicada</span>
+                            <span class="notificacao-tempo">
+                                <i class="far fa-clock"></i> há 5 horas
+                            </span>
+                        </div>
+                        <p class="notificacao-mensagem">
+                            A notícia "IPIKK abre inscrições para o ano letivo 2024" foi publicada e está visível no site.
+                        </p>
+                        <div class="notificacao-meta">
+                            <span><i class="fas fa-tag"></i> Notícia</span>
+                            <span><i class="fas fa-eye"></i> 45 visualizações</span>
+                            <span><i class="fas fa-exclamation-triangle" style="color: #28a745;"></i> Prioridade Baixa</span>
+                        </div>
+                    </div>
+                    <div class="notificacao-acoes">
+                        <button class="botao-icone" title="Marcar como lida" onclick="marcarComoLida(3, event)">
+                            <i class="fas fa-check"></i>
+                        </button>
+                        <button class="botao-icone" title="Ver detalhes" onclick="abrirModalNotificacao(3, event)">
+                            <i class="fas fa-eye"></i>
+                        </button>
+                        <button class="botao-icone" title="Editar notícia" onclick="editarNoticia(3, event)">
+                            <i class="fas fa-edit"></i>
+                        </button>
+                        <button class="botao-icone vermelho" title="Eliminar" onclick="eliminarNotificacao(3, event)">
+                            <i class="fas fa-trash"></i>
+                        </button>
+                    </div>
+                    <div class="prioridade-indicador prioridade-baixa"></div>
+                </div>
+
+                <!-- Notificação 4 - Curso (já lida) -->
+                <div class="notificacao-item" data-id="4" data-tipo="curso" data-estado="lida" data-prioridade="media" data-data="2024-02-09T16:20:00" onclick="selecionarNotificacao(event, this)">
+                    <div class="notificacao-checkbox">
+                        <input type="checkbox" class="checkbox-notificacao" onclick="event.stopPropagation()">
+                    </div>
+                    <div class="notificacao-icone curso">
+                        <i class="fas fa-graduation-cap"></i>
+                    </div>
+                    <div class="notificacao-conteudo">
+                        <div class="notificacao-cabecalho">
+                            <span class="notificacao-titulo">Curso atualizado</span>
+                            <span class="notificacao-tempo">
+                                <i class="far fa-clock"></i> ontem às 16:20
+                            </span>
+                        </div>
+                        <p class="notificacao-mensagem">
+                            O curso "Técnico de Obras de Construção Civil" foi atualizado com novo plano curricular.
+                        </p>
+                        <div class="notificacao-meta">
+                            <span><i class="fas fa-tag"></i> Curso</span>
+                            <span><i class="fas fa-book"></i> Construção Civil</span>
+                        </div>
+                    </div>
+                    <div class="notificacao-acoes">
+                        <button class="botao-icone" title="Ver detalhes" onclick="abrirModalNotificacao(4, event)">
+                            <i class="fas fa-eye"></i>
+                        </button>
+                        <button class="botao-icone" title="Editar curso" onclick="editarCurso(4, event)">
+                            <i class="fas fa-edit"></i>
+                        </button>
+                        <button class="botao-icone vermelho" title="Eliminar" onclick="eliminarNotificacao(4, event)">
+                            <i class="fas fa-trash"></i>
+                        </button>
+                    </div>
+                    <div class="prioridade-indicador prioridade-media"></div>
+                </div>
+
+                <!-- Notificação 5 - Utilizador -->
+                <div class="notificacao-item" data-id="5" data-tipo="usuario" data-estado="lida" data-prioridade="baixa" data-data="2024-02-08T10:15:00" onclick="selecionarNotificacao(event, this)">
+                    <div class="notificacao-checkbox">
+                        <input type="checkbox" class="checkbox-notificacao" onclick="event.stopPropagation()">
+                    </div>
+                    <div class="notificacao-icone usuario">
+                        <i class="fas fa-user-plus"></i>
+                    </div>
+                    <div class="notificacao-conteudo">
+                        <div class="notificacao-cabecalho">
+                            <span class="notificacao-titulo">Novo utilizador registado</span>
+                            <span class="notificacao-tempo">
+                                <i class="far fa-clock"></i> 08/02/2024
+                            </span>
+                        </div>
+                        <p class="notificacao-mensagem">
+                            O utilizador "Ana Oliveira" foi registado como Editora de Conteúdo.
+                        </p>
+                        <div class="notificacao-meta">
+                            <span><i class="fas fa-tag"></i> Utilizador</span>
+                            <span><i class="fas fa-user-tag"></i> Editor</span>
+                        </div>
+                    </div>
+                    <div class="notificacao-acoes">
+                        <button class="botao-icone" title="Ver detalhes" onclick="abrirModalNotificacao(5, event)">
+                            <i class="fas fa-eye"></i>
+                        </button>
+                        <button class="botao-icone" title="Editar utilizador" onclick="editarUtilizador(5, event)">
+                            <i class="fas fa-user-edit"></i>
+                        </button>
+                        <button class="botao-icone vermelho" title="Eliminar" onclick="eliminarNotificacao(5, event)">
+                            <i class="fas fa-trash"></i>
+                        </button>
+                    </div>
+                    <div class="prioridade-indicador prioridade-baixa"></div>
+                </div>
+
+                <!-- Notificação 6 - Sistema -->
+                <div class="notificacao-item" data-id="6" data-tipo="sistema" data-estado="lida" data-prioridade="media" data-data="2024-02-07T09:00:00" onclick="selecionarNotificacao(event, this)">
+                    <div class="notificacao-checkbox">
+                        <input type="checkbox" class="checkbox-notificacao" onclick="event.stopPropagation()">
+                    </div>
+                    <div class="notificacao-icone sistema">
+                        <i class="fas fa-database"></i>
+                    </div>
+                    <div class="notificacao-conteudo">
+                        <div class="notificacao-cabecalho">
+                            <span class="notificacao-titulo">Backup concluído</span>
+                            <span class="notificacao-tempo">
+                                <i class="far fa-clock"></i> 07/02/2024
+                            </span>
+                        </div>
+                        <p class="notificacao-mensagem">
+                            Backup automático da base de dados concluído com sucesso. Tamanho: 245MB.
+                        </p>
+                        <div class="notificacao-meta">
+                            <span><i class="fas fa-tag"></i> Sistema</span>
+                            <span><i class="fas fa-download"></i> Backup</span>
+                        </div>
+                    </div>
+                    <div class="notificacao-acoes">
+                        <button class="botao-icone" title="Ver detalhes" onclick="abrirModalNotificacao(6, event)">
+                            <i class="fas fa-eye"></i>
+                        </button>
+                        <button class="botao-icone" title="Descarregar backup" onclick="descarregarBackup(6, event)">
+                            <i class="fas fa-download"></i>
+                        </button>
+                        <button class="botao-icone vermelho" title="Eliminar" onclick="eliminarNotificacao(6, event)">
+                            <i class="fas fa-trash"></i>
+                        </button>
+                    </div>
+                    <div class="prioridade-indicador prioridade-media"></div>
+                </div>
+            </div>
+
+            <!-- PAGINAÇÃO -->
+            <div class="paginacao">
+                <div class="paginacao-pular" onclick="irParaPagina('anterior')">
+                    <i class="fas fa-chevron-left"></i>
+                </div>
+                <div class="paginacao-item ativo" onclick="irParaPagina(1)">1</div>
+                <div class="paginacao-item" onclick="irParaPagina(2)">2</div>
+                <div class="paginacao-item" onclick="irParaPagina(3)">3</div>
+                <div class="paginacao-item" onclick="irParaPagina(4)">4</div>
+                <div class="paginacao-item" onclick="irParaPagina(5)">5</div>
+                <div class="paginacao-pular" onclick="irParaPagina('proximo')">
+                    <i class="fas fa-chevron-right"></i>
+                </div>
+            </div>
+
+            <!-- INFO RODAPÉ -->
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 20px; padding: 10px; background: var(--light-gray); border-radius: var(--border-radius);">
+                <span><i class="fas fa-bell"></i> Total: <strong>24 notificações</strong></span>
+                <span><i class="fas fa-circle" style="color: #dc3545;"></i> Não lidas: <strong>3</strong></span>
+                <span><i class="fas fa-circle" style="color: #28a745;"></i> Lidas: <strong>21</strong></span>
+            </div>
+        </div>
+    </main>
+
+    <!-- MODAL DE DETALHES DA NOTIFICAÇÃO -->
+    <div class="modal-fundo" id="modalNotificacao">
+        <div class="modal-conteudo">
+            <div class="modal-cabecalho">
+                <h3><i class="fas fa-bell"></i> Detalhes da Notificação</h3>
+                <button class="modal-fechar" onclick="fecharModal()">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="modal-corpo" id="modalCorpo">
+                <!-- Conteúdo carregado via JavaScript -->
+            </div>
+            <div class="modal-rodape">
+                <button class="botao-secundario" onclick="fecharModal()">Fechar</button>
+                <button class="botao-primario" id="modalAcao">Marcar como lida</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- MODAL DE CONFIRMAÇÃO -->
+    <div class="modal-fundo" id="modalConfirmacao">
+        <div class="modal-conteudo" style="max-width: 400px;">
+            <div class="modal-cabecalho" style="background: var(--danger);">
+                <h3><i class="fas fa-exclamation-triangle"></i> Confirmar</h3>
+                <button class="modal-fechar" onclick="fecharModalConfirmacao()">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="modal-corpo" id="modalConfirmacaoCorpo">
+                <p>Tem certeza que deseja eliminar todas as notificações?</p>
+            </div>
+            <div class="modal-rodape">
+                <button class="botao-secundario" onclick="fecharModalConfirmacao()">Cancelar</button>
+                <button class="botao-perigo" id="modalConfirmacaoAcao">Confirmar</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- JavaScript -->
+    <script src="../assets/js/admin-sidebar-header.js"></script>
+    <script src="../assets/js/admin-notificacoes.js"></script>
+</body>
+</html>

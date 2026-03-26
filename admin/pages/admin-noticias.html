@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Área Restrita - Depoimentos</title>
+    
+    <!-- Fontes -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="stylesheet" href="../area-publica/ESTILO-ICONS/css/all.min.css">
+    
+    <!-- Favicon -->
+    <link href="../area-publica/foto/ipikk_new_logo.png" rel="icon">
+
+    <!-- CSS da Área Restrita (Sidebar e Header) -->
+    <link rel="stylesheet" href="../assets/css/admin-sidebar-header.css">
+    
+    <!-- CSS específico da página de notícias -->
+    <link rel="stylesheet" href="../assets/css/admin-noticias.css">
+
+    <style>
+        button.menu-toggle{
+            border: none;
+        }
+    </style>
+</head>
+<body>
+    <!-- ===== SIDEBAR - MENU LATERAL FIXO ===== -->
+    <aside class="sidebar" id="sidebar">
+        <div class="cabecalho-sidebar">
+            <div class="logo">
+                <img src="../area-publica/foto/ipikk_new_logo.png" alt="IPIKK Logo">
+            </div>
+            <p class="subtitulo">ÁREA RESTRITA</p>
+        </div>
+
+        <nav class="navegacao-sidebar">
+            <ul>
+                <li>
+                    <a href="admin-dashboard.html">
+                        <i class="fas fa-chart-line"></i>
+                        <span>Dashboard</span>
+                    </a>
+                </li>
+                <li class="ativo">
+                    <a href="admin-noticias.html">
+                        <i class="fas fa-newspaper"></i>
+                        <span>Notícias</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="admin-cursos.html">
+                        <i class="fas fa-graduation-cap"></i>
+                        <span>Cursos</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="admin-contactos.html">
+                        <i class="fas fa-envelope"></i>
+                        <span>Contactos</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="admin-utilizadores.html">
+                        <i class="fas fa-users"></i>
+                        <span>Utilizadores</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="admin-configuracoes.html">
+                        <i class="fas fa-cog"></i>
+                        <span>Configurações</span>
+                    </a>
+                </li>
+                <li class="ativo"><a href="admin-inscricoes.html"><i class="fas fa-file-signature"></i><span>Inscrições</span></a></li>
+                <li>
+                    <a href="admin-depoimentos.html">
+                        <i class="fas fa-quote-right"></i>
+                        <span>Depoimentos</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="admin-notificacoes.html">
+                        <i class="fas fa-bell"></i>
+                        <span>Notificações</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="admin-perfil.html">
+                        <i class="fas fa-user"></i>
+                        <span>Meu Perfil</span>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+
+        <div class="rodape-sidebar">
+            <a href="../area-publica/area-restrita.html" class="botao-sair">
+                <i class="fas fa-sign-out-alt"></i>
+                <span>Sair</span>
+            </a>
+        </div>
+    </aside>
+    
+<!-- ===== CONTEÚDO PRINCIPAL ===== -->
+<main class="conteudo-principal">
+            <header class="barra-superior" id="barraSuperior">
+            <div class="esquerda-barra">
+                <h1 class="titulo-pagina" style="color: #003072;">Noticias</h1>
+            </div>
+                <button class="botao-primario" id="botaoNovaNoticia">
+                    <i class="fas fa-plus"></i>
+                    <span>Nova Notícia</span>
+                </button>
+    </header>
+    <!-- ===== CONTEÚDO DA PÁGINA ===== -->
+        
+    <div class="conteudo-pagina">
+        <!-- ===== FILTROS ===== -->
+        <section class="secao-filtros">
+            <h2 class="titulo-secao"><i class="fas fa-search"></i> Buscar & Filtrar</h2>
+            <div class="grade-filtros">
+                <div class="item-filtro largura-total">
+                    <div class="caixa-busca">
+                        <i class="fas fa-search"></i>
+                        <input type="text" id="campoBusca" placeholder="Buscar por título...">
+                    </div>
+                </div>
+                
+                <div class="item-filtro">
+                    <label>Estado</label>
+                    <select id="filtroEstado" class="selecao-form">
+                        <option value="">Todos</option>
+                        <option value="publicada">Publicadas</option>
+                        <option value="rascunho">Rascunhos</option>
+                        <option value="arquivada">Arquivadas</option>
+                    </select>
+                </div>
+                
+                <div class="item-filtro">
+                    <label>Categoria</label>
+                    <select id="filtroCategoria" class="selecao-form">
+                        <option value="">Todas</option>
+                        <option value="DESTAQUE">Destaque</option>
+                        <option value="CURSOS">Cursos</option>
+                        <option value="EVENTOS">Eventos</option>
+                        <option value="PARCERIA">Parceria</option>
+                        <option value="INSTITUCIONAL">Institucional</option>
+                    </select>
+                </div>
+                
+                <div class="item-filtro">
+                    <label>Data Inicial</label>
+                    <input type="date" id="filtroDataInicio" class="entrada-form">
+                </div>
+                
+                <div class="item-filtro">
+                    <label>Data Final</label>
+                    <input type="date" id="filtroDataFim" class="entrada-form">
+                </div>
+                
+                <div class="item-filtro">
+                    <label>Ordenar por</label>
+                    <select id="filtroOrdenar" class="selecao-form">
+                        <option value="data-desc">Data (Mais recentes)</option>
+                        <option value="data-asc">Data (Mais antigas)</option>
+                        <option value="titulo-asc">Título (A-Z)</option>
+                        <option value="titulo-desc">Título (Z-A)</option>
+                    </select>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== LISTA DE NOTÍCIAS ===== -->
+        <section class="secao-conteudo">
+            <div class="cabecalho-secao">
+                <h2 class="titulo-secao"><i class="fas fa-list"></i> Lista de Notícias <span class="contador" id="contadorNoticias">(7 encontradas)</span></h2>
+            </div>
+            
+            <div class="tabela-responsiva">
+                <table class="tabela-dados" id="tabelaNoticias">
+                    <thead>
+                        <tr>
+                            <th width="40"><input type="checkbox" id="selecionarTodos" class="checkbox-linha"></th>
+                            <th width="60">ID</th>
+                            <th>TÍTULO</th>
+                            <th width="120">DATA</th>
+                            <th width="120">ESTADO</th>
+                            <th width="150">AÇÕES</th>
+                        </tr>
+                    </thead>
+                    <tbody id="corpoTabelaNoticias">
+                        <!-- Será preenchido via JavaScript -->
+                    </tbody>
+                </table>
+            </div>
+            
+            <!-- ===== PAGINAÇÃO ===== -->
+            <div class="paginacao">
+                <div class="informacoes-pagina">
+                    <button class="botao-pagina" id="botaoAnterior" disabled>
+                        <i class="fas fa-chevron-left"></i> Anterior
+                    </button>
+                    <span class="texto-pagina">Página <strong id="paginaAtual">1</strong> de <strong id="totalPaginas">1</strong></span>
+                    <button class="botao-pagina" id="botaoProximo" disabled>
+                        Próximo <i class="fas fa-chevron-right"></i>
+                    </button>
+                </div>
+                <div class="seletor-pagina">
+                    <select id="itensPorPagina" class="selecao-form">
+                        <option value="10">10 por página</option>
+                        <option value="25">25 por página</option>
+                        <option value="50">50 por página</option>
+                    </select>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== RESUMO DE NOTÍCIAS ===== -->
+        <section class="secao-conteudo">
+            <h2 class="titulo-secao"><i class="fas fa-chart-pie"></i> Resumo de Notícias</h2>
+            <div class="grade-resumo">
+                <div class="item-resumo">
+                    <span class="rotulo-resumo">Total:</span>
+                    <span class="valor-resumo" id="resumoTotal">0</span>
+                </div>
+                <div class="item-resumo">
+                    <span class="rotulo-resumo">Publicadas:</span>
+                    <span class="valor-resumo" id="resumoPublicadas">0</span>
+                </div>
+                <div class="item-resumo">
+                    <span class="rotulo-resumo">Rascunhos:</span>
+                    <span class="valor-resumo" id="resumoRascunhos">0</span>
+                </div>
+                <div class="item-resumo">
+                    <span class="rotulo-resumo">Arquivadas:</span>
+                    <span class="valor-resumo" id="resumoArquivadas">0</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== AÇÕES EM MASSA ===== -->
+        <section class="secao-conteudo">
+            <h2 class="titulo-secao"><i class="fas fa-bolt"></i> Ações em Massa</h2>
+            <div class="acoes-massa">
+                <button class="botao-acao-massa" id="botaoSelecionarTodas">
+                    <i class="fas fa-check-square"></i> Selecionar Todas
+                </button>
+                <button class="botao-acao-massa botao-perigo" id="botaoEliminarSelecionadas" disabled>
+                    <i class="fas fa-trash"></i> Eliminar Selecionadas
+                </button>
+                <button class="botao-acao-massa" id="botaoExportarCSV">
+                    <i class="fas fa-file-export"></i> Exportar CSV
+                </button>
+                <button class="botao-acao-massa" id="botaoPublicarSelecionadas" disabled>
+                    <i class="fas fa-paper-plane"></i> Publicar Selecionadas
+                </button>
+            </div>
+        </section>
+    </div>
+</main>
+
+<!-- ===== MODAL NOVA/EDITAR NOTÍCIA ===== -->
+<div id="modalNoticia" class="modal">
+    <div class="conteudo-modal">
+        <div class="cabecalho-modal">
+            <div class="esquerda-cabecalho">
+                <div class="icone-cabecalho"><i class="fas fa-newspaper"></i></div>
+                <div class="texto-cabecalho">
+                    <h2 id="modalTitulo">Nova Notícia</h2>
+                    <p id="modalSubtitulo">Preencha os dados da notícia</p>
+                </div>
+            </div>
+            <button class="botao-fechar" onclick="fecharModalNoticia()"><i class="fas fa-times"></i></button>
+        </div>
+
+        <div class="corpo-modal">
+            <form id="formNoticia" onsubmit="return salvarNoticia(event)">
+                <input type="hidden" id="noticiaId">
+
+                <!-- INFORMAÇÕES BÁSICAS -->
+                <div class="secao-form">
+                    <h3><i class="fas fa-info-circle"></i> Informações Básicas</h3>
+                    
+                    <div class="grupo-form">
+                        <label><i class="fas fa-heading"></i> Título da Notícia *</label>
+                        <input type="text" id="noticiaTitulo" class="campo-form" required placeholder="Ex: IPIKK abre inscrições para 2024">
+                    </div>
+
+                    <div class="linha-form">
+                        <div class="grupo-form">
+                            <label><i class="fas fa-tag"></i> Categoria *</label>
+                            <select id="noticiaCategoria" class="campo-form" required>
+                                <option value="">Selecione...</option>
+                                <option value="DESTAQUE">Destaque</option>
+                                <option value="CURSOS">Cursos</option>
+                                <option value="EVENTOS">Eventos</option>
+                                <option value="PARCERIA">Parceria</option>
+                                <option value="INSTITUCIONAL">Institucional</option>
+                            </select>
+                        </div>
+
+                        <div class="grupo-form">
+                            <label><i class="fas fa-calendar"></i> Data de Publicação *</label>
+                            <input type="date" id="noticiaData" class="campo-form" required>
+                        </div>
+                    </div>
+
+                    <div class="grupo-form">
+                        <label><i class="fas fa-align-left"></i> Resumo (para listagens) *</label>
+                        <textarea id="noticiaResumo" class="campo-form" rows="2" maxlength="200" required placeholder="Resumo curto que aparece no slider..."></textarea>
+                        <div class="contador-caracteres" id="contadorResumo">0 / 200</div>
+                    </div>
+
+                    <div class="grupo-form">
+                        <label><i class="fas fa-align-justify"></i> Conteúdo Completo *</label>
+                        <textarea id="noticiaConteudo" class="campo-form campo-alto" rows="6" required placeholder="Texto completo da notícia..."></textarea>
+                    </div>
+                </div>
+
+                <!-- MÍDIA -->
+                <div class="secao-form">
+                    <h3><i class="fas fa-image"></i> Mídia</h3>
+
+                    <div class="linha-form">
+                        <div class="grupo-form">
+                            <label><i class="fas fa-play-circle"></i> Tipo de Mídia</label>
+                            <select id="noticiaTipoMidia" class="campo-form">
+                                <option value="imagem">📷 Imagem</option>
+                                <option value="video">🎥 Vídeo</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div id="secaoImagem">
+                        <div class="grupo-form">
+                            <label><i class="fas fa-cloud-upload-alt"></i> Upload de Imagem</label>
+                            <div class="area-upload" onclick="document.getElementById('inputImagem').click()">
+                                <i class="fas fa-cloud-upload-alt"></i>
+                                <p><strong>Clique para fazer upload</strong></p>
+                                <small>Formatos: JPG, PNG | Tamanho: 1200x600px</small>
+                            </div>
+                            <input type="file" id="inputImagem" accept="image/*" style="display: none;">
+                            <div class="previa-imagem" id="previaImagem">
+                                <div>
+                                    <strong id="nomeImagem"></strong><br>
+                                    <img id="miniaturaImagem" alt="Preview">
+                                </div>
+                                <button type="button" class="botao-icone" onclick="removerImagemNoticia()"><i class="fas fa-trash"></i></button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div id="secaoVideo" style="display: none;">
+                        <div class="grupo-form">
+                            <label><i class="fas fa-link"></i> URL do Vídeo</label>
+                            <input type="url" id="noticiaVideoUrl" class="campo-form" placeholder="https://www.youtube.com/watch?v=...">
+                        </div>
+                    </div>
+
+                    <div class="grupo-form">
+                        <label><i class="fas fa-file-image"></i> Texto Alternativo (alt)</label>
+                        <input type="text" id="noticiaAlt" class="campo-form" placeholder="Descrição da imagem para acessibilidade">
+                    </div>
+                </div>
+
+                <!-- AUTORIA -->
+                <div class="secao-form">
+                    <h3><i class="fas fa-user"></i> Autoria</h3>
+
+                    <div class="linha-form">
+                        <div class="grupo-form">
+                            <label><i class="fas fa-user-circle"></i> Autor *</label>
+                            <input type="text" id="noticiaAutor" class="campo-form" required placeholder="Ex: Gabinete de Comunicação">
+                        </div>
+
+                        <div class="grupo-form">
+                            <label><i class="fas fa-eye"></i> Visualizações</label>
+                            <input type="number" id="noticiaVisualizacoes" class="campo-form" value="0" min="0">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- TAGS -->
+                <div class="secao-form">
+                    <h3><i class="fas fa-hashtag"></i> Tags</h3>
+
+                    <div class="grupo-form">
+                        <label>Tags (separadas por vírgula)</label>
+                        <input type="text" id="noticiaTags" class="campo-form" placeholder="Ex: Inscrições, Cursos, 2024">
+                    </div>
+                </div>
+
+                <!-- CONFIGURAÇÕES -->
+                <div class="secao-form">
+                    <h3><i class="fas fa-cog"></i> Configurações</h3>
+
+                    <div class="linha-form-3">
+                        <div class="grupo-form">
+                            <label><i class="fas fa-toggle-on"></i> Estado</label>
+                            <select id="noticiaEstado" class="campo-form">
+                                <option value="publicada">Publicada</option>
+                                <option value="rascunho">Rascunho</option>
+                                <option value="arquivada">Arquivada</option>
+                            </select>
+                        </div>
+
+                        <div class="grupo-form">
+                            <label><i class="fas fa-star"></i> Destaque Principal</label>
+                            <div class="container-toggle">
+                                <label class="toggle">
+                                    <input type="checkbox" id="noticiaDestaquePrincipal">
+                                    <span class="slider"></span>
+                                </label>
+                                <span style="font-size: 13px;">Destacar</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- AÇÕES -->
+                <div class="acoes-form">
+                    <button type="button" class="botao-cancelar" onclick="fecharModalNoticia()">
+                        <i class="fas fa-times"></i> Cancelar
+                    </button>
+                    <button type="submit" class="botao-salvar">
+                        <i class="fas fa-save"></i> Salvar Notícia
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+    <!-- JavaScript -->
+    <script src="../assets/js/admin-sidebar-header.js"></script>
+    <script src="../assets/js/admin-noticias.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,295 @@
+/* === VARIÁVEIS GLOBAIS === */
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        :root { 
+            --primario: #003072; 
+            --secundario: #0a9396; 
+            --claro: #f5f7fa; 
+            --medio: #e0e4e8; 
+            --escuro: #2c3e50; 
+            --branco: #fff; 
+            --sucesso: #28a745; 
+            --perigo: #dc3545; 
+            --aviso: #ffc107; 
+        }
+        
+        body { 
+            font-family: 'Montserrat', sans-serif; 
+            color: var(--escuro); 
+            background: var(--claro); 
+        }
+        
+        /* === CONTEÚDO PRINCIPAL === */
+        .conteudo-principal { 
+            margin-left: 280px; min-height: 100vh; 
+        }
+        
+        .barra-topo { 
+            height: 70px; background: var(--branco); 
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1); 
+            display: flex; align-items: center; 
+            justify-content: space-between; padding: 0 30px; 
+            position: sticky; top: 0; z-index: 999; 
+        }
+        
+        .conteudo { 
+            padding: 30px; 
+            display: grid; grid-template-columns: 1fr 300px; 
+            gap: 30px; 
+        }
+        
+        .area-principal { 
+            display: flex; flex-direction: column; gap: 25px; 
+        }
+        
+        .secao { 
+            background: var(--branco); border-radius: 8px; 
+            padding: 25px; box-shadow: 0 2px 10px rgba(0,0,0,0.1); 
+        }
+        
+        .titulo-secao { 
+            font-size: 18px; margin-bottom: 20px; 
+            display: flex; align-items: center; gap: 10px; 
+            padding-bottom: 15px; border-bottom: 2px solid var(--medio); 
+        }
+        
+        /* === PERFIL === */
+        .cabecalho-perfil { 
+            display: grid; grid-template-columns: 200px 1fr; gap: 30px; 
+        }
+        
+        .secao-foto { 
+            text-align: center; 
+        }
+        
+        .foto-perfil { 
+            width: 150px; height: 150px; border-radius: 50%; 
+            background: var(--claro); display: flex; align-items: center; 
+            justify-content: center; font-size: 60px; color: var(--primario); 
+            margin: 0 auto 15px; border: 4px solid var(--medio); 
+        }
+        
+        .acoes-foto { 
+            display: flex; flex-direction: column; gap: 10px; 
+        }
+        
+        /* === FORMULÁRIOS === */
+        .grupo-form { 
+            margin-bottom: 20px; 
+        }
+        
+        .grupo-form label { 
+            display: block; font-weight: 600; margin-bottom: 8px; font-size: 14px; 
+        }
+        
+        .campo-form, .selecao-form, .area-texto { 
+            width: 100%; padding: 12px 15px; 
+            border: 2px solid var(--medio); border-radius: 8px; font-size: 14px; 
+        }
+        
+        .campo-form:focus, .selecao-form:focus, .area-texto:focus { 
+            outline: none; border-color: var(--secundario); 
+            box-shadow: 0 0 0 3px rgba(10,147,150,0.1); 
+        }
+        
+        .area-texto { 
+            min-height: 100px; resize: vertical; 
+        }
+        
+        .contador-caracteres { 
+            font-size: 12px; color: #666; margin-top: 5px; 
+        }
+        
+        .linha-form { 
+            display: grid; grid-template-columns: repeat(2, 1fr); gap: 15px; 
+        }
+        
+        .item-info { 
+            display: flex; justify-content: space-between; align-items: center; 
+            padding: 15px; background: var(--claro); border-radius: 8px; 
+            margin-bottom: 10px; 
+        }
+        
+        /* === BOTÕES === */
+        .btn { 
+            display: inline-flex; align-items: center; gap: 8px; 
+            padding: 10px 20px; border: none; border-radius: 8px; 
+            font-weight: 600; cursor: pointer; transition: 0.3s; 
+        }
+        
+        .btn-primario { 
+            background: var(--secundario); color: var(--branco); 
+        }
+        
+        .btn-secundario { 
+            background: var(--medio); color: var(--escuro); 
+        }
+        
+        .btn-perigo { 
+            background: var(--perigo); color: var(--branco); 
+        }
+        
+        .btn:hover { 
+            transform: translateY(-2px); box-shadow: 0 5px 15px rgba(0,0,0,0.2); 
+        }
+        
+        .rodape-acoes { 
+            display: flex; justify-content: flex-end; gap: 15px; 
+            margin-top: 30px; padding-top: 20px; border-top: 2px solid var(--medio); 
+        }
+        
+        /* === WIDGET LATERAL === */
+        .widget-lateral { 
+            background: var(--branco); border-radius: 8px; padding: 20px; 
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1); position: sticky; top: 100px; 
+        }
+        
+        .titulo-widget { 
+            font-size: 16px; font-weight: 600; margin-bottom: 15px; 
+            display: flex; align-items: center; gap: 8px; color: var(--primario); 
+        }
+        
+        .item-widget { 
+            display: flex; align-items: center; gap: 10px; 
+            padding: 10px 0; border-bottom: 1px solid var(--claro); 
+            font-size: 14px; 
+        }
+        
+        .item-widget:last-child { 
+            border-bottom: none; 
+        }
+        
+        .item-widget i { 
+            color: var(--secundario); width: 20px; 
+        }
+        
+        /* === FORÇA DA SENHA === */
+        .forca-senha { 
+            height: 8px; background: var(--claro); 
+            border-radius: 4px; margin: 10px 0; overflow: hidden; 
+        }
+        
+        .barra-forca { 
+            height: 100%; background: var(--sucesso); transition: 0.3s; 
+        }
+        
+        .requisito { 
+            display: flex; align-items: center; gap: 8px; 
+            margin: 8px 0; font-size: 14px; 
+        }
+        
+        .requisito i { 
+            color: var(--sucesso); 
+        }
+        
+        .requisito.pendente i { 
+            color: var(--medio); 
+        }
+        
+        /* === CHECKBOX === */
+        .grupo-checkbox { 
+            display: flex; align-items: center; gap: 10px; margin: 10px 0; 
+        }
+        
+        .grupo-checkbox input[type="checkbox"] { 
+            width: 18px; height: 18px; cursor: pointer; 
+        }
+        
+        /* === ATIVIDADE === */
+        .item-atividade { 
+            padding: 15px; background: var(--claro); 
+            border-radius: 8px; margin-bottom: 10px; 
+        }
+        
+        .hora-atividade { 
+            font-size: 12px; color: var(--secundario); font-weight: 600; 
+        }
+        
+        .acao-atividade { 
+            display: flex; align-items: center; gap: 10px; margin-top: 5px; 
+        }
+        
+        /* === ESTATÍSTICAS === */
+        .grade-estatisticas { 
+            display: grid; grid-template-columns: repeat(2, 1fr); gap: 15px; 
+            margin: 20px 0; 
+        }
+        
+        .item-estatistica { 
+            padding: 15px; background: var(--claro); 
+            border-radius: 8px; text-align: center; 
+        }
+        
+        .valor-estatistica { 
+            font-size: 32px; font-weight: 700; color: var(--primario); 
+        }
+        
+        .rotulo-estatistica { 
+            font-size: 12px; color: var(--escuro); margin-top: 5px; 
+        }
+        
+        /* === MODAL === */
+        .modal { 
+            display: none; position: fixed; top: 0; left: 0; 
+            width: 100%; height: 100%; background: rgba(0,0,0,0.7); 
+            z-index: 10000; align-items: center; justify-content: center; 
+            padding: 20px; 
+        }
+        
+        .modal.ativo { 
+            display: flex; 
+        }
+        
+        .conteudo-modal { 
+            background: var(--branco); border-radius: 8px; 
+            max-width: 600px; width: 100%; max-height: 90vh; 
+            overflow-y: auto; 
+        }
+        
+        .cabecalho-modal { 
+            padding: 20px 25px; background: var(--primario); 
+            color: var(--branco); display: flex; 
+            justify-content: space-between; align-items: center; 
+        }
+        
+        .cabecalho-modal h2 { 
+            color: var(--branco); font-size: 20px; margin: 0; 
+        }
+        
+        .btn-fechar { 
+            background: none; border: none; color: var(--branco); 
+            font-size: 24px; cursor: pointer; width: 40px; 
+            height: 40px; border-radius: 50%; 
+        }
+        
+        .btn-fechar:hover { 
+            background: rgba(255,255,255,0.1); 
+        }
+        
+        .corpo-modal { 
+            padding: 30px; 
+        }
+        
+        /* === RESPONSIVO === */
+        @media (max-width: 1200px) {
+            .conteudo { 
+                grid-template-columns: 1fr; 
+            }
+            .widget-lateral { 
+                position: static; 
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .barra-lateral { 
+                transform: translateX(-100%); 
+            }
+            .conteudo-principal { 
+                margin-left: 0; 
+            }
+            .cabecalho-perfil { 
+                grid-template-columns: 1fr; 
+            }
+            .linha-form { 
+                grid-template-columns: 1fr; 
+            }
+        }

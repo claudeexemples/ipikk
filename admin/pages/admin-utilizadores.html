@@ -1,0 +1,568 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Área Restrita - Utilizadores</title>
+    
+    <!-- Fontes -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="stylesheet" href="../area-publica/ESTILO-ICONS/css/all.min.css">
+    
+    <!-- Favicon -->
+    <link href="../area-publica/foto/ipikk_new_logo.png" rel="icon">
+
+    <!-- CSS da Área Restrita (Sidebar e Header) -->
+    <link rel="stylesheet" href="../assets/css/admin-sidebar-header.css">
+    
+    <!-- CSS específico da página de notícias -->
+    <link rel="stylesheet" href="../assets/css/admin-utilizadores.css">
+</head>
+<body>
+    <!-- ===== SIDEBAR - MENU LATERAL FIXO ===== -->
+    <aside class="sidebar" id="sidebar">
+        <div class="cabecalho-sidebar">
+            <div class="logo">
+                <img src="../area-publica/foto/ipikk_new_logo.png" alt="IPIKK Logo">
+            </div>
+            <p class="subtitulo">ÁREA RESTRITA</p>
+        </div>
+
+        <nav class="navegacao-sidebar">
+            <ul>
+                <li>
+                    <a href="admin-dashboard.html">
+                        <i class="fas fa-chart-line"></i>
+                        <span>Dashboard</span>
+                    </a>
+                </li>
+                <li class="ativo">
+                    <a href="admin-noticias.html">
+                        <i class="fas fa-newspaper"></i>
+                        <span>Notícias</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="admin-cursos.html">
+                        <i class="fas fa-graduation-cap"></i>
+                        <span>Cursos</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="admin-contactos.html">
+                        <i class="fas fa-envelope"></i>
+                        <span>Contactos</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="admin-utilizadores.html">
+                        <i class="fas fa-users"></i>
+                        <span>Utilizadores</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="admin-configuracoes.html">
+                        <i class="fas fa-cog"></i>
+                        <span>Configurações</span>
+                    </a>
+                </li>
+                <li class="ativo"><a href="admin-inscricoes.html"><i class="fas fa-file-signature"></i><span>Inscrições</span></a></li>
+                <li>
+                    <a href="admin-depoimentos.html">
+                        <i class="fas fa-quote-right"></i>
+                        <span>Depoimentos</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="admin-notificacoes.html">
+                        <i class="fas fa-bell"></i>
+                        <span>Notificações</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="admin-perfil.html">
+                        <i class="fas fa-user"></i>
+                        <span>Meu Perfil</span>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+
+        <div class="rodape-sidebar">
+            <a href="../area-publica/area-restrita.html" class="botao-sair">
+                <i class="fas fa-sign-out-alt"></i>
+                <span>Sair</span>
+            </a>
+        </div>
+    </aside>
+    <main class="conteudo-principal">
+    <header class="barra-topo">
+        <button class="botao-menu-mobile" id="botaoMenuMobile">
+                    <i class="fas fa-bars"></i>
+            </button>
+        <h1>Utilizadores</h1>
+        <div class="direita-barra-topo">
+            <button class="btn-primario" id="btnNovoUtilizador">
+                <i class="fas fa-plus"></i>
+                <span>Novo Utilizador</span>
+            </button>
+        </div>
+    </header>
+
+    <div class="wrapper-conteudo">
+
+        <!-- VISÃO GERAL -->
+        <section class="secao-conteudo">
+            <h2 class="titulo-secao"><i class="fas fa-chart-bar"></i> Visão Geral dos Utilizadores</h2>
+            <div class="grade-visao-geral">
+                <div class="item-visao-geral"><i class="fas fa-users"></i> Total: <strong>7</strong></div>
+                <div class="item-visao-geral"><i class="fas fa-check-circle"></i> Ativos: <strong>6</strong></div>
+                <div class="item-visao-geral"><i class="fas fa-pause-circle"></i> Inativos: <strong>1</strong></div>
+                <div class="item-visao-geral"><i class="fas fa-calendar"></i> Este mês: <strong>2</strong></div>
+                <div class="item-visao-geral"><i class="fas fa-crown"></i> Administradores: <strong>3</strong></div>
+                <div class="item-visao-geral"><i class="fas fa-edit"></i> Editores: <strong>4</strong></div>
+            </div>
+        </section>
+
+        <!-- FILTROS -->
+        <section class="secao-conteudo">
+            <h2 class="titulo-secao"><i class="fas fa-filter"></i> Filtros & Busca</h2>
+            <div class="grade-filtros">
+                <div class="item-filtro largura-total">
+                    <div class="caixa-busca">
+                        <i class="fas fa-search"></i>
+                        <input type="text" id="campoBusca" placeholder="Buscar por nome ou email...">
+                    </div>
+                </div>
+                <div class="item-filtro">
+                    <label>Cargo</label>
+                    <select class="selecao-form" id="filtroCargo">
+                        <option value="">Todos</option>
+                        <option value="admin">Administrador</option>
+                        <option value="editor">Editor</option>
+                    </select>
+                </div>
+                <div class="item-filtro">
+                    <label>Estado</label>
+                    <select class="selecao-form" id="filtroEstado">
+                        <option value="">Todos</option>
+                        <option value="ativo">Ativos</option>
+                        <option value="inativo">Inativos</option>
+                    </select>
+                </div>
+                <div class="item-filtro">
+                    <label>Ordenar por</label>
+                    <select class="selecao-form" id="filtroOrdenar">
+                        <option value="nome">Nome (A-Z)</option>
+                        <option value="login">Último login</option>
+                    </select>
+                </div>
+            </div>
+        </section>
+
+        <!-- LISTA DE UTILIZADORES -->
+        <section class="secao-conteudo">
+            <h2 class="titulo-secao"><i class="fas fa-list"></i> Lista de Utilizadores <span style="color: var(--verde-acento);" id="contadorUtilizadores">(7 utilizadores)</span></h2>
+            <div class="tabela-responsiva">
+                <table class="tabela-dados">
+                    <thead>
+                        <tr>
+                            <th>FOTO</th>
+                            <th>NOME</th>
+                            <th>EMAIL</th>
+                            <th>CARGO</th>
+                            <th>ESTADO</th>
+                        </tr>
+                    </thead>
+                    <tbody id="corpoTabelaUtilizadores">
+                        <tr data-cargo="admin" data-estado="ativo">
+                            <td><div class="avatar-usuario admin"><i class="fas fa-crown"></i></div></td>
+                            <td><strong>Admin Principal</strong></td>
+                            <td>admin@ipikk.edu</td>
+                            <td>Administrador</td>
+                            <td><span class="badge badge-sucesso"><i class="fas fa-check-circle"></i> Ativo</span></td>
+                        </tr>
+                        <tr data-cargo="admin" data-estado="ativo">
+                            <td><div class="avatar-usuario admin"><i class="fas fa-crown"></i></div></td>
+                            <td><strong>Ana Administradora</strong></td>
+                            <td>ana@ipikk.edu</td>
+                            <td>Administrador</td>
+                            <td><span class="badge badge-sucesso"><i class="fas fa-check-circle"></i> Ativo</span></td>
+                        </tr>
+                        <tr data-cargo="admin" data-estado="ativo">
+                            <td><div class="avatar-usuario admin"><i class="fas fa-crown"></i></div></td>
+                            <td><strong>Pedro Gestor</strong></td>
+                            <td>pedro@ipikk.edu</td>
+                            <td>Administrador</td>
+                            <td><span class="badge badge-sucesso"><i class="fas fa-check-circle"></i> Ativo</span></td>
+                        </tr>
+                        <tr data-cargo="editor" data-estado="ativo">
+                            <td><div class="avatar-usuario editor"><i class="fas fa-edit"></i></div></td>
+                            <td><strong>Maria Editora</strong></td>
+                            <td>maria@ipikk.edu</td>
+                            <td>Editor</td>
+                            <td><span class="badge badge-sucesso"><i class="fas fa-check-circle"></i> Ativo</span></td>
+                        </tr>
+                        <tr data-cargo="editor" data-estado="ativo">
+                            <td><div class="avatar-usuario editor"><i class="fas fa-edit"></i></div></td>
+                            <td><strong>João Conteúdo</strong></td>
+                            <td>joao@ipikk.edu</td>
+                            <td>Editor</td>
+                            <td><span class="badge badge-sucesso"><i class="fas fa-check-circle"></i> Ativo</span></td>
+                        </tr>
+                        <tr data-cargo="editor" data-estado="ativo">
+                            <td><div class="avatar-usuario editor"><i class="fas fa-edit"></i></div></td>
+                            <td><strong>Luísa Redação</strong></td>
+                            <td>luisa@ipikk.edu</td>
+                            <td>Editor</td>
+                            <td><span class="badge badge-sucesso"><i class="fas fa-check-circle"></i> Ativo</span></td>
+                        </tr>
+                        <tr data-cargo="editor" data-estado="inativo">
+                            <td><div class="avatar-usuario editor"><i class="fas fa-edit"></i></div></td>
+                            <td><strong>Carlos Antigo</strong></td>
+                            <td>carlos@ipikk.edu</td>
+                            <td>Editor</td>
+                            <td><span class="badge badge-aviso"><i class="fas fa-pause-circle"></i> Inativo</span></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- AÇÕES RÁPIDAS -->
+        <section class="secao-conteudo">
+            <h2 class="titulo-secao"><i class="fas fa-bolt"></i> Ações Rápidas</h2>
+            <div class="acoes-rapidas">
+                <button class="btn-acao" id="btnReenviarCredenciais"><i class="fas fa-envelope"></i> Reenviar credenciais</button>
+                <button class="btn-acao" id="btnForcarMudancaSenha"><i class="fas fa-lock"></i> Forçar mudança de senha</button>
+                <button class="btn-acao" id="btnExportarLista"><i class="fas fa-file-export"></i> Exportar lista</button>
+                <button class="btn-acao" id="btnRelatorioAtividades"><i class="fas fa-chart-line"></i> Relatório de atividades</button>
+            </div>
+        </section>
+
+    </div>
+</main>
+
+<!-- MODAL NOVO UTILIZADOR -->
+<div id="modalNovoUtilizador" class="modal">
+    <div class="conteudo-modal">
+
+        <!-- CABEÇALHO -->
+        <div class="cabecalho-modal">
+            <div class="esquerda-cabecalho">
+                <div class="icone-cabecalho"><i class="fas fa-user-plus"></i></div>
+                <div class="texto-cabecalho">
+                    <h2>Novo Utilizador</h2>
+                    <p>Preencha os dados para criar uma conta de acesso</p>
+                </div>
+            </div>
+            <button class="btn-fechar" id="btnFecharModal"><i class="fas fa-times"></i></button>
+        </div>
+
+        <!-- NAVEGAÇÃO DE PASSOS -->
+        <div class="navegacao-passos">
+            <div class="item-passo ativo" data-passo="1">
+                <div class="bolha-passo">1</div>
+                <span class="rotulo-passo">Dados Pessoais</span>
+            </div>
+            <div class="linha-passo"></div>
+            <div class="item-passo" data-passo="2">
+                <div class="bolha-passo">2</div>
+                <span class="rotulo-passo">Permissões</span>
+            </div>
+            <div class="linha-passo"></div>
+            <div class="item-passo" data-passo="3">
+                <div class="bolha-passo">3</div>
+                <span class="rotulo-passo">Credenciais</span>
+            </div>
+            <div class="linha-passo"></div>
+            <div class="item-passo" data-passo="4">
+                <div class="bolha-passo">4</div>
+                <span class="rotulo-passo">Revisão</span>
+            </div>
+        </div>
+
+        <div class="corpo-modal">
+            <form id="formularioNovoUtilizador">
+
+                <!-- PASSO 1: DADOS PESSOAIS -->
+                <div class="painel-passo ativo" id="passo1">
+
+                    <!-- Avatar -->
+                    <div class="cartao-secao">
+                        <div class="titulo-cartao">
+                            <i class="fas fa-image"></i> Foto de Perfil
+                        </div>
+                        <div class="seletor-avatar">
+                            <div class="circulo-avatar" id="previewAvatar" title="Clique para mudar"><i class="fas fa-user"></i></div>
+                            <div>
+                                <p style="font-size:13px; color:#666; margin-bottom:10px;">Escolha um avatar ou faça upload de uma foto</p>
+                                <div class="opcoes-avatar">
+                                    <div class="opcao-avatar selecionado" data-icone="user"><i class="fas fa-user"></i></div>
+                                    <div class="opcao-avatar" data-icone="user-tie"><i class="fas fa-user-tie"></i></div>
+                                    <div class="opcao-avatar" data-icone="user-graduate"><i class="fas fa-user-graduate"></i></div>
+                                    <div class="opcao-avatar" data-icone="user-edit"><i class="fas fa-user-edit"></i></div>
+                                    <div class="opcao-avatar" data-icone="user-cog"><i class="fas fa-user-cog"></i></div>
+                                    <div class="opcao-avatar" data-icone="user-shield"><i class="fas fa-user-shield"></i></div>
+                                    <div class="opcao-avatar" data-icone="user-nurse"><i class="fas fa-user-nurse"></i></div>
+                                    <div class="opcao-avatar" data-icone="user-tag"><i class="fas fa-user-tag"></i></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Dados pessoais -->
+                    <div class="cartao-secao">
+                        <div class="titulo-cartao">
+                            <i class="fas fa-id-card"></i> Dados Pessoais
+                        </div>
+                        <div class="linha-form">
+                            <div class="grupo-form">
+                                <label><i class="fas fa-user"></i> Nome Completo *</label>
+                                <input type="text" class="campo-form" id="campoNome" required placeholder="Ex: Maria da Silva">
+                            </div>
+                            <div class="grupo-form">
+                                <label><i class="fas fa-envelope"></i> Email Institucional *</label>
+                                <input type="email" class="campo-form" id="campoEmail" required placeholder="utilizador@ipikk.edu">
+                            </div>
+                        </div>
+                        <div class="linha-form">
+                            <div class="grupo-form">
+                                <label><i class="fas fa-phone"></i> Telefone</label>
+                                <input type="tel" class="campo-form" id="campoTelefone" placeholder="+258 84 000 0000">
+                            </div>
+                            <div class="grupo-form">
+                                <label><i class="fas fa-building"></i> Departamento</label>
+                                <input type="text" class="campo-form" id="campoDepartamento" placeholder="Ex: Secretaria, Direção...">
+                            </div>
+                        </div>
+                        <div class="linha-form largura-total">
+                            <div class="grupo-form">
+                                <label><i class="fas fa-briefcase"></i> Cargo / Função</label>
+                                <input type="text" class="campo-form" id="campoCargo" placeholder="Ex: Editor de Conteúdo">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- PASSO 2: PERMISSÕES -->
+                <div class="painel-passo" id="passo2">
+
+                    <div class="cartao-secao">
+                        <div class="titulo-cartao">
+                            <i class="fas fa-bullseye"></i> Nível de Acesso
+                        </div>
+                        <div class="cards-nivel">
+                            <label class="card-nivel" id="cardAdmin">
+                                <input type="radio" name="nivel" value="admin">
+                                <i class="fas fa-crown"></i>
+                                <div class="titulo-card-nivel">Administrador</div>
+                                <div class="desc-card-nivel">Acesso total ao sistema</div>
+                            </label>
+                            <label class="card-nivel selecionado" id="cardEditor">
+                                <input type="radio" name="nivel" value="editor" checked>
+                                <i class="fas fa-edit"></i>
+                                <div class="titulo-card-nivel">Editor</div>
+                                <div class="desc-card-nivel">Cria e edita conteúdo</div>
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="cartao-secao">
+                        <div class="titulo-cartao">
+                            <i class="fas fa-key"></i> Permissões Específicas
+                        </div>
+                        <div class="grade-permissoes">
+                            <div class="item-permissao selecionado" onclick="togglePermissao(this)">
+                                <input type="checkbox" id="perm1" checked>
+                                <i class="fas fa-newspaper"></i>
+                                <div class="texto-permissao">
+                                    <strong>Gerir Notícias</strong>
+                                    <span>Criar, editar e publicar notícias</span>
+                                </div>
+                            </div>
+                            <div class="item-permissao selecionado" onclick="togglePermissao(this)">
+                                <input type="checkbox" id="perm2" checked>
+                                <i class="fas fa-graduation-cap"></i>
+                                <div class="texto-permissao">
+                                    <strong>Gerir Cursos</strong>
+                                    <span>Adicionar e editar cursos</span>
+                                </div>
+                            </div>
+                            <div class="item-permissao selecionado" onclick="togglePermissao(this)">
+                                <input type="checkbox" id="perm3" checked>
+                                <i class="fas fa-envelope-open-text"></i>
+                                <div class="texto-permissao">
+                                    <strong>Ver Contactos</strong>
+                                    <span>Ler mensagens recebidas</span>
+                                </div>
+                            </div>
+                            <div class="item-permissao" onclick="togglePermissao(this)">
+                                <input type="checkbox" id="perm4">
+                                <i class="fas fa-users-cog"></i>
+                                <div class="texto-permissao">
+                                    <strong>Gerir Utilizadores</strong>
+                                    <span>Criar e gerir contas</span>
+                                </div>
+                            </div>
+                            <div class="item-permissao" onclick="togglePermissao(this)">
+                                <input type="checkbox" id="perm5">
+                                <i class="fas fa-cogs"></i>
+                                <div class="texto-permissao">
+                                    <strong>Configurações</strong>
+                                    <span>Alterar configurações do site</span>
+                                </div>
+                            </div>
+                            <div class="item-permissao" onclick="togglePermissao(this)">
+                                <input type="checkbox" id="perm6">
+                                <i class="fas fa-chart-pie"></i>
+                                <div class="texto-permissao">
+                                    <strong>Ver Relatórios</strong>
+                                    <span>Aceder a estatísticas</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- PASSO 3: CREDENCIAIS -->
+                <div class="painel-passo" id="passo3">
+
+                    <div class="cartao-secao">
+                        <div class="titulo-cartao">
+                            <i class="fas fa-lock"></i> Senha de Acesso
+                        </div>
+                        <div class="linha-form largura-total">
+                            <div class="grupo-form">
+                                <label><i class="fas fa-key"></i> Senha Inicial</label>
+                                <div class="wrapper-senha">
+                                    <input type="text" class="campo-form" id="senhaGerada" readonly placeholder="Clique em Gerar...">
+                                    <button type="button" class="btn-gerar-senha" id="btnGerarSenha">
+                                        <i class="fas fa-sync-alt"></i> Gerar
+                                    </button>
+                                </div>
+                                <div class="forca-senha" id="forcaSenha" style="display:none;">
+                                    <div class="barra-forca"><div class="preenchimento-forca" id="preenchimentoForca"></div></div>
+                                    <div class="rotulo-forca" id="rotuloForca"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <p style="font-size:12px; color:#888; margin-top:-8px;">
+                            <i class="fas fa-info-circle"></i> A senha será enviada por email ao utilizador. Recomenda-se forçar a alteração no primeiro login.
+                        </p>
+                    </div>
+
+                    <div class="cartao-secao">
+                        <div class="titulo-cartao">
+                            <i class="fas fa-shield-alt"></i> Opções de Segurança
+                        </div>
+
+                        <label class="linha-toggle">
+                            <div class="esquerda-toggle">
+                                <i class="fas fa-sync-alt"></i>
+                                <div class="texto-toggle">
+                                    <strong>Obrigar alteração de senha</strong>
+                                    <span>Utilizador deverá criar nova senha no 1.º login</span>
+                                </div>
+                            </div>
+                            <label class="toggle-switch">
+                                <input type="checkbox" id="toggle1" checked>
+                                <span class="toggle-slider"></span>
+                            </label>
+                        </label>
+
+                        <label class="linha-toggle">
+                            <div class="esquerda-toggle">
+                                <i class="fas fa-envelope"></i>
+                                <div class="texto-toggle">
+                                    <strong>Enviar credenciais por email</strong>
+                                    <span>O utilizador receberá login e senha por email</span>
+                                </div>
+                            </div>
+                            <label class="toggle-switch">
+                                <input type="checkbox" id="toggle2" checked>
+                                <span class="toggle-slider"></span>
+                            </label>
+                        </label>
+
+                        <label class="linha-toggle">
+                            <div class="esquerda-toggle">
+                                <i class="fas fa-check-circle"></i>
+                                <div class="texto-toggle">
+                                    <strong>Conta ativa imediatamente</strong>
+                                    <span>Desative para criar a conta sem acesso imediato</span>
+                                </div>
+                            </div>
+                            <label class="toggle-switch">
+                                <input type="checkbox" id="toggle3" checked>
+                                <span class="toggle-slider"></span>
+                            </label>
+                        </label>
+                    </div>
+                </div>
+
+                <!-- PASSO 4: REVISÃO -->
+                <div class="painel-passo" id="passo4">
+                    <div class="cartao-secao">
+                        <div class="titulo-cartao">
+                            <i class="fas fa-check-double"></i> Confirmar Dados
+                        </div>
+                        <div class="avatar-revisao" id="avatarRevisao"><i class="fas fa-user"></i></div>
+                        <div class="sumario-revisao">
+                            <div class="linha-revisao">
+                                <span class="rotulo-revisao"><i class="fas fa-user"></i> Nome</span>
+                                <span class="valor-revisao" id="revNome">—</span>
+                            </div>
+                            <div class="linha-revisao">
+                                <span class="rotulo-revisao"><i class="fas fa-envelope"></i> Email</span>
+                                <span class="valor-revisao" id="revEmail">—</span>
+                            </div>
+                            <div class="linha-revisao">
+                                <span class="rotulo-revisao"><i class="fas fa-briefcase"></i> Cargo</span>
+                                <span class="valor-revisao" id="revCargo">—</span>
+                            </div>
+                            <div class="linha-revisao">
+                                <span class="rotulo-revisao"><i class="fas fa-bullseye"></i> Nível de Acesso</span>
+                                <span class="valor-revisao" id="revNivel">—</span>
+                            </div>
+                            <div class="linha-revisao">
+                                <span class="rotulo-revisao"><i class="fas fa-key"></i> Permissões</span>
+                                <span class="valor-revisao" id="revPerms">—</span>
+                            </div>
+                            <div class="linha-revisao">
+                                <span class="rotulo-revisao"><i class="fas fa-lock"></i> Senha</span>
+                                <span class="valor-revisao" id="revSenha">—</span>
+                            </div>
+                            <div class="linha-revisao">
+                                <span class="rotulo-revisao"><i class="fas fa-bell"></i> Notificações</span>
+                                <span class="valor-revisao" id="revNotif">—</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </form>
+        </div>
+
+        <!-- RODAPÉ -->
+        <div class="rodape-modal">
+            <span class="info-passo-rodape" id="infoRodape">Passo 1 de 4</span>
+            <div class="botoes-rodape">
+                <button class="btn-voltar" id="btnVoltar" style="display:none;"><i class="fas fa-arrow-left"></i> Anterior</button>
+                <button class="btn-avancar" id="btnAvancar">Próximo <i class="fas fa-arrow-right"></i></button>
+                <button class="btn-enviar" id="btnEnviar" style="display:none;"><i class="fas fa-check-circle"></i> Criar Utilizador</button>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+
+    <!-- JavaScript -->
+    <script src="../assets/js/admin-sidebar-header.js"></script>
+    <script src="../assets/js/admin-utilizadores.js"></script>
+</body>
+</html>

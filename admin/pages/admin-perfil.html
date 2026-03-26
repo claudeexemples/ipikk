@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Área Restrita - Meu Perfil</title>
+    
+    <!-- Fontes -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="stylesheet" href="../area-publica/ESTILO-ICONS/css/all.min.css">
+    
+    <!-- Favicon -->
+    <link href="../area-publica/foto/ipikk_new_logo.png" rel="icon">
+
+    <!-- CSS da Área Restrita (Sidebar e Header) -->
+    <link rel="stylesheet" href="../assets/css/admin-sidebar-header.css">
+    
+    <!-- CSS específico da página de notícias -->
+    <link rel="stylesheet" href="../assets/css/admin-perfil.css">
+</head>
+<body>
+    <!-- ===== SIDEBAR - MENU LATERAL FIXO ===== -->
+    <aside class="sidebar" id="sidebar">
+        <div class="cabecalho-sidebar">
+            <div class="logo">
+                <img src="../area-publica/foto/ipikk_new_logo.png" alt="IPIKK Logo">
+            </div>
+            <p class="subtitulo">ÁREA RESTRITA</p>
+        </div>
+
+        <nav class="navegacao-sidebar">
+            <ul>
+                <li>
+                    <a href="admin-dashboard.html">
+                        <i class="fas fa-chart-line"></i>
+                        <span>Dashboard</span>
+                    </a>
+                </li>
+                <li class="ativo">
+                    <a href="admin-noticias.html">
+                        <i class="fas fa-newspaper"></i>
+                        <span>Notícias</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="admin-cursos.html">
+                        <i class="fas fa-graduation-cap"></i>
+                        <span>Cursos</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="admin-contactos.html">
+                        <i class="fas fa-envelope"></i>
+                        <span>Contactos</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="admin-utilizadores.html">
+                        <i class="fas fa-users"></i>
+                        <span>Utilizadores</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="admin-configuracoes.html">
+                        <i class="fas fa-cog"></i>
+                        <span>Configurações</span>
+                    </a>
+                </li>
+                <li class="ativo"><a href="admin-inscricoes.html"><i class="fas fa-file-signature"></i><span>Inscrições</span></a></li>
+                <li>
+                    <a href="admin-depoimentos.html">
+                        <i class="fas fa-quote-right"></i>
+                        <span>Depoimentos</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="admin-notificacoes.html">
+                        <i class="fas fa-bell"></i>
+                        <span>Notificações</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="admin-perfil.html">
+                        <i class="fas fa-user"></i>
+                        <span>Meu Perfil</span>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+
+        <div class="rodape-sidebar">
+            <a href="../area-publica/area-restrita.html" class="botao-sair">
+                <i class="fas fa-sign-out-alt"></i>
+                <span>Sair</span>
+            </a>
+        </div>
+    </aside>
+        <!-- === CONTEÚDO PRINCIPAL === -->
+    <main class="conteudo-principal">
+        <header class="barra-topo">
+            <button class="botao-menu-mobile" id="botaoMenuMobile">
+                <i class="fas fa-bars"></i>
+            </button>
+            <h1 style="color: #003072;font-size: 24px;">Meu Perfil</h1>
+            <button class="btn btn-secundario"><i class="fas fa-eye"></i> Pré-visualizar</button>
+        </header>
+
+        <div class="conteudo">
+            <div class="area-principal">
+                
+                <!-- === PERFIL === -->
+                <div class="secao">
+                    <h3 class="titulo-secao"><i class="fas fa-user"></i> Informações do Perfil</h3>
+                    <div class="cabecalho-perfil">
+                        <div class="secao-foto">
+                            <div class="foto-perfil"><i class="fas fa-user"></i></div>
+                            <div class="acoes-foto">
+                                <button class="btn btn-secundario"><i class="fas fa-upload"></i> Alterar Foto</button>
+                                <button class="btn btn-perigo"><i class="fas fa-trash"></i> Remover</button>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="grupo-form">
+                                <label>Nome</label>
+                                <input type="text" class="campo-form" value="Admin Principal" id="campoNome">
+                            </div>
+                            <div class="grupo-form">
+                                <label>Email</label>
+                                <input type="email" class="campo-form" value="admin@ipikk.edu" id="campoEmail">
+                            </div>
+                            <div class="linha-form">
+                                <div class="grupo-form">
+                                    <label>Telefone</label>
+                                    <input type="tel" class="campo-form" value="+258 84 123 4567" id="campoTelefone">
+                                </div>
+                                <div class="grupo-form">
+                                    <label>Cargo</label>
+                                    <input type="text" class="campo-form" value="Administrador Geral" id="campoCargo">
+                                </div>
+                            </div>
+                            <div class="grupo-form">
+                                <label>Departamento</label>
+                                <input type="text" class="campo-form" value="Direção" id="campoDepartamento">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- === BIOGRAFIA === -->
+                <div class="secao">
+                    <h3 class="titulo-secao"><i class="fas fa-pen"></i> Biografia / Descrição</h3>
+                    <div class="grupo-form">
+                        <textarea class="area-texto" id="biografia" maxlength="500">Atualmente sou o administrador principal do site do IPIKK, responsável por toda a gestão de conteúdo digital e comunicação.</textarea>
+                        <div class="contador-caracteres">Máx. 500 caracteres | Atual: <span id="contadorCaracteres">127</span></div>
+                    </div>
+                </div>
+
+                <!-- === SEGURANÇA === -->
+                <div class="secao">
+                    <h3 class="titulo-secao"><i class="fas fa-shield-alt"></i> Segurança</h3>
+                    <div class="item-info">
+                        <span>Última alteração de senha:</span>
+                        <strong>15/01/2024 (há 26 dias)</strong>
+                    </div>
+                    <div class="item-info">
+                        <span>Estado da conta:</span>
+                        <span><i class="fas fa-check-circle" style="color: var(--sucesso);"></i> Ativa</span>
+                    </div>
+                    <div class="item-info">
+                        <span>Autenticação de 2 fatores:</span>
+                        <button class="btn btn-secundario" onclick="abrirModal2FA()"><i class="fas fa-cog"></i> Configurar</button>
+                    </div>
+                    <div class="item-info">
+                        <span>Sessões ativas:</span>
+                        <span>1 dispositivo <button class="btn btn-secundario"><i class="fas fa-eye"></i> Ver</button></span>
+                    </div>
+                    <button class="btn btn-primario" style="margin-top: 15px;" onclick="abrirModalSenha()">
+                        <i class="fas fa-key"></i> Alterar Senha
+                    </button>
+                </div>
+
+                <!-- === NOTIFICAÇÕES === -->
+                <div class="secao">
+                    <h3 class="titulo-secao"><i class="fas fa-bell"></i> Notificações</h3>
+                    <h4 style="margin-bottom: 10px; font-size: 14px;">Email</h4>
+                    <div class="grupo-checkbox">
+                        <input type="checkbox" id="notif1" checked>
+                        <label for="notif1">Novas mensagens de contacto</label>
+                    </div>
+                    <div class="grupo-checkbox">
+                        <input type="checkbox" id="notif2" checked>
+                        <label for="notif2">Alertas do sistema</label>
+                    </div>
+                    <div class="grupo-checkbox">
+                        <input type="checkbox" id="notif3">
+                        <label for="notif3">Relatórios semanais</label>
+                    </div>
+                    <h4 style="margin: 20px 0 10px; font-size: 14px;">Sistema</h4>
+                    <div class="grupo-checkbox">
+                        <input type="checkbox" id="notif4" checked>
+                        <label for="notif4">Mensagens não lidas</label>
+                    </div>
+                    <div class="grupo-checkbox">
+                        <input type="checkbox" id="notif5" checked>
+                        <label for="notif5">Comentários pendentes</label>
+                    </div>
+                </div>
+
+                <!-- === ATIVIDADE === -->
+                <div class="secao">
+                    <h3 class="titulo-secao"><i class="fas fa-history"></i> Minha Atividade Recente</h3>
+                    <h4 style="font-size: 14px; margin-bottom: 10px;">Hoje (10/02/2024)</h4>
+                    <div class="item-atividade">
+                        <div class="hora-atividade">[14:30]</div>
+                        <div class="acao-atividade">
+                            <i class="fas fa-eye"></i>
+                            <span>Visualizou mensagem de Maria Silva</span>
+                        </div>
+                    </div>
+                    <div class="item-atividade">
+                        <div class="hora-atividade">[14:15]</div>
+                        <div class="acao-atividade">
+                            <i class="fas fa-edit"></i>
+                            <span>Editou notícia "IPIKK abre inscrições"</span>
+                        </div>
+                    </div>
+                    <div class="item-atividade">
+                        <div class="hora-atividade">[10:45]</div>
+                        <div class="acao-atividade">
+                            <i class="fas fa-plus"></i>
+                            <span>Adicionou novo curso "Desenhador Projectista"</span>
+                        </div>
+                    </div>
+                    
+                    <h4 style="font-size: 16px; margin: 25px 0 15px;"><i class="fas fa-chart-line"></i> Estatísticas Pessoais</h4>
+                    <div class="grade-estatisticas">
+                        <div class="item-estatistica">
+                            <div class="valor-estatistica">24</div>
+                            <div class="rotulo-estatistica">Notícias publicadas</div>
+                        </div>
+                        <div class="item-estatistica">
+                            <div class="valor-estatistica">8</div>
+                            <div class="rotulo-estatistica">Cursos geridos</div>
+                        </div>
+                        <div class="item-estatistica">
+                            <div class="valor-estatistica">42</div>
+                            <div class="rotulo-estatistica">Mensagens respondidas</div>
+                        </div>
+                        <div class="item-estatistica">
+                            <div class="valor-estatistica">18</div>
+                            <div class="rotulo-estatistica">Logins este mês</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- === PREFERÊNCIAS === -->
+                <div class="secao">
+                    <h3 class="titulo-secao"><i class="fas fa-sliders-h"></i> Preferências</h3>
+                    <div class="linha-form">
+                        <div class="grupo-form">
+                            <label>Idioma</label>
+                            <select class="selecao-form" id="idioma">
+                                <option value="pt" selected>Português (PT)</option>
+                                <option value="en">English</option>
+                                <option value="es">Español</option>
+                            </select>
+                        </div>
+                        <div class="grupo-form">
+                            <label>Fuso horário</label>
+                            <select class="selecao-form" id="fusoHorario">
+                                <option value="africa/maputo">Africa/Maputo (GMT+2)</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="linha-form">
+                        <div class="grupo-form">
+                            <label>Tema</label>
+                            <select class="selecao-form" id="tema">
+                                <option value="claro">Claro</option>
+                                <option value="escuro">Escuro</option>
+                                <option value="auto">Automático</option>
+                            </select>
+                        </div>
+                        <div class="grupo-form">
+                            <label>Tamanho da fonte</label>
+                            <select class="selecao-form" id="tamanhoFonte">
+                                <option value="pequeno">Pequeno</option>
+                                <option value="medio" selected>Médio</option>
+                                <option value="grande">Grande</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- === RODAPÉ DE AÇÕES === -->
+                <div class="rodape-acoes">
+                    <button class="btn btn-secundario" onclick="descartarAlteracoes()"><i class="fas fa-undo"></i> Descartar</button>
+                    <button class="btn btn-primario" onclick="guardarPerfil()"><i class="fas fa-save"></i> Guardar Alterações</button>
+                </div>
+
+            </div>
+
+            <!-- === WIDGET LATERAL === -->
+            <aside>
+                <div class="widget-lateral">
+                    <h4 class="titulo-widget"><i class="fas fa-shield-alt"></i> Estado da Conta</h4>
+                    <div class="item-widget">
+                        <i class="fas fa-crown"></i>
+                        <span><strong>Nível:</strong> Administrador</span>
+                    </div>
+                    <div class="item-widget">
+                        <i class="fas fa-calendar"></i>
+                        <span><strong>Criada:</strong> 15/01/2024</span>
+                    </div>
+                    <div class="item-widget">
+                        <i class="fas fa-clock"></i>
+                        <span><strong>Último login:</strong> Hoje, 09:30</span>
+                    </div>
+                    <div class="item-widget">
+                        <i class="fas fa-network-wired"></i>
+                        <span><strong>IP:</strong> 192.168.1.10</span>
+                    </div>
+                    
+                    <h4 class="titulo-widget" style="margin-top: 20px;"><i class="fas fa-shield-alt"></i> Segurança</h4>
+                    <div class="item-widget">
+                        <i class="fas fa-exclamation-triangle" style="color: var(--aviso);"></i>
+                        <span>Senha: Alterar (26 dias)</span>
+                    </div>
+                    <div class="item-widget">
+                        <i class="fas fa-times-circle" style="color: var(--perigo);"></i>
+                        <span>2FA: Não ativado</span>
+                    </div>
+                    <div class="item-widget">
+                        <i class="fas fa-desktop"></i>
+                        <span>Sessões: 1 ativa</span>
+                    </div>
+                    
+                    <h4 class="titulo-widget" style="margin-top: 20px;"><i class="fas fa-chart-bar"></i> Atividade</h4>
+                    <div class="item-widget">
+                        <span>Esta semana: <strong>18 ações</strong></span>
+                    </div>
+                    <div class="item-widget">
+                        <span>Este mês: <strong>87 ações</strong></span>
+                    </div>
+                    <div class="item-widget">
+                        <span>Total: <strong>245 ações</strong></span>
+                    </div>
+                </div>
+            </aside>
+        </div>
+    </main>
+
+    <!-- === MODAL ALTERAR SENHA === -->
+    <div id="modalSenha" class="modal">
+        <div class="conteudo-modal">
+            <div class="cabecalho-modal">
+                <h2><i class="fas fa-key"></i> Alterar Senha</h2>
+                <button class="btn-fechar" onclick="fecharModalSenha()"><i class="fas fa-times"></i></button>
+            </div>
+            <div class="corpo-modal">
+                <div class="grupo-form">
+                    <label>Senha Atual</label>
+                    <input type="password" class="campo-form" id="senhaAtual">
+                </div>
+                <div class="grupo-form">
+                    <label>Nova Senha</label>
+                    <input type="password" class="campo-form" id="novaSenha" oninput="verificarForcaSenha()">
+                </div>
+                <div class="grupo-form">
+                    <label>Confirmar Senha</label>
+                    <input type="password" class="campo-form" id="confirmarSenha">
+                </div>
+                
+                <div class="forca-senha">
+                    <div class="barra-forca" id="barraForca" style="width: 0%;"></div>
+                </div>
+                <p style="text-align: center; margin-top: 5px; font-size: 14px;" id="textoForca">Fraca</p>
+                
+                <h4 style="margin: 20px 0 10px;">Requisitos:</h4>
+                <div class="requisito" id="req1"><i class="fas fa-circle"></i> Mínimo 8 caracteres</div>
+                <div class="requisito" id="req2"><i class="fas fa-circle"></i> Letra maiúscula e minúscula</div>
+                <div class="requisito" id="req3"><i class="fas fa-circle"></i> Pelo menos 1 número</div>
+                <div class="requisito pendente" id="req4"><i class="fas fa-circle"></i> Pelo menos 1 caractere especial</div>
+                
+                <div style="margin-top: 20px;">
+                    <div class="grupo-checkbox">
+                        <input type="checkbox" id="encerrarSessoes" checked>
+                        <label for="encerrarSessoes">Encerrar todas as outras sessões</label>
+                    </div>
+                    <div class="grupo-checkbox">
+                        <input type="checkbox" id="notificarEmail" checked>
+                        <label for="notificarEmail">Enviar notificação por email</label>
+                    </div>
+                </div>
+                
+                <div style="display: flex; justify-content: flex-end; gap: 15px; margin-top: 30px;">
+                    <button class="btn btn-secundario" onclick="fecharModalSenha()"><i class="fas fa-times"></i> Cancelar</button>
+                    <button class="btn btn-primario" onclick="alterarSenha()"><i class="fas fa-key"></i> Alterar Senha</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- === MODAL 2FA === -->
+    <div id="modal2FA" class="modal">
+        <div class="conteudo-modal">
+            <div class="cabecalho-modal">
+                <h2><i class="fas fa-shield-alt"></i> Autenticação de 2 Fatores</h2>
+                <button class="btn-fechar" onclick="fecharModal2FA()"><i class="fas fa-times"></i></button>
+            </div>
+            <div class="corpo-modal">
+                <p style="margin-bottom: 20px;">A autenticação de dois fatores adiciona uma camada extra de segurança à sua conta.</p>
+                
+                <div class="grupo-form">
+                    <label>Aplicativo Autenticador</label>
+                    <p style="background: var(--claro); padding: 15px; border-radius: 8px; font-family: monospace; text-align: center; font-size: 18px; letter-spacing: 2px;">
+                        ABCD EFGH IJKL MNOP
+                    </p>
+                </div>
+                
+                <div class="grupo-form">
+                    <label>Código de Verificação</label>
+                    <input type="text" class="campo-form" placeholder="Digite o código do aplicativo">
+                </div>
+                
+                <div class="grupo-form">
+                    <label>Códigos de Recuperação</label>
+                    <textarea class="area-texto" rows="3" readonly>1234-5678-9012-3456&#10;2345-6789-0123-4567&#10;3456-7890-1234-5678</textarea>
+                </div>
+                
+                <div style="display: flex; justify-content: flex-end; gap: 15px; margin-top: 30px;">
+                    <button class="btn btn-secundario" onclick="fecharModal2FA()"><i class="fas fa-times"></i> Cancelar</button>
+                    <button class="btn btn-primario" onclick="ativar2FA()"><i class="fas fa-check"></i> Ativar 2FA</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="../assets/js/admin-sidebar-header.js"></script>
+    <script src="../assets/js/admin-perfil.js"></script>
+</body>
+</html>

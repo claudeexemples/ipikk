@@ -1,0 +1,232 @@
+/* ===== VARIÁVEIS CSS ===== */
+        :root {
+            --azul-principal: #003072;
+            --azul-claro: #2e86c1;
+            --azul-escuro: #001a40;
+            --verde-acento: #0a9396;
+            --verde-claro: #94d2bd;
+            --branco: #ffffff;
+            --cinza-claro: #f8f9fa;
+            --cinza: #6c757d;
+            --cinza-escuro: #212529;
+            --sombra: 0 10px 30px rgba(0, 48, 114, 0.1);
+            --borda-raio: 12px;
+            --transicao: all 0.3s ease;
+            --cor-construcao: #9FA3A7;
+            --cor-eletricidade: #3A7BC0;
+            --cor-mecanica: #E67E22;
+            --cor-informatica: #1F7A4D;
+            --cor-moveis: #e01a1a;
+        }
+
+        /* ===== GERAL ===== */
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; scroll-padding-top: 100px; }
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background: var(--cinza-claro);
+            color: var(--cinza-escuro);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 600;
+            line-height: 1.2;
+        }
+        a { text-decoration: none; color: inherit; transition: var(--transicao); }
+
+
+        /* ===== CABEÇALHO DA PÁGINA ===== */
+        .cabecalho-pagina {
+            background: var(--branco);
+            padding: 55px 20px 40px;
+            text-align: center;
+            position: relative;
+            border-bottom: 1px solid rgba(0,48,114,0.08);
+        }
+        .titulo-pagina {
+            font-size: 2.6rem;
+            color: var(--azul-principal);
+            margin-bottom: 14px;
+            animation: deslizarCima 0.6s ease both;
+        }
+        .titulo-pagina span { color: var(--verde-acento); }
+        .linha-decorativa-titulo {
+            width: 80px; height: 4px;
+            background: linear-gradient(to right, var(--verde-acento), var(--verde-claro));
+            margin: 0 auto;
+            border-radius: 50px;
+            animation: expandir 0.8s ease 0.3s both;
+        }
+        @keyframes deslizarCima {
+            from { opacity: 0; transform: translateY(20px); }
+            to   { opacity: 1; transform: translateY(0); }
+        }
+        @keyframes expandir {
+            from { width: 0; }
+            to   { width: 80px; }
+        }
+
+        /* ===== CORPO / DOCUMENTO ===== */
+        .corpo-politica {
+            max-width: 900px;
+            margin: 50px auto 60px;
+            padding: 0 20px;
+        }
+
+        .documento-container {
+            background: var(--branco);
+            border-radius: 18px;
+            padding: 50px 55px;
+            box-shadow: var(--sombra);
+            animation: deslizarCima 0.6s ease 0.1s both;
+        }
+
+        /* Texto introdutório */
+        .documento-container > p:first-child {
+            color: var(--cinza);
+            line-height: 1.8;
+            margin-bottom: 36px;
+            font-size: 0.97rem;
+            border-left: 4px solid var(--verde-acento);
+            padding-left: 18px;
+        }
+
+        /* ===== TÍTULOS DAS SECÇÕES ===== */
+        .titulo-seccao {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            font-size: 1.25rem;
+            color: var(--azul-principal);
+            margin: 36px 0 14px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid var(--cinza-claro);
+        }
+
+        .icone-seccao {
+            width: 42px; height: 42px;
+            border-radius: 10px;
+            background: linear-gradient(135deg, var(--azul-principal), var(--verde-acento));
+            display: flex; align-items: center; justify-content: center;
+            flex-shrink: 0;
+        }
+        .icone-seccao i { color: var(--branco); font-size: 1rem; }
+
+        /* ===== PARÁGRAFOS ===== */
+        .documento-container p {
+            color: var(--cinza);
+            line-height: 1.8;
+            margin-bottom: 14px;
+            font-size: 0.96rem;
+        }
+
+        /* ===== LISTAS ===== */
+        .lista-politica {
+            list-style: none;
+            padding: 0;
+            margin: 12px 0 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .lista-politica li {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            background: var(--cinza-claro);
+            border-radius: 10px;
+            padding: 12px 16px;
+            color: var(--cinza-escuro);
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        .numero-item {
+            min-width: 28px; height: 28px;
+            border-radius: 50%;
+            background: var(--azul-principal);
+            color: var(--branco);
+            display: flex; align-items: center; justify-content: center;
+            font-size: 0.8rem; font-weight: 700;
+            flex-shrink: 0;
+            margin-top: 1px;
+        }
+
+        /* ===== SEPARADOR ===== */
+        .separador {
+            height: 1px;
+            background: linear-gradient(to right, transparent, var(--cinza-claro), transparent);
+            margin: 28px 0;
+        }
+
+        /* ===== CAIXA DE DESTAQUE 1 (aviso amarelo/warning) ===== */
+        .caixa-destaque-alerta {
+            background: rgba(10, 147, 150, 0.07);
+            border: 1.5px solid rgba(10, 147, 150, 0.35);
+            border-left: 5px solid var(--verde-acento);
+            border-radius: 10px;
+            padding: 18px 22px;
+            margin: 22px 0;
+            display: flex;
+            align-items: flex-start;
+            gap: 14px;
+        }
+        .caixa-destaque-alerta .icone-alerta {
+            color: var(--verde-acento);
+            font-size: 1.25rem;
+            margin-top: 2px;
+            flex-shrink: 0;
+        }
+        .caixa-destaque-alerta p {
+            color: var(--azul-principal) !important;
+            font-weight: 500;
+            font-size: 0.94rem !important;
+            margin: 0 !important;
+            line-height: 1.7;
+        }
+
+        /* ===== CAIXA DE ASSINATURA ===== */
+        .caixa-assinatura {
+            background: var(--cinza-claro);
+            border-radius: 12px;
+            padding: 26px 30px;
+            margin: 22px 0;
+            border-left: 5px solid var(--azul-principal);
+        }
+        .caixa-assinatura .data-assinatura {
+            font-style: italic;
+            color: var(--cinza);
+            font-size: 0.92rem;
+            margin-bottom: 8px;
+        }
+        .caixa-assinatura .organizacao-assinatura {
+            font-style: italic;
+            color: var(--azul-claro);
+            font-size: 0.95rem;
+            margin-bottom: 6px;
+        }
+        .caixa-assinatura .departamento-assinatura {
+            font-weight: 700;
+            color: var(--azul-principal);
+            font-size: 0.93rem;
+        }
+
+        /* ===== RESPONSIVIDADE ===== */
+        @media (max-width: 992px) {
+            .menu-navegacao { display: none; }
+            .botao-menu-mobile { display: block; }
+        }
+        @media (max-width: 768px) {
+            .conteudo-superior { flex-direction: column; gap: 10px; text-align: center; }
+            .conteudo-cabecalho { padding: 10px 20px; }
+            .documento-container { padding: 30px 22px; }
+            .titulo-pagina { font-size: 2rem; }
+            .container-rodape { padding: 0 20px; }
+        }
+        @media (max-width: 480px) {
+            .titulo-pagina { font-size: 1.7rem; }
+            .botoes-flutuantes { bottom: 20px; right: 20px; }
+        }

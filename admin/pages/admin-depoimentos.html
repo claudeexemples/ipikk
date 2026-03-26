@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Área Restrita - Depoimentos</title>
+    
+    <!-- Fontes -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    
+    <!-- Favicon -->
+    <link href="../area-publica/foto/ipikk_new_logo.png" rel="icon">
+    <link rel="stylesheet" href="../assets/css/admin-depoimentos.css">
+    <link rel="stylesheet" href="../assets/css/admin-sidebar-header.css">
+</head>
+<body>
+    <!-- ===== SIDEBAR - MENU LATERAL FIXO ===== -->
+    <aside class="sidebar" id="sidebar">
+        <div class="cabecalho-sidebar">
+            <div class="logo">
+                <img src="../area-publica/foto/ipikk_new_logo.png" alt="IPIKK Logo">
+            </div>
+            <p class="subtitulo">ÁREA RESTRITA</p>
+        </div>
+
+        <nav class="navegacao-sidebar">
+            <ul>
+                <li>
+                    <a href="admin-dashboard.html">
+                        <i class="fas fa-chart-line"></i>
+                        <span>Dashboard</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="admin-noticias.html">
+                        <i class="fas fa-newspaper"></i>
+                        <span>Notícias</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="admin-cursos.html">
+                        <i class="fas fa-graduation-cap"></i>
+                        <span>Cursos</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="admin-contactos.html">
+                        <i class="fas fa-envelope"></i>
+                        <span>Contactos</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="admin-utilizadores.html">
+                        <i class="fas fa-users"></i>
+                        <span>Utilizadores</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="admin-configuracoes.html">
+                        <i class="fas fa-cog"></i>
+                        <span>Configurações</span>
+                    </a>
+                </li>
+                <li class="ativo"><a href="admin-inscricoes.html"><i class="fas fa-file-signature"></i><span>Inscrições</span></a></li>
+                <li class="ativo">
+                    <a href="admin-depoimentos.html">
+                        <i class="fas fa-quote-right"></i>
+                        <span>Depoimentos</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="admin-notificacoes.html">
+                        <i class="fas fa-bell"></i>
+                        <span>Notificações</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="admin-perfil.html">
+                        <i class="fas fa-user"></i>
+                        <span>Meu Perfil</span>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+
+        <div class="rodape-sidebar">
+            <a href="../area-publica/area-restrita.html" class="btn-sair">
+                <i class="fas fa-sign-out-alt"></i>
+                <span>Sair</span>
+            </a>
+        </div>
+    </aside>
+
+    <!-- Overlay para mobile -->
+    <div class="overlay" id="overlay"></div>
+    
+    <!-- ===== CONTEÚDO PRINCIPAL ===== -->
+    <main class="conteudo-principal">
+        <header class="barra-topo">
+            <button class="botao-menu-mobile" id="botaoMenuMobile">
+                <i class="fas fa-bars"></i>
+            </button>
+            <h1>Depoimentos</h1>
+            <div class="direita-barra-topo">
+                <button class="btn-primario" id="btnNovoDepoimento">
+                    <i class="fas fa-plus"></i>
+                    <span>Novo Depoimento</span>
+                </button>
+            </div>
+        </header>
+
+        <div class="wrapper-conteudo">
+
+            <!-- ESTATÍSTICAS -->
+            <section class="secao-conteudo">
+                <h2 class="titulo-secao"><i class="fas fa-chart-pie"></i> Visão Geral</h2>
+                <div class="grade-estatisticas">
+                    <div class="cartao-estatistica">
+                        <div class="icone-estatistica azul">
+                            <i class="fas fa-quote-right"></i>
+                        </div>
+                        <div class="info-estatistica">
+                            <h3>Total</h3>
+                            <p id="estatisticaTotal">0</p>
+                        </div>
+                    </div>
+                    <div class="cartao-estatistica">
+                        <div class="icone-estatistica verde">
+                            <i class="fas fa-users"></i>
+                        </div>
+                        <div class="info-estatistica">
+                            <h3>Alumni</h3>
+                            <p id="estatisticaAlumni">0</p>
+                        </div>
+                    </div>
+                    <div class="cartao-estatistica">
+                        <div class="icone-estatistica roxo">
+                            <i class="fas fa-building"></i>
+                        </div>
+                        <div class="info-estatistica">
+                            <h3>Empresas</h3>
+                            <p id="estatisticaEmpresas">0</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- LISTA DE DEPOIMENTOS -->
+            <section class="secao-conteudo">
+                <div class="cabecalho-secao">
+                    <h2 class="titulo-secao"><i class="fas fa-list"></i> Depoimentos</h2>
+                    <div class="filtros-container">
+                        <select id="filtroCurso" class="selecao-form">
+                            <option value="">Todos os Cursos</option>
+                        </select>
+                    </div>
+                </div>
+                
+                <div class="tabela-responsiva">
+                    <table class="tabela-dados" id="tabelaDepoimentos">
+                        <thead>
+                            <tr>
+                                <th>Foto</th>
+                                <th>Nome</th>
+                                <th>Curso / Turma</th>
+                                <th>Empresa</th>
+                                <th>Destaque</th>
+                                <th>Ações</th>
+                            </tr>
+                        </thead>
+                        <tbody id="containerDepoimentos">
+                            <!-- Depoimentos serão carregados dinamicamente -->
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <!-- MODAL DEPOIMENTO -->
+    <div id="modalDepoimento" class="modal">
+        <div class="conteudo-modal">
+            <div class="cabecalho-modal">
+                <div class="esquerda-cabecalho">
+                    <div class="icone-cabecalho"><i class="fas fa-quote-right"></i></div>
+                    <div class="texto-cabecalho">
+                        <h2 id="modalTitulo">Novo Depoimento</h2>
+                        <p id="modalSubtitulo">Preencha os dados do depoimento</p>
+                    </div>
+                </div>
+                <button class="btn-fechar" onclick="fecharModal()"><i class="fas fa-times"></i></button>
+            </div>
+
+            <div class="corpo-modal">
+                <form id="formularioDepoimento">
+                    <input type="hidden" id="depoimentoId">
+
+                    <div class="cartao-form">
+                        <div class="linha-form">
+                            <div class="grupo-form">
+                                <label><i class="fas fa-user"></i> Nome do Alumni *</label>
+                                <input type="text" id="campoNome" class="campo-form" required placeholder="Ex: João Silva">
+                            </div>
+
+                            <div class="grupo-form">
+                                <label><i class="fas fa-graduation-cap"></i> Curso *</label>
+                                <select id="campoCursoId" class="campo-form" required>
+                                    <option value="">Selecione...</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="linha-form">
+                            <div class="grupo-form">
+                                <label><i class="fas fa-calendar"></i> Turma *</label>
+                                <input type="text" id="campoTurma" class="campo-form" required placeholder="Ex: 2018">
+                            </div>
+
+                            <div class="grupo-form">
+                                <label><i class="fas fa-building"></i> Empresa *</label>
+                                <input type="text" id="campoEmpresa" class="campo-form" required placeholder="Ex: ENDE - Electricista">
+                            </div>
+                        </div>
+
+                        <div class="grupo-form">
+                            <label><i class="fas fa-quote-left"></i> Texto do Depoimento *</label>
+                            <textarea id="campoTexto" class="campo-form" rows="4" required placeholder="Escreva o depoimento..."></textarea>
+                        </div>
+
+                        <div class="linha-form">
+                            <div class="grupo-form">
+                                <label><i class="fas fa-image"></i> Foto do Alumni</label>
+                                <div class="area-upload" onclick="document.getElementById('inputFoto').click()">
+                                    <i class="fas fa-cloud-upload-alt"></i>
+                                    <p>Clique para fazer upload da foto</p>
+                                    <small>Formatos: JPG, PNG | Tamanho: 200x200px</small>
+                                </div>
+                                <input type="file" id="inputFoto" accept="image/*" style="display: none;">
+                                <div class="preview-arquivo" id="previewFoto">
+                                    <div>
+                                        <img id="miniaturaFoto" alt="Preview">
+                                    </div>
+                                    <button type="button" class="btn-icone" onclick="removerFoto()"><i class="fas fa-trash"></i></button>
+                                </div>
+                            </div>
+
+                            <div class="grupo-form">
+                                <label><i class="fas fa-star"></i> Destaque</label>
+                                <div class="wrapper-toggle">
+                                    <label class="toggle-switch">
+                                        <input type="checkbox" id="campoDestaque">
+                                        <span class="toggle-slider"></span>
+                                    </label>
+                                    <span style="font-size: 13px;">Mostrar na página inicial</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="acoes-form">
+                        <button type="button" class="btn-cancelar" onclick="fecharModal()">
+                            <i class="fas fa-times"></i> Cancelar
+                        </button>
+                        <button type="submit" class="btn-salvar">
+                            <i class="fas fa-save"></i> Salvar Depoimento
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- JavaScript -->
+    <script src="../assets/js/admin-sidebar-header.js"></script>
+    <script src="../assets/js/admin-depoimentos.js"></script>
+</body>
+</html>
+</html>

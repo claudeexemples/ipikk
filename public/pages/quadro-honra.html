@@ -1,0 +1,582 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IPIKK - Quadro de Honra</title>
+    
+    <!-- Fontes e Ícones -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Montserrat:wght@400;500;600;700&display=swap">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    
+    <link rel="stylesheet" href="../assets/icons/css/all.min.css">
+    <!-- Favicon -->
+    <link href="../assets/images/ipikk_new_logo.png" rel="icon">
+    
+    <!-- CSS Header/Footer Padrão -->
+    <link rel="stylesheet" href="../assets/css/header-footer.css">
+    
+    <!-- CSS Específico da Página -->
+    <link rel="stylesheet" href="../assets/css/quadro-honra.css">
+</head>
+<body>
+
+    <!-- ===== BARRA SUPERIOR ===== -->
+        <div class="barra-superior">
+    <div class="conteudo-superior">
+        <div class="info-instituto">
+            Instituto Médio Politécnico Industrial do Kilamba Kiaxi Nº 8050 Nova-vida
+        </div>
+        <div class="social-traducao">
+            <div class="icones-sociais">
+                <a href="#" class="icone-social"><i class="fab fa-facebook-f"></i></a>
+                <a href="#" class="icone-social"><i class="fab fa-instagram"></i></a>
+                <a href="#" class="icone-social"><i class="fab fa-linkedin-in"></i></a>
+            </div>
+            <div class="seletor-idioma" id="botaoTraducao">
+                <i class="fas fa-globe"></i>
+                    <span id="idiomaAtual">Português</span>
+                        <i class="fas fa-chevron-down"></i>
+                        <div class="dropdown-idioma" id="dropdownIdioma">
+                            <a href="#" data-lang="pt" class="opcao-idioma ativo">
+            <i class="fas fa-flag"></i> Português
+        </a>
+        <a href="#" data-lang="en" class="opcao-idioma">
+            <i class="fas fa-flag-usa"></i> English
+        </a>
+    </div>
+</div>
+        </div>
+    </div>
+</div>
+
+<!-- ===== CABEÇALHO ===== -->
+<header class="cabecalho" id="cabecalho">
+    <div class="conteudo-cabecalho">
+        <a href="javascript:void(0)" class="container-logo">
+            <div class="logo"><img src="../assets/images/ipikk_new_logo.png" alt="Logo IPIKK"></div>
+        </a>
+        <nav>
+            <ul class="menu-navegacao">
+                <li><a href="index.html" class="link-navegacao">Início</a></li>
+
+                <!-- OFERTA FORMATIVA — hover abre submenu, clique no texto navega -->
+                <li class="item-navegacao menu-suspenso" id="menu-oferta-desktop">
+                    <a href="oferta-formativa.html" class="link-navegacao">Oferta Formativa <i class="fas fa-chevron-down"></i></a>
+                    <div class="conteudo-suspenso">
+                        <div class="item-suspenso">
+                            <a href="construcao-civil.html" class="link-suspenso">Construção Civil <i class="fas fa-chevron-right" style="float:right;margin-top:2px;font-size:.75rem;"></i></a>
+
+                            <div class="submenu-suspenso">
+                                <a href="construcao-civil-obras.html">Técnico de Obras</a>
+                                <a href="construcao-civil-desenhador.html">Desenhador Projectista</a>
+                            </div>
+                        </div>
+                        <div class="item-suspenso">
+                            <a href="eletricidade.html" class="link-suspenso">Electricidade<i class="fas fa-chevron-right" style="float:right;margin-top:2px;font-size:.75rem;"></i></a>
+                            <div class="submenu-suspenso">
+                                <a href="eletricidade-instalacoes.html">Energia e Instalações</a>
+                            </div>
+                        </div>
+                        <div class="item-suspenso">
+                            <a href="mecanica.html" class="link-suspenso">Mecânica <i class="fas fa-chevron-right" style="float:right;margin-top:2px;font-size:.75rem;"></i></a>
+                            <div class="submenu-suspenso">
+                                <a href="mecanica-climatizacao.html">Frio e Climatização</a>
+                            </div>
+                        </div>
+                        <div class="item-suspenso">
+                            <a href="informatica.html" class="link-suspenso">Informática<i class="fas fa-chevron-right" style="float:right;margin-top:2px;font-size:.75rem;"></i></a>
+                            <div class="submenu-suspenso">
+                                <a href="informatica-gestao-sistemas.html">Gestão de Sistemas</a>
+                                <a href="informatica-tecnico.html">Técnico de Informática</a>
+                            </div>
+                        </div>
+                        <div class="item-suspenso">
+                            <a href="tecnologia-moveis.html" class="link-suspenso">Tecnologias de Móveis<i class="fas fa-chevron-right" style="float:right;margin-top:2px;font-size:.75rem;"></i></a>
+                            <div class="submenu-suspenso">
+                                <a href="tecnologia-moveis-curso.html">Tecnologias de Móveis</a>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+
+                <!-- SOBRE — hover abre submenu, clique no texto não redireciona -->
+                <li class="item-navegacao menu-suspenso ativo" id="menu-sobre-desktop">
+                    <a href="javascript:void(0)" class="link-navegacao">Sobre <i class="fas fa-chevron-down"></i></a>
+                    <div class="conteudo-suspenso">
+                        <a href="sobre-nos.html" class="link-suspenso">Quem Somos</a>
+                        <div class="item-suspenso">
+                            <a href="javascript:void(0)" class="link-suspenso">Institucional <i class="fas fa-chevron-right" style="float:right;margin-top:2px;font-size:.75rem;"></i></a>
+                            <div class="submenu-suspenso">
+                                <a href="diretor.html">Perfil do Director</a>
+                                <a href="orgaos-diretivos.html">Órgãos Directivos</a>
+                                <a href="ex-diretores.html">Ex-Directores</a>
+                            </div>
+                        </div>
+                        <a href="normativos.html" class="link-suspenso">Normativos</a>
+                        <div class="item-suspenso">
+                            <a href="javascript:void(0)" class="link-suspenso">Alumni <i class="fas fa-chevron-right" style="float:right;margin-top:2px;font-size:.75rem;"></i></a>
+                            <div class="submenu-suspenso">
+                                <a href="percurso.html">Percurso</a>
+                                <a href="quadro-honra.html">Quadro de Honra</a>
+                                <a href="funcionario-destacado.html">Funcionário Destacado</a>
+                            </div>
+                        </div>
+                        <a href="escolas-afiliadas.html" class="link-suspenso">Escolas Afiliadas</a>
+                    </div>
+                </li>
+
+                <li class="item-navegacao"><a href="noticias.html" class="link-navegacao">Notícias</a></li>
+                <li class="item-navegacao"><a href="galeria.html" class="link-navegacao">Galeria</a></li>
+                <li class="item-navegacao"><a href="contatos.html" class="link-navegacao">Contactos</a></li>
+                <li class="item-navegacao">
+                    <a href="area-restrita.html" class="link-navegacao botao-area-restrita">
+                        <i class="fas fa-lock"></i> Área Restrita
+                    </a>
+                </li>
+            </ul>
+        </nav>
+        <button class="botao-menu-mobile" id="botaoMenu" aria-label="Abrir menu">
+            <span></span><span></span><span></span>
+        </button>
+    </div>
+</header>
+
+<!-- ===== OVERLAY ===== -->
+<div class="overlay-sidebar" id="overlaySidebar"></div>
+
+<!-- ===== SIDEBAR MOBILE ===== -->
+<aside class="sidebar-mobile" id="sidebarMobile" aria-hidden="true">
+    <div class="sidebar-cabecalho">
+        <div class="sidebar-logo-linha">
+            <img src="../assets/images/ipikk_new_logo.png" alt="IPIKK" class="sidebar-logo-img">
+            <div class="sidebar-logo-texto">
+                <div class="nome">IPIKK</div>
+                <div class="sub">Instituto Politécnico Industrial do Kilamba Kiaxi</div>
+            </div>
+        </div>
+        <button class="botao-fechar-sidebar" id="fecharSidebar"><i class="fas fa-times"></i></button>
+    </div>
+
+    <nav class="sidebar-nav">
+
+        <!-- Início -->
+        <div class="sidebar-item">
+            <a href="index.html" class="sidebar-link">
+                <span class="sidebar-icone"><i class="fas fa-home"></i></span>
+                <span>Início</span>
+            </a>
+        </div>
+
+        <!-- OFERTA FORMATIVA — texto redireciona, seta abre submenu -->
+        <div class="sidebar-item">
+            <div class="sidebar-dupla-funcao">
+                <a href="oferta-formativa.html" class="sidebar-link-pagina">
+                    <span class="sidebar-icone"><i class="fas fa-graduation-cap"></i></span>
+                    Oferta Formativa
+                </a>
+                <button class="botao-seta-sidebar" data-alvo="sub-oferta" aria-expanded="false">
+                    <i class="fas fa-chevron-right"></i>
+                </button>
+            </div>
+            <div class="sidebar-submenu" id="sub-oferta">
+
+                <!-- Construção Civil -->
+                <div class="sidebar-item">
+                    <div class="sidebar-dupla-funcao">
+                        <a href="construcao-civil.html" class="sidebar-link-pagina sidebar-link-pagina--sub">Construção Civil</a>
+                        <button class="botao-seta-sidebar botao-seta-sidebar--sub" data-alvo="sub-construcao" aria-expanded="false">
+                            <i class="fas fa-chevron-right"></i>
+                        </button>
+                    </div>
+                    <div class="sidebar-submenu" id="sub-construcao">
+                        <a href="construcao-civil-obras.html" class="sidebar-sub-link">Técnico de Obras</a>
+                        <a href="construcao-civil-desenhador.html" class="sidebar-sub-link">Desenhador Projectista</a>
+                    </div>
+                </div>
+
+                <!-- Electricidade -->
+                <div class="sidebar-item">
+                    <div class="sidebar-dupla-funcao">
+                        <a href="eletricidade.html" class="sidebar-link-pagina sidebar-link-pagina--sub">Electricidade</a>
+                        <button class="botao-seta-sidebar botao-seta-sidebar--sub" data-alvo="sub-eletricidade" aria-expanded="false">
+                            <i class="fas fa-chevron-right"></i>
+                        </button>
+                    </div>
+                    <div class="sidebar-submenu" id="sub-eletricidade">
+                        <a href="eletricidade-instalacoes.html" class="sidebar-sub-link">Energia e Instalações</a>
+                    </div>
+                </div>
+
+                <!-- Mecânica -->
+                <div class="sidebar-item">
+                    <div class="sidebar-dupla-funcao">
+                        <a href="mecanica.html" class="sidebar-link-pagina sidebar-link-pagina--sub">Mecânica</a>
+                        <button class="botao-seta-sidebar botao-seta-sidebar--sub" data-alvo="sub-mecanica" aria-expanded="false">
+                            <i class="fas fa-chevron-right"></i>
+                        </button>
+                    </div>
+                    <div class="sidebar-submenu" id="sub-mecanica">
+                        <a href="mecanica-climatizacao.html" class="sidebar-sub-link">Frio e Climatização</a>
+                    </div>
+                </div>
+
+                <!-- Informática -->
+                <div class="sidebar-item">
+                    <div class="sidebar-dupla-funcao">
+                        <a href="informatica.html" class="sidebar-link-pagina sidebar-link-pagina--sub">Informática</a>
+                        <button class="botao-seta-sidebar botao-seta-sidebar--sub" data-alvo="sub-informatica" aria-expanded="false">
+                            <i class="fas fa-chevron-right"></i>
+                        </button>
+                    </div>
+                    <div class="sidebar-submenu" id="sub-informatica">
+                        <a href="informatica-gestao-sistemas.html" class="sidebar-sub-link">Gestão de Sistemas</a>
+                        <a href="informatica-tecnico.html" class="sidebar-sub-link">Técnico de Informática</a>
+                    </div>
+                </div>
+
+                <!-- Tecnologias de Móveis -->
+                <div class="sidebar-item">
+                    <div class="sidebar-dupla-funcao">
+                        <a href="tecnologia-moveis.html" class="sidebar-link-pagina sidebar-link-pagina--sub">Tecnologias de Móveis</a>
+                        <button class="botao-seta-sidebar botao-seta-sidebar--sub" data-alvo="sub-moveis" aria-expanded="false">
+                            <i class="fas fa-chevron-right"></i>
+                        </button>
+                    </div>
+                    <div class="sidebar-submenu" id="sub-moveis">
+                        <a href="tecnologia-moveis-curso.html" class="sidebar-sub-link">Tecnologias de Móveis</a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- SOBRE — clique abre submenu, não redireciona -->
+        <div class="sidebar-item">
+            <button class="sidebar-link has-submenu" data-alvo="sub-sobre" aria-expanded="false">
+                <span class="link-texto">
+                    <span class="sidebar-icone"><i class="fas fa-university"></i></span>
+                    Sobre
+                </span>
+                <i class="fas fa-chevron-right seta-submenu"></i>
+            </button>
+            <div class="sidebar-submenu" id="sub-sobre">
+                <a href="sobre-nos.html" class="sidebar-sub-link">Quem Somos</a>
+
+                <!-- Institucional -->
+                <div class="sidebar-item">
+                    <button class="sidebar-link has-submenu" data-alvo="sub-institucional" aria-expanded="false">
+                        <span class="link-texto">
+                            <span class="sidebar-icone"><i class="fas fa-chevron-right"></i></span>
+                            Institucional
+                        </span>
+                        <i class="fas fa-chevron-right seta-submenu"></i>
+                    </button>
+                    <div class="sidebar-submenu" id="sub-institucional">
+                        <a href="diretor.html" class="sidebar-sub-link">Perfil do Director</a>
+                        <a href="orgaos-diretivos.html" class="sidebar-sub-link">Órgãos Directivos</a>
+                        <a href="ex-diretores.html" class="sidebar-sub-link">Ex-Directores</a>
+                    </div>
+                </div>
+
+                <a href="normativos.html" class="sidebar-sub-link">Normativos</a>
+
+                <!-- Alumni -->
+                <div class="sidebar-item">
+                    <button class="sidebar-link has-submenu" data-alvo="sub-alumni" aria-expanded="false">
+                        <span class="link-texto">
+                            <span class="sidebar-icone"><i class="fas fa-chevron-right"></i></span>
+                            Alumni
+                        </span>
+                        <i class="fas fa-chevron-right seta-submenu"></i>
+                    </button>
+                    <div class="sidebar-submenu" id="sub-alumni">
+                        <a href="percurso.html" class="sidebar-sub-link">Percurso</a>
+                        <a href="quadro-honra.html" class="sidebar-sub-link">Quadro de Honra</a>
+                        <a href="funcionario-destacado.html" class="sidebar-sub-link">Funcionário Destacado</a>
+                    </div>
+                </div>
+
+                <a href="escolas-afiliadas.html" class="sidebar-sub-link">Escolas Afiliadas</a>
+            </div>
+        </div>
+
+        <!-- Notícias -->
+        <div class="sidebar-item">
+            <a href="noticias.html" class="sidebar-link">
+                <span class="sidebar-icone"><i class="fas fa-newspaper"></i></span>
+                <span>Notícias</span>
+            </a>
+        </div>
+
+        <!-- Galeria -->
+        <div class="sidebar-item">
+            <a href="galeria.html" class="sidebar-link">
+                <span class="sidebar-icone"><i class="fas fa-images"></i></span>
+                <span>Galeria</span>
+            </a>
+        </div>
+
+        <!-- Contactos -->
+        <div class="sidebar-item">
+            <a href="contatos.html" class="sidebar-link">
+                <span class="sidebar-icone"><i class="fas fa-envelope"></i></span>
+                <span>Contactos</span>
+            </a>
+        </div>
+
+    </nav>
+
+    <div class="sidebar-rodape">
+        <button class="botao-area-restrita-sidebar" onclick="window.location.href='area-restrita.html'">
+            <i class="fas fa-lock"></i> Área Restrita
+        </button>
+    </div>
+</aside>
+
+    <section class="qh-heroi">
+    <div class="qh-heroi__badge-ano">
+        <span class="qh-heroi__badge-rotulo">Ano Lectivo</span>
+        <strong class="qh-heroi__badge-valor">2024/2025</strong>
+    </div>
+
+    <div class="qh-heroi__identidade">
+        <img src="../assets/images/brasao_angola.png"
+            alt="Brasão da República de Angola"
+            class="qh-heroi__brasao"
+            onerror="this.style.display='none'">
+        <!--<div class="qh-heroi__texto-inst">
+            <span class="qh-heroi__republica">República de Angola · Ministério da Educação</span>
+            <span class="qh-heroi__instituto">Instituto Politécnico Industrial do Kilamba Kiaxi Nº 8056 "Nova Vida"</span>
+        </div> -->
+    </div>
+
+    <h1 class="qh-heroi__titulo">
+        Quadro de <em>Honra</em>
+    </h1>
+    <p class="qh-heroi__lema">Por amor, primemos por uma educação de qualidade</p>
+
+    <div class="qh-heroi__divisor">
+        <span class="qh-heroi__divisor-linha"></span>
+        <i class="fas fa-star"></i>
+        <i class="fas fa-star"></i>
+        <i class="fas fa-star"></i>
+        <span class="qh-heroi__divisor-linha"></span>
+    </div>
+</section>
+
+<!-- MELHOR ALUNO GERAL -->
+<section class="qh-geral">
+    <div class="qh-geral__container">
+
+        <div class="qh-secao-cabecalho">
+            <span class="qh-etiqueta">
+                <i class="fas fa-trophy"></i> Melhor Aluno Geral
+            </span>
+            <h2 class="qh-titulo-secao">Destaque do Ano Lectivo</h2>
+            <div class="qh-linha-deco"></div>
+        </div>
+
+        <div class="qh-cartao-destaque">
+            <div class="qh-cartao-destaque__faixa">
+                <span class="qh-cartao-destaque__medalha">
+                    <i class="fas fa-trophy"></i>
+                </span>
+            </div>
+            <div class="qh-cartao-destaque__foto-wrapper">
+                <img src="../assets/images/adilson_mungondue.jpg"
+                     alt="Adilson Emanuel Mutindi Mungondue"
+                     class="qh-cartao-destaque__foto"
+                     onerror="this.src=''; this.classList.add('qh-sem-foto')">
+                <i class="fas fa-user qh-cartao-destaque__foto-icon" aria-hidden="true"></i>
+            </div>
+            <div class="qh-cartao-destaque__info">
+                <h3 class="qh-cartao-destaque__nome">Adilson Emanuel Mutindi Mungondue</h3>
+                <div class="qh-cartao-destaque__dados">
+                    <div class="qh-dado">
+                        <span class="qh-dado__rotulo">Média</span>
+                        <span class="qh-dado__valor qh-dado__valor--media">17 Valores</span>
+                    </div>
+                    <div class="qh-dado">
+                        <span class="qh-dado__rotulo">Curso</span>
+                        <span class="qh-dado__valor">Energia e Instalações Eléctricas</span>
+                    </div>
+                </div>
+                <div class="qh-linha-deco qh-linha-deco--centrada" style="margin-top:18px;"></div>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+<!-- MELHOR ALUNO POR CLASSE -->
+<section class="qh-por-classe">
+    <div class="qh-por-classe__container">
+
+        <div class="qh-secao-cabecalho">
+            <h2 class="qh-titulo-secao qh-titulo-secao--com-estrelas">
+                <span class="qh-estrelas"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></span>
+                Melhor Aluno por Classe
+                <span class="qh-estrelas"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></span>
+            </h2>
+            <div class="qh-linha-deco"></div>
+        </div>
+
+        <div class="qh-grade-classes">
+
+            <!-- 10ª Classe -->
+            <div class="qh-cartao-classe">
+                <div class="qh-cartao-classe__topo qh-cartao-classe__topo--10">10ª Classe</div>
+                <div class="qh-cartao-classe__foto-area">
+                    <img src="../assets/images/adilson_mungondue.jpg"
+                         alt="Adilson Emanuel M. Mungondue"
+                         class="qh-cartao-classe__foto"
+                         onerror="this.src=''; this.classList.add('qh-sem-foto')">
+                    <i class="fas fa-user qh-cartao-classe__foto-icon" aria-hidden="true"></i>
+                </div>
+                <div class="qh-cartao-classe__info">
+                    <strong class="qh-cartao-classe__nome">Adilson Emanuel M. Mungondue</strong>
+                    <span class="qh-cartao-classe__media">17 Valores</span>
+                    <span class="qh-cartao-classe__curso">Energia e Instalações Eléctricas</span>
+                    <div class="qh-cartao-classe__linha"></div>
+                </div>
+            </div>
+
+            <!-- 11ª Classe -->
+            <div class="qh-cartao-classe">
+                <div class="qh-cartao-classe__topo qh-cartao-classe__topo--11">11ª Classe</div>
+                <div class="qh-cartao-classe__foto-area">
+                    <img src="../assets/images/isabel_nicolau.jpg"
+                         alt="Isabel Landana Nicolau"
+                         class="qh-cartao-classe__foto"
+                         onerror="this.src=''; this.classList.add('qh-sem-foto')">
+                    <i class="fas fa-user qh-cartao-classe__foto-icon" aria-hidden="true"></i>
+                </div>
+                <div class="qh-cartao-classe__info">
+                    <strong class="qh-cartao-classe__nome">Isabel Landana Nicolau</strong>
+                    <span class="qh-cartao-classe__media">16 Valores</span>
+                    <span class="qh-cartao-classe__curso">Obras de Construção Civil</span>
+                    <div class="qh-cartao-classe__linha"></div>
+                </div>
+            </div>
+
+            <!-- 12ª Classe -->
+            <div class="qh-cartao-classe">
+                <div class="qh-cartao-classe__topo qh-cartao-classe__topo--12">12ª Classe</div>
+                <div class="qh-cartao-classe__foto-area">
+                    <img src="../assets/images/helvio_jose.jpg"
+                         alt="Hélvio Francisco Fuji José"
+                         class="qh-cartao-classe__foto"
+                         onerror="this.src=''; this.classList.add('qh-sem-foto')">
+                    <i class="fas fa-user qh-cartao-classe__foto-icon" aria-hidden="true"></i>
+                </div>
+                <div class="qh-cartao-classe__info">
+                    <strong class="qh-cartao-classe__nome">Hélvio Francisco Fuji José</strong>
+                    <span class="qh-cartao-classe__media">16,55 Valores</span>
+                    <span class="qh-cartao-classe__curso">Informática</span>
+                    <div class="qh-cartao-classe__linha"></div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<!-- CITAÇÃO BÍBLICA -->
+<section class="qh-citacao">
+    <div class="qh-citacao__container">
+        <span class="qh-citacao__aspas">&ldquo;</span>
+        <blockquote class="qh-citacao__texto">
+            Jesus crescia, e se fortalecia em espírito, cheio de sabedoria;
+            e a graça de Deus estava sobre ELE
+        </blockquote>
+        <cite class="qh-citacao__referencia">Lucas 2:40</cite>
+        <img src="../assets/images/ipikk_new_logo.png"
+            alt="IPIKK"
+            class="qh-citacao__logo"
+            onerror="this.style.display='none'">
+    </div>
+</section>
+
+    <!-- ===== BOTÕES FLUTUANTES ===== -->
+    <div class="botoes-flutuantes">
+        <button class="botao-flutuante" id="botaoTopo" title="Voltar ao topo">
+            <i class="fas fa-chevron-up"></i>
+        </button>
+        <a href="https://wa.me/244933096705" class="botao-flutuante whatsapp" target="_blank" rel="noopener" title="WhatsApp">
+            <i class="fab fa-whatsapp"></i>
+        </a>
+    </div>
+
+    <!-- ===== RODAPÉ ===== -->
+    <footer class="rodape">
+        <div class="container-rodape">
+            <div class="conteudo-rodape">
+                <!-- Coluna Logo -->
+                <div class="coluna-logo">
+                    <div class="foto-instituto">
+                        <img src="../assets/images/ipikk_new_logo_1.png" alt="Instituto IPIKK">
+                    </div>
+                    <p class="descricao-rodape">
+                        Instituto Médio Politécnico Industrial do Kilamba Kiaxi Nº8050 "Nova Vida"
+                    </p>
+                    <p class="email-rodape">
+                        Email: <a href="mailto:geral@ipikk.ao">geral@ipikk.ao</a>
+                    </p>
+                    <div class="social-rodape">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                    </div>
+                </div>
+
+                <!-- Coluna IPIKK -->
+                <div class="coluna-links">
+                    <h4 class="titulo-rodape">IPIKK</h4>
+                    <div class="links-rodape">
+                        <a href="sobre-nos.html" class="link-rodape">Sobre Nós</a>
+                        <a href="inscricoes.html" class="link-rodape">Inscrição</a>
+                        <a href="contatos.html" class="link-rodape">Contactos</a>
+                        <a href="area-restrita.html" class="link-rodape">Área Restrita</a>
+                        <a href="politica-privacidade.html" class="link-rodape">Políticas de Privacidade</a>
+                    </div>
+                </div>
+
+                <!-- Coluna Oferta Formativa -->
+                <div class="coluna-links">
+                    <h4 class="titulo-rodape">Oferta Formativa</h4>
+                    <div class="links-rodape">
+                        <a href="oferta-formativa.html" class="link-rodape">Oferta Formativa</a>
+                        <a href="construcao-civil.html" class="link-rodape">Construção Civil</a>
+                        <a href="eletricidade.html" class="link-rodape">Electricidade</a>
+                        <a href="mecanica.html" class="link-rodape">Mecânica</a>
+                        <a href="informatica.html" class="link-rodape">Informática</a>
+                        <a href="tecnologia-moveis.html" class="link-rodape">Tecnologias de Móveis</a>
+                    </div>
+                </div>
+
+                <!-- Coluna Links Rápidos -->
+                <div class="coluna-links">
+                    <h4 class="titulo-rodape">Links Rápidos</h4>
+                    <div class="links-rodape">
+                        <a href="https://governo.gov.ao/" class="link-rodape" target="_blank">Governo de Angola</a>
+                        <a href="https://luanda.gov.ao/" class="link-rodape" target="_blank">Governo Provincial de Luanda</a>
+                        <a href="https://med.gov.ao/" class="link-rodape" target="_blank">Ministério da Educação</a>
+                        <a href="https://itel.gov.ao/" class="link-rodape" target="_blank">Instituto de Telecomunicações</a>
+                        <a href="https://webmail.ipikk.ao/" class="link-rodape" target="_blank">Webmail IPIKK</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="rodape-inferior">
+                <p>IPIKK 2026 © Todos os direitos reservados by <strong>INFOSI</strong></p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript Header/Footer Padrão -->
+    <script src="../assets/js/header-footer.js"></script>
+
+</body>
+</html>

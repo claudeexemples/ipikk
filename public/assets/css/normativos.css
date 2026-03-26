@@ -1,0 +1,197 @@
+/* =========================================
+   SEÇÃO NORMATIVOS
+   ========================================= */
+
+/* =========================================
+   VARIÁVEIS (mesmas do CSS principal)
+   ========================================= */
+:root {
+    --azul: #003072;
+    --azul-escuro: #001a40;
+    --teal: #0a9396;
+    --teal-claro: #94d2bd;
+    --branco: #ffffff;
+    --fundo-pagina: #f0f4f8;
+    --fundo-secao: #f8f9fa;
+    --cinza: #6c757d;
+    --cinza-claro: #dee2e6;
+    --texto: #2d2d2d;
+    --sombra: 0 2px 12px rgba(0,0,0,0.07);
+    --sombra-hover: 0 6px 22px rgba(0,0,0,0.13);
+    --transicao: all 0.3s ease;
+    --raio: 10px;
+}
+
+/* =========================================
+   SEÇÃO NORMATIVOS
+   ========================================= */
+.normativos-section {
+    background: var(--fundo-pagina);
+    padding: 80px 20px;
+    margin-top: -50px;
+    position: relative;
+    z-index: 1;
+}
+
+.normativos-wrapper {
+    max-width: 1200px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+/* =========================================
+   TÍTULOS
+   ========================================= */
+.normativos-title {
+    font-family: 'Poppins', sans-serif;
+    font-size: 38px;
+    font-weight: 700;
+    color: var(--azul);
+    text-align: center;
+    margin-bottom: 12px;
+    line-height: 1.2;
+}
+
+.normativos-divider {
+    width: 70px;
+    height: 4px;
+    background: var(--teal);
+    margin: 0 auto 50px auto;
+    border-radius: 2px;
+}
+
+/* =========================================
+   GRID DE CARDS
+   ========================================= */
+.normativos-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    padding: 20px 0;
+}
+
+/* =========================================
+   CARDS
+   ========================================= */
+.normativos-card {
+    background: var(--branco);
+    padding: 30px 25px;
+    border-radius: var(--raio);
+    box-shadow: var(--sombra);
+    text-align: left;
+    transition: var(--transicao);
+    border-top: 4px solid var(--teal);
+    border-left: none;
+    border-right: 1px solid var(--cinza-claro);
+    border-bottom: 1px solid var(--cinza-claro);
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.normativos-card:hover {
+    transform: translateY(-6px);
+    box-shadow: var(--sombra-hover);
+    border-top-color: var(--azul);
+}
+
+.normativos-card h3 {
+    font-family: 'Poppins', sans-serif;
+    font-size: 18px;
+    font-weight: 600;
+    color: var(--azul);
+    margin-bottom: 15px;
+    min-height: auto;
+    line-height: 1.4;
+}
+
+.normativos-card p {
+    font-size: 14px;
+    color: var(--cinza);
+    line-height: 1.6;
+    margin-bottom: 20px;
+    flex-grow: 1;
+}
+
+/* =========================================
+   BOTÃO
+   ========================================= */
+.normativos-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    text-decoration: none;
+    background: var(--teal);
+    color: var(--branco);
+    padding: 12px 20px;
+    border-radius: 6px;
+    font-size: 14px;
+    font-weight: 600;
+    transition: var(--transicao);
+    border: none;
+    cursor: pointer;
+    width: fit-content;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.normativos-btn:hover {
+    background: var(--azul);
+    transform: translateY(-2px);
+    gap: 12px;
+    box-shadow: var(--sombra-hover);
+}
+
+.normativos-btn i {
+    font-size: 14px;
+}
+
+/* =========================================
+   RESPONSIVIDADE
+   ========================================= */
+@media (max-width: 768px) {
+    .normativos-section {
+        padding: 60px 20px;
+    }
+    
+    .normativos-title {
+        font-size: 32px;
+    }
+    
+    .normativos-grid {
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 20px;
+    }
+    
+    .normativos-card {
+        padding: 25px 20px;
+    }
+    
+    .normativos-card h3 {
+        font-size: 16px;
+    }
+}
+
+@media (max-width: 480px) {
+    .normativos-section {
+        padding: 40px 15px;
+        margin-top: -30px;
+    }
+    
+    .normativos-title {
+        font-size: 28px;
+    }
+    
+    .normativos-divider {
+        margin-bottom: 30px;
+    }
+    
+    .normativos-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .normativos-btn {
+        width: 100%;
+        justify-content: center;
+    }
+}

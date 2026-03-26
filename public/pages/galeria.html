@@ -1,0 +1,1257 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IPIKK - Galeria</title>
+    
+    <!-- Fontes e Ícones -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Montserrat:wght@400;500;600;700&display=swap">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    
+    <!-- Favicon -->
+    <link href="../assets/images/ipikk_new_logo.png" rel="icon">
+    
+    <!-- CSS Header/Footer Padrão -->
+    <link rel="stylesheet" href="../assets/css/header-footer.css">
+
+    <link rel="stylesheet" href="../assets/css/galeria.css">
+    <style>
+        /* ===== VARIÁVEIS CSS ===== */
+:root {
+    --azul-principal: #003072;
+    --azul-claro: #2e86c1;
+    --azul-escuro: #001a40;
+    --verde-acento: #0a9396;
+    --verde-claro: #94d2bd;
+    --branco: #ffffff;
+    --cinza-claro: #f8f9fa;
+    --cinza: #6c757d;
+    --cinza-escuro: #212529;
+    --sombra: 0 10px 30px rgba(0, 48, 114, 0.1);
+    --borda-raio: 12px;
+    --transicao: all 0.3s ease;
+
+    /* Cores dos cursos */
+    --cor-construcao: #9FA3A7;
+    --cor-eletricidade: #3A7BC0;
+    --cor-mecanica: #E67E22;
+    --cor-informatica: #1F7A4D;
+    --cor-moveis: #e01a1a;
+    --cor-desenhador: #6c5ce7;
+    --cor-gestao: #00b894;
+}
+
+/* ===== ESTILOS GERAIS ===== */
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; scroll-padding-top: 100px; }
+body {
+    font-family: 'Montserrat', sans-serif;
+    background: var(--cinza-claro);
+    color: var(--cinza-escuro);
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+    line-height: 1.2;
+}
+a { text-decoration: none; color: inherit; transition: var(--transicao); }
+
+/* ===== CABEÇALHO DA PÁGINA ===== */
+.cabecalho-pagina {
+    background: linear-gradient(135deg, var(--azul-principal) 0%, var(--azul-escuro) 60%, rgba(10,147,150,0.25) 100%);
+    color: var(--branco);
+    padding: 70px 20px 50px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+.cabecalho-pagina::before {
+    content: '';
+    position: absolute; inset: 0;
+    background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none'%3E%3Cg fill='%23ffffff' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+}
+.titulo-pagina {
+    font-size: 3rem; margin-bottom: 14px;
+    position: relative;
+}
+.linha-decorativa-titulo {
+    width: 80px; height: 4px;
+    background: linear-gradient(to right, var(--verde-acento), var(--verde-claro));
+    margin: 0 auto;
+    border-radius: 50px;
+    animation: expandir 0.8s ease 0.3s both;
+}
+@keyframes deslizarCima {
+    from { opacity: 0; transform: translateY(20px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes expandir {
+    from { width: 0; }
+    to   { width: 80px; }
+}
+
+/* ===== SEÇÃO GALERIA ===== */
+.conteudo-principal {
+    max-width: 1200px;
+    margin: 60px auto;
+    padding: 0 20px;
+}
+
+/* ===== CONTAINER DO FILTRO ===== */
+.container-filtro {
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 40px;
+    position: relative;
+}
+
+/* SELECT PERSONALIZADO */
+.filtro-select {
+    position: relative;
+    min-width: 280px;
+    padding: 14px 24px;
+    font-size: 0.95rem;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 500;
+    color: var(--azul-principal);
+    background: var(--branco);
+    border: 2px solid rgba(0, 48, 114, 0.2);
+    border-radius: 60px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    appearance: none;
+    -webkit-appearance: none;
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%23003072' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><polyline points='6 9 12 15 18 9'></polyline></svg>");
+    background-repeat: no-repeat;
+    background-position: right 20px center;
+    background-size: 16px;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 4px 15px rgba(0, 48, 114, 0.05);
+}
+
+.filtro-select:hover {
+    border-color: var(--verde-acento);
+    box-shadow: 0 8px 25px rgba(10, 147, 150, 0.15);
+    transform: translateY(-2px);
+}
+
+.filtro-select:focus {
+    outline: none;
+    border-color: var(--verde-acento);
+    box-shadow: 0 0 0 4px rgba(10, 147, 150, 0.2);
+}
+
+/* OPÇÕES DO SELECT */
+.filtro-select option {
+    padding: 12px;
+    font-family: 'Montserrat', sans-serif;
+    background: var(--branco);
+    color: var(--azul-principal);
+}
+
+/* ===== VERSÃO MODERNA COM GLASSMORPHISM ===== */
+.filtro-select.moderno {
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    box-shadow: 0 8px 32px rgba(0, 48, 114, 0.1);
+}
+
+.filtro-select.moderno:hover {
+    background: rgba(255, 255, 255, 1);
+    border-color: var(--verde-acento);
+    box-shadow: 0 12px 40px rgba(10, 147, 150, 0.2);
+}
+
+/* ===== RESPONSIVIDADE ===== */
+@media (max-width: 768px) {
+    .container-filtro {
+        justify-content: center;
+    }
+    
+    .filtro-select {
+        min-width: 100%;
+        max-width: 320px;
+        padding: 12px 20px;
+        font-size: 0.9rem;
+    }
+}
+
+/* ===== GRADE DE MÍDIA ===== */
+.galeria {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+}
+
+.item-galeria {
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.1);
+    background: var(--azul-escuro);
+    position: relative;
+    cursor: pointer;
+    transition: var(--transicao);
+    animation: aparecerItem 0.4s ease both;
+}
+
+.item-galeria.oculto {
+    display: none;
+}
+
+@keyframes aparecerItem {
+    from { opacity: 0; transform: scale(0.95); }
+    to   { opacity: 1; transform: scale(1); }
+}
+
+.item-galeria:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 20px 40px rgba(0,48,114,0.2);
+}
+
+.envoltorio-midia {
+    width: 100%;
+    height: 260px;
+    overflow: hidden;
+    position: relative;
+    background: #000;
+}
+
+.envoltorio-midia img,
+.envoltorio-midia video {
+    width: 100%; height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+    display: block;
+}
+
+.envoltorio-midia video {
+    object-fit: cover;
+    pointer-events: none;
+}
+
+.item-galeria:hover .envoltorio-midia img,
+.item-galeria:hover .envoltorio-midia video {
+    transform: scale(1.08);
+}
+
+/* Overlay ao hover */
+.sobreposicao-midia {
+    position: absolute; inset: 0;
+    background: rgba(0,48,114,0.55);
+    display: flex; align-items: center; justify-content: center;
+    gap: 14px;
+    opacity: 0;
+    transition: var(--transicao);
+}
+.item-galeria:hover .sobreposicao-midia { opacity: 1; }
+
+.botao-acao {
+    width: 44px; height: 44px; border-radius: 50%;
+    background: var(--branco); border: none;
+    display: flex; align-items: center; justify-content: center;
+    cursor: pointer; transition: var(--transicao);
+    color: var(--azul-principal);
+}
+.botao-acao:hover { background: var(--verde-acento); color: var(--branco); transform: scale(1.1); }
+.botao-acao i { font-size: 1rem; }
+
+/* Indicador de vídeo */
+.indicador-video {
+    position: absolute;
+    top: 12px; right: 12px;
+    width: 36px; height: 36px;
+    border-radius: 50%;
+    background: rgba(0,0,0,0.6);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    z-index: 2;
+    backdrop-filter: blur(4px);
+}
+.indicador-video i {
+    font-size: 1rem;
+}
+
+/* Legenda */
+.legenda-midia {
+    padding: 14px 18px;
+    background: var(--branco);
+    color: var(--azul-principal);
+    font-weight: 600;
+    font-size: 0.9rem;
+    text-align: center;
+    border-top: 3px solid var(--verde-acento);
+    transition: var(--transicao);
+}
+.item-galeria:hover .legenda-midia { background: var(--azul-principal); color: var(--branco); }
+
+/* Badge de categoria */
+.badge-categoria {
+    position: absolute;
+    top: 12px; left: 12px;
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-size: 0.7rem;
+    font-weight: 700;
+    color: var(--branco);
+    z-index: 2;
+    letter-spacing: 0.5px;
+}
+.badge-fotos-gerais        { background: var(--cinza); }
+.badge-tecnico-obras       { background: var(--cor-construcao); }
+.badge-desenhador-projectista { background: var(--cor-desenhador); }
+.badge-energia-instalacoes { background: var(--cor-eletricidade); }
+.badge-frio-climatizacao   { background: var(--cor-mecanica); }
+.badge-gestao-sistemas     { background: var(--cor-gestao); }
+.badge-tecnico-informatica { background: var(--cor-informatica); }
+.badge-tecnologias-moveis  { background: var(--cor-moveis); }
+
+/* Mensagem sem resultados */
+.sem-resultados {
+    grid-column: 1 / -1;
+    text-align: center;
+    padding: 60px 20px;
+    color: var(--cinza);
+    font-size: 1.1rem;
+    display: none;
+}
+.sem-resultados i { font-size: 3rem; color: var(--cinza-claro); display: block; margin-bottom: 14px; }
+
+/* ===== LIGHTBOX ===== */
+.lightbox {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.95);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+.lightbox.ativo {
+    opacity: 1;
+    visibility: visible;
+}
+
+.conteudo-lightbox {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.conteudo-midia-lightbox {
+    width: 90%;
+    height: 90%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.imagem-lightbox {
+    max-width: 100%;
+    max-height: 100%;
+    width: auto;
+    height: auto;
+    object-fit: contain;
+    cursor: default;
+}
+
+.video-lightbox {
+    width: 100%;
+    height: 100%;
+    max-width: 1200px;
+    max-height: 90vh;
+    object-fit: contain;
+    cursor: default;
+}
+
+/* Controles do Lightbox */
+.fechar-lightbox {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background: rgba(0, 0, 0, 0.6);
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    color: white;
+    font-size: 1.5rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 10000;
+    backdrop-filter: blur(5px);
+}
+.fechar-lightbox:hover {
+    background: var(--verde-acento);
+    transform: rotate(90deg);
+    border-color: white;
+}
+
+.seta-lightbox {
+    position: fixed;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 55px;
+    height: 55px;
+    border-radius: 50%;
+    background: rgba(0, 0, 0, 0.5);
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    color: white;
+    font-size: 1.3rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 10000;
+    backdrop-filter: blur(5px);
+}
+.seta-lightbox:hover {
+    background: var(--verde-acento);
+    transform: translateY(-50%) scale(1.1);
+    border-color: white;
+}
+.seta-esquerda {
+    left: 20px;
+}
+.seta-direita {
+    right: 20px;
+}
+
+.legenda-lightbox {
+    position: fixed;
+    bottom: 30px;
+    left: 0;
+    right: 0;
+    text-align: center;
+    color: white;
+    font-size: 1.1rem;
+    font-weight: 500;
+    padding: 12px 20px;
+    background: rgba(0, 0, 0, 0.7);
+    backdrop-filter: blur(10px);
+    max-width: 80%;
+    margin: 0 auto;
+    width: fit-content;
+    border-radius: 50px;
+    pointer-events: none;
+    z-index: 10000;
+    left: 50%;
+    transform: translateX(-50%);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+@media (max-width: 768px) {
+    .seta-lightbox {
+        width: 45px;
+        height: 45px;
+        font-size: 1rem;
+    }
+    .seta-esquerda {
+        left: 10px;
+    }
+    .seta-direita {
+        right: 10px;
+    }
+    .fechar-lightbox {
+        width: 45px;
+        height: 45px;
+        top: 15px;
+        right: 15px;
+        font-size: 1.2rem;
+    }
+    .legenda-lightbox {
+        font-size: 0.9rem;
+        padding: 8px 16px;
+        bottom: 20px;
+        white-space: normal;
+        max-width: 90%;
+    }
+    .container-filtro {
+        justify-content: center;
+    }
+    .filtro-select {
+        width: 100%;
+        max-width: 300px;
+    }
+}
+
+/* ===== RESPONSIVIDADE ===== */
+@media (max-width: 992px) {
+    .menu-navegacao { display: none; }
+    .botao-menu-mobile { display: block; }
+    .galeria { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 768px) {
+    .conteudo-superior { flex-direction: column; gap: 10px; text-align: center; }
+    .conteudo-cabecalho { padding: 10px 20px; }
+    .container-rodape { padding: 0 20px; }
+    .titulo-pagina { font-size: 2.2rem; }
+}
+@media (max-width: 560px) {
+    .galeria { grid-template-columns: 1fr; }
+    .botoes-flutuantes { bottom: 20px; right: 20px; }
+}
+
+    </style>
+</head>
+<body>
+
+    <!-- ===== BARRA SUPERIOR ===== -->
+    <div class="barra-superior">
+        <div class="conteudo-superior">
+            <div class="info-instituto">
+                Instituto Médio Politécnico Industrial do Kilamba Kiaxi Nº 8050 Nova-vida
+            </div>
+            <div class="social-traducao">
+                <div class="icones-sociais">
+                    <a href="#" class="icone-social"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" class="icone-social"><i class="fab fa-instagram"></i></a>
+                    <a href="#" class="icone-social"><i class="fab fa-linkedin-in"></i></a>
+                </div>
+                <div class="seletor-idioma" id="botaoTraducao">
+                    <i class="fas fa-globe"></i>
+                    <span id="idiomaAtual">Português</span>
+                    <i class="fas fa-chevron-down"></i>
+                    <div class="dropdown-idioma" id="dropdownIdioma">
+                        <a href="#" data-lang="pt" class="opcao-idioma ativo">
+                            <i class="fas fa-flag"></i> Português
+                        </a>
+                        <a href="#" data-lang="en" class="opcao-idioma">
+                            <i class="fas fa-flag-usa"></i> English
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ===== CABEÇALHO ===== -->
+    <header class="cabecalho" id="cabecalho">
+        <div class="conteudo-cabecalho">
+            <a href="javascript:void(0)" class="container-logo">
+                <div class="logo"><img src="../assets/images/ipikk_new_logo.png" alt="Logo IPIKK"></div>
+            </a>
+            <nav>
+                <ul class="menu-navegacao">
+                    <li><a href="index.html" class="link-navegacao">Início</a></li>
+                    <li class="item-navegacao menu-suspenso" id="menu-oferta-desktop">
+                        <a href="oferta-formativa.html" class="link-navegacao">Oferta Formativa <i class="fas fa-chevron-down"></i></a>
+                        <div class="conteudo-suspenso">
+                            <div class="item-suspenso">
+                                <a href="construcao-civil.html" class="link-suspenso">Construção Civil <i class="fas fa-chevron-right" style="float:right;margin-top:2px;font-size:.75rem;"></i></a>
+                                <div class="submenu-suspenso">
+                                    <a href="construcao-civil-obras.html">Técnico de Obras</a>
+                                    <a href="construcao-civil-desenhador.html">Desenhador Projectista</a>
+                                </div>
+                            </div>
+                            <div class="item-suspenso">
+                                <a href="eletricidade.html" class="link-suspenso">Electricidade<i class="fas fa-chevron-right" style="float:right;margin-top:2px;font-size:.75rem;"></i></a>
+                                <div class="submenu-suspenso">
+                                    <a href="eletricidade-instalacoes.html">Energia e Instalações</a>
+                                </div>
+                            </div>
+                            <div class="item-suspenso">
+                                <a href="mecanica.html" class="link-suspenso">Mecânica <i class="fas fa-chevron-right" style="float:right;margin-top:2px;font-size:.75rem;"></i></a>
+                                <div class="submenu-suspenso">
+                                    <a href="mecanica-climatizacao.html">Frio e Climatização</a>
+                                </div>
+                            </div>
+                            <div class="item-suspenso">
+                                <a href="informatica.html" class="link-suspenso">Informática<i class="fas fa-chevron-right" style="float:right;margin-top:2px;font-size:.75rem;"></i></a>
+                                <div class="submenu-suspenso">
+                                    <a href="informatica-gestao-sistemas.html">Gestão de Sistemas</a>
+                                    <a href="informatica-tecnico.html">Técnico de Informática</a>
+                                </div>
+                            </div>
+                            <div class="item-suspenso">
+                                <a href="tecnologia-moveis.html" class="link-suspenso">Tecnologias de Móveis<i class="fas fa-chevron-right" style="float:right;margin-top:2px;font-size:.75rem;"></i></a>
+                                <div class="submenu-suspenso">
+                                    <a href="tecnologia-moveis-curso.html">Tecnologias de Móveis</a>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="item-navegacao menu-suspenso" id="menu-sobre-desktop">
+                        <a href="javascript:void(0)" class="link-navegacao">Sobre <i class="fas fa-chevron-down"></i></a>
+                        <div class="conteudo-suspenso">
+                            <a href="sobre-nos.html" class="link-suspenso">Quem Somos</a>
+                            <div class="item-suspenso">
+                                <a href="javascript:void(0)" class="link-suspenso">Institucional <i class="fas fa-chevron-right" style="float:right;margin-top:2px;font-size:.75rem;"></i></a>
+                                <div class="submenu-suspenso">
+                                    <a href="diretor.html">Perfil do Director</a>
+                                    <a href="orgaos-diretivos.html">Órgãos Directivos</a>
+                                    <a href="ex-diretores.html">Ex-Directores</a>
+                                </div>
+                            </div>
+                            <a href="normativos.html" class="link-suspenso">Normativos</a>
+                            <div class="item-suspenso">
+                                <a href="javascript:void(0)" class="link-suspenso">Alumni <i class="fas fa-chevron-right" style="float:right;margin-top:2px;font-size:.75rem;"></i></a>
+                                <div class="submenu-suspenso">
+                                    <a href="percurso.html">Percurso</a>
+                                    <a href="quadro-honra.html">Quadro de Honra</a>
+                                    <a href="funcionario-destacado.html">Funcionário Destacado</a>
+                                </div>
+                            </div>
+                            <a href="escolas-afiliadas.html" class="link-suspenso">Escolas Afiliadas</a>
+                        </div>
+                    </li>
+                    <li class="item-navegacao"><a href="noticias.html" class="link-navegacao">Notícias</a></li>
+                    <li class="item-navegacao ativo"><a href="galeria.html" class="link-navegacao">Galeria</a></li>
+                    <li class="item-navegacao"><a href="contatos.html" class="link-navegacao">Contactos</a></li>
+                    <li class="item-navegacao">
+                        <a href="area-restrita.html" class="link-navegacao botao-area-restrita">
+                            <i class="fas fa-lock"></i> Área Restrita
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+            <button class="botao-menu-mobile" id="botaoMenu" aria-label="Abrir menu">
+                <span></span><span></span><span></span>
+            </button>
+        </div>
+    </header>
+
+    <!-- ===== OVERLAY ===== -->
+    <div class="overlay-sidebar" id="overlaySidebar"></div>
+
+    <!-- ===== SIDEBAR MOBILE ===== -->
+    <aside class="sidebar-mobile" id="sidebarMobile" aria-hidden="true">
+        <div class="sidebar-cabecalho">
+            <div class="sidebar-logo-linha">
+                <img src="../assets/images/ipikk_new_logo.png" alt="IPIKK" class="sidebar-logo-img">
+                <div class="sidebar-logo-texto">
+                    <div class="nome">IPIKK</div>
+                    <div class="sub">Instituto Politécnico Industrial do Kilamba Kiaxi</div>
+                </div>
+            </div>
+            <button class="botao-fechar-sidebar" id="fecharSidebar"><i class="fas fa-times"></i></button>
+        </div>
+        <nav class="sidebar-nav">
+            <div class="sidebar-item">
+                <a href="index.html" class="sidebar-link">
+                    <span class="sidebar-icone"><i class="fas fa-home"></i></span>
+                    <span>Início</span>
+                </a>
+            </div>
+            <div class="sidebar-item">
+                <div class="sidebar-dupla-funcao">
+                    <a href="oferta-formativa.html" class="sidebar-link-pagina">
+                        <span class="sidebar-icone"><i class="fas fa-graduation-cap"></i></span>
+                        Oferta Formativa
+                    </a>
+                    <button class="botao-seta-sidebar" data-alvo="sub-oferta" aria-expanded="false">
+                        <i class="fas fa-chevron-right"></i>
+                    </button>
+                </div>
+                <div class="sidebar-submenu" id="sub-oferta">
+                    <div class="sidebar-item">
+                        <div class="sidebar-dupla-funcao">
+                            <a href="construcao-civil.html" class="sidebar-link-pagina sidebar-link-pagina--sub">Construção Civil</a>
+                            <button class="botao-seta-sidebar botao-seta-sidebar--sub" data-alvo="sub-construcao" aria-expanded="false">
+                                <i class="fas fa-chevron-right"></i>
+                            </button>
+                        </div>
+                        <div class="sidebar-submenu" id="sub-construcao">
+                            <a href="construcao-civil-obras.html" class="sidebar-sub-link">Técnico de Obras</a>
+                            <a href="construcao-civil-desenhador.html" class="sidebar-sub-link">Desenhador Projectista</a>
+                        </div>
+                    </div>
+                    <div class="sidebar-item">
+                        <div class="sidebar-dupla-funcao">
+                            <a href="eletricidade.html" class="sidebar-link-pagina sidebar-link-pagina--sub">Electricidade</a>
+                            <button class="botao-seta-sidebar botao-seta-sidebar--sub" data-alvo="sub-eletricidade" aria-expanded="false">
+                                <i class="fas fa-chevron-right"></i>
+                            </button>
+                        </div>
+                        <div class="sidebar-submenu" id="sub-eletricidade">
+                            <a href="eletricidade-instalacoes.html" class="sidebar-sub-link">Energia e Instalações</a>
+                        </div>
+                    </div>
+                    <div class="sidebar-item">
+                        <div class="sidebar-dupla-funcao">
+                            <a href="mecanica.html" class="sidebar-link-pagina sidebar-link-pagina--sub">Mecânica</a>
+                            <button class="botao-seta-sidebar botao-seta-sidebar--sub" data-alvo="sub-mecanica" aria-expanded="false">
+                                <i class="fas fa-chevron-right"></i>
+                            </button>
+                        </div>
+                        <div class="sidebar-submenu" id="sub-mecanica">
+                            <a href="mecanica-climatizacao.html" class="sidebar-sub-link">Frio e Climatização</a>
+                        </div>
+                    </div>
+                    <div class="sidebar-item">
+                        <div class="sidebar-dupla-funcao">
+                            <a href="informatica.html" class="sidebar-link-pagina sidebar-link-pagina--sub">Informática</a>
+                            <button class="botao-seta-sidebar botao-seta-sidebar--sub" data-alvo="sub-informatica" aria-expanded="false">
+                                <i class="fas fa-chevron-right"></i>
+                            </button>
+                        </div>
+                        <div class="sidebar-submenu" id="sub-informatica">
+                            <a href="informatica-gestao-sistemas.html" class="sidebar-sub-link">Gestão de Sistemas</a>
+                            <a href="informatica-tecnico.html" class="sidebar-sub-link">Técnico de Informática</a>
+                        </div>
+                    </div>
+                    <div class="sidebar-item">
+                        <div class="sidebar-dupla-funcao">
+                            <a href="tecnologia-moveis.html" class="sidebar-link-pagina sidebar-link-pagina--sub">Tecnologias de Móveis</a>
+                            <button class="botao-seta-sidebar botao-seta-sidebar--sub" data-alvo="sub-moveis" aria-expanded="false">
+                                <i class="fas fa-chevron-right"></i>
+                            </button>
+                        </div>
+                        <div class="sidebar-submenu" id="sub-moveis">
+                            <a href="tecnologia-moveis-curso.html" class="sidebar-sub-link">Tecnologias de Móveis</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="sidebar-item">
+                <button class="sidebar-link has-submenu" data-alvo="sub-sobre" aria-expanded="false">
+                    <span class="link-texto">
+                        <span class="sidebar-icone"><i class="fas fa-university"></i></span>
+                        Sobre
+                    </span>
+                    <i class="fas fa-chevron-right seta-submenu"></i>
+                </button>
+                <div class="sidebar-submenu" id="sub-sobre">
+                    <a href="sobre-nos.html" class="sidebar-sub-link">Quem Somos</a>
+                    <div class="sidebar-item">
+                        <button class="sidebar-link has-submenu" data-alvo="sub-institucional" aria-expanded="false">
+                            <span class="link-texto">
+                                <span class="sidebar-icone"><i class="fas fa-chevron-right"></i></span>
+                                Institucional
+                            </span>
+                            <i class="fas fa-chevron-right seta-submenu"></i>
+                        </button>
+                        <div class="sidebar-submenu" id="sub-institucional">
+                            <a href="diretor.html" class="sidebar-sub-link">Perfil do Director</a>
+                            <a href="orgaos-diretivos.html" class="sidebar-sub-link">Órgãos Directivos</a>
+                            <a href="ex-diretores.html" class="sidebar-sub-link">Ex-Directores</a>
+                        </div>
+                    </div>
+                    <a href="normativos.html" class="sidebar-sub-link">Normativos</a>
+                    <div class="sidebar-item">
+                        <button class="sidebar-link has-submenu" data-alvo="sub-alumni" aria-expanded="false">
+                            <span class="link-texto">
+                                <span class="sidebar-icone"><i class="fas fa-chevron-right"></i></span>
+                                Alumni
+                            </span>
+                            <i class="fas fa-chevron-right seta-submenu"></i>
+                        </button>
+                        <div class="sidebar-submenu" id="sub-alumni">
+                            <a href="percurso.html" class="sidebar-sub-link">Percurso</a>
+                            <a href="quadro-honra.html" class="sidebar-sub-link">Quadro de Honra</a>
+                            <a href="funcionario-destacado.html" class="sidebar-sub-link">Funcionário Destacado</a>
+                        </div>
+                    </div>
+                    <a href="escolas-afiliadas.html" class="sidebar-sub-link">Escolas Afiliadas</a>
+                </div>
+            </div>
+            <div class="sidebar-item">
+                <a href="noticias.html" class="sidebar-link">
+                    <span class="sidebar-icone"><i class="fas fa-newspaper"></i></span>
+                    <span>Notícias</span>
+                </a>
+            </div>
+            <div class="sidebar-item">
+                <a href="galeria.html" class="sidebar-link">
+                    <span class="sidebar-icone"><i class="fas fa-images"></i></span>
+                    <span>Galeria</span>
+                </a>
+            </div>
+            <div class="sidebar-item">
+                <a href="contatos.html" class="sidebar-link">
+                    <span class="sidebar-icone"><i class="fas fa-envelope"></i></span>
+                    <span>Contactos</span>
+                </a>
+            </div>
+        </nav>
+        <div class="sidebar-rodape">
+            <button class="botao-area-restrita-sidebar" onclick="window.location.href='area-restrita.html'">
+                <i class="fas fa-lock"></i> Área Restrita
+            </button>
+        </div>
+    </aside>
+
+    <section class="cabecalho-pagina">
+        <h1 class="titulo-pagina">Galeria</h1>
+        <div class="linha-decorativa-titulo"></div>
+    </section>
+
+    <!-- ===== CONTEÚDO PRINCIPAL ===== -->
+    <main class="conteudo-principal">
+
+        <!-- SELECT ESTILIZADO -->
+<div class="container-filtro">
+    <select class="filtro-select" id="filtroSelect">
+        <option value="todos">Todas as Mídias</option>
+        <option value="fotos-gerais">Fotos Gerais</option>
+        <option value="tecnico-obras">Técnico de Obras</option>
+        <option value="desenhador-projectista">Desenhador Projectista</option>
+        <option value="energia-instalacoes">Energia e Instalações</option>
+        <option value="frio-climatizacao">Frio e Climatização</option>
+        <option value="gestao-sistemas">Gestão de Sistemas</option>
+        <option value="tecnico-informatica">Técnico de Informática</option>
+        <option value="tecnologias-moveis">Tecnologias de Móveis</option>
+    </select>
+</div>
+
+        <!-- Grade -->
+        <div class="galeria" id="galeria"></div>
+
+    </main>
+
+    <!-- ===== LIGHTBOX ===== -->
+    <div class="lightbox" id="lightbox">
+        <div class="conteudo-lightbox">
+            <button class="fechar-lightbox" id="fecharLightbox"><i class="fas fa-times"></i></button>
+            <button class="seta-lightbox seta-esquerda" id="setaAnterior"><i class="fas fa-chevron-left"></i></button>
+            <div class="conteudo-midia-lightbox" id="conteudoLightbox"></div>
+            <button class="seta-lightbox seta-direita" id="setaProximo"><i class="fas fa-chevron-right"></i></button>
+            <div class="legenda-lightbox" id="legendaLightbox"></div>
+        </div>
+    </div>
+
+    <!-- ===== BOTÕES FLUTUANTES ===== -->
+    <div class="botoes-flutuantes">
+        <button class="botao-flutuante" id="botaoTopo" title="Voltar ao topo">
+            <i class="fas fa-chevron-up"></i>
+        </button>
+        <a href="https://wa.me/244933096705" class="botao-flutuante whatsapp" target="_blank" rel="noopener" title="WhatsApp">
+            <i class="fab fa-whatsapp"></i>
+        </a>
+    </div>
+
+    <!-- ===== RODAPÉ ===== -->
+    <footer class="rodape">
+        <div class="container-rodape">
+            <div class="conteudo-rodape">
+                <div class="coluna-logo">
+                    <div class="foto-instituto">
+                        <img src="../assets/images/ipikk_new_logo_1.png" alt="Instituto IPIKK">
+                    </div>
+                    <p class="descricao-rodape">
+                        Instituto Médio Politécnico Industrial do Kilamba Kiaxi Nº8050 "Nova Vida"
+                    </p>
+                    <p class="email-rodape">
+                        Email: <a href="mailto:geral@ipikk.ao">geral@ipikk.ao</a>
+                    </p>
+                    <div class="social-rodape">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                    </div>
+                </div>
+                <div class="coluna-links">
+                    <h4 class="titulo-rodape">IPIKK</h4>
+                    <div class="links-rodape">
+                        <a href="sobre-nos.html" class="link-rodape">Sobre Nós</a>
+                        <a href="inscricoes.html" class="link-rodape">Inscrição</a>
+                        <a href="contatos.html" class="link-rodape">Contactos</a>
+                        <a href="area-restrita.html" class="link-rodape">Área Restrita</a>
+                        <a href="politica-privacidade.html" class="link-rodape">Políticas de Privacidade</a>
+                    </div>
+                </div>
+                <div class="coluna-links">
+                    <h4 class="titulo-rodape">Oferta Formativa</h4>
+                    <div class="links-rodape">
+                        <a href="oferta-formativa.html" class="link-rodape">Oferta Formativa</a>
+                        <a href="construcao-civil.html" class="link-rodape">Construção Civil</a>
+                        <a href="eletricidade.html" class="link-rodape">Electricidade</a>
+                        <a href="mecanica.html" class="link-rodape">Mecânica</a>
+                        <a href="informatica.html" class="link-rodape">Informática</a>
+                        <a href="tecnologia-moveis.html" class="link-rodape">Tecnologias de Móveis</a>
+                    </div>
+                </div>
+                <div class="coluna-links">
+                    <h4 class="titulo-rodape">Links Rápidos</h4>
+                    <div class="links-rodape">
+                        <a href="https://governo.gov.ao/" class="link-rodape" target="_blank">Governo de Angola</a>
+                        <a href="https://luanda.gov.ao/" class="link-rodape" target="_blank">Governo Provincial de Luanda</a>
+                        <a href="https://med.gov.ao/" class="link-rodape" target="_blank">Ministério da Educação</a>
+                        <a href="https://itel.gov.ao/" class="link-rodape" target="_blank">Instituto de Telecomunicações</a>
+                        <a href="https://webmail.ipikk.ao/" class="link-rodape" target="_blank">Webmail IPIKK</a>
+                    </div>
+                </div>
+            </div>
+            <div class="rodape-inferior">
+                <p>IPIKK 2026 © Todos os direitos reservados by <strong>INFOSI</strong></p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript Header/Footer Padrão -->
+    <script src="../assets/js/header-footer.js"></script>
+    <script src="../assets/js/galeria.js">
+        /* ===== DADOS DA GALERIA COM IMAGENS E VÍDEOS ===== */
+        const galeriaItens = [
+            // Fotos Gerais
+            { tipo: 'imagem', categoria: 'fotos-gerais', legenda: 'Sala de Aula – IPIKK', url: 'https://picsum.photos/id/20/1200/800' },
+            { tipo: 'imagem', categoria: 'fotos-gerais', legenda: 'Vista do Instituto', url: 'https://picsum.photos/id/104/1200/800' },
+            { tipo: 'imagem', categoria: 'fotos-gerais', legenda: 'Pátio do Instituto', url: 'https://picsum.photos/id/96/1200/800' },
+            { tipo: 'video', categoria: 'fotos-gerais', legenda: 'Tour pelo Instituto', url: 'https://www.w3schools.com/html/mov_bbb.mp4' },
+            
+            // Técnico de Obras
+            { tipo: 'imagem', categoria: 'tecnico-obras', legenda: 'Curso Técnico de Obras', url: 'https://picsum.photos/id/15/1200/800' },
+            { tipo: 'imagem', categoria: 'tecnico-obras', legenda: 'Prática de Obras', url: 'https://picsum.photos/id/1/1200/800' },
+            { tipo: 'video', categoria: 'tecnico-obras', legenda: 'Aula Prática de Topografia', url: 'https://www.w3schools.com/html/mov_bbb.mp4' },
+            
+            // Desenhador Projectista
+            { tipo: 'imagem', categoria: 'desenhador-projectista', legenda: 'Desenhador Projectista', url: 'https://picsum.photos/id/108/1200/800' },
+            { tipo: 'video', categoria: 'desenhador-projectista', legenda: 'Software de Desenho Técnico', url: 'https://www.w3schools.com/html/mov_bbb.mp4' },
+            
+            // Energia e Instalações
+            { tipo: 'imagem', categoria: 'energia-instalacoes', legenda: 'Curso de Energia e Instalações', url: 'https://picsum.photos/id/122/1200/800' },
+            { tipo: 'video', categoria: 'energia-instalacoes', legenda: 'Instalação Elétrica na Prática', url: 'https://www.w3schools.com/html/mov_bbb.mp4' },
+            
+            // Frio e Climatização
+            { tipo: 'imagem', categoria: 'frio-climatizacao', legenda: 'Curso de Frio e Climatização', url: 'https://picsum.photos/id/30/1200/800' },
+            { tipo: 'video', categoria: 'frio-climatizacao', legenda: 'Manutenção de Ar Condicionado', url: 'https://www.w3schools.com/html/mov_bbb.mp4' },
+            
+            // Gestão de Sistemas
+            { tipo: 'imagem', categoria: 'gestao-sistemas', legenda: 'Curso de Gestão de Sistemas', url: 'https://picsum.photos/id/0/1200/800' },
+            { tipo: 'video', categoria: 'gestao-sistemas', legenda: 'Aula de Redes de Computadores', url: 'https://www.w3schools.com/html/mov_bbb.mp4' },
+            
+            // Técnico de Informática
+            { tipo: 'imagem', categoria: 'tecnico-informatica', legenda: 'Curso Técnico de Informática', url: 'https://picsum.photos/id/26/1200/800' },
+            { tipo: 'video', categoria: 'tecnico-informatica', legenda: 'Manutenção de Computadores', url: 'https://www.w3schools.com/html/mov_bbb.mp4' },
+            
+            // Tecnologias de Móveis
+            { tipo: 'imagem', categoria: 'tecnologias-moveis', legenda: 'Curso de Tecnologias de Móveis', url: 'https://picsum.photos/id/18/1200/800' },
+            { tipo: 'video', categoria: 'tecnologias-moveis', legenda: 'Oficina de Marcenaria', url: 'https://www.w3schools.com/html/mov_bbb.mp4' },
+        ];
+
+        /* ===== CONTROLLER PRINCIPAL DA GALERIA ===== */
+        const galeriaController = {
+            elementos: {
+                filtroSelect: null,
+                galeria: null,
+                semResultados: null,
+                lightbox: null,
+                conteudoLightbox: null,
+                legendaLightbox: null,
+                fecharLightbox: null,
+                setaAnterior: null,
+                setaProximo: null,
+                botaoTopo: null
+            },
+
+            itensVisiveis: [],
+            indiceAtual: 0,
+
+            init: function() {
+                this.capturarElementos();
+                this.configurarEventos();
+                this.renderizarGaleria('todos');
+                this.estadoInicial();
+            },
+
+            capturarElementos: function() {
+                this.elementos.filtroSelect = document.getElementById('filtroSelect');
+                this.elementos.galeria = document.getElementById('galeria');
+                this.elementos.lightbox = document.getElementById('lightbox');
+                this.elementos.conteudoLightbox = document.getElementById('conteudoLightbox');
+                this.elementos.legendaLightbox = document.getElementById('legendaLightbox');
+                this.elementos.fecharLightbox = document.getElementById('fecharLightbox');
+                this.elementos.setaAnterior = document.getElementById('setaAnterior');
+                this.elementos.setaProximo = document.getElementById('setaProximo');
+                this.elementos.botaoTopo = document.getElementById('botaoTopo');
+            },
+
+            estadoInicial: function() {
+                if (this.elementos.botaoTopo) {
+                    this.elementos.botaoTopo.style.opacity = '0';
+                    this.elementos.botaoTopo.style.pointerEvents = 'none';
+                }
+                if (this.elementos.lightbox) {
+                    this.elementos.lightbox.classList.remove('ativo');
+                }
+            },
+
+            configurarEventos: function() {
+                this.eventoScroll();
+                this.eventoBotaoTopo();
+                this.eventoFiltro();
+                this.eventoLightbox();
+            },
+
+            eventoScroll: function() {
+                window.addEventListener('scroll', () => {
+                    this.controlarBotaoTopo();
+                });
+            },
+
+            controlarBotaoTopo: function() {
+                if (this.elementos.botaoTopo) {
+                    const mostrar = window.scrollY > 300;
+                    this.elementos.botaoTopo.style.opacity = mostrar ? '1' : '0';
+                    this.elementos.botaoTopo.style.pointerEvents = mostrar ? 'auto' : 'none';
+                }
+            },
+
+            eventoBotaoTopo: function() {
+                if (this.elementos.botaoTopo) {
+                    this.elementos.botaoTopo.addEventListener('click', () => {
+                        window.scrollTo({ top: 0, behavior: 'smooth' });
+                    });
+                }
+            },
+
+            eventoFiltro: function() {
+                if (this.elementos.filtroSelect) {
+                    this.elementos.filtroSelect.addEventListener('change', (e) => {
+                        this.renderizarGaleria(e.target.value);
+                    });
+                }
+            },
+
+            renderizarGaleria: function(categoria) {
+                const itensFiltrados = galeriaItens.filter(item => 
+                    categoria === 'todos' || item.categoria === categoria
+                );
+
+                this.itensVisiveis = itensFiltrados;
+
+                if (itensFiltrados.length === 0) {
+                    this.elementos.galeria.innerHTML = `
+                        <div class="sem-resultados" style="display: block;">
+                            <i class="fas fa-images"></i>
+                            Nenhuma mídia encontrada nesta categoria.
+                        </div>
+                    `;
+                    return;
+                }
+
+                this.elementos.galeria.innerHTML = itensFiltrados.map((item, index) => {
+                    const badgeClass = this.getBadgeClass(item.categoria);
+                    const badgeNome = this.getBadgeNome(item.categoria);
+                    
+                    return `
+                        <div class="item-galeria" data-categoria="${item.categoria}" data-legenda="${item.legenda}" data-index="${index}" data-tipo="${item.tipo}" data-url="${item.url}">
+                            <div class="envoltorio-midia">
+                                ${item.tipo === 'imagem' 
+                                    ? `<img src="${item.url}" alt="${item.legenda}" loading="lazy">`
+                                    : `<video src="${item.url}" loading="lazy" muted></video>`
+                                }
+                                <div class="sobreposicao-midia">
+                                    <button class="botao-acao botao-expandir" title="Ver em tamanho completo"><i class="fas fa-expand"></i></button>
+                                    ${item.tipo === 'imagem' ? `<button class="botao-acao botao-baixar" title="Baixar foto"><i class="fas fa-download"></i></button>` : ''}
+                                </div>
+                                ${item.tipo === 'video' ? '<div class="indicador-video"><i class="fas fa-play"></i></div>' : ''}
+                                <span class="badge-categoria ${badgeClass}">${badgeNome}</span>
+                            </div>
+                            <div class="legenda-midia">${item.legenda}</div>
+                        </div>
+                    `;
+                }).join('');
+
+                this.configurarBotoesAcao();
+            },
+
+            getBadgeClass: function(categoria) {
+                const classes = {
+                    'fotos-gerais': 'badge-fotos-gerais',
+                    'tecnico-obras': 'badge-tecnico-obras',
+                    'desenhador-projectista': 'badge-desenhador-projectista',
+                    'energia-instalacoes': 'badge-energia-instalacoes',
+                    'frio-climatizacao': 'badge-frio-climatizacao',
+                    'gestao-sistemas': 'badge-gestao-sistemas',
+                    'tecnico-informatica': 'badge-tecnico-informatica',
+                    'tecnologias-moveis': 'badge-tecnologias-moveis'
+                };
+                return classes[categoria] || 'badge-fotos-gerais';
+            },
+
+            getBadgeNome: function(categoria) {
+                const nomes = {
+                    'fotos-gerais': 'Fotos Gerais',
+                    'tecnico-obras': 'Técnico de Obras',
+                    'desenhador-projectista': 'Desenhador Projectista',
+                    'energia-instalacoes': 'Energia e Instalações',
+                    'frio-climatizacao': 'Frio e Climatização',
+                    'gestao-sistemas': 'Gestão de Sistemas',
+                    'tecnico-informatica': 'Técnico de Informática',
+                    'tecnologias-moveis': 'Tecnologias de Móveis'
+                };
+                return nomes[categoria] || 'Fotos Gerais';
+            },
+
+            configurarBotoesAcao: function() {
+                document.querySelectorAll('.botao-expandir').forEach(btn => {
+                    btn.addEventListener('click', (e) => {
+                        e.stopPropagation();
+                        e.preventDefault();
+                        const item = btn.closest('.item-galeria');
+                        if (item) {
+                            const index = parseInt(item.dataset.index);
+                            const categoriaAtual = this.elementos.filtroSelect.value;
+                            const itensAtuais = galeriaItens.filter(i => 
+                                categoriaAtual === 'todos' || i.categoria === categoriaAtual
+                            );
+                            this.itensVisiveis = itensAtuais;
+                            this.indiceAtual = index;
+                            this.abrirLightbox();
+                        }
+                    });
+                });
+
+                document.querySelectorAll('.botao-baixar').forEach(btn => {
+                    btn.addEventListener('click', (e) => {
+                        e.stopPropagation();
+                        e.preventDefault();
+                        const item = btn.closest('.item-galeria');
+                        if (item) {
+                            const url = item.dataset.url;
+                            const legenda = item.dataset.legenda;
+                            this.baixarImagem(url, legenda);
+                        }
+                    });
+                });
+
+                document.querySelectorAll('.item-galeria').forEach(item => {
+                    const wrapper = item.querySelector('.envoltorio-midia');
+                    if (wrapper) {
+                        wrapper.addEventListener('click', (e) => {
+                            if (e.target.closest('.botao-acao')) return;
+                            const index = parseInt(item.dataset.index);
+                            const categoriaAtual = this.elementos.filtroSelect.value;
+                            const itensAtuais = galeriaItens.filter(i => 
+                                categoriaAtual === 'todos' || i.categoria === categoriaAtual
+                            );
+                            this.itensVisiveis = itensAtuais;
+                            this.indiceAtual = index;
+                            this.abrirLightbox();
+                        });
+                    }
+                });
+            },
+
+            baixarImagem: function(url, nomeArquivo) {
+                fetch(url)
+                    .then(response => response.blob())
+                    .then(blob => {
+                        const blobUrl = URL.createObjectURL(blob);
+                        const link = document.createElement('a');
+                        link.href = blobUrl;
+                        link.download = nomeArquivo.replace(/[^a-z0-9]/gi, '_').toLowerCase() + '.jpg';
+                        document.body.appendChild(link);
+                        link.click();
+                        document.body.removeChild(link);
+                        URL.revokeObjectURL(blobUrl);
+                    })
+                    .catch(() => window.open(url, '_blank'));
+            },
+
+            eventoLightbox: function() {
+                if (!this.elementos.lightbox) return;
+
+                if (this.elementos.setaAnterior) {
+                    this.elementos.setaAnterior.addEventListener('click', (e) => {
+                        e.stopPropagation();
+                        this.navegarLightbox('anterior');
+                    });
+                }
+
+                if (this.elementos.setaProximo) {
+                    this.elementos.setaProximo.addEventListener('click', (e) => {
+                        e.stopPropagation();
+                        this.navegarLightbox('proximo');
+                    });
+                }
+
+                if (this.elementos.fecharLightbox) {
+                    this.elementos.fecharLightbox.addEventListener('click', (e) => {
+                        e.stopPropagation();
+                        this.fecharLightbox();
+                    });
+                }
+
+                this.elementos.lightbox.addEventListener('click', (e) => {
+                    if (e.target === this.elementos.lightbox) this.fecharLightbox();
+                });
+
+                document.addEventListener('keydown', (e) => {
+                    if (!this.elementos.lightbox.classList.contains('ativo')) return;
+                    if (e.key === 'Escape') this.fecharLightbox();
+                    if (e.key === 'ArrowLeft') this.navegarLightbox('anterior');
+                    if (e.key === 'ArrowRight') this.navegarLightbox('proximo');
+                });
+            },
+
+            abrirLightbox: function() {
+                this.renderizarLightbox();
+                this.elementos.lightbox.classList.add('ativo');
+                document.body.style.overflow = 'hidden';
+            },
+
+            renderizarLightbox: function() {
+                const item = this.itensVisiveis[this.indiceAtual];
+                if (!item) return;
+
+                const legenda = item.legenda;
+
+                if (item.tipo === 'imagem') {
+                    this.elementos.conteudoLightbox.innerHTML = `<img src="${item.url}" alt="${legenda}" class="imagem-lightbox" onclick="event.stopPropagation()">`;
+                } else {
+                    this.elementos.conteudoLightbox.innerHTML = `<video src="${item.url}" controls autoplay class="video-lightbox" onclick="event.stopPropagation()"></video>`;
+                }
+
+                this.elementos.legendaLightbox.textContent = legenda;
+
+                if (this.elementos.setaAnterior && this.elementos.setaProximo) {
+                    const temSetas = this.itensVisiveis.length > 1;
+                    this.elementos.setaAnterior.style.display = temSetas ? 'flex' : 'none';
+                    this.elementos.setaProximo.style.display = temSetas ? 'flex' : 'none';
+                }
+            },
+
+            navegarLightbox: function(direcao) {
+                if (this.itensVisiveis.length === 0) return;
+                if (direcao === 'anterior') {
+                    this.indiceAtual = (this.indiceAtual - 1 + this.itensVisiveis.length) % this.itensVisiveis.length;
+                } else {
+                    this.indiceAtual = (this.indiceAtual + 1) % this.itensVisiveis.length;
+                }
+                this.renderizarLightbox();
+            },
+
+            fecharLightbox: function() {
+                this.elementos.lightbox.classList.remove('ativo');
+                document.body.style.overflow = '';
+                const video = this.elementos.conteudoLightbox.querySelector('video');
+                if (video) video.pause();
+                setTimeout(() => {
+                    if (!this.elementos.lightbox.classList.contains('ativo')) {
+                        this.elementos.conteudoLightbox.innerHTML = '';
+                    }
+                }, 300);
+            }
+        };
+
+        document.addEventListener('DOMContentLoaded', function() {
+            galeriaController.init();
+        });
+    </script>
+</body>
+</html>

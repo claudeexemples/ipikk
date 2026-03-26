@@ -1,0 +1,321 @@
+/* ===== VARIÁVEIS ===== */
+:root {
+    --primary-blue: #003072;
+    --blue-light: #2e86c1;
+    --blue-dark: #001a40;
+    --accent-teal: #0a9396;
+    --teal-light: #94d2bd;
+    --neutral-white: #ffffff;
+    --neutral-light: #f0f4f9;
+    --neutral-gray: #6c757d;
+    --neutral-dark: #212529;
+    --cor-construcao: #1a5276;
+    --cor-electr: #1a6b2e;
+    --cor-mecanica: #a04000;
+    --cor-info: #0a3d62;
+    --cor-moveis: #7b241c;
+    --amarelo: #e6a817;
+    --transition: all 0.3s ease;
+    --sombra-suave: 0 4px 24px rgba(0, 0, 0, 0.08);
+    --sombra-hover: 0 14px 44px rgba(0, 0, 0, 0.15);
+    --radius: 14px;
+}
+
+/* ===== HERO ===== */
+.secao-hero-oferta {
+    background: linear-gradient(135deg, var(--blue-dark) 0%, var(--primary-blue) 60%, var(--blue-light) 100%);
+    padding: 80px 24px 72px;
+    text-align: center;
+}
+
+.container-hero-oferta {
+    max-width: 700px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 18px;
+}
+
+.rotulo-hero {
+    display: inline-block;
+    background: rgba(255, 255, 255, 0.12);
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    color: var(--teal-light);
+    font-size: 0.78rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    padding: 7px 18px;
+    border-radius: 999px;
+}
+
+.titulo-hero-oferta {
+    font-size: clamp(2.2rem, 5vw, 3.2rem);
+    color: var(--neutral-white);
+    letter-spacing: -0.5px;
+    line-height: 1.15;
+}
+
+.linha-hero {
+    display: block;
+    width: 56px;
+    height: 4px;
+    background: linear-gradient(90deg, var(--accent-teal), var(--teal-light));
+    border-radius: 4px;
+}
+
+.subtitulo-hero-oferta {
+    font-size: 0.97rem;
+    color: rgba(255, 255, 255, 0.75);
+    max-width: 560px;
+    line-height: 1.75;
+}
+
+/* ===== GRADE DE ÁREAS ===== */
+.secao-grade-areas {
+    padding: 60px 24px 80px;
+}
+
+.container-grade-areas {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 26px;
+}
+
+/* Cartão de área */
+.cartao-area-formativa-1,
+.cartao-area-formativa-2,
+.cartao-area-formativa-3,
+.cartao-area-formativa-4,
+.cartao-area-formativa-5 {
+    display: flex;
+    flex-direction: column;
+    border-radius: var(--radius);
+    overflow: hidden;
+    box-shadow: var(--sombra-suave);
+    cursor: pointer;
+    text-decoration: none;
+    color: inherit;
+    flex: 1 1 300px;
+    max-width: calc(33.333% - 18px);
+    transition: var(--transition);
+}
+
+.cartao-area-formativa-1:hover,
+.cartao-area-formativa-2:hover,
+.cartao-area-formativa-3:hover,
+.cartao-area-formativa-4:hover,
+.cartao-area-formativa-5:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--sombra-hover);
+}
+
+.capa-area {
+    position: relative;
+    height: 220px;
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    align-items: flex-end;
+    padding: 24px 22px;
+}
+
+.overlay-area {
+    position: absolute;
+    inset: 0;
+    transition: var(--transition);
+}
+
+.overlay-area--azul {
+    background: linear-gradient(to bottom, rgba(133, 139, 151, 0.2), rgba(79, 79, 80, 0.85));
+}
+
+.overlay-area--verde {
+    background: linear-gradient(to bottom, rgba(5, 50, 80, 0.20), rgba(2, 25, 50, 0.85));
+}
+
+.overlay-area--laranja {
+    background: linear-gradient(to bottom, rgba(140, 60, 0, 0.20), rgba(90, 35, 0, 0.85));
+}
+
+.overlay-area--petroleo {
+    background: linear-gradient(to bottom, rgba(10, 70, 30, 0.20), rgba(5, 40, 15, 0.85));
+}
+
+.overlay-area--vermelho {
+    background: linear-gradient(to bottom, rgba(100, 15, 10, 0.20), rgba(60, 5, 5, 0.85));
+}
+
+.conteudo-capa-area {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.icone-area-formativa {
+    width: 46px;
+    height: 46px;
+    border-radius: 10px;
+    background: rgba(255, 255, 255, 0.15);
+    border: 1.5px solid rgba(255, 255, 255, 0.30);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--neutral-white);
+    margin-bottom: 4px;
+    backdrop-filter: blur(4px);
+}
+
+.titulo-area-formativa {
+    font-size: 1.25rem;
+    color: var(--neutral-white);
+    font-weight: 700;
+    line-height: 1.2;
+}
+
+.descricao-area-formativa {
+    font-size: 0.80rem;
+    color: rgba(255, 255, 255, 0.78);
+    line-height: 1.5;
+}
+
+/* Rodapé do cartão */
+.rodape-area-formativa {
+    background: var(--neutral-white);
+    padding: 16px 22px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+}
+
+.contagem-cursos {
+    font-size: 0.78rem;
+    color: var(--neutral-gray);
+    font-weight: 500;
+}
+
+.botao-ver-area {
+    font-size: 0.82rem;
+    font-weight: 700;
+    color: var(--primary-blue);
+    border: 2px solid var(--primary-blue);
+    padding: 7px 16px;
+    border-radius: 999px;
+    white-space: nowrap;
+    transition: var(--transition);
+}
+
+/* Hover colors para cada cartão */
+.cartao-area-formativa-1:hover .botao-ver-area {
+    background: #6c757d;
+    color: var(--neutral-white);
+    border: 2px solid #6c757d;
+}
+
+.cartao-area-formativa-2:hover .botao-ver-area {
+    background: #003072;
+    color: var(--neutral-white);
+    border: 2px solid #003072;
+}
+
+.cartao-area-formativa-3:hover .botao-ver-area {
+    background: #e6a817;
+    color: var(--neutral-white);
+    border: 2px solid #e6a817;
+}
+
+.cartao-area-formativa-4:hover .botao-ver-area {
+    background: #1e8449;
+    color: var(--neutral-white);
+    border: 2px solid #1e8449;
+}
+
+.cartao-area-formativa-5:hover .botao-ver-area {
+    background: #c0392b;
+    color: var(--neutral-white);
+    border: 2px solid #c0392b;
+}
+
+/* ===== BOTÕES FLUTUANTES ===== */
+.botoes-flutuantes {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    display: flex;
+    flex-direction: column-reverse;
+    gap: 12px;
+    z-index: 999;
+}
+
+.botao-flutuante {
+    width: 52px;
+    height: 52px;
+    border-radius: 50%;
+    background: var(--neutral-white);
+    color: var(--neutral-gray);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2rem;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.05);
+    cursor: pointer;
+    transition: var(--transition);
+    border: 1px solid rgba(0, 139, 181, 0.1);
+}
+
+.botao-flutuante:hover {
+    background: var(--accent-teal);
+    color: var(--neutral-white);
+    transform: scale(1.1) translateY(-3px);
+    box-shadow: 0 12px 25px rgba(10, 147, 150, 0.3);
+}
+
+.botao-flutuante.whatsapp {
+    background: #e8f5e8;
+    color: #2e7d32;
+}
+
+.botao-flutuante.whatsapp:hover {
+    background: #d0ebd0;
+    color: #1b5e20;
+}
+
+#botaoTopo {
+    display: none;
+}
+
+/* ===== RESPONSIVIDADE ===== */
+@media (max-width: 900px) {
+    .cartao-area-formativa-1,
+    .cartao-area-formativa-2,
+    .cartao-area-formativa-3,
+    .cartao-area-formativa-4,
+    .cartao-area-formativa-5 {
+        max-width: calc(50% - 13px);
+    }
+}
+
+@media (max-width: 580px) {
+    .cartao-area-formativa-1,
+    .cartao-area-formativa-2,
+    .cartao-area-formativa-3,
+    .cartao-area-formativa-4,
+    .cartao-area-formativa-5 {
+        max-width: 100%;
+    }
+    
+    .secao-grade-areas {
+        padding: 40px 16px 60px;
+    }
+    
+    .botoes-flutuantes {
+        bottom: 20px;
+        right: 20px;
+    }
+}

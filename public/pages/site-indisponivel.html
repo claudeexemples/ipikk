@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Site em Manutenção - IPIKK</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Montserrat:wght@400;500;600;700&display=swap">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background: #f5f8fa;
+            color: #2c3e50;
+            line-height: 1.6;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* ===== VARIÁVEIS ===== */
+        :root {
+            --ciano-suave: #008bb5;
+            --ciano-claro: #e6f7ff;
+            --ciano-escuro-suave: #006d8f;
+            --gradiente-suave: linear-gradient(135deg, #008bb5 0%, #006d8f 100%);
+            --cinza-claro-bg: #f5f8fa;
+            --texto-principal: #2c3e50;
+            --texto-secundario: #5a6b7a;
+            --branco: #ffffff;
+            --transition: all 0.3s ease;
+        }
+
+        /* ===== HEADER SIMPLES ===== */
+        .barra-superior {
+            background: var(--gradiente-suave);
+            color: var(--branco);
+            padding: 10px 0;
+        }
+
+        .conteudo-superior {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        .info-instituto {
+            font-size: 0.9rem;
+            font-weight: 500;
+            opacity: 0.95;
+        }
+
+        .logo-simples {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .logo-simples img {
+            width: 50px;
+            height: 50px;
+            object-fit: contain;
+        }
+
+        .logo-simples span {
+            font-weight: 600;
+            font-size: 1.2rem;
+            color: var(--branco);
+        }
+
+        /* ===== CONTEÚDO PRINCIPAL ===== */
+        .main-content {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 60px 20px;
+        }
+
+        .card-indisponivel {
+            max-width: 650px;
+            width: 100%;
+            background: var(--branco);
+            border-radius: 40px;
+            padding: 50px 40px;
+            text-align: center;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.15);
+            border: 1px solid rgba(0, 139, 181, 0.1);
+            animation: fadeInUp 0.6s ease;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .icone-status {
+            width: 120px;
+            height: 120px;
+            background: var(--ciano-claro);
+            border-radius: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 30px;
+        }
+
+        .icone-status i {
+            font-size: 4rem;
+            color: var(--ciano-suave);
+        }
+
+        .icone-status.manutencao i {
+            color: #ff6b35;
+        }
+
+        .icone-status.indisponivel i {
+            color: #dc3545;
+        }
+
+        h1 {
+            font-family: 'Poppins', sans-serif;
+            font-size: 2.2rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            color: var(--texto-principal);
+        }
+
+        .mensagem-principal {
+            font-size: 1.2rem;
+            color: var(--texto-secundario);
+            margin-bottom: 25px;
+        }
+
+        .mensagem-detalhe {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 20px;
+            margin: 25px 0;
+            text-align: left;
+            border-left: 4px solid var(--ciano-suave);
+        }
+
+        .mensagem-detalhe p {
+            margin-bottom: 12px;
+            color: var(--texto-secundario);
+        }
+
+        .mensagem-detalhe p:last-child {
+            margin-bottom: 0;
+        }
+
+        .mensagem-detalhe i {
+            color: var(--ciano-suave);
+            margin-right: 10px;
+            width: 24px;
+        }
+
+        .data-info {
+            background: var(--ciano-claro);
+            padding: 15px 20px;
+            border-radius: 16px;
+            margin: 20px 0;
+            font-weight: 500;
+            color: var(--ciano-suave);
+        }
+
+        .data-info i {
+            margin-right: 10px;
+        }
+
+        .botoes {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-top: 30px;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 12px 28px;
+            border-radius: 40px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: var(--transition);
+            font-size: 0.95rem;
+        }
+
+        .btn-primario {
+            background: var(--gradiente-suave);
+            color: var(--branco);
+            border: none;
+        }
+
+        .btn-primario:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(0, 139, 181, 0.3);
+        }
+
+        .btn-secundario {
+            background: var(--ciano-claro);
+            color: var(--ciano-suave);
+        }
+
+        .btn-secundario:hover {
+            background: #d4ecf5;
+            transform: translateY(-3px);
+        }
+
+        .btn-contato {
+            background: #e8f5e8;
+            color: #2e7d32;
+        }
+
+        .btn-contato:hover {
+            background: #d0ebd0;
+            transform: translateY(-3px);
+        }
+
+        .contatos {
+            margin-top: 35px;
+            padding-top: 25px;
+            border-top: 1px solid #eef2f6;
+            display: flex;
+            justify-content: center;
+            gap: 25px;
+            flex-wrap: wrap;
+        }
+
+        .contatos a {
+            color: var(--texto-secundario);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            transition: var(--transition);
+            font-size: 0.9rem;
+        }
+
+        .contatos a:hover {
+            color: var(--ciano-suave);
+        }
+
+        .contatos i {
+            font-size: 1.1rem;
+        }
+
+        /* ===== RODAPÉ SIMPLES ===== */
+        .rodape-simples {
+            background: var(--gradiente-suave);
+            color: white;
+            padding: 25px 0;
+            text-align: center;
+            margin-top: auto;
+        }
+
+        .rodape-simples p {
+            font-size: 0.85rem;
+            opacity: 0.9;
+        }
+
+        /* ===== RESPONSIVIDADE ===== */
+        @media (max-width: 768px) {
+            .conteudo-superior {
+                flex-direction: column;
+                text-align: center;
+                padding: 0 20px;
+            }
+
+            .card-indisponivel {
+                padding: 35px 25px;
+            }
+
+            h1 {
+                font-size: 1.8rem;
+            }
+
+            .mensagem-principal {
+                font-size: 1rem;
+            }
+
+            .icone-status {
+                width: 90px;
+                height: 90px;
+            }
+
+            .icone-status i {
+                font-size: 3rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .botoes {
+                flex-direction: column;
+                width: 100%;
+            }
+
+            .btn {
+                justify-content: center;
+            }
+
+            .contatos {
+                flex-direction: column;
+                align-items: center;
+                gap: 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- BARRA SUPERIOR SIMPLES -->
+    <div class="barra-superior">
+        <div class="conteudo-superior">
+            <div class="info-instituto">Instituto Médio Politécnico Industrial do Kilamba Kiaxi Nº 8050 Nova-vida</div>
+            <div class="logo-simples">
+                <img src="../assets/images/ipikk_new_logo.png" alt="IPIKK" onerror="this.style.display='none'">
+                <span>IPIKK</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- CONTEÚDO PRINCIPAL -->
+    <main class="main-content">
+        <div class="card-indisponivel">
+            <!-- Versão para MANUTENÇÃO (servidor caiu) -->
+            <div id="versaoManutencao">
+                <div class="icone-status manutencao">
+                    <i class="fas fa-tools"></i>
+                </div>
+                <h1>Site em Manutenção</h1>
+                <p class="mensagem-principal">Estamos realizando melhorias para lhe servir melhor.</p>
+                <div class="mensagem-detalhe">
+                    <p><i class="fas fa-clock"></i> O site estará disponível em breve.</p>
+                    <p><i class="fas fa-code-branch"></i> Estamos atualizando nossos sistemas e conteúdos.</p>
+                    <p><i class="fas fa-heart"></i> Agradecemos pela paciência e compreensão.</p>
+                </div>
+                <div class="data-info">
+                    <i class="fas fa-calendar-alt"></i> Previsão de retorno: em breve
+                </div>
+                <div class="botoes">
+                    <a href="javascript:void(0)" class="btn btn-primario" id="btnAtualizar">
+                        <i class="fas fa-sync-alt"></i> Tentar novamente
+                    </a>
+                    <!--<a href="contatos.html" class="btn btn-contato">
+                        <i class="fab fa-whatsapp"></i> Contato Direto
+                    </a> -->
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- RODAPÉ SIMPLES -->
+    <footer class="rodape-simples">
+        <div class="conteudo-superior" style="justify-content: center;">
+            <p>IPIKK 2026 © Todos os direitos reservados | Instituto Médio Politécnico Industrial do Kilamba Kiaxi</p>
+        </div>
+    </footer>
+
+    <script>
+        // ===== TENTAR NOVAMENTE (recarregar a página) =====
+        const btnAtualizar = document.getElementById('btnAtualizar');
+        if (btnAtualizar) {
+            btnAtualizar.addEventListener('click', () => {
+                location.reload();
+            });
+        }
+
+        // ===== DETECTAR SE É PROBLEMA DE SERVIDOR =====
+        // Se quiser mostrar versão de "Inscrições Indisponíveis" em vez de manutenção,
+        // basta descomentar a linha abaixo ou passar um parâmetro na URL
+        // Exemplo: ?tipo=inscricoes
+        
+        const urlParams = new URLSearchParams(window.location.search);
+        const tipo = urlParams.get('tipo');
+        
+        if (tipo === 'inscricoes') {
+            // Mostrar versão de Inscrições Indisponíveis
+            const versaoManutencao = document.getElementById('versaoManutencao');
+            if (versaoManutencao) {
+                versaoManutencao.innerHTML = `
+                    <div class="icone-status indisponivel">
+                        <i class="fas fa-ban"></i>
+                    </div>
+                    <h1>Inscrições Indisponíveis</h1>
+                    <p class="mensagem-principal">O período de inscrições ainda não foi aberto ou já foi encerrado.</p>
+                    <div class="mensagem-detalhe">
+                        <p><i class="fas fa-calendar-alt"></i> <strong>Período de Inscrições:</strong> A ser divulgado em breve</p>
+                        <p><i class="fas fa-envelope"></i> Fique atento às nossas redes sociais e comunicados oficiais.</p>
+                        <p><i class="fas fa-school"></i> As inscrições são realizadas presencialmente na secretaria da escola.</p>
+                    </div>
+                    <div class="data-info">
+                        <i class="fas fa-info-circle"></i> Para mais informações, entre em contacto com a secretaria.
+                    </div>
+                    <div class="botoes">
+                        <a href="contatos.html" class="btn btn-contato">
+                            <i class="fab fa-whatsapp"></i> Falar com Secretaria
+                        </a>
+                        <a href="javascript:void(0)" class="btn btn-secundario" id="btnVoltar">
+                            <i class="fas fa-arrow-left"></i> Voltar
+                        </a>
+                    </div>
+                `;
+                
+                // Adicionar evento do botão voltar
+                const btnVoltar = document.getElementById('btnVoltar');
+                if (btnVoltar) {
+                    btnVoltar.addEventListener('click', () => {
+                        window.history.back();
+                    });
+                }
+            }
+        }
+        
+        // Também dá para detectar se é erro 503 (servidor indisponível)
+        // Nesse caso, mostraríamos uma mensagem específica
+        if (tipo === 'servidor') {
+            const versaoManutencao = document.getElementById('versaoManutencao');
+            if (versaoManutencao) {
+                versaoManutencao.innerHTML = `
+                    <div class="icone-status manutencao">
+                        <i class="fas fa-server"></i>
+                    </div>
+                    <h1>Servidor Indisponível</h1>
+                    <p class="mensagem-principal">Estamos enfrentando instabilidades temporárias no servidor.</p>
+                    <div class="mensagem-detalhe">
+                        <p><i class="fas fa-wifi"></i> Nossa equipe técnica já está trabalhando para normalizar o serviço.</p>
+                        <p><i class="fas fa-clock"></i> Por favor, tente novamente dentro de alguns minutos.</p>
+                        <p><i class="fas fa-phone-alt"></i> Em caso de urgência, utilize os canais de atendimento abaixo.</p>
+                    </div>
+                    <div class="botoes">
+                        <a href="javascript:void(0)" class="btn btn-primario" id="btnAtualizarServidor">
+                            <i class="fas fa-sync-alt"></i> Tentar novamente
+                        </a>
+                        <a href="tel:+244933096705" class="btn btn-contato">
+                            <i class="fas fa-phone"></i> Ligar para Escola
+                        </a>
+                    </div>
+                `;
+                
+                const btnAtualizarServidor = document.getElementById('btnAtualizarServidor');
+                if (btnAtualizarServidor) {
+                    btnAtualizarServidor.addEventListener('click', () => {
+                        location.reload();
+                    });
+                }
+            }
+        }
+    </script>
+</body>
+</html>

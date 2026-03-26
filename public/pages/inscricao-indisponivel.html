@@ -1,0 +1,1206 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inscrições Indisponíveis - IPIKK</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Montserrat:wght@400;500;600;700&display=swap">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link href="../assets/images/ipikk_new_logo.png" rel="icon">
+    <link rel="stylesheet" href="../assets/css/header-footer.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background: #f5f8fa;
+            color: #2c3e50;
+            line-height: 1.6;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* ===== VARIÁVEIS ===== */
+        :root {
+            --ciano-suave: #008bb5;
+            --ciano-claro: #e6f7ff;
+            --ciano-escuro-suave: #006d8f;
+            --gradiente-suave: linear-gradient(135deg, #008bb5 0%, #006d8f 100%);
+            --cinza-claro-bg: #f5f8fa;
+            --texto-principal: #2c3e50;
+            --texto-secundario: #5a6b7a;
+            --branco: #ffffff;
+            --transition: all 0.3s ease;
+            --vermelho-alerta: #dc3545;
+            --vermelho-claro: #fff0f0;
+        }
+
+        /* ===== BARRA SUPERIOR ===== */
+        .barra-superior {
+            background: var(--gradiente-suave);
+            color: var(--branco);
+            padding: 10px 0;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+
+        .conteudo-superior {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        .info-instituto {
+            font-size: 0.9rem;
+            font-weight: 500;
+            opacity: 0.95;
+        }
+
+        .social-traducao {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .icones-sociais {
+            display: flex;
+            gap: 12px;
+        }
+
+        .icone-social {
+            width: 34px;
+            height: 34px;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.15);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: var(--transition);
+        }
+
+        .icone-social:hover {
+            background: rgba(255,255,255,0.3);
+            transform: translateY(-2px);
+        }
+
+        .icone-social i {
+            color: var(--branco);
+            font-size: 15px;
+        }
+
+        /* ===== CABEÇALHO ===== */
+        .cabecalho {
+            background: var(--branco);
+            box-shadow: 0 4px 20px rgba(0,0,0,0.03);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 1px solid rgba(0,139,181,0.1);
+        }
+
+        .conteudo-cabecalho {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 8px 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .container-logo {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            text-decoration: none;
+        }
+
+        .logo {
+            width: 70px;
+            height: 70px;
+            overflow: hidden;
+        }
+
+        .logo img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+
+        /* ===== NAVEGAÇÃO ===== */
+        .menu-navegacao {
+            display: flex;
+            list-style: none;
+            gap: 4px;
+            margin: 0;
+            padding: 0;
+            align-items: center;
+        }
+
+        .item-navegacao {
+            position: relative;
+        }
+
+        .link-navegacao {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 10px 18px;
+            color: var(--texto-secundario);
+            font-weight: 500;
+            font-size: 0.95rem;
+            border-radius: 8px;
+            transition: var(--transition);
+            text-decoration: none;
+        }
+
+        .link-navegacao:hover {
+            background: var(--ciano-claro);
+            color: var(--ciano-suave);
+        }
+
+        .item-navegacao.ativo .link-navegacao {
+            background: var(--ciano-claro);
+            color: var(--ciano-suave);
+            font-weight: 600;
+        }
+
+        .botao-area-restrita {
+            background: var(--ciano-claro) !important;
+            color: var(--ciano-suave) !important;
+            padding: 8px 20px !important;
+            border-radius: 30px !important;
+            font-weight: 600 !important;
+        }
+
+        /* ===== MENU MOBILE ===== */
+        .botao-menu-mobile {
+            display: none;
+            flex-direction: column;
+            justify-content: center;
+            gap: 5px;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 10px;
+            width: 45px;
+            height: 45px;
+        }
+
+        .botao-menu-mobile span {
+            display: block;
+            width: 24px;
+            height: 2px;
+            background: var(--texto-secundario);
+            border-radius: 4px;
+            transition: var(--transition);
+            margin: 0 auto;
+        }
+
+        .overlay-sidebar {
+            position: fixed;
+            inset: 0;
+            background: rgba(0,0,0,0.3);
+            backdrop-filter: blur(3px);
+            z-index: 8000;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.3s ease;
+        }
+
+        .overlay-sidebar.visivel {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .sidebar-mobile {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 320px;
+            height: 100vh;
+            background: var(--branco);
+            z-index: 9000;
+            transform: translateX(-100%);
+            transition: transform 0.4s cubic-bezier(0.4,0,0.2,1);
+            display: flex;
+            flex-direction: column;
+            box-shadow: 5px 0 30px rgba(0,0,0,0.05);
+        }
+
+        .sidebar-mobile.aberto {
+            transform: translateX(0);
+        }
+
+        .sidebar-cabecalho {
+            background: var(--gradiente-suave);
+            padding: 25px 20px;
+            position: relative;
+        }
+
+        .sidebar-logo-linha {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .sidebar-logo-img {
+            width: 50px;
+            height: 50px;
+            object-fit: contain;
+            filter: brightness(1.1);
+        }
+
+        .sidebar-logo-texto .nome {
+            font-weight: 700;
+            font-size: 1.2rem;
+            color: white;
+        }
+
+        .sidebar-logo-texto .sub {
+            font-size: 0.75rem;
+            color: rgba(255,255,255,0.9);
+        }
+
+        .botao-fechar-sidebar {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.2);
+            border: none;
+            color: white;
+            cursor: pointer;
+        }
+
+        .sidebar-nav {
+            flex: 1;
+            overflow-y: auto;
+            padding: 20px 15px;
+        }
+
+        .sidebar-item {
+            margin-bottom: 4px;
+        }
+
+        .sidebar-link {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 12px 15px;
+            color: var(--texto-secundario);
+            font-size: 0.93rem;
+            font-weight: 500;
+            border-radius: 12px;
+            text-decoration: none;
+        }
+
+        .sidebar-link:hover {
+            background: var(--ciano-claro);
+            color: var(--ciano-suave);
+        }
+
+        .sidebar-link.ativo {
+            background: var(--ciano-claro);
+            color: var(--ciano-suave);
+            font-weight: 600;
+        }
+
+        .sidebar-icone {
+            width: 32px;
+            font-size: 0.93rem;
+        }
+
+        .sidebar-submenu {
+            margin-left: 30px;
+            margin-top: 5px;
+            margin-bottom: 5px;
+        }
+
+        .sidebar-sub-link {
+            display: block;
+            padding: 8px 15px;
+            color: var(--texto-secundario);
+            font-size: 0.85rem;
+            border-radius: 8px;
+            text-decoration: none;
+        }
+
+        .sidebar-sub-link:hover {
+            background: var(--ciano-claro);
+            color: var(--ciano-suave);
+        }
+
+        .sidebar-rodape {
+            padding: 20px;
+            border-top: 1px solid rgba(0,139,181,0.1);
+        }
+
+        .botao-area-restrita-sidebar {
+            width: 100%;
+            padding: 12px;
+            background: var(--ciano-claro);
+            color: var(--ciano-suave);
+            border: none;
+            border-radius: 30px;
+            font-weight: 600;
+            cursor: pointer;
+        }
+
+        /* ===== CONTEÚDO PRINCIPAL - INSCRIÇÕES INDISPONÍVEIS ===== */
+        .main-content {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 60px 20px;
+        }
+
+        .card-indisponivel {
+            max-width: 700px;
+            width: 100%;
+            background: var(--branco);
+            border-radius: 40px;
+            padding: 50px 45px;
+            text-align: center;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.15);
+            border: 1px solid rgba(0, 139, 181, 0.1);
+            animation: fadeInUp 0.6s ease;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .icone-status {
+            width: 120px;
+            height: 120px;
+            background: var(--vermelho-claro);
+            border-radius: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 30px;
+        }
+
+        .icone-status i {
+            font-size: 4rem;
+            color: var(--vermelho-alerta);
+        }
+
+        h1 {
+            font-family: 'Poppins', sans-serif;
+            font-size: 2.2rem;
+            font-weight: 700;
+            margin-bottom: 15px;
+            color: var(--texto-principal);
+        }
+
+        .subtitulo {
+            font-size: 1.1rem;
+            color: var(--texto-secundario);
+            margin-bottom: 25px;
+        }
+
+        .data-periodo {
+            background: var(--vermelho-claro);
+            padding: 15px 20px;
+            border-radius: 20px;
+            margin: 20px 0;
+            display: inline-block;
+        }
+
+        .data-periodo i {
+            color: var(--vermelho-alerta);
+            margin-right: 10px;
+        }
+
+        .data-periodo span {
+            color: var(--vermelho-alerta);
+            font-weight: 600;
+        }
+
+        .mensagem-info {
+            background: #f8f9fa;
+            padding: 25px;
+            border-radius: 24px;
+            margin: 25px 0;
+            text-align: left;
+            border-left: 4px solid var(--ciano-suave);
+        }
+
+        .mensagem-info p {
+            margin-bottom: 15px;
+            color: var(--texto-secundario);
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+        }
+
+        .mensagem-info p:last-child {
+            margin-bottom: 0;
+        }
+
+        .mensagem-info i {
+            width: 24px;
+            color: var(--ciano-suave);
+            margin-top: 3px;
+        }
+
+        .mensagem-info strong {
+            color: var(--texto-principal);
+        }
+
+        .contato-destaque {
+            background: #e8f5e8;
+            padding: 20px;
+            border-radius: 20px;
+            margin: 25px 0;
+        }
+
+        .contato-destaque p {
+            color: #2e7d32;
+            font-weight: 500;
+            margin-bottom: 10px;
+        }
+
+        .contato-destaque p:last-child {
+            margin-bottom: 0;
+        }
+
+        .contato-destaque i {
+            margin-right: 10px;
+        }
+
+        .botoes {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-top: 30px;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 12px 28px;
+            border-radius: 40px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: var(--transition);
+            font-size: 0.95rem;
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn-primario {
+            background: var(--gradiente-suave);
+            color: var(--branco);
+        }
+
+        .btn-primario:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(0, 139, 181, 0.3);
+        }
+
+        .btn-whatsapp {
+            background: #25D366;
+            color: var(--branco);
+        }
+
+        .btn-whatsapp:hover {
+            background: #128C7E;
+            transform: translateY(-3px);
+        }
+
+        .btn-secundario {
+            background: var(--ciano-claro);
+            color: var(--ciano-suave);
+        }
+
+        .btn-secundario:hover {
+            background: #d4ecf5;
+            transform: translateY(-3px);
+        }
+
+        .contatos-footer {
+            margin-top: 30px;
+            padding-top: 25px;
+            border-top: 1px solid #eef2f6;
+            display: flex;
+            justify-content: center;
+            gap: 25px;
+            flex-wrap: wrap;
+        }
+
+        .contatos-footer a {
+            color: var(--texto-secundario);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            transition: var(--transition);
+            font-size: 0.9rem;
+        }
+
+        .contatos-footer a:hover {
+            color: var(--ciano-suave);
+        }
+
+        /* ===== RODAPÉ ===== */
+        .rodape {
+            background: var(--gradiente-suave);
+            color: white;
+            padding: 0;
+            margin-top: auto;
+        }
+
+        .container-rodape {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 50px 40px 0;
+        }
+
+        .conteudo-rodape {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .foto-instituto {
+            margin-bottom: 15px;
+        }
+
+        .foto-instituto img {
+            max-width: 110px;
+            filter: brightness(1.1);
+        }
+
+        .descricao-rodape {
+            font-size: 0.9rem;
+            opacity: 0.95;
+            line-height: 1.7;
+            margin: 15px 0 20px;
+            max-width: 280px;
+            color: rgba(255,255,255,0.95);
+        }
+
+        .social-rodape {
+            display: flex;
+            gap: 12px;
+        }
+
+        .social-rodape a {
+            width: 38px;
+            height: 38px;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.15);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: var(--transition);
+            color: var(--branco);
+            font-size: 1rem;
+        }
+
+        .social-rodape a:hover {
+            background: rgba(255,255,255,0.3);
+            transform: translateY(-3px);
+        }
+
+        .titulo-rodape {
+            font-size: 1rem;
+            font-weight: 600;
+            margin-bottom: 18px;
+            color: var(--branco);
+        }
+
+        .links-rodape {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .link-rodape {
+            font-size: 0.9rem;
+            opacity: 0.9;
+            transition: var(--transition);
+            color: var(--branco);
+            text-decoration: none;
+        }
+
+        .link-rodape:hover {
+            opacity: 1;
+            transform: translateX(3px);
+        }
+
+        .rodape-inferior {
+            border-top: 1px solid rgba(255,255,255,0.15);
+            padding: 20px 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        .rodape-inferior p {
+            font-size: 0.85rem;
+            opacity: 0.9;
+            color: rgba(255,255,255,0.9);
+        }
+
+        .rodape-inferior strong {
+            color: var(--branco);
+            font-weight: 700;
+        }
+
+        /* ===== RESPONSIVIDADE ===== */
+        @media (max-width: 1200px) {
+            .conteudo-rodape {
+                grid-template-columns: 1fr 1fr;
+                gap: 30px;
+            }
+        }
+
+        @media (max-width: 992px) {
+            .menu-navegacao {
+                display: none;
+            }
+            .botao-menu-mobile {
+                display: flex;
+            }
+            .card-indisponivel {
+                padding: 40px 30px;
+            }
+            h1 {
+                font-size: 1.8rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .conteudo-superior {
+                flex-direction: column;
+                text-align: center;
+                padding: 0 20px;
+            }
+            .conteudo-rodape {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+            .icone-status {
+                width: 90px;
+                height: 90px;
+            }
+            .icone-status i {
+                font-size: 3rem;
+            }
+            .botoes {
+                flex-direction: column;
+            }
+            .btn {
+                justify-content: center;
+            }
+            .card-indisponivel {
+                padding: 35px 25px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .sidebar-mobile {
+                width: 280px;
+            }
+            h1 {
+                font-size: 1.5rem;
+            }
+            .subtitulo {
+                font-size: 1rem;
+            }
+            .contatos-footer {
+                flex-direction: column;
+                align-items: center;
+                gap: 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- BARRA SUPERIOR -->
+    <div class="barra-superior">
+        <div class="conteudo-superior">
+            <div class="info-instituto">Instituto Médio Politécnico Industrial do Kilamba Kiaxi Nº 8050 Nova-vida</div>
+            <div class="social-traducao">
+                <div class="icones-sociais">
+                    <a href="#" class="icone-social"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" class="icone-social"><i class="fab fa-instagram"></i></a>
+                    <a href="#" class="icone-social"><i class="fab fa-linkedin-in"></i></a>
+                </div>
+                <div class="seletor-idioma" id="botaoTraducao">
+                <i class="fas fa-globe"></i>
+                    <span id="idiomaAtual">Português</span>
+                        <i class="fas fa-chevron-down"></i>
+                        <div class="dropdown-idioma" id="dropdownIdioma">
+                            <a href="#" data-lang="pt" class="opcao-idioma ativo">
+            <i class="fas fa-flag"></i> Português
+        </a>
+        <a href="#" data-lang="en" class="opcao-idioma">
+            <i class="fas fa-flag-usa"></i> English
+        </a>
+    </div>
+</div>
+            </div>
+        </div>
+    </div>
+
+<!-- ===== CABEÇALHO ===== -->
+<header class="cabecalho" id="cabecalho" style="margin-bottom: 5%;">
+    <div class="conteudo-cabecalho">
+        <a href="javascript:void(0)" class="container-logo">
+            <div class="logo"><img src="../assets/images/ipikk_new_logo.png" alt="Logo IPIKK"></div>
+        </a>
+        <nav>
+            <ul class="menu-navegacao">
+                <li><a href="index.html" class="link-navegacao">Início</a></li>
+
+                <!-- OFERTA FORMATIVA — hover abre submenu, clique no texto navega -->
+                <li class="item-navegacao menu-suspenso" id="menu-oferta-desktop">
+                    <a href="oferta-formativa.html" class="link-navegacao">Oferta Formativa <i class="fas fa-chevron-down"></i></a>
+                    <div class="conteudo-suspenso">
+                        <div class="item-suspenso">
+                            <a href="construcao-civil.html" class="link-suspenso">Construção Civil <i class="fas fa-chevron-right" style="float:right;margin-top:2px;font-size:.75rem;"></i></a>
+
+                            <div class="submenu-suspenso">
+                                <a href="construcao-civil-obras.html">Técnico de Obras</a>
+                                <a href="construcao-civil-desenhador.html">Desenhador Projectista</a>
+                            </div>
+                        </div>
+                        <div class="item-suspenso">
+                            <a href="eletricidade.html" class="link-suspenso">Electricidade<i class="fas fa-chevron-right" style="float:right;margin-top:2px;font-size:.75rem;"></i></a>
+                            <div class="submenu-suspenso">
+                                <a href="eletricidade-instalacoes.html">Energia e Instalações</a>
+                            </div>
+                        </div>
+                        <div class="item-suspenso">
+                            <a href="mecanica.html" class="link-suspenso">Mecânica <i class="fas fa-chevron-right" style="float:right;margin-top:2px;font-size:.75rem;"></i></a>
+                            <div class="submenu-suspenso">
+                                <a href="mecanica-climatizacao.html">Frio e Climatização</a>
+                            </div>
+                        </div>
+                        <div class="item-suspenso">
+                            <a href="informatica.html" class="link-suspenso">Informática<i class="fas fa-chevron-right" style="float:right;margin-top:2px;font-size:.75rem;"></i></a>
+                            <div class="submenu-suspenso">
+                                <a href="informatica-gestao-sistemas.html">Gestão de Sistemas</a>
+                                <a href="informatica-tecnico.html">Técnico de Informática</a>
+                            </div>
+                        </div>
+                        <div class="item-suspenso">
+                            <a href="tecnologia-moveis.html" class="link-suspenso">Tecnologias de Móveis<i class="fas fa-chevron-right" style="float:right;margin-top:2px;font-size:.75rem;"></i></a>
+                            <div class="submenu-suspenso">
+                                <a href="tecnologia-moveis-curso.html">Tecnologias de Móveis</a>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+
+                <!-- SOBRE — hover abre submenu, clique no texto não redireciona -->
+                <li class="item-navegacao menu-suspenso" id="menu-sobre-desktop">
+                    <a href="javascript:void(0)" class="link-navegacao">Sobre <i class="fas fa-chevron-down"></i></a>
+                    <div class="conteudo-suspenso">
+                        <a href="sobre-nos.html" class="link-suspenso">Quem Somos</a>
+                        <div class="item-suspenso">
+                            <a href="javascript:void(0)" class="link-suspenso">Institucional <i class="fas fa-chevron-right" style="float:right;margin-top:2px;font-size:.75rem;"></i></a>
+                            <div class="submenu-suspenso">
+                                <a href="diretor.html">Perfil do Director</a>
+                                <a href="orgaos-diretivos.html">Órgãos Directivos</a>
+                                <a href="ex-diretores.html">Ex-Directores</a>
+                            </div>
+                        </div>
+                        <a href="normativos.html" class="link-suspenso">Normativos</a>
+                        <div class="item-suspenso">
+                            <a href="javascript:void(0)" class="link-suspenso">Alumni <i class="fas fa-chevron-right" style="float:right;margin-top:2px;font-size:.75rem;"></i></a>
+                            <div class="submenu-suspenso">
+                                <a href="percurso.html">Percurso</a>
+                                <a href="quadro-honra.html">Quadro de Honra</a>
+                                <a href="funcionario-destacado.html">Funcionário Destacado</a>
+                            </div>
+                        </div>
+                        <a href="escolas-afiliadas.html" class="link-suspenso">Escolas Afiliadas</a>
+                    </div>
+                </li>
+
+                <li class="item-navegacao"><a href="noticias.html" class="link-navegacao">Notícias</a></li>
+                <li class="item-navegacao"><a href="galeria.html" class="link-navegacao">Galeria</a></li>
+                <li class="item-navegacao"><a href="contatos.html" class="link-navegacao">Contactos</a></li>
+                <li class="item-navegacao">
+                    <a href="area-restrita.html" class="link-navegacao botao-area-restrita">
+                        <i class="fas fa-lock"></i> Área Restrita
+                    </a>
+                </li>
+            </ul>
+        </nav>
+        <button class="botao-menu-mobile" id="botaoMenu" aria-label="Abrir menu">
+            <span></span><span></span><span></span>
+        </button>
+    </div>
+</header>
+
+<!-- ===== OVERLAY ===== -->
+<div class="overlay-sidebar" id="overlaySidebar"></div>
+
+<!-- ===== SIDEBAR MOBILE ===== -->
+<aside class="sidebar-mobile" id="sidebarMobile" aria-hidden="true">
+    <div class="sidebar-cabecalho">
+        <div class="sidebar-logo-linha">
+            <img src="../assets/images/ipikk_new_logo.png" alt="IPIKK" class="sidebar-logo-img">
+            <div class="sidebar-logo-texto">
+                <div class="nome">IPIKK</div>
+                <div class="sub">Instituto Politécnico Industrial do Kilamba Kiaxi</div>
+            </div>
+        </div>
+        <button class="botao-fechar-sidebar" id="fecharSidebar"><i class="fas fa-times"></i></button>
+    </div>
+
+    <nav class="sidebar-nav">
+
+        <!-- Início -->
+        <div class="sidebar-item">
+            <a href="index.html" class="sidebar-link">
+                <span class="sidebar-icone"><i class="fas fa-home"></i></span>
+                <span>Início</span>
+            </a>
+        </div>
+
+        <!-- OFERTA FORMATIVA — texto redireciona, seta abre submenu -->
+        <div class="sidebar-item">
+            <div class="sidebar-dupla-funcao">
+                <a href="oferta-formativa.html" class="sidebar-link-pagina">
+                    <span class="sidebar-icone"><i class="fas fa-graduation-cap"></i></span>
+                    Oferta Formativa
+                </a>
+                <button class="botao-seta-sidebar" data-alvo="sub-oferta" aria-expanded="false">
+                    <i class="fas fa-chevron-right"></i>
+                </button>
+            </div>
+            <div class="sidebar-submenu" id="sub-oferta">
+
+                <!-- Construção Civil -->
+                <div class="sidebar-item">
+                    <div class="sidebar-dupla-funcao">
+                        <a href="construcao-civil.html" class="sidebar-link-pagina sidebar-link-pagina--sub">Construção Civil</a>
+                        <button class="botao-seta-sidebar botao-seta-sidebar--sub" data-alvo="sub-construcao" aria-expanded="false">
+                            <i class="fas fa-chevron-right"></i>
+                        </button>
+                    </div>
+                    <div class="sidebar-submenu" id="sub-construcao">
+                        <a href="construcao-civil-obras.html" class="sidebar-sub-link">Técnico de Obras</a>
+                        <a href="construcao-civil-desenhador.html" class="sidebar-sub-link">Desenhador Projectista</a>
+                    </div>
+                </div>
+
+                <!-- Electricidade -->
+                <div class="sidebar-item">
+                    <div class="sidebar-dupla-funcao">
+                        <a href="eletricidade.html" class="sidebar-link-pagina sidebar-link-pagina--sub">Electricidade</a>
+                        <button class="botao-seta-sidebar botao-seta-sidebar--sub" data-alvo="sub-eletricidade" aria-expanded="false">
+                            <i class="fas fa-chevron-right"></i>
+                        </button>
+                    </div>
+                    <div class="sidebar-submenu" id="sub-eletricidade">
+                        <a href="eletricidade-instalacoes.html" class="sidebar-sub-link">Energia e Instalações</a>
+                    </div>
+                </div>
+
+                <!-- Mecânica -->
+                <div class="sidebar-item">
+                    <div class="sidebar-dupla-funcao">
+                        <a href="mecanica.html" class="sidebar-link-pagina sidebar-link-pagina--sub">Mecânica</a>
+                        <button class="botao-seta-sidebar botao-seta-sidebar--sub" data-alvo="sub-mecanica" aria-expanded="false">
+                            <i class="fas fa-chevron-right"></i>
+                        </button>
+                    </div>
+                    <div class="sidebar-submenu" id="sub-mecanica">
+                        <a href="mecanica-climatizacao.html" class="sidebar-sub-link">Frio e Climatização</a>
+                    </div>
+                </div>
+
+                <!-- Informática -->
+                <div class="sidebar-item">
+                    <div class="sidebar-dupla-funcao">
+                        <a href="informatica.html" class="sidebar-link-pagina sidebar-link-pagina--sub">Informática</a>
+                        <button class="botao-seta-sidebar botao-seta-sidebar--sub" data-alvo="sub-informatica" aria-expanded="false">
+                            <i class="fas fa-chevron-right"></i>
+                        </button>
+                    </div>
+                    <div class="sidebar-submenu" id="sub-informatica">
+                        <a href="informatica-gestao-sistemas.html" class="sidebar-sub-link">Gestão de Sistemas</a>
+                        <a href="informatica-tecnico.html" class="sidebar-sub-link">Técnico de Informática</a>
+                    </div>
+                </div>
+
+                <!-- Tecnologias de Móveis -->
+                <div class="sidebar-item">
+                    <div class="sidebar-dupla-funcao">
+                        <a href="tecnologia-moveis.html" class="sidebar-link-pagina sidebar-link-pagina--sub">Tecnologias de Móveis</a>
+                        <button class="botao-seta-sidebar botao-seta-sidebar--sub" data-alvo="sub-moveis" aria-expanded="false">
+                            <i class="fas fa-chevron-right"></i>
+                        </button>
+                    </div>
+                    <div class="sidebar-submenu" id="sub-moveis">
+                        <a href="tecnologia-moveis-curso.html" class="sidebar-sub-link">Tecnologias de Móveis</a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- SOBRE — clique abre submenu, não redireciona -->
+        <div class="sidebar-item">
+            <button class="sidebar-link has-submenu" data-alvo="sub-sobre" aria-expanded="false">
+                <span class="link-texto">
+                    <span class="sidebar-icone"><i class="fas fa-university"></i></span>
+                    Sobre
+                </span>
+                <i class="fas fa-chevron-right seta-submenu"></i>
+            </button>
+            <div class="sidebar-submenu" id="sub-sobre">
+                <a href="sobre-nos.html" class="sidebar-sub-link">Quem Somos</a>
+
+                <!-- Institucional -->
+                <div class="sidebar-item">
+                    <button class="sidebar-link has-submenu" data-alvo="sub-institucional" aria-expanded="false">
+                        <span class="link-texto">
+                            <span class="sidebar-icone"><i class="fas fa-chevron-right"></i></span>
+                            Institucional
+                        </span>
+                        <i class="fas fa-chevron-right seta-submenu"></i>
+                    </button>
+                    <div class="sidebar-submenu" id="sub-institucional">
+                        <a href="diretor.html" class="sidebar-sub-link">Perfil do Director</a>
+                        <a href="orgaos-diretivos.html" class="sidebar-sub-link">Órgãos Directivos</a>
+                        <a href="ex-diretores.html" class="sidebar-sub-link">Ex-Directores</a>
+                    </div>
+                </div>
+
+                <a href="normativos.html" class="sidebar-sub-link">Normativos</a>
+
+                <!-- Alumni -->
+                <div class="sidebar-item">
+                    <button class="sidebar-link has-submenu" data-alvo="sub-alumni" aria-expanded="false">
+                        <span class="link-texto">
+                            <span class="sidebar-icone"><i class="fas fa-chevron-right"></i></span>
+                            Alumni
+                        </span>
+                        <i class="fas fa-chevron-right seta-submenu"></i>
+                    </button>
+                    <div class="sidebar-submenu" id="sub-alumni">
+                        <a href="percurso.html" class="sidebar-sub-link">Percurso</a>
+                        <a href="quadro-honra.html" class="sidebar-sub-link">Quadro de Honra</a>
+                        <a href="funcionario-destacado.html" class="sidebar-sub-link">Funcionário Destacado</a>
+                    </div>
+                </div>
+
+                <a href="escolas-afiliadas.html" class="sidebar-sub-link">Escolas Afiliadas</a>
+            </div>
+        </div>
+
+        <!-- Notícias -->
+        <div class="sidebar-item">
+            <a href="noticias.html" class="sidebar-link">
+                <span class="sidebar-icone"><i class="fas fa-newspaper"></i></span>
+                <span>Notícias</span>
+            </a>
+        </div>
+
+        <!-- Galeria -->
+        <div class="sidebar-item">
+            <a href="galeria.html" class="sidebar-link">
+                <span class="sidebar-icone"><i class="fas fa-images"></i></span>
+                <span>Galeria</span>
+            </a>
+        </div>
+
+        <!-- Contactos -->
+        <div class="sidebar-item">
+            <a href="contatos.html" class="sidebar-link">
+                <span class="sidebar-icone"><i class="fas fa-envelope"></i></span>
+                <span>Contactos</span>
+            </a>
+        </div>
+
+    </nav>
+
+    <div class="sidebar-rodape">
+        <button class="botao-area-restrita-sidebar" onclick="window.location.href='area-restrita.html'">
+            <i class="fas fa-lock"></i> Área Restrita
+        </button>
+    </div>
+</aside>
+
+    <!-- CONTEÚDO PRINCIPAL - INSCRIÇÕES INDISPONÍVEIS -->
+    <main class="main-content">
+        <div class="card-indisponivel">
+            <div class="icone-status">
+                <i class="fas fa-calendar-times"></i>
+            </div>
+            
+            <h1>Inscrições Indisponíveis</h1>
+            <p class="subtitulo">O período de inscrições ainda não foi aberto ou já foi encerrado.</p>
+
+            <div class="data-periodo">
+                <i class="fas fa-calendar-alt"></i>
+                <span>Próximo período de inscrições:</span> A ser divulgado em breve
+            </div>
+
+            <div class="mensagem-info">
+                <p><i class="fas fa-info-circle"></i> As inscrições para o <strong>Instituto Médio Politécnico Industrial do Kilamba Kiaxi</strong> ocorrem em períodos específicos do ano letivo.</p>
+                <p><i class="fas fa-school"></i> <strong>Como se inscrever quando estiver disponível:</strong> Dirija-se à secretaria da escola com os documentos necessários, escolha o curso pretendido e aguarde a data do teste de admissão.</p>
+                <p><i class="fas fa-file-alt"></i> <strong>Documentos necessários:</strong> Bilhete de Identidade, Certificado de Habilitações, 2 fotos tipo passe, Declaração de residência e Atestado Médico.</p>
+                <p><i class="fas fa-clock"></i> Fique atento às nossas redes sociais e comunicados oficiais para saber quando as inscrições serão abertas.</p>
+            </div>
+
+            <div class="contato-destaque">
+                <p><i class="fas fa-phone-alt"></i> <strong>Secretaria do IPIKK</strong></p>
+                <p><i class="fas fa-map-marker-alt"></i> Nova Vida, Kilamba Kiaxi, Luanda - Angola</p>
+                <p><i class="fas fa-clock"></i> Atendimento: Segunda a Sexta, 8h às 16h</p>
+                <p><i class="fas fa-phone"></i> Telefone: +244 933 096 705</p>
+                <p><i class="fas fa-envelope"></i> Email: geral@ipikk.ao</p>
+            </div>
+
+            <div class="botoes">
+                <!--<a href="https://wa.me/244933096705" class="btn btn-whatsapp" target="_blank">
+                    <i class="fab fa-whatsapp"></i> Tirar Dúvidas no WhatsApp
+                </a>-->
+                <a href="contatos.html" class="btn btn-secundario">
+                    <i class="fas fa-envelope"></i> Página de Contactos
+                </a>
+            </div>
+
+            <div class="contatos-footer">
+                <a href="https://www.facebook.com/ipikk" target="_blank"><i class="fab fa-facebook"></i> Facebook</a>
+                <a href="https://www.instagram.com/ipikk" target="_blank"><i class="fab fa-instagram"></i> Instagram</a>
+                <a href="mailto:geral@ipikk.ao"><i class="fas fa-envelope"></i> geral@ipikk.ao</a>
+            </div>
+        </div>
+    </main>
+
+    <!-- RODAPÉ -->
+    <footer class="rodape">
+        <div class="container-rodape">
+            <div class="conteudo-rodape">
+                <div class="coluna-logo">
+                    <div class="foto-instituto">
+                        <img src="../assets/images/ipikk_new_logo_1.png" alt="Instituto IPIKK">
+                    </div>
+                    <p class="descricao-rodape">Instituto Médio Politécnico Industrial do Kilamba Kiaxi Nº8050 "Nova Vida"</p>
+                    <div class="social-rodape">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                    </div>
+                </div>
+                <div class="coluna-links">
+                    <h4 class="titulo-rodape">IPIKK</h4>
+                    <div class="links-rodape">
+                        <a href="sobre-nos.html" class="link-rodape">Sobre Nós</a>
+                        <a href="inscricoes.html" class="link-rodape">Inscrições</a>
+                        <a href="contatos.html" class="link-rodape">Contactos</a>
+                        <a href="area-restrita.html" class="link-rodape">Área Restrita</a>
+                    </div>
+                </div>
+                <div class="coluna-links">
+                    <h4 class="titulo-rodape">Oferta Formativa</h4>
+                    <div class="links-rodape">
+                        <a href="construcao-civil.html" class="link-rodape">Construção Civil</a>
+                        <a href="eletricidade.html" class="link-rodape">Electricidade</a>
+                        <a href="mecanica.html" class="link-rodape">Mecânica</a>
+                        <a href="informatica.html" class="link-rodape">Informática</a>
+                        <a href="tecnologia-moveis.html" class="link-rodape">Tecnologias de Móveis</a>
+                    </div>
+                </div>
+                <div class="coluna-links">
+                    <h4 class="titulo-rodape">Links Rápidos</h4>
+                    <div class="links-rodape">
+                        <a href="https://governo.gov.ao/" class="link-rodape" target="_blank">Governo de Angola</a>
+                        <a href="https://luanda.gov.ao/" class="link-rodape" target="_blank">Governo Provincial de Luanda</a>
+                        <a href="https://med.gov.ao/" class="link-rodape" target="_blank">Ministério da Educação</a>
+                        <a href="https://webmail.ipikk.ao/" class="link-rodape" target="_blank">Webmail IPIKK</a>
+                    </div>
+                </div>
+            </div>
+            <div class="rodape-inferior">
+                <p>IPIKK 2026 © Todos os direitos reservados by <strong>INFOSI</strong></p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // ===== SIDEBAR =====
+        const botaoMenu = document.getElementById('botaoMenu');
+        const sidebar = document.getElementById('sidebarMobile');
+        const overlay = document.getElementById('overlaySidebar');
+        const fecharBtn = document.getElementById('fecharSidebar');
+
+        function abrirSidebar() {
+            sidebar.classList.add('aberto');
+            overlay.classList.add('visivel');
+            document.body.style.overflow = 'hidden';
+            botaoMenu.classList.add('ativo');
+        }
+
+        function fecharSidebar() {
+            sidebar.classList.remove('aberto');
+            overlay.classList.remove('visivel');
+            document.body.style.overflow = '';
+            botaoMenu.classList.remove('ativo');
+        }
+
+        if (botaoMenu) {
+            botaoMenu.addEventListener('click', () => sidebar.classList.contains('aberto') ? fecharSidebar() : abrirSidebar());
+        }
+        if (fecharBtn) {
+            fecharBtn.addEventListener('click', fecharSidebar);
+        }
+        if (overlay) {
+            overlay.addEventListener('click', fecharSidebar);
+        }
+
+        // Fechar sidebar ao clicar em links
+        document.querySelectorAll('.sidebar-link, .sidebar-sub-link').forEach(link => {
+            link.addEventListener('click', fecharSidebar);
+        });
+
+        // Submenus sidebar
+        document.querySelectorAll('.sidebar-link[href="javascript:void(0)"]').forEach(link => {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                let submenu = this.nextElementSibling;
+                if (submenu && submenu.classList.contains('sidebar-submenu')) {
+                    submenu.style.display = submenu.style.display === 'block' ? 'none' : 'block';
+                }
+            });
+        });
+        document.querySelectorAll('.sidebar-submenu').forEach(sub => sub.style.display = 'none');
+    </script>
+</body>
+</html>

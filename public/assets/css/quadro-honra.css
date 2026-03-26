@@ -1,0 +1,624 @@
+
+/* ── Variáveis locais  ── */
+:root {
+    --azul-principal: #003072;
+    --azul-claro:     #2e86c1;
+    --azul-escuro:    #001a40;
+    --verde-acento:   #0a9396;
+    --verde-claro:    #94d2bd;
+    --branco:         #ffffff;
+    --cinza-claro:    #f8f9fa;
+    --cinza:          #6c757d;
+    --cinza-escuro:   #212529;
+
+    /* Exclusivas do quadro */
+    --ouro:           #b8923a;
+    --ouro-claro:     #e8b84b;
+    --ouro-fundo:     #fdf6e3;
+    --raio:           14px;
+    --sombra-cartao:  0 6px 28px rgba(0, 48, 114, 0.10);
+    --sombra-hover:   0 14px 40px rgba(0, 48, 114, 0.16);
+    --cor-construcao:  #9FA3A7;
+    --cor-informatica: #1F7A4D;
+}
+
+/* ══════════════════════════════════════════
+   UTILITÁRIOS COMUNS
+══════════════════════════════════════════ */
+.qh-secao-cabecalho {
+    text-align: center;
+    margin-bottom: 44px;
+}
+
+.qh-etiqueta {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    background: linear-gradient(135deg, var(--azul-principal), var(--azul-claro));
+    color: var(--branco);
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    padding: 6px 18px;
+    border-radius: 30px;
+    margin-bottom: 14px;
+}
+
+.qh-titulo-secao {
+    font-family: 'Poppins', sans-serif;
+    font-size: clamp(1.5rem, 2.8vw, 2rem);
+    font-weight: 800;
+    color: var(--azul-principal);
+    margin-bottom: 14px;
+}
+
+.qh-titulo-secao--com-estrelas {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 14px;
+    flex-wrap: wrap;
+}
+
+.qh-estrelas {
+    display: flex;
+    gap: 4px;
+    color: var(--ouro-claro);
+    font-size: 1rem;
+}
+
+.qh-linha-deco {
+    width: 64px;
+    height: 4px;
+    background: linear-gradient(90deg, var(--azul-principal), var(--verde-acento));
+    border-radius: 2px;
+    margin: 0 auto;
+}
+
+.qh-linha-deco--centrada {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* ══════════════════════════════════════════
+   HERO
+══════════════════════════════════════════ */
+.qh-heroi {
+    background: linear-gradient(160deg, var(--azul-principal) 0%, var(--azul-escuro) 100%);
+    padding: 64px 24px 52px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Padrão geométrico subtil no fundo */
+.qh-heroi::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image: repeating-linear-gradient(
+        45deg,
+        transparent,
+        transparent 56px,
+        rgba(255, 255, 255, 0.018) 56px,
+        rgba(255, 255, 255, 0.018) 57px
+    );
+    pointer-events: none;
+}
+
+/* Linha de luz inferior */
+.qh-heroi::after {
+    content: '';
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    height: 3px;
+    background: linear-gradient(90deg,
+        transparent 0%,
+        var(--verde-acento) 30%,
+        var(--ouro-claro) 50%,
+        var(--verde-acento) 70%,
+        transparent 100%
+    );
+}
+
+/* Badge do ano lectivo */
+.qh-heroi__badge-ano {
+    position: absolute;
+    top: 20px; right: 24px;
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    border-radius: 8px;
+    padding: 8px 16px;
+    text-align: right;
+    backdrop-filter: blur(4px);
+}
+.qh-heroi__badge-rotulo {
+    display: block;
+    font-size: 0.63rem;
+    color: rgba(255,255,255,0.55);
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+}
+.qh-heroi__badge-valor {
+    display: block;
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.15rem;
+    font-weight: 800;
+    color: var(--ouro-claro);
+    line-height: 1.2;
+}
+
+/* Identidade institucional */
+.qh-heroi__identidade {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 14px;
+    margin-bottom: 28px;
+    position: relative;
+    z-index: 1;
+}
+.qh-heroi__brasao {
+    width: 60px; height: 60px;
+    object-fit: contain;
+    flex-shrink: 0;
+    filter: drop-shadow(0 2px 8px rgba(232,184,75,0.35));
+}
+
+
+/* Título principal */
+.qh-heroi__titulo {
+    font-family: 'Poppins', sans-serif;
+    font-size: clamp(2rem, 5vw, 3.2rem);
+    font-weight: 900;
+    color: var(--branco);
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+    position: relative;
+    z-index: 1;
+}
+.qh-heroi__titulo em {
+    font-style: normal;
+    color: var(--ouro-claro);
+}
+
+.qh-heroi__lema {
+    font-size: 0.95rem;
+    color: rgba(255,255,255,0.6);
+    font-style: italic;
+    margin-bottom: 28px;
+    position: relative;
+    z-index: 1;
+}
+
+/* Divisor com estrelas */
+.qh-heroi__divisor {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    position: relative;
+    z-index: 1;
+    color: var(--ouro-claro);
+    font-size: 0.9rem;
+}
+.qh-heroi__divisor-linha {
+    display: block;
+    flex: 1;
+    max-width: 140px;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--ouro-claro), transparent);
+}
+
+/* ══════════════════════════════════════════
+   SECÇÃO MELHOR ALUNO GERAL
+══════════════════════════════════════════ */
+.qh-geral {
+    background: var(--branco);
+    padding: 68px 24px 64px;
+    position: relative;
+}
+.qh-geral::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 5px;
+    background: linear-gradient(90deg, var(--azul-principal), var(--verde-acento), var(--ouro-claro));
+}
+
+.qh-geral__container {
+    max-width: 520px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Cartão de destaque */
+.qh-cartao-destaque {
+    background: var(--branco);
+    border-radius: var(--raio);
+    box-shadow: var(--sombra-cartao);
+    border: 1px solid rgba(0, 48, 114, 0.07);
+    overflow: hidden;
+    width: 100%;
+    max-width: 400px;
+    transition: box-shadow 0.3s ease, transform 0.3s ease;
+}
+.qh-cartao-destaque:hover {
+    transform: translateY(-6px);
+    box-shadow: var(--sombra-hover);
+}
+
+.qh-cartao-destaque__faixa {
+    height: 100px;
+    background: linear-gradient(135deg, var(--azul-principal), var(--azul-escuro));
+    position: relative;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+}
+.qh-cartao-destaque__faixa::after {
+    content: '';
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    height: 50px;
+    background: linear-gradient(to top, var(--branco), transparent);
+}
+
+.qh-cartao-destaque__medalha {
+    position: absolute;
+    top: 12px; right: 14px;
+    width: 40px; height: 40px;
+    background: linear-gradient(135deg, var(--ouro), var(--ouro-claro));
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    color: var(--branco);
+    font-size: 1rem;
+    box-shadow: 0 3px 12px rgba(184, 146, 58, 0.45);
+    z-index: 2;
+}
+
+.qh-cartao-destaque__foto-wrapper {
+    margin-top: -60px;
+    position: relative;
+    z-index: 2;
+    text-align: center;
+}
+.qh-cartao-destaque__foto {
+    width: 116px;
+    height: 148px;
+    border-radius: 10px;
+    object-fit: cover;
+    border: 4px solid var(--branco);
+    box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+    display: inline-block;
+    background: #d0d9e8;
+}
+.qh-cartao-destaque__foto.qh-sem-foto {
+    display: none;
+}
+.qh-cartao-destaque__foto-icon {
+    display: none;
+    font-size: 3.5rem;
+    color: rgba(0,48,114,0.25);
+    margin: 0 auto;
+}
+.qh-cartao-destaque__foto.qh-sem-foto + .qh-cartao-destaque__foto-icon {
+    display: block;
+    width: 116px; height: 148px;
+    line-height: 148px;
+    background: #d8e0ec;
+    border-radius: 10px;
+    border: 4px solid var(--branco);
+    box-shadow: 0 6px 20px rgba(0,0,0,0.12);
+    text-align: center;
+    margin: 0 auto;
+}
+
+.qh-cartao-destaque__info {
+    padding: 20px 28px 28px;
+    text-align: center;
+}
+.qh-cartao-destaque__nome {
+    font-family: 'Poppins', sans-serif;
+    font-size: 1rem;
+    font-weight: 800;
+    color: var(--azul-principal);
+    text-transform: uppercase;
+    letter-spacing: 0.4px;
+    line-height: 1.3;
+    margin-bottom: 16px;
+    display: block;
+}
+.qh-cartao-destaque__dados {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.qh-dado {
+    display: flex;
+    align-items: baseline;
+    justify-content: center;
+    gap: 8px;
+    font-size: 0.87rem;
+}
+.qh-dado__rotulo {
+    font-weight: 700;
+    color: var(--cinza);
+    text-transform: uppercase;
+    font-size: 0.68rem;
+    letter-spacing: 1px;
+    flex-shrink: 0;
+}
+.qh-dado__valor { color: var(--cinza-escuro); font-weight: 500; }
+.qh-dado__valor--media {
+    font-family: 'Poppins', sans-serif;
+    font-size: 1rem;
+    font-weight: 800;
+    color: var(--verde-acento);
+}
+
+/* ══════════════════════════════════════════
+   SECÇÃO POR CLASSE
+══════════════════════════════════════════ */
+.qh-por-classe {
+    background: var(--cinza-claro);
+    padding: 68px 24px 72px;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Marca de água de fundo */
+.qh-por-classe::before {
+    content: 'MELHOR ALUNO POR CLASSE';
+    position: absolute;
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%) rotate(-8deg);
+    font-family: 'Poppins', sans-serif;
+    font-size: clamp(1.8rem, 5vw, 4.5rem);
+    font-weight: 900;
+    color: rgba(0, 48, 114, 0.04);
+    white-space: nowrap;
+    pointer-events: none;
+    letter-spacing: 4px;
+    z-index: 0;
+}
+
+.qh-por-classe__container {
+    max-width: 1040px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 1;
+}
+
+/* Grade de 3 cartões */
+.qh-grade-classes {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+}
+
+/* Cartão por classe */
+.qh-cartao-classe {
+    background: var(--branco);
+    border-radius: var(--raio);
+    overflow: hidden;
+    box-shadow: var(--sombra-cartao);
+    border: 1px solid rgba(0, 48, 114, 0.06);
+    display: flex;
+    flex-direction: column;
+    transition: box-shadow 0.3s ease, transform 0.3s ease;
+}
+.qh-cartao-classe:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--sombra-hover);
+}
+
+/* Topo colorido da classe */
+.qh-cartao-classe__topo {
+    font-family: 'Poppins', sans-serif;
+    font-size: 0.78rem;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    text-align: center;
+    padding: 10px 12px;
+    color: var(--branco);
+}
+.qh-cartao-classe__topo--10 { background: linear-gradient(135deg, var(--azul-principal), #1a5296); }
+.qh-cartao-classe__topo--11 { background: var(--cor-construcao); }
+.qh-cartao-classe__topo--12 { background: var(--cor-informatica); }
+
+/* Foto do aluno no cartão de classe */
+.qh-cartao-classe__foto-area {
+    background: #eef1f6;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    padding: 20px 16px 0;
+}
+.qh-cartao-classe__foto {
+    width: 96px; height: 122px;
+    border-radius: 8px;
+    object-fit: cover;
+    border: 3px solid var(--branco);
+    box-shadow: 0 4px 14px rgba(0,0,0,0.12);
+    display: block;
+    background: #c8d2e0;
+}
+.qh-cartao-classe__foto.qh-sem-foto { display: none; }
+.qh-cartao-classe__foto-icon {
+    display: none;
+    font-size: 3rem;
+    color: rgba(0,48,114,0.25);
+}
+.qh-cartao-classe__foto.qh-sem-foto + .qh-cartao-classe__foto-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 96px; height: 122px;
+    background: #c8d2e0;
+    border-radius: 8px;
+    border: 3px solid var(--branco);
+    box-shadow: 0 4px 14px rgba(0,0,0,0.1);
+}
+
+/* Informações do cartão de classe */
+.qh-cartao-classe__info {
+    padding: 16px 18px 20px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    flex: 1;
+}
+.qh-cartao-classe__nome {
+    font-family: 'Poppins', sans-serif;
+    font-size: 0.82rem;
+    font-weight: 700;
+    color: var(--azul-principal);
+    text-transform: uppercase;
+    letter-spacing: 0.3px;
+    line-height: 1.35;
+}
+.qh-cartao-classe__media {
+    font-family: 'Poppins', sans-serif;
+    font-size: 0.98rem;
+    font-weight: 800;
+    color: var(--verde-acento);
+}
+.qh-cartao-classe__curso {
+    font-size: 0.76rem;
+    color: var(--cinza);
+    line-height: 1.5;
+}
+.qh-cartao-classe__linha {
+    width: 32px; height: 3px;
+    background: linear-gradient(90deg, var(--azul-principal), var(--verde-acento));
+    border-radius: 2px;
+    margin: 6px auto 0;
+}
+
+/* ══════════════════════════════════════════
+   SECÇÃO CITAÇÃO — fundo dourado/âmbar claro
+══════════════════════════════════════════ */
+.qh-citacao {
+    background: var(--ouro-fundo);
+    border-top: 4px solid var(--ouro-claro);
+    border-bottom: 4px solid var(--ouro-claro);
+    padding: 60px 24px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Aspas gigantes decorativas de fundo */
+.qh-citacao::before {
+    content: '\201C';
+    position: absolute;
+    top: -30px; left: 50%;
+    transform: translateX(-50%);
+    font-family: 'Georgia', serif;
+    font-size: 16rem;
+    color: rgba(184, 146, 58, 0.08);
+    line-height: 1;
+    pointer-events: none;
+    z-index: 0;
+}
+
+.qh-citacao__container {
+    max-width: 640px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+}
+
+.qh-citacao__aspas {
+    font-family: 'Georgia', serif;
+    font-size: 3.5rem;
+    line-height: 0.6;
+    color: var(--ouro);
+    display: block;
+}
+
+.qh-citacao__texto {
+    font-family: 'Poppins', sans-serif;
+    font-size: clamp(1rem, 2.2vw, 1.2rem);
+    font-style: italic;
+    font-weight: 500;
+    color: var(--azul-principal);
+    line-height: 1.8;
+    quotes: none;
+}
+
+.qh-citacao__referencia {
+    display: inline-block;
+    font-style: normal;
+    font-size: 0.82rem;
+    font-weight: 700;
+    color: var(--ouro);
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    border-top: 1px solid rgba(184,146,58,0.3);
+    padding-top: 12px;
+    margin-top: 4px;
+}
+
+.qh-citacao__logo {
+    width: 46px; height: 46px;
+    border-radius: 50%;
+    object-fit: contain;
+    opacity: 0.45;
+    margin-top: 4px;
+    filter: sepia(0.3);
+}
+
+/* ══════════════════════════════════════════
+   RESPONSIVIDADE
+══════════════════════════════════════════ */
+@media (max-width: 900px) {
+    .qh-grade-classes {
+        grid-template-columns: repeat(2, 1fr);
+        max-width: 540px;
+        margin: 0 auto;
+    }
+    /* 3.º cartão centrado sozinho */
+    .qh-grade-classes .qh-cartao-classe:nth-child(3) {
+        grid-column: 1 / -1;
+        max-width: 260px;
+        justify-self: center;
+    }
+}
+
+@media (max-width: 600px) {
+    .qh-heroi { padding: 56px 16px 44px; }
+    .qh-heroi__badge-ano { position: static; margin: 0 auto 16px; text-align: center; }
+    .qh-heroi__identidade { flex-direction: column; }
+    .qh-heroi__texto-inst { text-align: center; }
+    .qh-heroi__instituto { max-width: 100%; }
+
+    .qh-geral, .qh-por-classe { padding: 52px 16px 56px; }
+
+    .qh-grade-classes {
+        grid-template-columns: 1fr;
+        max-width: 280px;
+    }
+    .qh-grade-classes .qh-cartao-classe:nth-child(3) {
+        grid-column: auto;
+        max-width: none;
+        justify-self: auto;
+    }
+
+    .qh-titulo-secao--com-estrelas .qh-estrelas { display: none; }
+
+    .qh-citacao { padding: 48px 16px; }
+    .qh-citacao__texto { font-size: 1rem; }
+}

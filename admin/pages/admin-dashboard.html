@@ -1,0 +1,526 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- ===== META TAGS INSTITUCIONAIS ===== -->
+    <meta name="description" content="Bem-vindo ao site oficial do Instituto Politécnico Industrial do Kilamba Kiaxi Nº 8050 'Nova Vida' (IPIKK-NV). Uma instituição de referência no ensino técnico profissional em Angola, dedicada à formação de excelência nas áreas de Construção Civil, Electricidade, Mecânica, Informática e Tecnologias de Móveis. Aqui encontra informação sobre a nossa história, oferta formativa, notícias, eventos, documentos oficiais e contactos. Junte-se a nós e construa o seu futuro com qualidade e inovação.">
+    <meta name="author" content="Equipa de Desenvolvimento Web, Curso de Gestão de Sistemas Informáticos, IPIKK-NV — Cláudio Alfredo | Renato Monana | Eliseu Domingos | Felix Zangue | Luís Cipriano | Luís Iango | Isidoro Eduardo | Lucas Queta | Manuel Ferreira | Manuel Pedro">
+    <meta name="keywords" content="IPIKK, IPIKK-NV, Instituto Politécnico Industrial do Kilamba Kiaxi, Nova Vida, ensino técnico Angola, cursos profissionais, Construção Civil, Electricidade, Mecânica, Informática, Tecnologias de Móveis, técnico de obras, desenhador projectista, energia e instalações, frio e climatização, gestão de sistemas, técnico de informática, formação profissional, educação em Angola, Luanda, Kilamba Kiaxi, site institucional, notícias IPIKK, escola técnica, ensino médio técnico">
+
+    <title>Área Restrita - Dashboard</title>
+    
+    <!-- Fontes -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="stylesheet" href="../area-publica/ESTILO-ICONS/css/all.min.css">
+
+    <!-- Favicon -->
+    <link href="../area-publica/foto/ipikk_new_logo.png" rel="icon">
+
+    <!-- CSS da Área Restrita (Sidebar e Header) -->
+    <link rel="stylesheet" href="../assets/css/admin-sidebar-header.css">
+    
+    <!-- CSS específico do Dashboard -->
+    <link rel="stylesheet" href="../assets/css/admin-dashboard.css">
+</head>
+<body>
+    <!-- ===== SIDEBAR - MENU LATERAL FIXO ===== -->
+    <aside class="sidebar" id="sidebar">
+        <div class="cabecalho-sidebar">
+            <div class="logo">
+                <img src="../area-publica/foto/ipikk_new_logo.png" alt="IPIKK Logo">
+            </div>
+            <p class="subtitulo">ÁREA RESTRITA</p>
+        </div>
+
+        <nav class="navegacao-sidebar">
+            <ul>
+                <li class="ativo">
+                    <a href="admin-dashboard.html">
+                        <i class="fas fa-chart-line"></i>
+                        <span>Dashboard</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="admin-noticias.html">
+                        <i class="fas fa-newspaper"></i>
+                        <span>Notícias</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="admin-cursos.html">
+                        <i class="fas fa-graduation-cap"></i>
+                        <span>Cursos</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="admin-contactos.html">
+                        <i class="fas fa-envelope"></i>
+                        <span>Contactos</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="admin-utilizadores.html">
+                        <i class="fas fa-users"></i>
+                        <span>Utilizadores</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="admin-configuracoes.html">
+                        <i class="fas fa-cog"></i>
+                        <span>Configurações</span>
+                    </a>
+                </li>
+                <li class="ativo"><a href="admin-inscricoes.html"><i class="fas fa-file-signature"></i><span>Inscrições</span></a></li>
+                <li>
+                    <a href="admin-depoimentos.html">
+                        <i class="fas fa-quote-right"></i>
+                        <span>Depoimentos</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="admin-notificacoes.html">
+                        <i class="fas fa-bell"></i>
+                        <span>Notificações</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="admin-perfil.html">
+                        <i class="fas fa-user"></i>
+                        <span>Meu Perfil</span>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+
+        <div class="rodape-sidebar">
+            <a href="../area-publica/area-restrita.html" class="botao-sair">
+                <i class="fas fa-sign-out-alt"></i>
+                <span>Sair</span>
+            </a>
+        </div>
+    </aside>
+
+    <!-- ===== CONTEÚDO PRINCIPAL ===== -->
+    <main class="conteudo-principal">
+        <!-- ===== TOPBAR - CABEÇALHO SUPERIOR ===== -->
+        <header class="barra-superior" id="barraSuperior">
+            <div class="esquerda-barra">
+                <button class="botao-menu-mobile" id="botaoMenuMobile">
+                    <i class="fas fa-bars"></i>
+                </button>
+                <h1 class="titulo-pagina" style="color: #003072;">Dashboard</h1>
+            </div>
+            
+            <div class="direita-barra">
+                <!-- Botão de Notificação -->
+                <div class="container-notificacao" id="containerNotificacao">
+                    <button class="botao-notificacao" id="botaoNotificacao">
+                        <i class="fas fa-bell"></i>
+                        <span class="contador">3</span>
+                    </button>
+                    
+                    <!-- Dropdown de Notificações -->
+                    <div class="dropdown-notificacao" id="dropdownNotificacao">
+                        <div class="cabecalho-dropdown">
+                            <h4>Notificações</h4>
+                            <span class="contador-pequeno">3 novas</span>
+                        </div>
+                        <div class="lista-notificacoes">
+                            <a href="#" class="item-notificacao nao-lida">
+                                <div class="icone-notificacao">
+                                    <i class="fas fa-newspaper"></i>
+                                </div>
+                                <div class="conteudo-notificacao">
+                                    <p class="mensagem">Nova notícia publicada</p>
+                                    <span class="tempo">há 5 minutos</span>
+                                </div>
+                            </a>
+                            <a href="#" class="item-notificacao nao-lida">
+                                <div class="icone-notificacao">
+                                    <i class="fas fa-user"></i>
+                                </div>
+                                <div class="conteudo-notificacao">
+                                    <p class="mensagem">Novo utilizador registado</p>
+                                    <span class="tempo">há 1 hora</span>
+                                </div>
+                            </a>
+                            <a href="#" class="item-notificacao">
+                                <div class="icone-notificacao">
+                                    <i class="fas fa-graduation-cap"></i>
+                                </div>
+                                <div class="conteudo-notificacao">
+                                    <p class="mensagem">Curso atualizado</p>
+                                    <span class="tempo">há 3 horas</span>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="rodape-dropdown">
+                            <a href="admin-notificacoes.html">Ver todas</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Perfil do Usuário -->
+                <div class="container-perfil" id="containerPerfil">
+                    <button class="botao-perfil" id="botaoPerfil">
+                        <img src="foto/sem_foto.png" alt="Admin">
+                        <span class="nome-usuario">Admin Principal</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+
+                    <!-- Dropdown do Perfil -->
+                    <div class="dropdown-perfil" id="dropdownPerfil">
+                        <div class="cabecalho-perfil">
+                            <img src="foto/sem_foto.png" alt="Admin">
+                            <div class="info-usuario">
+                                <p class="nome">Admin Principal</p>
+                                <p class="email">admin@ipikk.ao</p>
+                            </div>
+                        </div>
+                        <div class="links-perfil">
+                            <a href="admin-perfil.html">
+                                <i class="fas fa-user"></i>
+                                Meu Perfil
+                            </a>
+                            <a href="admin-configuracoes.html">
+                                <i class="fas fa-cog"></i>
+                                Configurações
+                            </a>
+                            <hr>
+                            <a href="admin-logout.html" class="sair">
+                                <i class="fas fa-sign-out-alt"></i>
+                                Sair
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Botão Sair Mobile -->
+                <a href="admin-logout.html" class="botao-sair-mobile" id="botaoSairMobile">
+                    <i class="fas fa-sign-out-alt"></i>
+                </a>
+            </div>
+        </header>
+
+        <!-- ===== CONTEÚDO DO DASHBOARD ===== -->
+        <div class="conteudo-dashboard">
+            
+            <!-- ===== ESTATÍSTICAS RÁPIDAS ===== -->
+            <section class="secao-estatisticas">
+                <h2 class="titulo-secao">
+                    <i class="fas fa-chart-pie"></i> 
+                    Estatísticas Rápidas
+                </h2>
+                
+                <div class="grade-estatisticas">
+                    <!-- Card 1 - Visitantes -->
+                    <div class="cartao-estatistica">
+                        <div class="icone-estatistica azul">
+                            <i class="fas fa-users"></i>
+                        </div>
+                        <div class="info-estatistica">
+                            <h3 class="numero" data-alvo="1250">1.2K</h3>
+                            <p class="rotulo">Visitantes</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Card 2 - Mensagens não lidas -->
+                    <div class="cartao-estatistica">
+                        <div class="icone-estatistica laranja">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <div class="info-estatistica">
+                            <h3 class="numero" data-alvo="12">12</h3>
+                            <p class="rotulo">Não lidas</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Card 3 - Notícias publicadas -->
+                    <div class="cartao-estatistica">
+                        <div class="icone-estatistica verde">
+                            <i class="fas fa-newspaper"></i>
+                        </div>
+                        <div class="info-estatistica">
+                            <h3 class="numero" data-alvo="45">45</h3>
+                            <p class="rotulo">Publicadas</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Card 4 - Total de cursos -->
+                    <div class="cartao-estatistica">
+                        <div class="icone-estatistica roxo">
+                            <i class="fas fa-graduation-cap"></i>
+                        </div>
+                        <div class="info-estatistica">
+                            <h3 class="numero" data-alvo="6">6</h3>
+                            <p class="rotulo">Cursos</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ===== CONTACTOS RECENTES ===== -->
+            <section class="secao-conteudo">
+                <div class="cabecalho-secao">
+                    <h2 class="titulo-secao">
+                        <i class="fas fa-inbox"></i> 
+                        Contactos Recentes
+                    </h2>
+                    <a href="admin-contactos.html" class="link-ver-todos">
+                        Ver Todos <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+                
+                <div class="tabela-responsiva">
+                    <table class="tabela-dados">
+                        <thead>
+                            <tr>
+                                <th>Nome</th>
+                                <th>Assunto</th>
+                                <th>Data</th>
+                                <th>Ações</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr class="nao-lida">
+                                <td>
+                                    <span class="indicador-novo"></span>
+                                    <strong>Maria Silva</strong>
+                                </td>
+                                <td><strong>Info. sobre curso</strong></td>
+                                <td><strong>10/02/2024</strong></td>
+                                <td>
+                                    <button class="botao-icone" title="Visualizar" onclick="abrirModalVisualizacao('contacto', 1)">
+                                        <i class="fas fa-eye"></i>
+                                    </button>
+                                </td>
+                            </tr>
+                            <tr class="nao-lida">
+                                <td>
+                                    <span class="indicador-novo"></span>
+                                    <strong>João Pereira</strong>
+                                </td>
+                                <td><strong>Matrícula</strong></td>
+                                <td><strong>09/02/2024</strong></td>
+                                <td>
+                                    <button class="botao-icone" title="Visualizar" onclick="abrirModalVisualizacao('contacto', 2)">
+                                        <i class="fas fa-eye"></i>
+                                    </button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Carlos Mendes</td>
+                                <td>Parceria</td>
+                                <td>08/02/2024</td>
+                                <td>
+                                    <span class="indicador-lido">
+                                        <i class="fas fa-check-circle"></i>
+                                    </span>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+            <!-- ===== ÚLTIMAS NOTÍCIAS ===== -->
+            <section class="secao-conteudo">
+                <div class="cabecalho-secao">
+                    <h2 class="titulo-secao">
+                        <i class="fas fa-newspaper"></i> 
+                        Últimas Notícias
+                    </h2>
+                    <a href="admin-noticias.html" class="link-ver-todos">
+                        Ver Todas <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+                
+                <div class="tabela-responsiva">
+                    <table class="tabela-dados">
+                        <thead>
+                            <tr>
+                                <th>Título</th>
+                                <th>Data</th>
+                                <th>Ações</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>
+                                    <span class="indicador-publicado">
+                                        <i class="fas fa-check-circle"></i>
+                                    </span>
+                                    IPIKK abre inscrições 2024
+                                </td>
+                                <td>Publicada: 09/02/2024</td>
+                                <td>
+                                    <button class="botao-icone" title="Editar" onclick="abrirModalEdicao('noticia', 1)">
+                                        <i class="fas fa-edit"></i>
+                                    </button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <span class="indicador-publicado">
+                                        <i class="fas fa-check-circle"></i>
+                                    </span>
+                                    Novos laboratórios
+                                </td>
+                                <td>Publicada: 05/02/2024</td>
+                                <td>
+                                    <button class="botao-icone" title="Editar" onclick="abrirModalEdicao('noticia', 2)">
+                                        <i class="fas fa-edit"></i>
+                                    </button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <span class="indicador-rascunho">
+                                        <i class="fas fa-clock"></i>
+                                    </span>
+                                    Workshop de Energia (Rascunho)
+                                </td>
+                                <td>Salvo: 01/02/2024</td>
+                                <td>
+                                    <button class="botao-icone" title="Editar" onclick="abrirModalEdicao('noticia', 3)">
+                                        <i class="fas fa-edit"></i>
+                                    </button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+            <!-- ===== CURSOS MAIS VISITADOS ===== -->
+            <section class="secao-conteudo">
+                <div class="cabecalho-secao">
+                    <h2 class="titulo-secao">
+                        <i class="fas fa-graduation-cap"></i> 
+                        Cursos Mais Visitados
+                    </h2>
+                    <a href="admin-cursos.html" class="link-ver-todos">
+                        Gerir Cursos <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+                
+                <div class="grade-cursos">
+                    <!-- Curso 1 - Construção Civil -->
+                    <div class="cartao-curso azul" onclick="abrirDetalhesCurso('construcao-civil')">
+                        <div class="numero-curso">
+                            <i class="fa-solid fa-helmet-safety"></i>
+                        </div>
+                        <div class="info-curso">
+                            <h3>Construção Civil</h3>
+                            <p><i class="fas fa-eye"></i> 245 visualizações</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Curso 2 - Informática -->
+                    <div class="cartao-curso verde" onclick="abrirDetalhesCurso('informatica')">
+                        <div class="numero-curso">
+                            <i class="fa-solid fa-laptop-code"></i>
+                        </div>
+                        <div class="info-curso">
+                            <h3>Informática</h3>
+                            <p><i class="fas fa-eye"></i> 198 visualizações</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Curso 3 - Frio Climatização -->
+                    <div class="cartao-curso laranja" onclick="abrirDetalhesCurso('frio-climatizacao')">
+                        <div class="numero-curso">
+                            <i class="fa-solid fa-gear"></i>
+                        </div>
+                        <div class="info-curso">
+                            <h3>Frio Climatização</h3>
+                            <p><i class="fas fa-eye"></i> 156 visualizações</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Curso 4 - Tecnologias de Móveis -->
+                    <div class="cartao-curso vermelho" onclick="abrirDetalhesCurso('tecnologia-moveis')">
+                        <div class="numero-curso">
+                            <i class="fa-solid fa-couch"></i>
+                        </div>
+                        <div class="info-curso">
+                            <h3>Tecnologias de Móveis</h3>
+                            <p><i class="fas fa-eye"></i> 120 visualizações</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ===== ATIVIDADE RECENTE ===== -->
+            <section class="secao-conteudo">
+                <div class="cabecalho-secao">
+                    <h2 class="titulo-secao">
+                        <i class="fas fa-bolt"></i> 
+                        Atividade Recente
+                    </h2>
+                    <a href="#" class="link-ver-todos">
+                        Ver Logs <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+                
+                <div class="lista-atividades">
+                    <!-- Atividade 1 -->
+                    <div class="item-atividade">
+                        <span class="hora-atividade">[10:30]</span>
+                        <i class="fas fa-edit"></i>
+                        <span>Admin editou notícia "Inscrições abertas"</span>
+                    </div>
+                    
+                    <!-- Atividade 2 -->
+                    <div class="item-atividade">
+                        <span class="hora-atividade">[09:15]</span>
+                        <i class="fas fa-plus-circle"></i>
+                        <span>Novo curso "Desenhador Projectista" adicionado</span>
+                    </div>
+                    
+                    <!-- Atividade 3 -->
+                    <div class="item-atividade">
+                        <span class="hora-atividade">[Ontem]</span>
+                        <i class="fas fa-sign-in-alt"></i>
+                        <span>Login realizado (IP: 192.168.1.10)</span>
+                    </div>
+                    
+                    <!-- Atividade 4 -->
+                    <div class="item-atividade">
+                        <span class="hora-atividade">[Ontem]</span>
+                        <i class="fas fa-archive"></i>
+                        <span>Mensagem arquivada (#MSG-42)</span>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <!-- Modais (para visualização/edição) -->
+    <div class="modal-fundo" id="modalVisualizacao" style="display: none;">
+        <div class="modal-conteudo">
+            <div class="modal-cabecalho">
+                <h3 id="modalTitulo">Visualizar Contacto</h3>
+                <button class="modal-fechar" onclick="fecharModal()">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="modal-corpo" id="modalCorpo">
+                <!-- Conteúdo carregado via JS -->
+            </div>
+            <div class="modal-rodape">
+                <button class="botao-secundario" onclick="fecharModal()">Fechar</button>
+                <button class="botao-primario" id="modalAcao">Responder</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- JavaScript -->
+    <script src="../assets/js/admin-sidebar-header.js"></script>
+    <script src="../assets/js/admin-dashboard.js"></script>
+</body>
+</html>

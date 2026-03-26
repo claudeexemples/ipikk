@@ -1,0 +1,242 @@
+
+.container-percursos {
+    max-width: 1000px;
+    margin: 40px auto;
+    padding: 0 20px;
+}
+
+/* --- Cabeçalho da Página --- */
+.header-section { text-align: center; margin-bottom: 50px; }
+.header-section h1 { color: #003366; font-size: 2.5rem; margin-bottom: 15px; }
+.linha-destaque {
+    width: 60px;
+    height: 4px;
+    background-color: #008080;
+    margin: 0 auto 20px auto;
+}
+.intro-texto { max-width: 700px; margin: 0 auto; line-height: 1.6; color: #555; }
+.intro-texto p { margin-bottom: 15px; }
+
+/* --- Grid de Cartões (Botões de Abrir) --- */
+.grid-alunos {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    flex-wrap: wrap;
+}
+
+.card-aluno {
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+    padding: 20px;
+    text-align: center;
+    width: 280px;
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border-top: 4px solid #008080;
+}
+
+.card-aluno:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+}
+
+.foto-wrapper img {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 15px;
+    border: 3px solid #f0f0f0;
+}
+
+.info-resumo h3 { color: #003366; font-size: 1.1rem; margin-bottom: 5px; }
+.curso-resumo { font-size: 0.9rem; color: #777; margin-bottom: 15px; }
+.btn-ver-mais {
+    background: transparent;
+    border: 1px solid #008080;
+    color: #008080;
+    padding: 8px 20px;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+.card-aluno:hover .btn-ver-mais { background: #008080; color: #fff; }
+
+/* ========================================= */
+/* ESTILOS DO MODAL (POP-UP) - BASEADO NA IMAGEM */
+/* ========================================= */
+
+/* Fundo Escuro (Backdrop) */
+.modal-overlay {
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background-color: rgba(0, 0, 0, 0.6); /* Escurece o fundo */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    
+    /* Estado inicial: Escondido */
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+}
+
+/* Quando ativo (Via JS) */
+.modal-overlay.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* O Cartão Branco do Modal */
+.modal-card {
+    background: #fff;
+    width: 90%;
+    max-width: 500px;
+    border-radius: 12px;
+    overflow: hidden; /* Garante que o cabeçalho não saia das bordas */
+    box-shadow: 0 20px 50px rgba(0,0,0,0.3);
+    transform: translateY(20px);
+    transition: transform 0.3s ease;
+    position: relative;
+}
+
+.modal-overlay.active .modal-card {
+    transform: translateY(0);
+}
+
+/* Cabeçalho Gradiente (Igual imagem) */
+.modal-header {
+    background: linear-gradient(135deg, #003366 0%, #008080 100%);
+    /* AUMENTAMOS o padding-bottom para 60px para criar espaço vazio para a foto subir sem tapar o texto */
+    padding: 20px 20px 60px 20px; 
+    color: #fff;
+    position: relative;
+    text-align: left; /* Alinhado à esquerda como na imagem de referência */
+}
+
+.header-content h2 {
+    font-size: 1.5rem;
+    margin-bottom: 5px;
+    font-weight: 700;
+}
+
+.subtitulo-modal {
+    font-size: 0.9rem;
+    opacity: 0.9;
+    font-weight: 400;
+    display: block; /* Garante que fique na linha de baixo */
+}
+
+/* Botão Fechar Circular (Estilo "X" em bolinha) */
+.btn-fechar-circular {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    
+    /* Tamanho do círculo */
+    width: 32px;
+    height: 32px;
+    border-radius: 50%; /* Faz ficar redondo */
+    border: none;
+    
+    /* Cor de fundo: Branco com 20% de opacidade (Efeito Vidro) */
+    background-color: rgba(255, 255, 255, 0.2); 
+    
+    /* Centralizar o X dentro da bolinha */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+    cursor: pointer;
+    transition: all 0.3s ease;
+    z-index: 20; /* Garante que fique acima de tudo */
+}
+
+/* Efeito ao passar o mouse */
+.btn-fechar-circular:hover {
+    background-color: rgba(255, 255, 255, 0.5); /* Fica mais branco */
+    transform: rotate(90deg); /* Pequena animação de giro */
+}
+
+/* Ajuste do SVG interno para garantir cor */
+.btn-fechar-circular svg path {
+    stroke: #fff; /* X branco */
+}
+
+/* Corpo do Modal */
+.modal-body {
+    padding: 0 30px 30px 30px;
+}
+
+/* Foto sobreposta (Círculo) */
+.modal-avatar {
+    text-align: center;
+    position: relative; /* Importante para o z-index funcionar */
+    
+    /* A MÁGICA: Puxamos a foto 50px para cima */
+    margin-top: -50px; 
+    
+    margin-bottom: 20px;
+    z-index: 10; /* Garante que a foto fique acima de tudo */
+}
+
+.modal-avatar img {
+    width: 100px; /* Tamanho um pouco maior */
+    height: 100px;
+    border-radius: 50%;
+    
+    /* Borda branca grossa para separar do fundo azul */
+    border: 5px solid #fff; 
+    
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    background: #fff;
+    object-fit: cover;
+}
+
+/* Lista de Informações */
+.detalhes-lista {
+    font-size: 0.95rem;
+}
+
+.detalhe-row {
+    display: flex;
+    margin-bottom: 15px;
+    border-bottom: 1px solid #f0f0f0;
+    padding-bottom: 10px;
+}
+
+.detalhe-row:last-child { border-bottom: none; }
+
+.detalhe-row.descricao {
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.label {
+    color: #003366; /* Azul Escuro */
+    font-weight: 700;
+    min-width: 140px; /* Alinhamento fixo */
+}
+
+.valor {
+    color: #555;
+    flex: 1;
+}
+
+.texto-corrido {
+    margin-top: 5px;
+    line-height: 1.6;
+    text-align: justify;
+    color: #444;
+}
+
+/* Responsividade Mobile */
+@media (max-width: 500px) {
+    .detalhe-row { flex-direction: column; }
+    .label { margin-bottom: 4px; color: #008080; }
+}

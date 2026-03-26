@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestão de Inscrições - IPIKK</title>
+    
+    <!-- Fontes -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+    <!-- Favicon -->
+    <link href="../area-publica/foto/ipikk_new_logo.png" rel="icon">
+
+    <!-- CSS da Área Restrita -->
+    <link rel="stylesheet" href="../assets/css/admin-sidebar-header.css">
+    
+    <link rel="stylesheet" href="../assets/css/admin-inscricoes.css">
+</head>
+<body>
+
+    <!-- ===== SIDEBAR ===== -->
+    <aside class="sidebar" id="sidebar">
+        <div class="cabecalho-sidebar">
+            <div class="logo">
+                <img src="../area-publica/foto/ipikk_new_logo.png" alt="IPIKK Logo">
+            </div>
+            <p class="subtitulo">ÁREA RESTRITA</p>
+        </div>
+
+        <nav class="navegacao-sidebar">
+            <ul>
+                <li><a href="admin-dashboard.html"><i class="fas fa-chart-line"></i><span>Dashboard</span></a></li>
+                <li><a href="admin-noticias.html"><i class="fas fa-newspaper"></i><span>Notícias</span></a></li>
+                <li><a href="admin-cursos.html"><i class="fas fa-graduation-cap"></i><span>Cursos</span></a></li>
+                <li><a href="admin-contactos.html"><i class="fas fa-envelope"></i><span>Contactos</span></a></li>
+                <li><a href="admin-utilizadores.html"><i class="fas fa-users"></i><span>Utilizadores</span></a></li>
+                <li><a href="admin-configuracoes.html"><i class="fas fa-cog"></i><span>Configurações</span></a></li>
+                <li class="ativo"><a href="admin-inscricoes.html"><i class="fas fa-file-signature"></i><span>Inscrições</span></a></li>
+                <li><a href="admin-depoimentos.html"><i class="fas fa-quote-right"></i><span>Depoimentos</span></a></li>
+                <li><a href="admin-notificacoes.html"><i class="fas fa-bell"></i><span>Notificações</span></a></li>
+                <li><a href="admin-perfil.html"><i class="fas fa-user"></i><span>Meu Perfil</span></a></li>
+            </ul>
+        </nav>
+
+        <div class="rodape-sidebar">
+            <a href="../area-publica/area-restrita.html" class="btn-sair">
+                <i class="fas fa-sign-out-alt"></i>
+                <span>Sair</span>
+            </a>
+        </div>
+    </aside>
+
+    <!-- ===== OVERLAY MOBILE ===== -->
+    <div class="overlay" id="overlay" style="display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.5); z-index: 999;"></div>
+
+    <!-- ===== CONTEÚDO PRINCIPAL ===== -->
+    <main class="conteudo-principal">
+        <header class="barra-topo">
+            <button class="botao-menu-mobile" id="botaoMenuMobile">
+                <i class="fas fa-bars"></i>
+            </button>
+            <h1><i class="fas fa-file-signature"></i> Gestão de Inscrições</h1>
+            <button class="btn-guardar" onclick="guardarTudo()">
+                <i class="fas fa-save"></i> Guardar Alterações
+            </button>
+        </header>
+
+        <div class="conteudo">
+
+            <!-- CARD: STATUS ATUAL -->
+            <div class="card">
+                <h3><i class="fas fa-info-circle"></i> Status das Inscrições</h3>
+                <div class="status-indicador" id="statusIndicador"></div>
+            </div>
+
+            <!-- CARD: MODO DE CONTROLE -->
+            <div class="card">
+                <h3><i class="fas fa-cog"></i> Modo de Controle</h3>
+                
+                <div class="opcoes-modo">
+                    <label>
+                        <input type="radio" name="modo" value="manual" id="modoManual"> 
+                        <i class="fas fa-hand-pointer"></i> Manual
+                    </label>
+                    <label>
+                        <input type="radio" name="modo" value="agendado" id="modoAgendado"> 
+                        <i class="fas fa-calendar-alt"></i> Agendado
+                    </label>
+                </div>
+
+                <!-- SEÇÃO MANUAL -->
+                <div id="controleManual" class="secao-manual">
+                    <button class="btn-abrir" onclick="abrirInscricoesManual()">
+                        <i class="fas fa-calendar-plus"></i> Abrir Inscrições
+                    </button>
+                    <button class="btn-fechar" onclick="fecharInscricoesManual()">
+                        <i class="fas fa-calendar-times"></i> Fechar Inscrições
+                    </button>
+                </div>
+
+                <!-- SEÇÃO AGENDADO -->
+                <div id="controleAgendado" class="secao-agendado">
+                    <div class="linha-form">
+                        <div class="grupo-form">
+                            <label><i class="fas fa-calendar-check"></i> Data de Abertura</label>
+                            <input type="datetime-local" id="dataAbertura" class="campo-form">
+                        </div>
+                        <div class="grupo-form">
+                            <label><i class="fas fa-calendar-times"></i> Data de Encerramento</label>
+                            <input type="datetime-local" id="dataEncerramento" class="campo-form">
+                        </div>
+                    </div>
+                    <div class="info-agendamento" id="infoAgendamento"></div>
+                </div>
+            </div>
+
+            <!-- CARD: CONTEÚDO EDITÁVEL -->
+            <div class="card">
+                <h3><i class="fas fa-edit"></i> Conteúdo das Páginas</h3>
+                
+                <div class="abas-editor">
+                    <button class="aba-edit ativa" data-aba="disponivel">
+                        <i class="fas fa-check-circle"></i> Página Disponível
+                    </button>
+                    <button class="aba-edit" data-aba="indisponivel">
+                        <i class="fas fa-ban"></i> Página Indisponível
+                    </button>
+                </div>
+
+                <!-- CONTEÚDO DA PÁGINA DISPONÍVEL -->
+                <div id="conteudoDisponivel" class="conteudo-edit ativo">
+                    <div class="grupo-form">
+                        <label><i class="fas fa-heading"></i> Título da Página</label>
+                        <input type="text" id="tituloDisponivel" class="campo-form" value="Processo de Inscrição">
+                    </div>
+
+                    <div class="grupo-form">
+                        <label><i class="fas fa-info-circle"></i> Mensagem de Abertura</label>
+                        <textarea id="msgAbertura" class="campo-form" rows="3">Saiba como fazer parte do Instituto Médio Politécnico Industrial do Kilamba Kiaxi. Siga os passos abaixo e garanta sua vaga!</textarea>
+                    </div>
+                    
+                    <div class="grupo-form">
+                        <label><i class="fas fa-file-alt"></i> Documentos Necessários</label>
+                        <div id="listaDocumentos" class="lista-dinamica"></div>
+                        <button class="btn-adicionar" onclick="adicionarDocumento()">
+                            <i class="fas fa-plus"></i> Adicionar Documento
+                        </button>
+                    </div>
+
+                    <div class="grupo-form">
+                        <label><i class="fas fa-stairs"></i> Passo a Passo da Inscrição</label>
+                        <div id="listaPassos" class="lista-dinamica"></div>
+                        <button class="btn-adicionar" onclick="adicionarPasso()">
+                            <i class="fas fa-plus"></i> Adicionar Passo
+                        </button>
+                    </div>
+
+                    <div class="grupo-form">
+                        <label><i class="fas fa-clipboard-list"></i> Texto do Teste de Admissão</label>
+                        <textarea id="textoTeste" class="campo-form" rows="4">Todos os candidatos inscritos deverão realizar o teste de admissão, que avaliará os conhecimentos nas disciplinas de Língua Portuguesa e Matemática.</textarea>
+                    </div>
+
+                    <div class="linha-form">
+                        <div class="grupo-form">
+                            <label><i class="fas fa-calendar-alt"></i> Data do Teste</label>
+                            <input type="datetime-local" id="dataTeste" class="campo-form">
+                        </div>
+                        <div class="grupo-form">
+                            <label><i class="fas fa-clock"></i> Horário do Teste</label>
+                            <input type="text" id="horarioTeste" class="campo-form" placeholder="Ex: 8h às 12h">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- CONTEÚDO DA PÁGINA INDISPONÍVEL -->
+                <div id="conteudoIndisponivel" class="conteudo-edit">
+                    <div class="grupo-form">
+                        <label><i class="fas fa-heading"></i> Título da Página</label>
+                        <input type="text" id="tituloIndisponivel" class="campo-form" value="Inscrições Indisponíveis">
+                    </div>
+
+                    <div class="grupo-form">
+                        <label><i class="fas fa-info-circle"></i> Mensagem Principal</label>
+                        <textarea id="msgIndisponivel" class="campo-form" rows="3">O período de inscrições ainda não foi aberto ou já foi encerrado.</textarea>
+                    </div>
+                    
+                    <div class="grupo-form">
+                        <label><i class="fas fa-info-circle"></i> Texto Informativo</label>
+                        <textarea id="textoInfoIndisponivel" class="campo-form" rows="6">As inscrições para o Instituto Médio Politécnico Industrial do Kilamba Kiaxi ocorrem em períodos específicos do ano letivo.
+
+Como se inscrever quando estiver disponível: Dirija-se à secretaria da escola com os documentos necessários, escolha o curso pretendido e aguarde a data do teste de admissão.
+
+Documentos necessários: Bilhete de Identidade, Certificado de Habilitações, 2 fotos tipo passe, Declaração de residência e Atestado Médico.
+
+Fique atento às nossas redes sociais e comunicados oficiais para saber quando as inscrições serão abertas.</textarea>
+                    </div>
+                    
+                    <div class="grupo-form">
+                        <label><i class="fas fa-calendar-alt"></i> Próximo Período (Texto)</label>
+                        <input type="text" id="proximoPeriodo" class="campo-form" value="A ser divulgado em breve">
+                    </div>
+                </div>
+            </div>
+
+            <!-- CARD: CONTACTOS DA SECRETARIA -->
+            <div class="card">
+                <h3><i class="fas fa-address-card"></i> Contactos da Secretaria</h3>
+                <div class="linha-form">
+                    <div class="grupo-form">
+                        <label><i class="fas fa-phone"></i> Telefone</label>
+                        <input type="text" id="contactoTelefone" class="campo-form" value="+244 933 096 705">
+                    </div>
+                    <div class="grupo-form">
+                        <label><i class="fas fa-envelope"></i> Email</label>
+                        <input type="email" id="contactoEmail" class="campo-form" value="geral@ipikk.ao">
+                    </div>
+                </div>
+                <div class="linha-form">
+                    <div class="grupo-form">
+                        <label><i class="fas fa-clock"></i> Horário de Atendimento</label>
+                        <input type="text" id="contactoHorario" class="campo-form" value="Segunda a Sexta, 8h às 16h">
+                    </div>
+                    <div class="grupo-form">
+                        <label><i class="fas fa-map-marker-alt"></i> Endereço</label>
+                        <input type="text" id="contactoEndereco" class="campo-form" value="Nova Vida, Kilamba Kiaxi, Luanda - Angola">
+                    </div>
+                </div>
+            </div>
+
+            <!-- CARD: PRÉ-VISUALIZAÇÃO -->
+            <div class="card">
+                <h3><i class="fas fa-eye"></i> Pré-visualização</h3>
+                <div style="display: flex; gap: 15px; flex-wrap: wrap;">
+                    <button class="btn-preview" onclick="previewPagina('disponivel')">
+                        <i class="fas fa-check-circle"></i> Ver Página Disponível
+                    </button>
+                    <button class="btn-preview" onclick="previewPagina('indisponivel')">
+                        <i class="fas fa-ban"></i> Ver Página Indisponível
+                    </button>
+                </div>
+                <p style="margin-top: 15px; font-size: 0.85rem; color: #666;">
+                    <i class="fas fa-info-circle"></i> A página exibida ao público será determinada pelo status atual das inscrições.
+                </p>
+            </div>
+        </div>
+    </main>
+    <script src="../assets/js/admin-sidebar-header.js"></script>
+    <script src="../assets/js/admin-inscricoes.js"></script>
+</body>
+</html>

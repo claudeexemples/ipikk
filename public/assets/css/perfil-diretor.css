@@ -1,0 +1,379 @@
+* Resets e Configuração Base */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: #f0f4f8; /* Fundo geral cinza muito claro azulado */
+    color: #333;
+    line-height: 1.6;
+}
+
+.perfil-section {
+    max-width: 900px;
+    margin: 40px auto;
+    padding: 0 20px;
+}
+
+/* --- Cabeçalho --- */
+.header-container {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.header-container h1 {
+    color: #003366; /* Azul Escuro Institucional */
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 10px;
+}
+
+.linha-destaque {
+    width: 80px;
+    height: 4px;
+    background-color: #008080; /* Teal/Verde Petróleo da imagem */
+    margin: 0 auto 15px auto;
+    border-radius: 2px;
+}
+
+.subtitulo {
+    color: #666;
+    max-width: 600px;
+    margin: 0 auto;
+    font-size: 1rem;
+}
+
+/* --- Card Principal (BIO) --- */
+.bio-card {
+    background: #fff;
+    border-radius: 16px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.08); /* Sombra elegante */
+    display: flex;
+    flex-wrap: wrap;
+    padding: 30px;
+    gap: 30px;
+    margin-bottom: 40px;
+    align-items: flex-start;
+    border-top: 5px solid #008080; /* Detalhe colorido no topo */
+}
+
+.bio-foto {
+    flex: 0 0 250px;
+    height: 300px;
+    border-radius: 12px;
+    overflow: hidden;
+    background-color: #ddd;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+.bio-foto img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.bio-info {
+    flex: 1;
+    min-width: 300px;
+}
+
+.nome-director {
+    color: #003366;
+    font-size: 1.8rem;
+    margin-bottom: 5px;
+}
+
+.cargo-badge {
+    display: inline-block;
+    background-color: #e0f2f1;
+    color: #00695c;
+    padding: 5px 12px;
+    border-radius: 20px;
+    font-weight: 600;
+    font-size: 0.9rem;
+    margin-bottom: 20px;
+}
+
+.resumo-profissional {
+    color: #555;
+    margin-bottom: 30px;
+    font-size: 1rem;
+}
+
+/* Grid de Estatísticas */
+.grid-stats {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    gap: 15px;
+}
+
+.stat-box {
+    border-left: 3px solid #003366;
+    padding-left: 15px;
+}
+
+.stat-label {
+    display: block;
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    color: #888;
+    letter-spacing: 0.5px;
+    margin-bottom: 4px;
+}
+
+.stat-value {
+    display: block;
+    font-size: 0.95rem;
+    font-weight: 500;
+    color: #222;
+}
+
+/* --- Sistema de Abas (Tabs) --- */
+.tabs-container {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 20px;
+    overflow-x: auto; /* Permite scroll no mobile */
+    padding-bottom: 5px;
+}
+
+.tab-btn {
+    background: #fff;
+    border: 1px solid #ddd;
+    padding: 12px 25px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-family: inherit;
+    font-weight: 600;
+    color: #555;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    transition: all 0.3s ease;
+    white-space: nowrap;
+}
+
+.tab-btn svg {
+    width: 18px;
+    height: 18px;
+}
+
+.tab-btn:hover {
+    background-color: #f9f9f9;
+    border-color: #bbb;
+}
+
+.tab-btn.active {
+    background-color: #003366;
+    color: #fff;
+    border-color: #003366;
+    box-shadow: 0 4px 10px rgba(0, 51, 102, 0.3);
+}
+
+/* --- Conteúdo das Abas --- */
+.content-container {
+    background: #fff;
+    border-radius: 16px;
+    padding: 30px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+    min-height: 400px;
+}
+
+.tab-content {
+    display: none; /* Escondido por padrão */
+    opacity: 0;
+    transition: opacity 0.4s ease-in;
+}
+
+/* Classe auxiliar para animação JS */
+.active-content {
+    display: block;
+    opacity: 1;
+}
+
+.tab-title {
+    color: #003366;
+    border-bottom: 2px solid #f0f0f0;
+    padding-bottom: 10px;
+    margin-bottom: 25px;
+}
+
+.mt-4 { margin-top: 1.5rem; }
+
+/* Estilo Item de Lista (Formação) */
+.item-lista {
+    display: flex;
+    align-items: center;
+    background: #f8f9fa;
+    padding: 15px;
+    border-radius: 8px;
+    margin-bottom: 15px;
+    border-left: 4px solid #008080; /* Teal accent */
+    transition: transform 0.2s;
+}
+
+.item-lista:hover {
+    transform: translateX(5px);
+    background: #fff;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+}
+
+.icon-wrapper {
+    background: #e0f2f1;
+    color: #008080;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 15px;
+    flex-shrink: 0;
+}
+
+.icon-wrapper svg { width: 20px; height: 20px; }
+
+.info-wrapper h4 {
+    font-size: 1rem;
+    color: #333;
+    margin-bottom: 3px;
+}
+
+.instituicao {
+    display: block;
+    font-size: 0.9rem;
+    color: #666;
+}
+
+.detalhe {
+    font-size: 0.8rem;
+    color: #999;
+    font-weight: 500;
+}
+
+/* Estilo Timeline (Experiência) */
+.timeline-item {
+    display: flex;
+    margin-bottom: 20px;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 15px;
+}
+
+.timeline-item:last-child { border-bottom: none; }
+
+.time-date {
+    min-width: 100px;
+    font-weight: 700;
+    color: #008080;
+    font-size: 0.9rem;
+    padding-top: 2px;
+}
+
+.time-content h4 {
+    font-size: 1rem;
+    color: #222;
+}
+
+.time-content p {
+    font-size: 0.9rem;
+    color: #666;
+    margin-top: 2px;
+}
+
+/* Estilo Lista Simples & Tags */
+.lista-realizacoes {
+    list-style: none;
+    padding-left: 10px;
+}
+
+.lista-realizacoes li {
+    margin-bottom: 12px;
+    position: relative;
+    padding-left: 20px;
+    font-size: 0.95rem;
+    color: #444;
+}
+
+.lista-realizacoes li::before {
+    content: "•";
+    color: #008080;
+    font-weight: bold;
+    position: absolute;
+    left: 0;
+    top: 0;
+    font-size: 1.2rem;
+    line-height: 1.2;
+}
+
+.skills-grid {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.skill-tag {
+    background: #eee;
+    padding: 6px 14px;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    color: #555;
+    font-weight: 500;
+}
+
+/* --- Citação Final --- */
+.quote-container {
+    text-align: center;
+    margin-top: 60px;
+    margin-bottom: 40px;
+    padding: 0 40px;
+}
+
+.quote-text {
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    font-size: 1.2rem;
+    color: #555;
+    margin-bottom: 15px;
+}
+
+.quote-author {
+    font-family: 'Dancing Script', cursive;
+    font-size: 1.5rem;
+    color: #008080;
+}
+
+/* --- Responsividade --- */
+@media (max-width: 768px) {
+    .bio-card {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .bio-foto {
+        width: 100%;
+        max-width: 200px;
+        height: 200px;
+    }
+
+    .stat-box {
+        border-left: none;
+        border-bottom: 1px solid #eee;
+        padding-bottom: 10px;
+    }
+    
+    .timeline-item {
+        flex-direction: column;
+    }
+    
+    .time-date {
+        margin-bottom: 5px;
+    }
+    
+    .header-container h1 {
+        font-size: 1.8rem;
+    }
+}

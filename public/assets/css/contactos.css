@@ -1,0 +1,228 @@
+ /* Variáveis específicas da página de contatos */
+        :root {
+            --cor-primaria-contato: #0a3cff;
+            --cor-secundaria-contato: #00c6ff;
+            --texto-escuro: #1a1a1a;
+            --texto-claro: #4a4a4a;
+        }
+
+        /* Cabeçalho da página */
+        .cabecalho-pagina {
+            text-align: center;
+            padding: 40px 20px 20px;
+            background: transparent;
+        }
+
+        .cabecalho-pagina h1 {
+            font-size: 3rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, var(--cor-secundaria-contato), var(--cor-primaria-contato));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin: 0;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .cabecalho-pagina p {
+            margin-top: 15px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            font-size: 1.1rem;
+            color: var(--cor-primaria-contato);
+        }
+
+        /* Layout principal */
+        .container-contatos {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px 80px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 40px;
+        }
+
+        /* Cartões */
+        .cartao {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 24px;
+            padding: 40px;
+            backdrop-filter: blur(14px);
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.2);
+            transition: transform 0.4s ease;
+        }
+
+        .cartao:hover {
+            transform: translateY(-8px);
+        }
+
+        .cartao h2 {
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            color: var(--cor-primaria-contato);
+            font-family: 'Poppins', sans-serif;
+        }
+
+        /* Informações de contacto */
+        .item-informacao {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 20px;
+            align-items: center;
+        }
+
+        .icone-info {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--cor-secundaria-contato), var(--cor-primaria-contato));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.3rem;
+            color: white;
+            flex-shrink: 0;
+        }
+
+        .texto-info {
+            color: var(--texto-escuro);
+            font-weight: 500;
+            line-height: 1.6;
+        }
+
+        .divisor {
+            width: 80%;
+            opacity: 0.3;
+            margin: 10px 0;
+            border: 0;
+            border-top: 1px solid var(--texto-claro);
+        }
+
+        /* Formulário */
+        .formulario-contato input,
+        .formulario-contato textarea {
+            width: 100%;
+            padding: 14px 18px;
+            margin-bottom: 18px;
+            border-radius: 14px;
+            border: none;
+            background: rgba(0, 0, 0, 0.08);
+            color: var(--texto-escuro);
+            font-size: 1rem;
+            outline: none;
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        .formulario-contato input::placeholder,
+        .formulario-contato textarea::placeholder {
+            color: var(--texto-claro);
+        }
+
+        .formulario-contato textarea {
+            resize: vertical;
+            min-height: 140px;
+        }
+
+        .botao-enviar {
+            width: 100%;
+            padding: 16px;
+            border-radius: 16px;
+            border: none;
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: #fff;
+            background: linear-gradient(135deg, var(--cor-secundaria-contato), var(--cor-primaria-contato));
+            cursor: pointer;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .botao-enviar:hover {
+            transform: scale(1.01);
+            box-shadow: 0 10px 30px rgba(0, 198, 255, 0.3);
+        }
+
+        .botao-enviar.enviando {
+            opacity: 0.7;
+            cursor: not-allowed;
+        }
+
+        /* Feedback do formulário */
+        .feedback-formulario {
+            margin-top: 15px;
+            padding: 10px;
+            border-radius: 8px;
+            display: none;
+            font-weight: 500;
+        }
+
+        .feedback-formulario.sucesso {
+            display: block;
+            background: #d4edda;
+            color: #155724;
+            border: 1px solid #c3e6cb;
+        }
+
+        .feedback-formulario.erro {
+            display: block;
+            background: #f8d7da;
+            color: #721c24;
+            border: 1px solid #f5c6cb;
+        }
+
+        /* Mapa */
+        .mapa-container {
+            max-width: 1200px;
+            margin: 0 auto 80px;
+            padding: 0 20px;
+        }
+
+        .mapa-container .cartao {
+            padding: 20px;
+        }
+
+        .mapa {
+            width: 100%;
+            height: 500px;
+            border-radius: 16px;
+            border: none;
+        }
+        .visually-hidden {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            margin: -1px;
+            padding: 0;
+            overflow: hidden;
+            clip: rect(0, 0, 0, 0);
+            border: 0;
+        }
+        /* Responsividade */
+        @media (max-width: 768px) {
+            .cabecalho-pagina h1 {
+                font-size: 2.2rem;
+            }
+
+            .cartao {
+                padding: 30px;
+            }
+
+            .mapa {
+                height: 350px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .container-contatos {
+                grid-template-columns: 1fr;
+                padding: 20px 20px 60px;
+            }
+
+            .cabecalho-pagina h1 {
+                font-size: 1.8rem;
+            }
+
+            .cartao h2 {
+                font-size: 1.5rem;
+            }
+        }

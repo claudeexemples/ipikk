@@ -1,0 +1,624 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IPIKK - Inscrições</title>
+    
+    <!-- Fontes e Ícones -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Montserrat:wght@400;500;600;700&display=swap">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    
+    <!-- Favicon -->
+    <link href="../assets/images/ipikk_new_logo.png" rel="icon">
+    
+    <!-- CSS Header/Footer Padrão -->
+    <link rel="stylesheet" href="../assets/css/header-footer.css">
+    <link rel="stylesheet" href="../assets/css/inscricoes.css">
+</head>
+<body>
+
+    <!-- ===== BARRA SUPERIOR ===== -->
+    <div class="barra-superior">
+        <div class="conteudo-superior">
+            <div class="info-instituto">
+                Instituto Médio Politécnico Industrial do Kilamba Kiaxi Nº 8050 Nova-vida
+            </div>
+            <div class="social-traducao">
+                <div class="icones-sociais">
+                    <a href="#" class="icone-social"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" class="icone-social"><i class="fab fa-instagram"></i></a>
+                    <a href="#" class="icone-social"><i class="fab fa-linkedin-in"></i></a>
+                </div>
+                <div class="seletor-idioma" id="botaoTraducao">
+                    <i class="fas fa-globe"></i>
+                    <span id="idiomaAtual">Português</span>
+                    <i class="fas fa-chevron-down"></i>
+                    <div class="dropdown-idioma" id="dropdownIdioma">
+                        <a href="#" data-lang="pt" class="opcao-idioma ativo">
+                            <i class="fas fa-flag"></i> Português
+                        </a>
+                        <a href="#" data-lang="en" class="opcao-idioma">
+                            <i class="fas fa-flag-usa"></i> English
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ===== CABEÇALHO ===== -->
+    <header class="cabecalho" id="cabecalho">
+        <div class="conteudo-cabecalho">
+            <a href="javascript:void(0)" class="container-logo">
+                <div class="logo"><img src="../assets/images/ipikk_new_logo.png" alt="Logo IPIKK"></div>
+            </a>
+            <nav>
+                <ul class="menu-navegacao">
+                    <li><a href="index.html" class="link-navegacao">Início</a></li>
+
+                    <!-- OFERTA FORMATIVA — hover abre submenu, clique no texto navega -->
+                    <li class="item-navegacao menu-suspenso" id="menu-oferta-desktop">
+                        <a href="oferta-formativa.html" class="link-navegacao">Oferta Formativa <i class="fas fa-chevron-down"></i></a>
+                        <div class="conteudo-suspenso">
+                            <div class="item-suspenso">
+                                <a href="construcao-civil.html" class="link-suspenso">Construção Civil <i class="fas fa-chevron-right" style="float:right;margin-top:2px;font-size:.75rem;"></i></a>
+                                <div class="submenu-suspenso">
+                                    <a href="construcao-civil-obras.html">Técnico de Obras</a>
+                                    <a href="construcao-civil-desenhador.html">Desenhador Projectista</a>
+                                </div>
+                            </div>
+                            <div class="item-suspenso">
+                                <a href="eletricidade.html" class="link-suspenso">Electricidade<i class="fas fa-chevron-right" style="float:right;margin-top:2px;font-size:.75rem;"></i></a>
+                                <div class="submenu-suspenso">
+                                    <a href="eletricidade-instalacoes.html">Energia e Instalações</a>
+                                </div>
+                            </div>
+                            <div class="item-suspenso">
+                                <a href="mecanica.html" class="link-suspenso">Mecânica <i class="fas fa-chevron-right" style="float:right;margin-top:2px;font-size:.75rem;"></i></a>
+                                <div class="submenu-suspenso">
+                                    <a href="mecanica-climatizacao.html">Frio e Climatização</a>
+                                </div>
+                            </div>
+                            <div class="item-suspenso">
+                                <a href="informatica.html" class="link-suspenso">Informática<i class="fas fa-chevron-right" style="float:right;margin-top:2px;font-size:.75rem;"></i></a>
+                                <div class="submenu-suspenso">
+                                    <a href="informatica-gestao-sistemas.html">Gestão de Sistemas</a>
+                                    <a href="informatica-tecnico.html">Técnico de Informática</a>
+                                </div>
+                            </div>
+                            <div class="item-suspenso">
+                                <a href="tecnologia-moveis.html" class="link-suspenso">Tecnologias de Móveis<i class="fas fa-chevron-right" style="float:right;margin-top:2px;font-size:.75rem;"></i></a>
+                                <div class="submenu-suspenso">
+                                    <a href="tecnologia-moveis-curso.html">Tecnologias de Móveis</a>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+
+                    <!-- SOBRE — hover abre submenu, clique no texto não redireciona -->
+                    <li class="item-navegacao menu-suspenso" id="menu-sobre-desktop">
+                        <a href="javascript:void(0)" class="link-navegacao">Sobre <i class="fas fa-chevron-down"></i></a>
+                        <div class="conteudo-suspenso">
+                            <a href="sobre-nos.html" class="link-suspenso">Quem Somos</a>
+                            <div class="item-suspenso">
+                                <a href="javascript:void(0)" class="link-suspenso">Institucional <i class="fas fa-chevron-right" style="float:right;margin-top:2px;font-size:.75rem;"></i></a>
+                                <div class="submenu-suspenso">
+                                    <a href="diretor.html">Perfil do Director</a>
+                                    <a href="orgaos-diretivos.html">Órgãos Directivos</a>
+                                    <a href="ex-diretores.html">Ex-Directores</a>
+                                </div>
+                            </div>
+                            <a href="normativos.html" class="link-suspenso">Normativos</a>
+                            <div class="item-suspenso">
+                                <a href="javascript:void(0)" class="link-suspenso">Alumni <i class="fas fa-chevron-right" style="float:right;margin-top:2px;font-size:.75rem;"></i></a>
+                                <div class="submenu-suspenso">
+                                    <a href="percurso.html">Percurso</a>
+                                    <a href="quadro-honra.html">Quadro de Honra</a>
+                                    <a href="funcionario-destacado.html">Funcionário Destacado</a>
+                                </div>
+                            </div>
+                            <a href="escolas-afiliadas.html" class="link-suspenso">Escolas Afiliadas</a>
+                        </div>
+                    </li>
+
+                    <li class="item-navegacao"><a href="noticias.html" class="link-navegacao">Notícias</a></li>
+                    <li class="item-navegacao"><a href="galeria.html" class="link-navegacao">Galeria</a></li>
+                    <li class="item-navegacao"><a href="contatos.html" class="link-navegacao">Contactos</a></li>
+                    <li class="item-navegacao">
+                        <a href="area-restrita.html" class="link-navegacao botao-area-restrita">
+                            <i class="fas fa-lock"></i> Área Restrita
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+            <button class="botao-menu-mobile" id="botaoMenu" aria-label="Abrir menu">
+                <span></span><span></span><span></span>
+            </button>
+        </div>
+    </header>
+
+    <!-- ===== OVERLAY ===== -->
+    <div class="overlay-sidebar" id="overlaySidebar"></div>
+
+    <!-- ===== SIDEBAR MOBILE ===== -->
+    <aside class="sidebar-mobile" id="sidebarMobile" aria-hidden="true">
+        <div class="sidebar-cabecalho">
+            <div class="sidebar-logo-linha">
+                <img src="../assets/images/ipikk_new_logo.png" alt="IPIKK" class="sidebar-logo-img">
+                <div class="sidebar-logo-texto">
+                    <div class="nome">IPIKK</div>
+                    <div class="sub">Instituto Politécnico Industrial do Kilamba Kiaxi</div>
+                </div>
+            </div>
+            <button class="botao-fechar-sidebar" id="fecharSidebar"><i class="fas fa-times"></i></button>
+        </div>
+
+        <nav class="sidebar-nav">
+            <div class="sidebar-item">
+                <a href="index.html" class="sidebar-link">
+                    <span class="sidebar-icone"><i class="fas fa-home"></i></span>
+                    <span>Início</span>
+                </a>
+            </div>
+            <div class="sidebar-item">
+                <div class="sidebar-dupla-funcao">
+                    <a href="oferta-formativa.html" class="sidebar-link-pagina">
+                        <span class="sidebar-icone"><i class="fas fa-graduation-cap"></i></span>
+                        Oferta Formativa
+                    </a>
+                    <button class="botao-seta-sidebar" data-alvo="sub-oferta" aria-expanded="false">
+                        <i class="fas fa-chevron-right"></i>
+                    </button>
+                </div>
+                <div class="sidebar-submenu" id="sub-oferta">
+                    <div class="sidebar-item">
+                        <div class="sidebar-dupla-funcao">
+                            <a href="construcao-civil.html" class="sidebar-link-pagina sidebar-link-pagina--sub">Construção Civil</a>
+                            <button class="botao-seta-sidebar botao-seta-sidebar--sub" data-alvo="sub-construcao" aria-expanded="false">
+                                <i class="fas fa-chevron-right"></i>
+                            </button>
+                        </div>
+                        <div class="sidebar-submenu" id="sub-construcao">
+                            <a href="construcao-civil-obras.html" class="sidebar-sub-link">Técnico de Obras</a>
+                            <a href="construcao-civil-desenhador.html" class="sidebar-sub-link">Desenhador Projectista</a>
+                        </div>
+                    </div>
+                    <div class="sidebar-item">
+                        <div class="sidebar-dupla-funcao">
+                            <a href="eletricidade.html" class="sidebar-link-pagina sidebar-link-pagina--sub">Electricidade</a>
+                            <button class="botao-seta-sidebar botao-seta-sidebar--sub" data-alvo="sub-eletricidade" aria-expanded="false">
+                                <i class="fas fa-chevron-right"></i>
+                            </button>
+                        </div>
+                        <div class="sidebar-submenu" id="sub-eletricidade">
+                            <a href="eletricidade-instalacoes.html" class="sidebar-sub-link">Energia e Instalações</a>
+                        </div>
+                    </div>
+                    <div class="sidebar-item">
+                        <div class="sidebar-dupla-funcao">
+                            <a href="mecanica.html" class="sidebar-link-pagina sidebar-link-pagina--sub">Mecânica</a>
+                            <button class="botao-seta-sidebar botao-seta-sidebar--sub" data-alvo="sub-mecanica" aria-expanded="false">
+                                <i class="fas fa-chevron-right"></i>
+                            </button>
+                        </div>
+                        <div class="sidebar-submenu" id="sub-mecanica">
+                            <a href="mecanica-climatizacao.html" class="sidebar-sub-link">Frio e Climatização</a>
+                        </div>
+                    </div>
+                    <div class="sidebar-item">
+                        <div class="sidebar-dupla-funcao">
+                            <a href="informatica.html" class="sidebar-link-pagina sidebar-link-pagina--sub">Informática</a>
+                            <button class="botao-seta-sidebar botao-seta-sidebar--sub" data-alvo="sub-informatica" aria-expanded="false">
+                                <i class="fas fa-chevron-right"></i>
+                            </button>
+                        </div>
+                        <div class="sidebar-submenu" id="sub-informatica">
+                            <a href="informatica-gestao-sistemas.html" class="sidebar-sub-link">Gestão de Sistemas</a>
+                            <a href="informatica-tecnico.html" class="sidebar-sub-link">Técnico de Informática</a>
+                        </div>
+                    </div>
+                    <div class="sidebar-item">
+                        <div class="sidebar-dupla-funcao">
+                            <a href="tecnologia-moveis.html" class="sidebar-link-pagina sidebar-link-pagina--sub">Tecnologias de Móveis</a>
+                            <button class="botao-seta-sidebar botao-seta-sidebar--sub" data-alvo="sub-moveis" aria-expanded="false">
+                                <i class="fas fa-chevron-right"></i>
+                            </button>
+                        </div>
+                        <div class="sidebar-submenu" id="sub-moveis">
+                            <a href="tecnologia-moveis-curso.html" class="sidebar-sub-link">Tecnologias de Móveis</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="sidebar-item">
+                <button class="sidebar-link has-submenu" data-alvo="sub-sobre" aria-expanded="false">
+                    <span class="link-texto">
+                        <span class="sidebar-icone"><i class="fas fa-university"></i></span>
+                        Sobre
+                    </span>
+                    <i class="fas fa-chevron-right seta-submenu"></i>
+                </button>
+                <div class="sidebar-submenu" id="sub-sobre">
+                    <a href="sobre-nos.html" class="sidebar-sub-link">Quem Somos</a>
+                    <div class="sidebar-item">
+                        <button class="sidebar-link has-submenu" data-alvo="sub-institucional" aria-expanded="false">
+                            <span class="link-texto">
+                                <span class="sidebar-icone"><i class="fas fa-chevron-right"></i></span>
+                                Institucional
+                            </span>
+                            <i class="fas fa-chevron-right seta-submenu"></i>
+                        </button>
+                        <div class="sidebar-submenu" id="sub-institucional">
+                            <a href="diretor.html" class="sidebar-sub-link">Perfil do Director</a>
+                            <a href="orgaos-diretivos.html" class="sidebar-sub-link">Órgãos Directivos</a>
+                            <a href="ex-diretores.html" class="sidebar-sub-link">Ex-Directores</a>
+                        </div>
+                    </div>
+                    <a href="normativos.html" class="sidebar-sub-link">Normativos</a>
+                    <div class="sidebar-item">
+                        <button class="sidebar-link has-submenu" data-alvo="sub-alumni" aria-expanded="false">
+                            <span class="link-texto">
+                                <span class="sidebar-icone"><i class="fas fa-chevron-right"></i></span>
+                                Alumni
+                            </span>
+                            <i class="fas fa-chevron-right seta-submenu"></i>
+                        </button>
+                        <div class="sidebar-submenu" id="sub-alumni">
+                            <a href="percurso.html" class="sidebar-sub-link">Percurso</a>
+                            <a href="quadro-honra.html" class="sidebar-sub-link">Quadro de Honra</a>
+                            <a href="funcionario-destacado.html" class="sidebar-sub-link">Funcionário Destacado</a>
+                        </div>
+                    </div>
+                    <a href="escolas-afiliadas.html" class="sidebar-sub-link">Escolas Afiliadas</a>
+                </div>
+            </div>
+            <div class="sidebar-item">
+                <a href="noticias.html" class="sidebar-link">
+                    <span class="sidebar-icone"><i class="fas fa-newspaper"></i></span>
+                    <span>Notícias</span>
+                </a>
+            </div>
+            <div class="sidebar-item">
+                <a href="galeria.html" class="sidebar-link">
+                    <span class="sidebar-icone"><i class="fas fa-images"></i></span>
+                    <span>Galeria</span>
+                </a>
+            </div>
+            <div class="sidebar-item">
+                <a href="contatos.html" class="sidebar-link">
+                    <span class="sidebar-icone"><i class="fas fa-envelope"></i></span>
+                    <span>Contactos</span>
+                </a>
+            </div>
+        </nav>
+
+        <div class="sidebar-rodape">
+            <button class="botao-area-restrita-sidebar" onclick="window.location.href='area-restrita.html'">
+                <i class="fas fa-lock"></i> Área Restrita
+            </button>
+        </div>
+    </aside>
+
+    <!-- ===== CONTEÚDO PRINCIPAL ===== -->
+    <main>
+        <!-- TABS (ABAS) -->
+        <div class="tabs-container">
+            <div class="tabs">
+                <button class="tab-btn ativo" data-tab="tab-inscricoes">
+                    <i class="fas fa-file-signature"></i> Inscrições
+                </button>
+                <button class="tab-btn" data-tab="tab-matriculas">
+                    <i class="fas fa-id-card"></i> Matrículas
+                </button>
+            </div>
+
+            <!-- ABA INSCRIÇÕES -->
+            <div id="tab-inscricoes" class="tab-conteudo ativo">
+                <!-- Hero Section Inscrições -->
+                <div class="hero-inscricoes">
+                    <i class="fas fa-file-signature"></i>
+                    <h1>Processo de Inscrição</h1>
+                    <p>Saiba como fazer parte do Instituto Médio Politécnico Industrial do Kilamba Kiaxi. Siga os passos abaixo e garanta sua vaga!</p>
+                </div>
+
+                <!-- Documentos e Localização -->
+                <div class="grid-info">
+                    <div class="card-info inscricao">
+                        <div class="icone-card">
+                            <i class="fas fa-file-alt"></i>
+                        </div>
+                        <h2><i class="fas fa-check-circle"></i> Documentos Necessários</h2>
+                        <ul class="lista-documentos">
+                            <li><i class="fas fa-id-card"></i> <strong>Fotocópia do Bilhete de Identidade</strong> (ou Certidão de Nascimento)</li>
+                            <li><i class="fas fa-graduation-cap"></i> <strong>Certificado de Habilitações</strong> (6ª ou 9ª classe)</li>
+                            <li><i class="fas fa-camera"></i> <strong>2 Fotos tipo passe</strong> (recentes)</li>
+                            <li><i class="fas fa-file-pdf"></i> <strong>Declaração de residência</strong> (atualizada)</li>
+                            <li><i class="fas fa-file-medical"></i> <strong>Atestado Médico</strong> (físico e mental)</li>
+                            <li><i class="fas fa-envelope"></i> <strong>Processo de candidatura preenchido</strong> (fornecido na escola)</li>
+                        </ul>
+                    </div>
+
+                    <div class="card-info inscricao">
+                        <div class="icone-card">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <h2><i class="fas fa-school"></i> Onde Entregar?</h2>
+                        <ul class="lista-documentos">
+                            <li><i class="fas fa-location-dot"></i> <strong>Local:</strong> Instituto Médio Politécnico Industrial do Kilamba Kiaxi</li>
+                            <li><i class="fas fa-road"></i> <strong>Endereço:</strong> Nova Vida, Kilamba Kiaxi, Luanda - Angola</li>
+                            <li><i class="fas fa-calendar-alt"></i> <strong>Horário:</strong> Segunda a Sexta, das 8h às 16h</li>
+                            <li><i class="fas fa-phone"></i> <strong>Contacto:</strong> +244 933 096 705</li>
+                            <li><i class="fas fa-envelope"></i> <strong>Email:</strong> inscricoes@ipikk.ao</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- SEÇÃO: VAGAS POR CURSO  -->
+                <div class="card-info vagas" style="margin-bottom: 40px;">
+                    <div class="icone-card">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <h2><i class="fas fa-graduation-cap"></i> Vagas por Curso - Ano Letivo 2026</h2>
+                    <div class="tabela-vagas">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Curso</th>
+                                    <th>Vagas</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Técnico de Obras</td>
+                                    <td class="vagas-disponiveis">40</td>
+                                </tr>
+                                <tr>
+                                    <td>Desenhador Projectista</td>
+                                    <td class="vagas-disponiveis">35</td>
+                                </tr>
+                                <tr>
+                                    <td>Energia e Instalações</td>
+                                    <td class="vagas-disponiveis">45</td>
+                                </tr>
+                                <tr>
+                                    <td>Frio e Climatização</td>
+                                    <td class="vagas-disponiveis">38</td>
+                                </tr>
+                                <tr>
+                                    <td>Gestão de Sistemas</td>
+                                    <td class="vagas-disponiveis">25</td>
+                                </tr>
+                                <tr>
+                                    <td>Técnico de Informática</td>
+                                    <td class="vagas-disponiveis">28</td>
+                                </tr>
+                                <tr>
+                                    <td>Tecnologias de Móveis</td>
+                                    <td class="vagas-disponiveis">32</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <p style="margin-top: 20px; font-size: 0.85rem; color: #666;">
+                        <i class="fas fa-clock"></i> As vagas são preenchidas por ordem de chegada. Garanta a sua vaga o quanto antes!
+                    </p>
+                </div>
+
+                <!-- Passo a Passo -->
+                <div class="timeline">
+                    <h2><i class="fas fa-steps"></i> Passo a Passo da Inscrição</h2>
+                    <div class="passos">
+                        <div class="passo">
+                            <div class="numero-passo">1</div>
+                            <h3>Dirija-se à Escola</h3>
+                            <p>Compareça ao Instituto IPIKK com os documentos necessários. Será encaminhado à sala de inscrições.</p>
+                        </div>
+                        <div class="passo">
+                            <div class="numero-passo">2</div>
+                            <h3>Escolha o Curso</h3>
+                            <p>Na sala de inscrições, você poderá escolher o curso pretendido entre as opções disponíveis.</p>
+                        </div>
+                        <div class="passo">
+                            <div class="numero-passo">3</div>
+                            <h3>Entrega dos Documentos</h3>
+                            <p>Entregue toda a documentação solicitada. A equipe irá verificar e registrar sua candidatura.</p>
+                        </div>
+                        <div class="passo">
+                            <div class="numero-passo">4</div>
+                            <h3>Aguarde o Teste</h3>
+                            <p>Após a entrega, aguarde a data do teste de admissão. Fique atento ao calendário divulgado.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Seção do Teste de Admissão -->
+                <div class="secao-teste">
+                    <h2><i class="fas fa-clipboard-list"></i> Teste de Admissão</h2>
+                    <p>Todos os candidatos inscritos deverão realizar o teste de admissão, que avaliará os conhecimentos nas disciplinas de <strong>Língua Portuguesa</strong> e <strong>Matemática</strong>.</p>
+                    <div class="data-teste">
+                        <i class="fas fa-calendar-check"></i> <strong>Data do Teste:</strong> 15 de Novembro de 2025
+                    </div>
+                    <p><i class="fas fa-clock"></i> O horário e a sala serão informados no momento da inscrição. É obrigatório apresentar o comprovante de inscrição no dia do teste.</p>
+                </div>
+
+                <!-- Seção de Resultados -->
+                <div class="secao-resultados">
+                    <h2><i class="fas fa-chart-line"></i> Resultados do Teste</h2>
+                    <p>Após a realização do teste de admissão, os resultados serão divulgados oficialmente. Você poderá consultar o resultado através do link abaixo.</p>
+                    <button class="botao-resultados" id="botaoResultados">
+                        <i class="fas fa-search"></i> Consultar Resultados
+                    </button>
+                    <p style="margin-top: 20px; font-size: 0.9rem;"><i class="fas fa-info-circle"></i> Os resultados também serão afixados na secretaria da escola.</p>
+                </div>
+            </div>
+
+            <!-- ABA MATRÍCULAS -->
+            <div id="tab-matriculas" class="tab-conteudo">
+                <!-- Hero Section Matrículas -->
+                <div class="hero-matriculas">
+                    <i class="fas fa-id-card"></i>
+                    <h1>Processo de Matrícula</h1>
+                    <p>Após ser aprovado no teste de admissão, o processo é simples e rápido!</p>
+                </div>
+
+                <!-- Passo a Passo Simples -->
+                <div class="timeline-simples">
+                    <h2><i class="fas fa-check-circle"></i> Como funciona a Matrícula</h2>
+                    <div class="passos-simples">
+                        <div class="passo-simples">
+                            <div class="icone-passo">
+                                <i class="fas fa-camera"></i>
+                            </div>
+                            <h3>1. Tire a Foto</h3>
+                            <p>Dirija-se à escola para tirar a sua fotografia oficial para o cartão de estudante.</p>
+                        </div>
+                        <div class="passo-simples">
+                            <div class="icone-passo">
+                                <i class="fas fa-id-card"></i>
+                            </div>
+                            <h3>2. Receba o Cartão</h3>
+                            <p>Após tirar a foto, aguarde alguns dias e volte à escola para buscar o seu cartão de estudante.</p>
+                        </div>
+                        <div class="passo-simples">
+                            <div class="icone-passo">
+                                <i class="fas fa-chalkboard-user"></i>
+                            </div>
+                            <h3>3. Início das Aulas</h3>
+                            <p>Com o cartão entregue, aguarde o calendário letivo para o início normal das aulas.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Cartão de Estudante -->
+                <div class="secao-cartao">
+                    <h2><i class="fas fa-id-card"></i> Cartão de Estudante</h2>
+                    <p>O cartão de estudante é o seu documento oficial dentro do IPIKK. Ele será necessário para:</p>
+                    <div class="grid-info" style="margin-bottom: 0;">
+                        <div class="card-info matricula">
+                            <div class="icone-card">
+                                <i class="fas fa-book"></i>
+                            </div>
+                            <h3>Acesso à Biblioteca</h3>
+                            <p>Utilize o cartão para empréstimo de livros e acesso às instalações.</p>
+                        </div>
+                        <div class="card-info matricula">
+                            <div class="icone-card">
+                                <i class="fas fa-utensils"></i>
+                            </div>
+                            <h3>Cantina Escolar</h3>
+                            <p>Identificação para uso da cantina e refeitório.</p>
+                        </div>
+                        <div class="card-info matricula">
+                            <div class="icone-card">
+                                <i class="fas fa-bus"></i>
+                            </div>
+                            <h3>Transporte</h3>
+                            <p>Descontos em transportes públicos (quando aplicável).</p>
+                        </div>
+                    </div>
+                    <div class="cartao-destaque">
+                        <i class="fas fa-id-card"></i>
+                        <p>O cartão é gratuito e será entregue após a realização da foto na escola.</p>
+                    </div>
+                </div>
+
+                <!-- Informações Importantes -->
+                <div class="secao-teste" style="border-left-color: var(--roxo-matricula); background: var(--roxo-claro);">
+                    <h2 style="color: var(--roxo-matricula);"><i class="fas fa-info-circle"></i> Informações Importantes</h2>
+                    <ul class="lista-documentos" style="list-style: none;">
+                        <li><i class="fas fa-calendar-alt"></i> <strong>Prazo para tirar a foto:</strong> Até 15 dias após a divulgação dos resultados</li>
+                        <li><i class="fas fa-clock"></i> <strong>Horário para atendimento:</strong> Segunda a Sexta, das 8h às 15h</li>
+                        <li><i class="fas fa-file"></i> <strong>Documento necessário:</strong> Apenas o comprovante de aprovação (entregue no ato da inscrição)</li>
+                        <li><i class="fas fa-store"></i> <strong>Local:</strong> Secretaria do IPIKK</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Informações Complementares (aparece em ambas as abas) -->
+        <div class="info-complementar">
+            <div class="info-texto">
+                <i class="fas fa-question-circle"></i>
+                <p><strong>Dúvidas sobre o processo de inscrição ou matrícula?</strong><br>Entre em contacto com a nossa secretaria para mais informações.</p>
+            </div>
+            <a href="contatos.html" class="botao-contato">
+                <i class="fas fa-headset"></i> Fale Conosco
+            </a>
+        </div>
+    </main>
+
+    <!-- ===== BOTÕES FLUTUANTES ===== -->
+    <div class="botoes-flutuantes">
+        <button class="botao-flutuante" id="botaoTopo" title="Voltar ao topo">
+            <i class="fas fa-chevron-up"></i>
+        </button>
+        <a href="https://wa.me/244933096705" class="botao-flutuante whatsapp" target="_blank" rel="noopener" title="WhatsApp">
+            <i class="fab fa-whatsapp"></i>
+        </a>
+    </div>
+
+    <!-- ===== RODAPÉ ===== -->
+    <footer class="rodape">
+        <div class="container-rodape">
+            <div class="conteudo-rodape">
+                <div class="coluna-logo">
+                    <div class="foto-instituto">
+                        <img src="../assets/images/ipikk_new_logo_1.png" alt="Instituto IPIKK">
+                    </div>
+                    <p class="descricao-rodape">
+                        Instituto Médio Politécnico Industrial do Kilamba Kiaxi Nº8050 "Nova Vida"
+                    </p>
+                    <p class="email-rodape">
+                        Email: <a href="mailto:geral@ipikk.ao">geral@ipikk.ao</a>
+                    </p>
+                    <div class="social-rodape">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                    </div>
+                </div>
+                <div class="coluna-links">
+                    <h4 class="titulo-rodape">IPIKK</h4>
+                    <div class="links-rodape">
+                        <a href="sobre-nos.html" class="link-rodape">Sobre Nós</a>
+                        <a href="inscricoes.html" class="link-rodape">Inscrição</a>
+                        <a href="contatos.html" class="link-rodape">Contactos</a>
+                        <a href="area-restrita.html" class="link-rodape">Área Restrita</a>
+                        <a href="politica-privacidade.html" class="link-rodape">Políticas de Privacidade</a>
+                    </div>
+                </div>
+                <div class="coluna-links">
+                    <h4 class="titulo-rodape">Oferta Formativa</h4>
+                    <div class="links-rodape">
+                        <a href="oferta-formativa.html" class="link-rodape">Oferta Formativa</a>
+                        <a href="construcao-civil.html" class="link-rodape">Construção Civil</a>
+                        <a href="eletricidade.html" class="link-rodape">Electricidade</a>
+                        <a href="mecanica.html" class="link-rodape">Mecânica</a>
+                        <a href="informatica.html" class="link-rodape">Informática</a>
+                        <a href="tecnologia-moveis.html" class="link-rodape">Tecnologias de Móveis</a>
+                    </div>
+                </div>
+                <div class="coluna-links">
+                    <h4 class="titulo-rodape">Links Rápidos</h4>
+                    <div class="links-rodape">
+                        <a href="https://governo.gov.ao/" class="link-rodape" target="_blank">Governo de Angola</a>
+                        <a href="https://luanda.gov.ao/" class="link-rodape" target="_blank">Governo Provincial de Luanda</a>
+                        <a href="https://med.gov.ao/" class="link-rodape" target="_blank">Ministério da Educação</a>
+                        <a href="https://itel.gov.ao/" class="link-rodape" target="_blank">Instituto de Telecomunicações</a>
+                        <a href="https://webmail.ipikk.ao/" class="link-rodape" target="_blank">Webmail IPIKK</a>
+                    </div>
+                </div>
+            </div>
+            <div class="rodape-inferior">
+                <p>IPIKK 2026 © Todos os direitos reservados by <strong>INFOSI</strong></p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="../assets/js/header-footer.js"></script>
+    <script src="../assets/js/inscricoes.js"></script>
+</body>
+</html>
