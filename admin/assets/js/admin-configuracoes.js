@@ -3128,3 +3128,81 @@ function previewManutencao() {
             console.log('Página de Configurações carregada!');
         });
 
+
+// ===== INTEGRAÇÃO DB: GALERIA =====
+async function carregarGaleriaEditor() {
+    try {
+        const response = await fetch('/api/admin/galeria', { headers: { 'X-Requested-With': 'XMLHttpRequest' } });
+        const data = await response.json();
+        galeriaItensEditor = Array.isArray(data) ? data : [];
+    } catch (e) {
+        console.error('Falha ao carregar galeria do banco', e);
+        galeriaItensEditor = [];
+    }
+
+    if (galeriaItensEditor.length === 0) {
+        galeriaItensEditor = [{ id: Date.now(), tipo: 'imagem', categoria: 'fotos-gerais', legenda: 'Nova mídia', url: 'https://picsum.photos/id/100/1200/800', ordem: 1, estado: 'publicado' }];
+    }
+
+    atualizarListaGaleriaEditor();
+    atualizarEstatisticasGaleria();
+}
+
+async function guardarGaleriaEditor() {
+    try {
+        // sincroniza formulário para memória
+        galeriaItensEditor.forEach(item => {
+            const legendaInput = document.getElementById(`galeria_legenda_${item.id}`);
+            const categoriaSelect = document.getElementById(`galeria_categoria_${item.id}`);
+            const urlInput = document.getElementById(`galeria_url_${item.id}`);
+            const tipoSelect = document.getElementById(`galeria_tipo_${item.id}`);
+            const ordemInput = document.getElementById(`galeria_ordem_${item.id}`);
+            if (legendaInput) item.legenda = legendaInput.value;
+            if (categoriaSelect) item.categoria = categoriaSelect.value;
+            if (urlInput) item.url = urlInput.value;
+            if (tipoSelect) item.tipo = tipoSelect.value;
+            if (ordemInput) item.ordem = parseInt(ordemInput.value, 10) || item.ordem;
+        });
+
+        const existentes = await fetch('/api/admin/galeria', { headers: { 'X-Requested-With': 'XMLHttpRequest' } }).then(r => r.json());
+        const idsLocais = galeriaItensEditor.map(i => Number(i.id)).filter(Boolean);
+
+        for (const antigo of existentes) {
+            if (!idsLocais.includes(Number(antigo.id))) {
+                await fetch(`/api/admin/galeria/${antigo.id}`, { method: 'DELETE', headers: { 'X-Requested-With': 'XMLHttpRequest' } });
+            }
+        }
+
+        for (const item of galeriaItensEditor) {
+            const payload = {
+                tipo: item.tipo || 'imagem',
+                categoria: item.categoria || 'fotos-gerais',
+                legenda: item.legenda || '',
+                url: item.url || '',
+                ordem: Number(item.ordem || 1),
+                estado: item.estado || 'publicado'
+            };
+
+            if (String(item.id).length > 10) {
+                const created = await fetch('/api/admin/galeria', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json', 'X-Requested-With': 'XMLHttpRequest' },
+                    body: JSON.stringify(payload)
+                }).then(r => r.json());
+                item.id = created?.item?.id ?? item.id;
+            } else {
+                await fetch(`/api/admin/galeria/${item.id}`, {
+                    method: 'PUT',
+                    headers: { 'Content-Type': 'application/json', 'X-Requested-With': 'XMLHttpRequest' },
+                    body: JSON.stringify(payload)
+                });
+            }
+        }
+
+        mostrarNotificacao('✅ Galeria guardada no banco de dados com sucesso!', 'sucesso');
+        await carregarGaleriaEditor();
+    } catch (e) {
+        console.error(e);
+        mostrarNotificacao('❌ Erro ao guardar galeria no banco.', 'erro');
+    }
+}

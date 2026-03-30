@@ -1,46 +1,68 @@
-# Protótipo Site IPIKK - Grupo 02
+# IPIKK Website (Laravel)
 
-## Estrutura do Projecto
+Este repositório foi convertido de protótipo estático para uma base Laravel, preservando a identidade visual (HTML/CSS/JS e assets originais) e adicionando endpoints para funcionamento real.
 
+## O que foi convertido
+
+- As páginas públicas continuam em `public/pages/*.html`.
+- As páginas administrativas continuam em `admin/pages/*.html`.
+- O Laravel agora serve essas páginas por rotas:
+  - `/` -> redireciona para `/pages/index.html`
+  - `/pages/{pagina}.html`
+  - `/admin/pages/{pagina}.html`
+- Funcionalidades implementadas no backend:
+  - Envio de contactos (`POST /api/contactos`)
+  - Login da área restrita (`POST /api/login`)
+  - Notícias dinâmicas com fallback local (`GET /api/noticias`)
+  - Resumo admin (`GET /api/admin/resumo`)
+
+## Estrutura principal
+
+- `app/Http/Controllers/PageController.php` – renderização das páginas legadas.
+- `app/Http/Controllers/ApiController.php` – endpoints funcionais.
+- `app/Models/` – modelos `ContactMessage` e `NewsItem`.
+- `database/migrations/` – estrutura de dados para contactos e notícias.
+- `routes/web.php` – rotas web e API.
+
+## Setup local
+
+1. Instalar dependências:
+   ```bash
+   composer install
+   ```
+2. Configurar ambiente:
+   ```bash
+   cp .env.example .env
+   php artisan key:generate
+   ```
+3. Criar base SQLite (já incluída) e migrar:
+   ```bash
+   php artisan migrate
+   ```
+4. Arrancar servidor:
+   ```bash
+   php artisan serve
+   ```
+
+## Credenciais padrão da área restrita
+
+- Email: `admin@ipikk.ao`
+- Password: `admin123`
+
+Pode alterar em `.env` com:
+
+```env
+ADMIN_EMAIL=...
+ADMIN_PASSWORD=...
 ```
-IPIKK-Site/
-├── public/                     # Área Pública
-│   ├── pages/                  # Todas as páginas HTML públicas
-│   │   ├── index.html          # Página inicial
-│   │   ├── oferta-formativa.html
-│   │   ├── inscricoes.html
-│   │   ├── contatos.html
-│   │   └── ...
-│   └── assets/
-│       ├── css/                # Folhas de estilo da área pública
-│       ├── js/                 # Scripts da área pública
-│       ├── images/             # Imagens e fotos
-│       │   └── doc/            # Documentos (.docx)
-│       └── icons/              # Biblioteca FontAwesome (ESTILO-ICONS)
-│           ├── css/
-│           ├── svgs/
-│           └── webfonts/
-│
-├── admin/                      # Área Restrita (Painel Admin)
-│   ├── pages/                  # Todas as páginas HTML do admin
-│   │   ├── admin-dashboard.html
-│   │   ├── admin-noticias.html
-│   │   ├── admin-inscricoes.html
-│   │   └── ...
-│   └── assets/
-│       ├── css/                # Folhas de estilo do admin
-│       └── js/                 # Scripts do admin
-│
-└── README.md                   # Este ficheiro
-```
 
-## Instruções de Uso
 
-1. Abrir `public/pages/index.html` no browser para visualizar o site
-2. Abrir `public/pages/area-restrita.html` para aceder ao login da área restrita
-3. Após login, os painéis de administração estão em `admin/pages/`
+## Integração completa Área Restrita + Base de Dados + Área Pública
 
-## Tecnologias Utilizadas
+Foram adicionados endpoints CRUD para sincronização completa:
 
-- HTML5 / CSS3 / JavaScript (Vanilla)
-- FontAwesome (ícones locais em `public/assets/icons/`)
+- Notícias: `GET/POST/PUT/DELETE /api/admin/noticias` e `GET /api/public/noticias`
+- Cursos e Áreas: `GET/POST/PUT/DELETE /api/admin/cursos`, `GET/POST/PUT/DELETE /api/admin/areas` e `GET /api/public/cursos`
+- Galeria: `GET/POST/PUT/DELETE /api/admin/galeria` e `GET /api/public/galeria` (somente imagens publicadas)
+
+Com isso, os dados cadastrados na área restrita passam a alimentar as páginas públicas automaticamente.
