@@ -1,0 +1,14 @@
+/vendor
+/node_modules
+/.idea
+/.vscode
+/.phpunit.cache
+/.env
+/storage/*.key
+/storage/logs/*.log
+/storage/framework/cache/*
+!/storage/framework/cache/.gitignore
+/storage/framework/sessions/*
+!/storage/framework/sessions/.gitignore
+/storage/framework/views/*
+!/storage/framework/views/.gitignore

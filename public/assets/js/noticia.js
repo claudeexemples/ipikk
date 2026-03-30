@@ -1,5 +1,5 @@
 // ===== DADOS DAS NOTÍCIAS COM LOREM IPSUM =====
-const noticias = [
+let noticias = [
     {
         id: 1,
         categoria: 'DESTAQUE',
@@ -92,6 +92,20 @@ const noticias = [
         tags: ['Voluptas', 'Aspernatur', 'Consequuntur']
     }
 ];
+
+
+async function carregarNoticiasApi() {
+    try {
+        const response = await fetch('/api/noticias', { headers: { 'X-Requested-With': 'XMLHttpRequest' } });
+        if (!response.ok) return;
+        const data = await response.json();
+        if (Array.isArray(data) && data.length > 0) {
+            noticias = data;
+        }
+    } catch (_) {
+        // fallback silencioso para os dados locais
+    }
+}
 
 // ===== CONTROLLER PRINCIPAL =====
 const noticiaController = {
@@ -215,7 +229,8 @@ const noticiaController = {
 };
 
 // ===== INICIALIZAÇÃO =====
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', async function() {
+    await carregarNoticiasApi();
     noticiaController.init();
     
     // Configurar eventos globais do modal
